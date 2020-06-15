@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Qiantigers</title>
-<link rel="shortcut icon" href="https://qiantigers.github.io/favicon.ico?v=1592212814700">
+<link rel="shortcut icon" href="https://qiantigers.github.io/favicon.ico?v=1592214022605">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://qiantigers.github.io/styles/main.css" type='text/css' media='all'>
 
@@ -165,9 +165,25 @@
 <div>
 	<a href="http://www.qiantigers.cn/"> © 勿埋我心</a>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	<span id="busuanzi_container_site_uv" style='display:none'>&emsp;访客总人数<span id="busuanzi_value_site_uv"></span>人</span>
-	<span id="busuanzi_container_site_pv" style='display:none'>&emsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-</div></p>
+	<span id="busuanzi_container_site_uv" style='display:none'><br>&emsp;访客总人数<span id="busuanzi_value_site_uv"></span>人</span>
+	<span id="busuanzi_container_site_pv" style='display:none'><br>&emsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</div>
+<br>
+<span id="span"></span>
+<script type="text/javascript">function runtime(){// 初始时间，日/月/年 时:分:秒
+        X = new Date("14/6/2020 00:00:00");
+        Y = new Date();
+        T = (Y.getTime()-X.getTime());
+        M = 24*60*60*1000;
+        a = T/M;
+        A = Math.floor(a);
+        b = (a-A)*24;
+        B = Math.floor(b);
+        c = (b-B)*60;
+        C = Math.floor((b-B)*60);
+        D = Math.floor((c-C)*60);//信息写入到DIV中
+        span.innerHTML = "本站很无聊地运行了: "+A+"天"+B+"小时"+C+"分"+D+"秒"}setInterval(runtime, 1000);
+</script></p>
     </div>
 </footer>
 <script>
