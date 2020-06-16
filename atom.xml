@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://qiantigers.github.io</id>
+    <id>http://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-16T06:41:14.991Z</updated>
+    <updated>2020-06-16T06:55:36.506Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://qiantigers.github.io"/>
-    <link rel="self" href="https://qiantigers.github.io/atom.xml"/>
+    <link rel="alternate" href="http://www.qiantigers.top"/>
+    <link rel="self" href="http://www.qiantigers.top/atom.xml"/>
     <subtitle>晓看天色暮看云，行也思君，坐也思君。</subtitle>
-    <logo>https://qiantigers.github.io/images/avatar.png</logo>
-    <icon>https://qiantigers.github.io/favicon.ico</icon>
+    <logo>http://www.qiantigers.top/images/avatar.png</logo>
+    <icon>http://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
     <entry>
         <title type="html"><![CDATA[发现一个记录笔记的工具，用起来真心爽]]></title>
-        <id>https://qiantigers.github.io/post/fa-xian-yi-ge-ji-lu-bi-ji-de-gong-ju-yong-qi-lai-zhen-xin-shuang/</id>
-        <link href="https://qiantigers.github.io/post/fa-xian-yi-ge-ji-lu-bi-ji-de-gong-ju-yong-qi-lai-zhen-xin-shuang/">
+        <id>http://www.qiantigers.top/post/fa-xian-yi-ge-ji-lu-bi-ji-de-gong-ju-yong-qi-lai-zhen-xin-shuang/</id>
+        <link href="http://www.qiantigers.top/post/fa-xian-yi-ge-ji-lu-bi-ji-de-gong-ju-yong-qi-lai-zhen-xin-shuang/">
         </link>
         <updated>2020-06-15T09:17:16.000Z</updated>
         <summary type="html"><![CDATA[<p>今天介绍的这款工具真是相见恨晚。所以用了一周后紧急推荐给大家，目的是把好东西尽早的分享出来让大家早用到。</p>
