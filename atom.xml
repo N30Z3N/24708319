@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-16T14:35:09.336Z</updated>
+    <updated>2020-06-16T16:54:54.610Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://www.qiantigers.top"/>
     <link rel="self" href="http://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,37 @@
     <logo>http://www.qiantigers.top/images/avatar.png</logo>
     <icon>http://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[Markdown的一些实用技巧]]></title>
+        <id>http://www.qiantigers.top/post/shi-pin/</id>
+        <link href="http://www.qiantigers.top/post/shi-pin/">
+        </link>
+        <updated>2020-06-16T15:53:56.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="markdown插入视频">Markdown插入视频</h2>
+<pre><code>&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;封面链接&quot;&gt;
+      &lt;source id=&quot;mp4&quot; src=&quot;视频链接&quot; type=&quot;video/mp4&quot;&gt;
+      &lt;/video&gt;
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="markdown插入视频">Markdown插入视频</h2>
+<pre><code>&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;封面链接&quot;&gt;
+      &lt;source id=&quot;mp4&quot; src=&quot;视频链接&quot; type=&quot;video/mp4&quot;&gt;
+      &lt;/video&gt;
+</code></pre>
+<!-- more -->
+<video id="video" width="320" height="240" controls="" preload="none" poster="">
+      <source id="mp4" src="https://yamjj-my.sharepoint.com/personal/h_lonely_run/_layouts/52/download.aspx?share=ETdf4RazoCdFiUTHGxgPEisBYeDx4Ka-MDX6kvdOgstgRw" type="video/mp4">
+      </video>
+<h2 id="markdown插入音频">Markdown插入音频</h2>
+<pre><code>&lt;audio id=&quot;audio&quot; controls=&quot;&quot; preload=&quot;none&quot;&gt;
+      &lt;source id=&quot;mp3&quot; src=&quot;音频链接&quot;&gt;
+      &lt;/audio&gt;
+</code></pre>
+<audio id="audio" controls="" preload="none">
+      <source id="mp3" src="https://yamjj-my.sharepoint.com/personal/h_lonely_run/_layouts/52/download.aspx?share=ETdf4RazoCdFiUTHGxgPEisBYeDx4Ka-MDX6kvdOgstgRw">
+      </audio>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[发现一个记录笔记的工具，用起来真心爽]]></title>
         <id>http://www.qiantigers.top/post/fa-xian-yi-ge-ji-lu-bi-ji-de-gong-ju-yong-qi-lai-zhen-xin-shuang/</id>
