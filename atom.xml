@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-16T18:24:41.027Z</updated>
+    <updated>2020-06-16T18:54:36.788Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://www.qiantigers.top"/>
     <link rel="self" href="http://www.qiantigers.top/atom.xml"/>
@@ -12,22 +12,16 @@
     <rights>All rights reserved 2020, Qiantigers</rights>
     <entry>
         <title type="html"><![CDATA[Markdown的一些实用技巧]]></title>
-        <id>http://www.qiantigers.top/post/shi-pin/</id>
-        <link href="http://www.qiantigers.top/post/shi-pin/">
+        <id>http://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/</id>
+        <link href="http://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/">
         </link>
         <updated>2020-06-16T15:53:56.000Z</updated>
-        <summary type="html"><![CDATA[<h2 id="markdown插入视频">Markdown插入视频</h2>
+        <content type="html"><![CDATA[<!-- more -->
+<h2 id="markdown插入视频">Markdown插入视频</h2>
 <pre><code>&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;封面链接&quot;&gt;
       &lt;source id=&quot;mp4&quot; src=&quot;视频链接&quot; type=&quot;video/mp4&quot;&gt;
       &lt;/video&gt;
 </code></pre>
-]]></summary>
-        <content type="html"><![CDATA[<h2 id="markdown插入视频">Markdown插入视频</h2>
-<pre><code>&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;封面链接&quot;&gt;
-      &lt;source id=&quot;mp4&quot; src=&quot;视频链接&quot; type=&quot;video/mp4&quot;&gt;
-      &lt;/video&gt;
-</code></pre>
-<!-- more -->
 <video id="video" width="320" height="240" controls="" preload="none" poster="">
       <source id="mp4" src="https://onedrive.gimhoy.com/sharepoint/aHR0cHM6Ly9hbHBoYW9uZS1teS5zaGFyZXBvaW50LmNuLzp2Oi9nL3BlcnNvbmFsL3FpYW50aWdlcnNfdmlwX3RnL0VWcHo5X3NVSGNaR241dHFhbEFRY2dRQk5pdjVrU2dKOHl2aVVMd2k0UUVfdnc/ZT1iSk5IcHg=.mp4" type="video/mp4">
       </video>
