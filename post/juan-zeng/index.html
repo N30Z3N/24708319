@@ -8,7 +8,7 @@
 <meta name="keywords" content="OneDrive,云盘,资源,教程,技巧,干货,">
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
-<title>发现一个记录笔记的工具，用起来真心爽 | Qiantigers</title>
+<title>捐赠 | Qiantigers</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/favicon.ico?v=1592405408155">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/media/fonts/font-awesome.css">
@@ -48,8 +48,8 @@
 </script>
 
 
-  <meta name="description" content="发现一个记录笔记的工具，用起来真心爽" />
-  <meta name="keywords" content="baklib,网站" />
+  <meta name="description" content="捐赠" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -226,7 +226,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/images/avatar.png"/>
@@ -285,6 +286,192 @@
   </div>
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E9%93%BE%E6%8E%A5%E7%9B%B4%E8%BE%BE">🔗链接直达</a></li>
+<li><a href="#%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E7%A0%81">🌹支付宝扫码</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -372,8 +559,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="http://www.qiantigers.top/post/fa-xian-yi-ge-ji-lu-bi-ji-de-gong-ju-yong-qi-lai-zhen-xin-shuang/">
-      发现一个记录笔记的工具，用起来真心爽
+    <a class="post-title-link" href="http://www.qiantigers.top/post/juan-zeng/">
+      捐赠
     </a>
   </h1>
   <div class="post-meta">
@@ -381,42 +568,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-06-15</span>
+      <span>2020-06-17</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="http://www.qiantigers.top/tag/ePQ5_CvYt/">
-        <span>baklib</span>
-      </a>、
-      
-      
-      
-      <a href="http://www.qiantigers.top/tag/uno0CUS2II/">
-        <span>网站</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>7<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>2044<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>9<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/fa-xian-yi-ge-ji-lu-bi-ji-de-gong-ju-yong-qi-lai-zhen-xin-shuang/" data-flag-title="发现一个记录笔记的工具，用起来真心爽" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/juan-zeng/" data-flag-title="捐赠" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -425,50 +593,9 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>今天介绍的这款工具真是相见恨晚。所以用了一周后紧急推荐给大家，目的是把好东西尽早的分享出来让大家早用到。</p>
-<!-- more -->
-<p><em>首先声明，这不是一个广告，也未收取广告费。是纯推荐，虽然对方有收费服务，但对于个人用户，免费版本已经很好用了。收费版本只是供有更多需求的用户设立的，比如需要更大空间，比如需要绑定独立域名等。如果你要购买他们的收费服务，你就直接咨询对方客服，不要咨询小编。</em></p>
-<p><strong>其他工具的痛点</strong></p>
-<p>首先小编说说为何觉得它好吧。这就要从遇到的痛点说起。</p>
-<p>记录学习笔记是小编一直的一个习惯。小编也推荐大家养成记录笔记的习惯。有几个笔记软件是小编曾经用过的，</p>
-<p><strong>1、有道云笔记：</strong> 经常搜索不到东西，有个笔记明显记在里面了，而且关键词很明显的写着里面，搜索就是提示没有。经常这样。因此如果放大量内容到里面就比较痛苦。多内容存入而且好查找，只有注册多个账号，但反复切换经常要输入验证码实在太麻烦。</p>
-<p><strong>2、onenote：</strong> 单纯电脑上使用可以说是非常非常好，目录结构也非常清晰明了，笔记保存在电脑上也很好，但是云端存储难用，目的是为了让手机里面也能看笔记。因为同步经常出错。即使后来注册了个学校邮箱的1T账户的那种，号称服务器是国内的，但是同步依然很慢而且经常同步出错。导致我想手机上查看一下新的笔记很难。但小编经常要在手机上查看笔记，用了一段时间onenote，放弃了。</p>
-<p><strong>3、印象笔记：</strong> 免费用户每月只有60M流量，意思是完全无法贴图片或附件，只能是单纯的文字，用来做学习型笔记不是很好，因为学习型笔记经常会贴图上去，有时候还会贴个WORD或者Excel或者ppt或者pdf附件上去。另外免费版一个账号只能使用两台设备。算上手机，2台以上设备的人很多啊。</p>
-<p><strong>接下来说说今天的主角</strong></p>
-<p>网站是：<strong>www.baklib.com</strong>，乍一看网站很难记忆。但是lib就是library图书馆、知识库的意思。所以实际上只是bak这个名字记住就可以了。当然其实不用记名字的。收藏下网站就行了。</p>
-<p>它虽然只有网站，但是打开速度，编辑速度非常非常快。比一般的网站快许多。给人顺滑的感觉。由于平时打开电脑总是要开浏览器的，所以把网站收藏到收藏夹点击就打开了。而小编每次突然要查个东西打开有道云笔记，开软件需要10秒，别看只有10秒，就是难等啊。</p>
-<p>首次打开本网站，自己用手机号注册一下就行了。然后进去后建议大家下图选择。</p>
-<figure data-type="image" tabindex="1"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXox9IibuEcco0ZCV4eF7DmVo5kDWheRDLGgqeictS5qElusu0oxQ2omAxg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p>然后设置个名称和域名。要记住这只是你的一个笔记本。你可以建立很多个笔记本，每个笔记本支持最大1G空间。别小看1G。比如用来记录统计学习，你能把1G用文字和图片填满，你已经是大神了。你可以不重新注册新账户的情况下，新建多个笔记本，这里它称之为站点。是因为你可以设置整个站点是完全公开，还是完全私有，还是凭打开密码可以外人查看，三种类型。</p>
-<p><strong>独有的公开私有设置</strong></p>
-<p>如果你是一个老师，你可以搞完全分享的类型，学生们通过网址就可以看到你整理的笔记，不管你是否使用这个功能，这绝对是这个平台很大的优势。如果你是个人，我建议你设置为凭密码访问，这样不完全公开，但可以让很好的好友查看你的笔记，另外一方面自己也可以在手机上或电脑上纯阅读笔记的时候查看，显示效果会更好。如果你完全不分享，那就设置为私有。</p>
-<figure data-type="image" tabindex="2"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXoVlMm4v01gmkgmY019oNtUxrnZ508KngyYo3YPJInhwia7VK1VicutETg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p>看下图，你是可以建立很多个笔记本的，每个笔记本1G空间是独立的。而且都是免费的。这样你可以把每个笔记本作为一个专题，比如学英语的、学统计的、学电脑的、学PS的……</p>
-<figure data-type="image" tabindex="3"><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img" loading="lazy"></figure>
-<p>看下面是关于笔记本（站点）权限的设置：</p>
-<figure data-type="image" tabindex="4"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXoaa5cjJomn1Lic1ib0z0yUKK2S9oTzPJZNibPaJIswq8qAc0BibsuakIgjw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="5"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXo62ULMU3hHO4qBTh7p2lac9Njgkaxj64icLaooEq4v3KwzDpVa1a2UcQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p>下图是密码访问的界面。比如上面我设置的域名是mylib.baklib.com打开后输入你上面设置的密码就可以查看你的笔记了。密码你自己可以随时修改。密码这个东西不必设置的太复杂，毕竟只是学习笔记而已，机密级别远不如银行卡密码、邮箱密码之类的。</p>
-<figure data-type="image" tabindex="6"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXoSx6WrPQ1A3U4oicibo2Ph2ulPhX2p8hWeHKGSaAkCvW3bCESGWHfSOyQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p>每个笔记本都可以备份，甚至备份到自己电脑上来。当然其实必要性不是太大。作为一个产品数据安全是首要地位的。备份只是作为给用户的一个定心丸使用，有些人可能会担心万一哪天这个平台搞不下去了要倒闭，我的资料怎么办。我相信哪怕真有哪一天，笔记可以下载到本地，平台会提供某种方法展现或导入到其他平台。</p>
-<figure data-type="image" tabindex="7"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXo7CodIXdib4Jfia36JQQ31KD144rLyfN874icZJ5AibNMsfib2ibplicfsk2Ig/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p><strong>笔记方面的使用方法</strong></p>
-<p>下面是记录笔记方面的使用方法：</p>
-<p>下面内容界面就是组织你的笔记目录结构和撰写笔记的地方。界面上很多按钮，你可以自己尝试，界面可以隐藏左侧栏，可以全屏，十分友好。</p>
-<p>文件夹可以支持多级目录。而且可以随意拖放改变上下位置。笔记文章也支持拖动改变前后顺序。</p>
-<figure data-type="image" tabindex="8"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXoyZk9T9KNLGW3lr0DgypNBzUn2nc0jAWPn8hibKn1yoHlM9A8jykWOKA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="9"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXoDDco00ibRkzz1HDU1iaRP5MvVOqyo3IxCHxnx8wjyEjzjsf9HiblOHmXg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="10"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXoouesYhX0pXMkLhRl3mVweOf4byz5zJRUnQ3kyib2b1hHLMiaa2Jw4eJA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p>由于大部分时间你可能是在撰写笔记。所以撰写编辑器就是一个很重要的部分。他采用的是块级结构，向下堆叠的方式。十分简洁。可以直接复制粘贴图片或截图到文章中。可以插入附件，比如把对于练习数据Excel直接上传到文章中。这样时间长了复习起来就很方便，不用到电脑中去找练习数据了。另外一个好处是支持markdown，用过的都知道好。</p>
-<figure data-type="image" tabindex="11"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXoGRsCkG9DgYNQgOcwScjQLLBRscpEUkIsMmy57h42nxRibTnTwxSUc8g/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p><strong>如何记录笔记的经验</strong></p>
-<p>许多人不记录笔记，这样学习效率100%是不高的。但是大家别钻牛角尖，因为天才除外。还有些人记录笔记就是把别人的东西单纯的摘抄过来或全篇复制到自己的笔记本中。这种记录方法不是很推荐。我想说的是，你可以这样做，但是一定要把这种完全摘抄的笔记记录到一个单独的笔记本或目录中。不要把它和自己撰写总结的笔记混杂在一起。只有你自己总结撰写的笔记才是你自己的知识，总结并撰写出来这个过程就是你的记忆的过程。所以我强烈建议大部分笔记本应该是你自己完全撰写出来的。试试吧，那样的学习效果一定会很棒的。</p>
-<p><strong>切换不同笔记本（站点）</strong></p>
-<p>下图界面左上方的切换按钮可以切换到不同的笔记本（站点）</p>
-<figure data-type="image" tabindex="12"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXoRHvJJJKibcNkJWvVqFib0ibmibRm7w5sbQYcUJLYzdXjwpjYzh3aA1nAyw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="13"><img src="https://mmbiz.qpic.cn/mmbiz_png/mibvdhJZXH2jeBDAwyMIfN9YseWQNzoXoH5PH8JsB1qNicDwBiaqdAkskmnrHibHYCtMkxiaGybuicyRllzurwiaXTzqQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p>今天的资源就是个网站，网址已经公开给大家了。这里再重复一下。剩下的给你自己去摸索吧。网址再重复交代一下是：<strong>www.baklib.com</strong></p>
-<p><em>注：转载于https://mp.weixin.qq.com/s/00BqJN09YA7h8_JWZrGNaw</em></p>
+              <h1 id="链接直达"><a href="https://ons.red/alipay">🔗链接直达</a></h1>
+<h1 id="支付宝扫码">🌹支付宝扫码</h1>
+<p><img src="https://z4a.net/images/2020/05/28/b12c5b802abecb685df9a421ed1b02637dc0df9f92e10c03.png" width="320"></img></p>
 
             </div>
             
@@ -481,7 +608,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="http://www.qiantigers.top/post/fa-xian-yi-ge-ji-lu-bi-ji-de-gong-ju-yong-qi-lai-zhen-xin-shuang/" title="发现一个记录笔记的工具，用起来真心爽">http://www.qiantigers.top/post/fa-xian-yi-ge-ji-lu-bi-ji-de-gong-ju-yong-qi-lai-zhen-xin-shuang/</a>
+      <a href="http://www.qiantigers.top/post/juan-zeng/" title="捐赠">http://www.qiantigers.top/post/juan-zeng/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -490,20 +617,12 @@
   </ul>
   <div class="tags">
     
-      <a href="http://www.qiantigers.top/tag/ePQ5_CvYt/"># baklib</a>
-    
-      <a href="http://www.qiantigers.top/tag/uno0CUS2II/"># 网站</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
     </div>
     <div class="nav-next">
-      
-        <a class="nav-pc-next" title="Markdown的一些实用技巧" href="http://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/">Markdown的一些实用技巧</a>
-        <a class="nav-mobile-next" title="Markdown的一些实用技巧" href="http://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
