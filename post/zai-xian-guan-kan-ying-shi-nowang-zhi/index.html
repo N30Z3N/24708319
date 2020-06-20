@@ -8,7 +8,7 @@
 <meta name="keywords" content="OneDrive,云盘,资源,教程,技巧,干货,">
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
-<title>Markdown的一些实用技巧 | Qiantigers</title>
+<title>在线观看影视の网址 | Qiantigers</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/favicon.ico?v=1592648106770">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/media/fonts/font-awesome.css">
@@ -48,8 +48,8 @@
 </script>
 
 
-  <meta name="description" content="Markdown的一些实用技巧" />
-  <meta name="keywords" content="Markdown" />
+  <meta name="description" content="在线观看影视の网址" />
+  <meta name="keywords" content="影视,干货,网站" />
 </head>
 
 <body>
@@ -239,8 +239,7 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/images/avatar.png"/>
@@ -299,196 +298,6 @@
   </div>
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#markdown%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91">Markdown插入视频</a></li>
-<li><a href="#markdown%E6%8F%92%E5%85%A5%E9%9F%B3%E9%A2%91">Markdown插入音频</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -576,8 +385,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/">
-      Markdown的一些实用技巧
+    <a class="post-title-link" href="https://www.qiantigers.top/post/zai-xian-guan-kan-ying-shi-nowang-zhi/">
+      在线观看影视の网址
     </a>
   </h1>
   <div class="post-meta">
@@ -585,7 +394,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-01</span>
+      <span>2020-03-29</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -594,8 +403,20 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://www.qiantigers.top/tag/rKGRAttH7/">
-        <span>Markdown</span>
+      <a href="https://www.qiantigers.top/tag/ying-shi/">
+        <span>影视</span>
+      </a>、
+      
+      
+      
+      <a href="https://www.qiantigers.top/tag/gan-huo/">
+        <span>干货</span>
+      </a>、
+      
+      
+      
+      <a href="https://www.qiantigers.top/tag/uno0CUS2II/">
+        <span>网站</span>
       </a>
       
       
@@ -604,17 +425,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>2<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>84<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>468<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/markdown-de-yi-xie-shi-yong-ji-qiao/" data-flag-title="Markdown的一些实用技巧" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/zai-xian-guan-kan-ying-shi-nowang-zhi/" data-flag-title="在线观看影视の网址" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -623,22 +444,63 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h2 id="markdown插入视频">Markdown插入视频</h2>
-<pre><code>&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;封面链接&quot;&gt;
-      &lt;source id=&quot;mp4&quot; src=&quot;视频链接&quot; type=&quot;video/mp4&quot;&gt;
-      &lt;/video&gt;
-</code></pre>
-<video id="video" width="320" height="240" controls="" preload="none" poster="">
-      <source id="mp4" src="http://pan.qiantigers.top/one-share/MV/%E8%AE%B8%E5%B5%A9-%E7%B4%A0%E9%A2%9C.mp4" type="video/mp4">
-      </video>
-<h2 id="markdown插入音频">Markdown插入音频</h2>
-<pre><code>&lt;audio id=&quot;audio&quot; controls=&quot;&quot; preload=&quot;none&quot;&gt;
-      &lt;source id=&quot;mp3&quot; src=&quot;音频链接&quot;&gt;
-      &lt;/audio&gt;
-</code></pre>
-<audio id="audio" controls="" preload="none">
-      <source id="mp3" src="http://pan.qiantigers.top/pan-lib/Upload/%E4%BC%8D%E4%BD%B0-%E7%AA%81%E7%84%B6%E7%9A%84%E8%87%AA%E6%88%91.mp3">
-      </audio>
+              <blockquote>
+<p>适合在线观看~</p>
+</blockquote>
+<ul>
+<li>
+<p>第一类：美剧资源</p>
+<blockquote>
+<ol>
+<li>爱美剧：强推这个网站，资源多，缓冲快，广告少，还提供迅雷下载链接，网站： <a href="https://www.meiju.net/">【查看链接】</a></li>
+<li>美剧侠：网站挺好看，感觉不错。<a href="http://m.meijuxia.com/">【查看链接】</a></li>
+<li>在线之家：资源丰富，页面好看，不过建议使用去广告浏览器，有页面广告，网址： <a href="https://www.zxzjs.com/">【查看链接】</a></li>
+<li>天天美剧：页面分类清楚，资源丰富，有广告，网址： <a href="https://www.meijuxz.com/">【查看链接】</a></li>
+<li>BT美剧：上面几个网站找不到可以来这儿看看，说不定有惊喜，网址：<a href="http://www.btmeiju.com/">【查看链接】</a></li>
+</ol>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://file.moetu.org/images/2020/03/28/913af1bcdaa1e9e41a84d3a6fd1936717144919ab73aa9c5.md.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>第二类：纪录片</p>
+<blockquote>
+<ol>
+<li>老记录：页面很好看，资源不够丰富但胜在好看和优质，网址： <a href="https://www.laojilu.com/">【查看链接】</a></li>
+<li>盗火纪录片：资源丰富，主力使用，部分资源需要开会员 <a href="http://www.daofire.com/">【查看链接】</a></li>
+<li>纪录片之家，没怎么用过，看起来不错，<a href="http://www.jlpdq.com/">【查看链接】</a></li>
+<li>纪录片天地，没用过，可以试试，<a href="http://www.jlpcn.net/">【查看链接】</a></li>
+</ol>
+</blockquote>
+<figure data-type="image" tabindex="2"><img src="https://file.moetu.org/images/2020/03/28/43f36fb1ab2a1dd54e9d18d27649d1b1839fb338197f014c.md.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>第三类：动漫网站</p>
+<blockquote>
+<ol>
+<li>番哩番哩：看起来不错，看动漫的朋友自己看， <a href="https://www.flif.li/vodtype/dongman.html">【查看链接】</a></li>
+<li>QinMei：在线动漫播放站，网址： <a href="https://m.qinmei.video/index">【查看链接】</a></li>
+</ol>
+</blockquote>
+<figure data-type="image" tabindex="3"><img src="https://file.moetu.org/images/2020/03/28/317b82e41bd414e88e7428fd162aaadec6db109291baa2aa.md.jpg" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>第四类：综合影视网站</p>
+<blockquote>
+<ol>
+<li>初心视频：主力使用，资源丰富，加载速度快，无广告，强烈推荐，网址：<a href="http://v.bwcxy.com/">【查看链接】</a></li>
+<li>奈菲影视，资源丰富，无广告，很好用，网址： <a href="https://www.nfmovies.com/">【查看链接】</a></li>
+<li>乐猫TV，资源丰富，有广告， <a href="http://www.lemaotv.net/">【查看链接】</a></li>
+<li>八一影院：资源丰富，有广告，可以试试。 网址：<a href="http://m.bayiyy.com/">【查看链接】</a></li>
+<li>4K电影院：看起来不错，好像有车 网址： <a href="https://www.4kdy.net/">【查看链接】</a></li>
+<li>乐享电影网：电影资源挺丰富的，可以试试， <a href="https://www.88yy.net/">【查看链接】</a></li>
+<li>完美看看：资源丰富，无广告 <a href="https://www.wanmeikk.me/">【查看链接】</a></li>
+<li>搜片网：资源丰富，无广告 <a href="https://www.soopian.com/">【查看链接】</a></li>
+<li>青苹果影视：资源丰富，无广告 <a href="http://www.qpgys.net/">【查看链接】</a></li>
+</ol>
+</blockquote>
+<figure data-type="image" tabindex="4"><img src="https://file.moetu.org/images/2020/03/28/1d92287ec8be76cdb893d0655a2aecf7198f80dd6bd8baa0.md.png" alt="img" loading="lazy"></figure>
+</li>
+</ul>
 
             </div>
             
@@ -651,7 +513,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/" title="Markdown的一些实用技巧">https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/</a>
+      <a href="https://www.qiantigers.top/post/zai-xian-guan-kan-ying-shi-nowang-zhi/" title="在线观看影视の网址">https://www.qiantigers.top/post/zai-xian-guan-kan-ying-shi-nowang-zhi/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -660,22 +522,22 @@
   </ul>
   <div class="tags">
     
-      <a href="https://www.qiantigers.top/tag/rKGRAttH7/"># Markdown</a>
+      <a href="https://www.qiantigers.top/tag/ying-shi/"># 影视</a>
+    
+      <a href="https://www.qiantigers.top/tag/gan-huo/"># 干货</a>
+    
+      <a href="https://www.qiantigers.top/tag/uno0CUS2II/"># 网站</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="世纪互联账号购买" href="https://www.qiantigers.top/post/shi-ji-hu-lian-zhang-hao-gou-mai/">世纪互联账号购买</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="世纪互联账号购买" href="https://www.qiantigers.top/post/shi-ji-hu-lian-zhang-hao-gou-mai/">上一篇</a>
+        <a class="nav-pc-next" title="搜索引擎命令大全" href="https://www.qiantigers.top/post/sou-suo-yin-qing-ming-ling-da-quan/">搜索引擎命令大全</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="搜索引擎命令大全" href="https://www.qiantigers.top/post/sou-suo-yin-qing-ming-ling-da-quan/">上一篇</a>
       
     </div>
     <div class="nav-next">
-      
-        <a class="nav-pc-next" title="性价比还行的梯子" href="https://www.qiantigers.top/post/xing-jie-bi-huan-xing-de-ti-zi/">性价比还行的梯子</a>
-        <a class="nav-mobile-next" title="性价比还行的梯子" href="https://www.qiantigers.top/post/xing-jie-bi-huan-xing-de-ti-zi/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
