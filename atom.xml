@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-20T03:30:41.312Z</updated>
+    <updated>2020-06-20T03:35:11.221Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -32,6 +32,80 @@
 <audio id="audio" controls="" preload="none">
       <source id="mp3" src="http://pan.qiantigers.top/pan-lib/Upload/%E4%BC%8D%E4%BD%B0-%E7%AA%81%E7%84%B6%E7%9A%84%E8%87%AA%E6%88%91.mp3">
       </audio>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MOVER.IO]]></title>
+        <id>https://www.qiantigers.top/post/moverio/</id>
+        <link href="https://www.qiantigers.top/post/moverio/">
+        </link>
+        <updated>2020-04-14T03:32:00.000Z</updated>
+        <content type="html"><![CDATA[<p>如何实现将Google Drive或者OneDrive的文件转移到新的OneDrive里？</p>
+<p>答案很简单，就是使用 https://app.mover.io</p>
+<p>具体简介可以看这个链接→https://www.google.com</p>
+<ul>
+<li>
+<p>使用步骤</p>
+<blockquote>
+<p>1.注册</p>
+</blockquote>
+<ul>
+<li>建议使用微软邮箱</li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://file.moetu.org/images/2020/04/08/IMG_20200408_1758162bef8bce1d8a4715.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>2.连接</p>
+</blockquote>
+<ol>
+<li>选择来源</li>
+<li>选择目的地</li>
+<li>start copy</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://file.moetu.org/images/2020/04/08/IMG_20200408_1755438a5b83d2f7baf87f.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>3.仪表盘</p>
+</blockquote>
+<ul>
+<li>可以查看健康状态、迁移情况等等</li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://file.moetu.org/images/2020/04/08/IMG_20200408_175302230a6e11f4949fbd.png" alt="" loading="lazy"></figure>
+<p><strong>如果英文看不懂可以使用Chrome、星愿浏览器搭配谷歌翻译使用。</strong><br>
+<strong>建议谷歌云盘迁移到OneDrive之前，先将谷歌共享的资源复制到自己的谷歌云盘里，这样在迁移的过程不会出错。</strong></p>
+<ul>
+<li>
+<p>总结一下</p>
+<blockquote>
+<ul>
+<li>优点</li>
+</ul>
+</blockquote>
+<ol>
+<li>免费(不知道什么时候会收费，现在没有)。</li>
+<li>不限制网盘数，不限制总流量。</li>
+<li>可以自动跳过同目录重复文件。</li>
+<li>支持不同域的OneDrive。</li>
+<li>官宣是使用的Windows Azure来传输的。</li>
+</ol>
+<blockquote>
+<ul>
+<li>缺点</li>
+</ul>
+</blockquote>
+<ol>
+<li>团队盘(A1，E5，A1P等等)限制单文件大小15G。</li>
+<li>个人盘限制单文件大小10g(我也不知道怎么回事，可能是网站规则限制吧)。</li>
+<li>生成的任务删除不了，只能暂停。</li>
+<li>只能转存到OneDrive，不能转到其他地方。</li>
+<li>无法自动同步更新，只能手动点击。</li>
+</ol>
+</li>
+<li>
+<p>综上所述，是一款不错的云迁移应用。</p>
+</li>
+</ul>
+<p><img src="https://file.moetu.org/images/2020/04/08/484af4a9f280a296c83.jpg" width="320"></img></p>
 ]]></content>
     </entry>
 </feed>
