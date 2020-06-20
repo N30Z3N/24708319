@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-20T10:15:26.725Z</updated>
+    <updated>2020-06-20T10:30:33.045Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -332,6 +332,55 @@
 </li>
 </ul>
 <p><img src="https://file.moetu.org/images/2020/04/08/484af4a9f280a296c83.jpg" width="320"></img></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[三千书源]]></title>
+        <id>https://www.qiantigers.top/post/san-qian-shu-yuan/</id>
+        <link href="https://www.qiantigers.top/post/san-qian-shu-yuan/">
+        </link>
+        <updated>2020-04-10T10:22:26.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>配合软件『阅读』使用</p>
+</blockquote>
+<h2 id="古有弱水三千今有三千书源"><strong>古有弱水三千，今有三千书源。</strong></h2>
+<p><strong>实际上书源不止三千！</strong></p>
+<p>使用方法：打开阅读app，在书源界面选择从网络导入书源，把下面的链接粘贴上去即可。</p>
+<p>一般来说导入一个就够用了，还有追书的书源</p>
+<p>大多为2.0书源，部分兼容3.0，自行测试。</p>
+<ul>
+<li>随源(3.0书源)：<br>
+<code>https://gitee.com/ecruos/oo/raw/master/yuedu/bookSource.json</code></li>
+<li>N个书源(长期更新)：<br>
+<code>https://raw.githubusercontent.com/CNAD666/MyData/master/novel/bookshelf/N%E4%B8%AA%E4%B9%A6%E6%BA%90(%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0).txt</code></li>
+<li>一程书源：
+<ul>
+<li>【3.0书源】 <code>https://gitee.com/vpq/codes/ez5qu1ifx260layps3b7981/raw?blob_name=3.0sy.json</code></li>
+<li>【2.0书源】 <code>https://gitee.com/vpq/codes/spl03fq64tcxinywjzoe230/raw?blob_name=2.0sy.json</code></li>
+</ul>
+</li>
+<li>768个校对书源：<br>
+<code>https://raw.githubusercontent.com/CNAD666/MyData/master/novel/bookshelf/768%E4%B8%AA%E6%A0%A1%E5%AF%B9%E4%B9%A6%E6%BA%90.txt</code></li>
+<li>54个优质书源(14个发现)：<br>
+<code>https://raw.githubusercontent.com/CNAD666/MyData/master/novel/bookshelf/54%E4%B8%AA%E4%BC%98%E8%B4%A8%E4%B9%A6%E6%BA%90(14%E4%B8%AA%E5%8F%91%E7%8E%B0).xml</code></li>
+<li>14个发现书源：<br>
+<code>https://raw.githubusercontent.com/CNAD666/MyData/master/novel/bookshelf/14%E4%B8%AA%E5%8F%91%E7%8E%B0%E4%B9%A6%E6%BA%90.txt</code></li>
+<li>十源:<br>
+<code>https://gitee.com/xjlxx/yuedu/raw/master/%E5%8D%81%E6%BA%90%20%E4%BC%98%E8%B4%A8.json</code></li>
+<li>900+书源:<br>
+<code>https://gitlab.com/GJTQQ/YueDu/raw/master/Share/915.json</code></li>
+<li>600+书源：<br>
+<code>https://gitee.com/ecruos/oo/raw/master/yuedu/bookSource.json</code></li>
+<li>400+书源:<br>
+<code>https://gitlab.com/GJTQQ/YueDu/raw/master/Share/425.json</code></li>
+<li>100+书源:<br>
+<code>https://gitlab.com/GJTQQ/YueDu/raw/master/Share/WxSource.json</code></li>
+<li>XIU书源（会定期更新）<br>
+<code>https://xiu2.github.io/yuedu/shuyuan</code></li>
+<li>净化规则:<br>
+<code>https://gitlab.com/GJTQQ/YueDu/raw/master/Share/Rule.txt</code></li>
+</ul>
+<p><img src="https://ae01.alicdn.com/kf/U06074f1527734f3b92f321856323fd4cX.jpg" width=320></img></p>
 ]]></content>
     </entry>
     <entry>

@@ -8,7 +8,7 @@
 <meta name="keywords" content="OneDrive,云盘,资源,教程,技巧,干货,">
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
-<title>TG资源搜索机器人使用指南——1oveClub专属 | Qiantigers</title>
+<title>Qiantigers</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/favicon.ico?v=1592648648753">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/media/fonts/font-awesome.css">
@@ -48,8 +48,6 @@
 </script>
 
 
-  <meta name="description" content="TG资源搜索机器人使用指南——1oveClub专属" />
-  <meta name="keywords" content="1oveClub" />
 </head>
 
 <body>
@@ -221,26 +219,10 @@
   <div class="main-continer">
     
     <div
-      class="section-layout gemini ">
+      class="section-layout  gemini">
       <div class="section-layout-wrapper">
-        
-
-<div class="sidebar">
-  
-    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
-      
-        <div class="post-list-sidebar">
-          <div class="sidebar-title">
-            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
-            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
-          </div>
-        </div>
-      
-      <div class="sidebar-body gemini" id="sidebar_body">
-        
-          
-            <div class="post-side-meta" id="post_side_meta">
-              
+        <div id="sidebarMeta" class="sidebar">
+    
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/images/avatar.png"/>
@@ -299,552 +281,148 @@
   </div>
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93sql%E6%8C%87%E4%BB%A4%E6%9F%A5%E8%AF%A2">利用数据库SQL指令查询</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </div>
 </div>
-
 <script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'gemini';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
       }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
     });
   }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
-          
-        
+  </script>
+        <div class="section-box tag-line box-shadow-wrapper">
+          <section class="section tags-section posts-expand bg-color">
+            <div class="padding-wrapper">
+  <div class="tag-timeline-box">
+    <div class="tag-timeline-wrapper">
+      <div class="tag-timeline-title">
+        <h2>
+          书源
+          <small class="language" data-lan="tag">标签</small>
+        </h2>
       </div>
-    </div>
-  
-</div>
-<script>
-  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
-  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
-  const SLIDE_UP_IN = 'slide-up-in';
-
-  let sidebar = document.querySelector('#sidebar'),
-  tocSideBar = document.querySelector('#tocSideBar'),
-  metaSideBar = document.querySelector('#metaSideBar'),
-  postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta'),
-  sidebarTitle = document.querySelector('.sidebar-title'),
-  sidebarBody = document.querySelector('#sidebar_body');
-
-  tocSideBar && tocSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  metaSideBar && metaSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  function toggleSidebar(e) {
-    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
-    if (currentTitle == e.srcElement) {
-      return ;
-    }
-    let current, showElement, hideElement;
-    if (e.srcElement == metaSideBar) {
-      showElement = postSiteMeta;
-      hideElement = postToc;
-    } else if (e.srcElement == tocSideBar){
-      showElement = postToc;
-      hideElement = postSiteMeta;
-    }
-    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
-
-    window.Velocity(hideElement, 'stop');
-    window.Velocity(hideElement, 'transition.slideUpOut', {
-      display: 'none',
-      duration: 200,
-      complete: function () {
-        window.Velocity(showElement, 'transition.slideDownIn', {
-          duration: 200
-        });
-      }
-    })
-    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
-    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
-  }
-
-  postToc && postToc.addEventListener('transitionend', function() {
-    this.classList.remove(SLIDE_UP_IN);
-  });
-
-  if (sidebarBody) {
-    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-      let hasFix = false;
-      let scrollEl = document.querySelector('.main-continer');
-      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-      window.addEventListener('scroll', function(e) {
-        if (document.scrollingElement.scrollTop >= limitTop) {
-          if (!hasFix) {
-            sidebar.classList.add('sidebar-fixed');
-            hasFix = true;
-          }
-        } else {
-          if (hasFix) {
-            sidebar.classList.remove('sidebar-fixed');
-            hasFix = false;
-          }
-        }
-      });
-    }
-  }
-  
-</script>
-        <div class="section-box box-shadow-wrapper">
-          <div class="section bg-color post post-page">
-            <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://www.qiantigers.top/post/tg-zi-yuan-sou-suo-ji-qi-ren-shi-yong-zhi-nan-1oveclub-zhuan-shu/">
-      TG资源搜索机器人使用指南——1oveClub专属
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-16</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://www.qiantigers.top/tag/1oveclub/">
-        <span>1oveClub</span>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <a href="https://www.qiantigers.top/post/san-qian-shu-yuan/">
+        <div class="motion-warpper">
+          <div class="tag-post-node">
+            <h1>
+              04-10
+              <small>三千书源</small>
+            </h1>
+          </div>
+        </div>
       </a>
       
       
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>4<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>868<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-    
-    
-    <span id="/post/tg-zi-yuan-sou-suo-ji-qi-ren-shi-yong-zhi-nan-1oveclub-zhuan-shu/" data-flag-title="TG资源搜索机器人使用指南——1oveClub专属" class="meta-item pc-show leancloud_visitors">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-eye"></i>
-      <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
-    </span>
-    
-  </div>
-</header>
-            <div class="post-body next-md-body" id="post_body">
-              <ul>
-<li>
-<p>搜索资源（群聊或私聊皆可），请认准1oveClub专属机器人——【众里寻她千百度】“带你上车の小妹妹”</p>
-</li>
-<li>
-<p><a href="https://t.me/Search_1oveClub_bot">TG里搜索@Search_1oveClub_bot</a></p>
-</li>
-<li>
-<p>机器人详细介绍，请看这里→<a href="http://weinb.top/index.php/2020/04/03/tg%e9%a2%91%e9%81%93%e6%9c%ba%e5%99%a8%e4%ba%ba%e7%9a%84%e4%bd%bf%e7%94%a8%e6%8c%87%e5%8d%97/">【机器人详细说明文档】</a></p>
-</li>
-</ul>
-<p><strong>机器人指令介绍：</strong></p>
-<ul>
-<li>
-<p>成员</p>
-<blockquote>
-<ul>
-<li>/搜索  资源名称 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></li>
-</ul>
-</blockquote>
-<pre><code>  例如：/搜索 胡歌
-</code></pre>
-<blockquote>
-<ul>
-<li>/资源数  <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></li>
-<li>/贡献排行 <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></li>
-<li>/查看权限<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></li>
-<li>资源发布<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<pre><code>例如：
-
-资源发布    (切记要换行，请直接换行不要带空格！且“资源发布”前没有“/”)
-#偶像 胡歌
-◎简介：谦谦君子~
-◎大小：520GB
-◎资源链接：https://qiantigers.baklib.com
-
-注：如果格式简陋将会被删除，请注意。可配图、链接选择默认链接即权限设置：“仅组织成员可见” + “取消允许编辑”
-</code></pre>
-<blockquote>
-<ul>
-<li>/管理列表</li>
-<li>/最新发布 数字(&lt;=10)<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></li>
-<li>/随机资源 数字(&lt;=10)<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></li>
-<li>/编辑发布 type messag_id<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup></li>
-</ul>
-</blockquote>
-<pre><code>    例如：
-
-    /编辑发布 1 1234
-    #示例 更改后的标题
-    简介：更改后的简介
-    大小：更改后的大小
-    链接地址：更改后的链接
-</code></pre>
-<blockquote>
-<ul>
-<li>/删除发布 type messag_id<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup></li>
-</ul>
-</blockquote>
-<pre><code>    例如：
-   
-    /删除发布 1 1234
-</code></pre>
-<ul>
-<li>
-<p>管理员</p>
-<blockquote>
-<ul>
-<li>/资源去重<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup></li>
-<li>/资源补录<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup></li>
-</ul>
-</blockquote>
-</li>
-<li>
-<p>超级管理员</p>
-<blockquote>
-<ul>
-<li>/删除<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></li>
-<li>/新增管理 用户名</li>
-<li>/删除管理 用户名</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h3 id="利用数据库sql指令查询">利用数据库SQL指令查询</h3>
-<blockquote>
-<p>SQL链接配置账号（仅支持查看）<br>
-ip：47.244.181.34<br>
-端口号：3306<br>
-数据库名：club<br>
-用户名：test<br>
-密码：test</p>
-</blockquote>
-<ul>
-<li>推荐软件酷安搜索“SQL”或者<a href="https://www.coolapk.com/apk/com.yzker.usql">【链接直达】</a></li>
-</ul>
-<p><img src="https://file.moetu.org/images/2020/04/13/IMG_20200413_121143dc1f0c1c1d218c67.jpg" alt="" loading="lazy"><br>
-<img src="https://file.moetu.org/images/2020/04/13/IMG_20200413_12085322059276a83c2457.jpg" alt="" loading="lazy"></p>
-<ul>
-<li>会用sql的可以自助查询，不会的，emmm，自行搜索或者老老实实用机器人吧</li>
-</ul>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>字数限制&gt;=2 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>查看目前有多少资源 <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p>显示贡献人的ID与贡献数量，并排名。可作为OneDrive升级25T的参考，贡献足够的兄弟找我升级吧（已使用空间达到4.5T） <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn4" class="footnote-item"><p>用户分为三个等级：超级管理员、管理员、成员。“资源补录”、“资源去重”为管理权限；“删除”为超级管理权限。 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn5" class="footnote-item"><p>分享资源通过给机器人发布指令，然后机器人收录并在频道广播。格式：开头“资源发布”---&gt;&gt;&gt;换行---&gt;&gt;&gt;资源信息（标签、资源名称、资源简介、资源大小、资源链接） <a href="#fnref5" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn6" class="footnote-item"><p>该功能会发送最新发布的资源(鸡肋)，一般用于检查自己的资源有没有收录 <a href="#fnref6" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn7" class="footnote-item"><p>该功能用于随机查看资源 <a href="#fnref7" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn8" class="footnote-item"><p>type和message_id是发布内容后机器人发给你的，对应相应的消息，也只有你能编辑自己的消息，需要注意的是，编辑好的内容中同样需要包含本全局的分享链接。编辑后机器人会自动修改已经收录的内容 <a href="#fnref8" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn9" class="footnote-item"><p>type和message_id是发布内容后机器人发给你的，对应相应的消息，也只有你能删除自己的消息。编辑后机器人会自动删除已经收录的内容 <a href="#fnref9" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn10" class="footnote-item"><p>顾名思义，此为管理权限，自动删除重复的资源 <a href="#fnref10" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn11" class="footnote-item"><p>这不是指令，而是管理特权。具体作用是什么呢？就是如果发现有资源未被机器人收录，则可以将对应资源的信息复制，直接发给机器人，随后机器人就会按照收录格式收录（收录格式：资源的第一行与链接） <a href="#fnref11" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn12" class="footnote-item"><p>此为超级管理员权限，操作步骤：1、搜索资源    2、/删除 资源编号 <a href="#fnref12" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-
-            </div>
-            
-            
-              <div class="post-footer">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong class="language" data-lan="author">本文作者：</strong>
-      勿埋我心
-    </li>
-    <li class="post-copyright-link">
-      <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://www.qiantigers.top/post/tg-zi-yuan-sou-suo-ji-qi-ren-shi-yong-zhi-nan-1oveclub-zhuan-shu/" title="TG资源搜索机器人使用指南——1oveClub专属">https://www.qiantigers.top/post/tg-zi-yuan-sou-suo-ji-qi-ren-shi-yong-zhi-nan-1oveclub-zhuan-shu/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong class="language" data-lan="copyright">版权声明： </strong>
-      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-  <div class="tags">
-    
-      <a href="https://www.qiantigers.top/tag/1oveclub/"># 1oveClub</a>
-    
-  </div>
-  <div class="nav">
-    <div class="nav-prev">
       
-    </div>
-    <div class="nav-next">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
     </div>
   </div>
 </div>
-            
-            
-  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
-<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
-
-<style>
-  .v .veditor {
-    min-height: 10rem;
-    background-image: url('');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-    background-color: rgba(255, 255, 255, 0);
-    resize: none;
-  }
-
-  .v .vwrap {
-    border: 1px solid #000 !important;
-  }
-
-  .v .vbtn {
-    padding: .4rem 1.2rem !important;
-    border-color: #fff !important;
-    background-color: #49b1f5 !important;
-    color: #fff !important;
-    font-size: .7rem !important;
-  }
-
-  .v .vcards .vcard .vh .vmeta .vat {
-    padding: 0 .8rem !important;
-    border: 1px solid #00c4b6 !important;
-    border-radius: 5px !important;
-    color: #00c4b6 !important;
-  }
-</style>
-<script>
-  new Valine({
-    el: '#vcomments',
-    appId: 'LBXfShg5XHJ0dbse7caosYY4-gzGzoHsz',
-    appKey: 'N9BW01z6sRvjRVE3tT9mk3ng',
-    avatar: '',
-    placeholder: '',
-    pageSize: '8',
-    lang: 'zh-cn',
-    enableQQ: 'true' === 'true',
-    visitor: 'true' === 'true',
-    highlight: 'true' === 'true',
-    avatarForce: 'true' === 'false',
-  });
-</script>
-
-          </div>
+          </section>
         </div>
       </div>
     </div>
@@ -1597,253 +1175,6 @@ ip：47.244.181.34<br>
   }
 
 </script>
-    <div class="light-box" id="light_box"></div>
-<script>
-  let imgs = document.querySelectorAll('.post-body img');
-  let lightBox = document.querySelector('#light_box');
-  lightBox.addEventListener('mousedown', (e) => {
-    e.preventDefault()
-  })
-  lightBox.addEventListener('mousewheel', (e) => {
-    e.preventDefault()
-  })
-  let width = window.innerWidth * 0.8;
-  lightBox.onclick = () => {
-    let img = lightBox.querySelector('img');
-    lightBox.style = '';
-    img && img.remove();
-  }
-  imgs.forEach(item => {
-    item.onclick = function (e) {
-      let lightImg = document.createElement('img');
-      lightImg.src = this.src;
-      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
-      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
-      lightImg.onclick = function () {
-        lightBox.style = '';
-        this.remove();
-      }
-      lightBox.append(lightImg);
-    }
-  })
-</script>
-    <div class="reward-mask" style="display: none;">
-  <div class="reward-relative">
-    <span class="close" aria-hidden="true">x</span>
-    <div class="reward-body">
-      <h2>感谢您的支持，我会继续努力的!</h2>
-      <div class="reward-img-box">
-        <div style="position: relative; width: 140px; height: 140px;">
-          
-          
-          
-        </div>
-      </div>
-      <p class="reward-word">扫码打赏，你说多少就多少</p>
-      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
-    </div>
-    <div class="bottom">
-      
-      
-    </div>
-  </div>
-</div>
-<style>
-  .reward-mask {
-    position: fixed;
-    z-index: 99999;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #00000054;
-  }
-
-  .reward-relative {
-    position: relative;
-    width: 480px;
-    text-align: center;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #fff;
-    top: 50%;
-    margin-top: -205px;
-  }
-
-  .reward-relative .close {
-    position: absolute;
-    right: 10px;
-    font-weight: normal;
-    font-size: 16px;
-    color: #929292;
-  }
-
-  .reward-body {
-    padding: 40px 20px 20px;
-  }
-
-  .bottom {
-    display: flex;
-  }
-
-  .reward-btn {
-    text-align: center;
-  }
-
-  .reward-btn-text {
-    display: inline-block;
-    cursor: pointer;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    background-color: #ff9734;
-    color: #FFF;
-    margin-top: 20px;
-  }
-
-  .pay-text {
-    margin-top: 10px;
-    padding: 10px;
-    flex: 1;
-    transition: all .2s linear;
-  }
-
-  .pay-text:hover {
-    background-color: #a5a5a536;
-  }
-
-  .reward-body h2 {
-    padding-top: 10px;
-    text-align: center;
-    color: #a3a3a3;
-    font-size: 16px;
-    font-weight: normal;
-    margin: 0 0 20px;
-  }
-
-  .reward-body h2:after,
-  .reward-body h2:before {
-    font-family: Arial, Helvetica, sans-serif;
-    background: 0 0;
-    width: 0;
-    height: 0;
-    font-style: normal;
-    color: #eee;
-    font-size: 80px;
-    position: absolute;
-    top: 20px;
-  }
-
-  .reward-body h2:before {
-    content: '\201c';
-    left: 50px;
-  }
-
-  .reward-body h2:after {
-    content: '\201d';
-    right: 80px;
-  }
-
-  .reward-img-box {
-    display: inline-block;
-    padding: 10px;
-    border: 6px solid #ea5f00;
-    margin: 0 auto;
-    border-radius: 3px;
-    position: relative;
-  }
-
-  .reward-img {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-  }
-
-  @media (max-width: 767px) {
-    .reward-relative {
-      height: 100%;
-      top: 0px;
-      margin-top: 0;
-      width: auto;
-    }
-
-    .reward-relative .bottom {
-      flex-direction: column;
-    }
-
-    .reward-relative .pay-text {
-      width: 80%;
-      margin: 5px auto;
-      border: 1px solid silver;
-      padding: 6px;
-      border-radius: 4px;
-    }
-
-    .reward-body h2:after {
-      right: 40px;
-    }
-
-    .reward-body h2:after,
-    .reward-body h2:before {
-      font-size: 60px;
-    }
-
-    .reward-body h2:before {
-      left: 20px;
-    }
-  }
-</style>
-<script>
-  !function () {
-    var mask = document.querySelector('.reward-mask');
-    let close = document.querySelector('.reward-relative .close');
-    let rewardBtn = document.querySelector('.reward-btn');
-
-    let zfb = document.querySelector('#zfb'),
-      wx = document.querySelector('#wx'),
-      zfbBtn = document.querySelector('#zfbBtn'),
-      wxBtn = document.querySelector('#wxBtn');
-
-    if (zfbBtn && wxBtn) {
-      zfbBtn.addEventListener('click', () => {
-        window.Velocity(zfb, 'transition.slideLeftIn', {
-          duration: 400
-        });
-        window.Velocity(wx, 'transition.slideRightOut', {
-          display: 'none',
-          duration: 400
-        });
-      });
-
-      wxBtn.addEventListener('click', () => {
-        window.Velocity(wx, 'transition.slideRightIn', {
-          duration: 400
-        });
-        window.Velocity(zfb, 'transition.slideLeftOut', {
-          display: 'none',
-          duration: 400
-        });
-      });
-    }
-
-    rewardBtn.addEventListener('click', (e) => {
-      window.Velocity(mask, 'transition.slideDownIn', {
-        duration: 400
-      })
-    });
-
-    close.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.Velocity(mask, 'transition.slideUpOut', {
-        duration: 400
-      })
-    })
-  }()
-</script>
-
   </div>
 </body>
 
@@ -3197,6 +2528,7 @@ tg里搜索：@onedrive_club&lt;/p&gt;
     speed: 200
   });
 </script>
+
 
 
 
