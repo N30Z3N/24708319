@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-20T09:41:04.207Z</updated>
+    <updated>2020-06-20T09:44:46.314Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -67,11 +67,7 @@
         <link href="https://www.qiantigers.top/post/air-explorer-pro/">
         </link>
         <updated>2020-04-16T03:49:42.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><a href="https://www.qiantigers.top/post/1oveclub-gong-gao/"><img src="http://img95.699pic.com/photo/40139/2112.gif_wh860.gif" alt="" loading="lazy"></a></figure>
-<blockquote>
-<p>可以点击一下上方图片↑↑↑</p>
-</blockquote>
-<ul>
+        <content type="html"><![CDATA[<ul>
 <li>下载地址(均为PRO版)</li>
 </ul>
 <blockquote>
@@ -141,7 +137,7 @@
 <blockquote>
 <p>3. 如果软件无法正常打开，请右键使用管理员模式运行。</p>
 </blockquote>
-<figure data-type="image" tabindex="2"><img src="https://thumb11.jfcdns.com/thumb/n231tu29x923ow22/16f5c0f603d83a7d_460_0.jpeg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://thumb11.jfcdns.com/thumb/n231tu29x923ow22/16f5c0f603d83a7d_460_0.jpeg" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
