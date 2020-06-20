@@ -8,7 +8,7 @@
 <meta name="keywords" content="OneDrive,云盘,资源,教程,技巧,干货,">
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
-<title>Markdown的一些实用技巧 | Qiantigers</title>
+<title>1ove专属影视简介获取器 | Qiantigers</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/favicon.ico?v=1592621659480">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/media/fonts/font-awesome.css">
@@ -48,8 +48,8 @@
 </script>
 
 
-  <meta name="description" content="Markdown的一些实用技巧" />
-  <meta name="keywords" content="Markdown" />
+  <meta name="description" content="1ove专属影视简介获取器" />
+  <meta name="keywords" content="1oveClub" />
 </head>
 
 <body>
@@ -226,8 +226,7 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/qiantigers/qiantigers.github.io@master/images/avatar.png"/>
@@ -286,196 +285,6 @@
   </div>
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#markdown%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91">Markdown插入视频</a></li>
-<li><a href="#markdown%E6%8F%92%E5%85%A5%E9%9F%B3%E9%A2%91">Markdown插入音频</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -563,8 +372,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/">
-      Markdown的一些实用技巧
+    <a class="post-title-link" href="https://www.qiantigers.top/post/1ove-zhuan-shu-ying-shi-jian-jie-huo-qu-qi/">
+      1ove专属影视简介获取器
     </a>
   </h1>
   <div class="post-meta">
@@ -572,7 +381,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-01</span>
+      <span>2020-06-20</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -581,8 +390,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://www.qiantigers.top/tag/rKGRAttH7/">
-        <span>Markdown</span>
+      <a href="https://www.qiantigers.top/tag/1oveclub/">
+        <span>1oveClub</span>
       </a>
       
       
@@ -596,12 +405,12 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>84<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>134<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/markdown-de-yi-xie-shi-yong-ji-qiao/" data-flag-title="Markdown的一些实用技巧" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/1ove-zhuan-shu-ying-shi-jian-jie-huo-qu-qi/" data-flag-title="1ove专属影视简介获取器" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -610,22 +419,33 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h2 id="markdown插入视频">Markdown插入视频</h2>
-<pre><code>&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;封面链接&quot;&gt;
-      &lt;source id=&quot;mp4&quot; src=&quot;视频链接&quot; type=&quot;video/mp4&quot;&gt;
-      &lt;/video&gt;
-</code></pre>
-<video id="video" width="320" height="240" controls="" preload="none" poster="">
-      <source id="mp4" src="http://pan.qiantigers.top/one-share/MV/%E8%AE%B8%E5%B5%A9-%E7%B4%A0%E9%A2%9C.mp4" type="video/mp4">
-      </video>
-<h2 id="markdown插入音频">Markdown插入音频</h2>
-<pre><code>&lt;audio id=&quot;audio&quot; controls=&quot;&quot; preload=&quot;none&quot;&gt;
-      &lt;source id=&quot;mp3&quot; src=&quot;音频链接&quot;&gt;
-      &lt;/audio&gt;
-</code></pre>
-<audio id="audio" controls="" preload="none">
-      <source id="mp3" src="http://pan.qiantigers.top/pan-lib/Upload/%E4%BC%8D%E4%BD%B0-%E7%AA%81%E7%84%B6%E7%9A%84%E8%87%AA%E6%88%91.mp3">
-      </audio>
+              <blockquote>
+<p>专为1ove分享资源而设计，作者@Chao</p>
+</blockquote>
+<p>平时分享一些影视资源的时候都要自己手动去寻找相关的信息，是一件非常耗时间的事情。</p>
+<p>但是，今天它来了。</p>
+<ul>
+<li>
+<p>1.1下载链接：<a href="https://v.own-cloud.cn/s/898crtwb">🔗链接直达</a></p>
+</li>
+<li>
+<p>1.0下载链接：<a href="http://v.own-cloud.cn/s/5rken78e">🔗链接直达</a></p>
+</li>
+<li>
+<p>功能：</p>
+<ol>
+<li>能够自动规范格式，省去编写的烦恼</li>
+<li>自动获取对应的资源信息和图片，真正的一条龙服务</li>
+<li>操作简易，该软件是exe，兼容性还可以</li>
+</ol>
+</li>
+<li>
+<p>截图：<br>
+<img src="https://z4a.net/images/2020/06/14/8fe647458be9d66b543eb5df1f03ebfe.png" alt="8fe647458be9d66b543eb5df1f03ebfe.png" loading="lazy"><br>
+<img src="https://z4a.net/images/2020/06/14/24d07df41bdbf084d577322a79b0455e.png" alt="24d07df41bdbf084d577322a79b0455e.png" loading="lazy"><br>
+<img src="https://z4a.net/images/2020/06/14/bc53b1fae9514e6e44e6b609d8c73dc3.png" alt="bc53b1fae9514e6e44e6b609d8c73dc3.png" loading="lazy"></p>
+</li>
+</ul>
 
             </div>
             
@@ -638,7 +458,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/" title="Markdown的一些实用技巧">https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/</a>
+      <a href="https://www.qiantigers.top/post/1ove-zhuan-shu-ying-shi-jian-jie-huo-qu-qi/" title="1ove专属影视简介获取器">https://www.qiantigers.top/post/1ove-zhuan-shu-ying-shi-jian-jie-huo-qu-qi/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -647,7 +467,7 @@
   </ul>
   <div class="tags">
     
-      <a href="https://www.qiantigers.top/tag/rKGRAttH7/"># Markdown</a>
+      <a href="https://www.qiantigers.top/tag/1oveclub/"># 1oveClub</a>
     
   </div>
   <div class="nav">
