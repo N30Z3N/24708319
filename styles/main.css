@@ -2238,6 +2238,8 @@ pre > span.copy-code:hover {
     }
     .mist .site-title i {
       background: #FFFFFFd8;
+    }.box-shadow-wrapper {
+      padding: 10px;
     }body {
       cursor: default;
     }a {
