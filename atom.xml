@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-23T09:30:00.112Z</updated>
+    <updated>2020-06-24T13:56:58.206Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,106 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[Gride+GitHub+VPS]]></title>
+        <id>https://www.qiantigers.top/post/gridegithubvps/</id>
+        <link href="https://www.qiantigers.top/post/gridegithubvps/">
+        </link>
+        <updated>2020-06-24T13:54:42.000Z</updated>
+        <content type="html"><![CDATA[<p>Gridea是一个静态博客程序，它和hexo有很多相似之处，但是我选择它的原因在于其拥有客户端，在文章发表方面比较便利。</p>
+<p>Gridea分为三种模式：GitHub、Coding、SFTP</p>
+<p>简单分析一下吧，</p>
+<ul>
+<li>GitHub
+<ul>
+<li>优点：空间大，上传稳定</li>
+<li>缺点：就是其访问速度，速度如何想必大家都会清楚。</li>
+</ul>
+</li>
+<li>Coding
+<ul>
+<li>优点：国内托管，实测ping的地址在新加坡，访问速度还是可以的</li>
+<li>缺点：仓库空间优点小，2G；一个小时只能进行10次修改，这个问题我个人觉得是个比较难受的地方。</li>
+</ul>
+</li>
+<li>SFTP
+<ul>
+<li>优点：隐私性高，速度快（当然前提是你的VPS或者虚拟空间比较给力）</li>
+<li>缺点：这个问题太大了，同步太不稳定，基本上不尝试七八次很难成功。</li>
+</ul>
+</li>
+</ul>
+<p>然后在网上和相关Gridea群里得到了很多建议，最终决定了Gridea+GitHub+VPS的模式，GitHub的存在主要就是解决SFTP上传不稳定的问题，下面介绍一下如何实现。</p>
+<p>这里以宝塔界面为例：</p>
+<h2 id="1-本人服务器是centos-7-系统">1. 本人服务器是CentOS 7 系统</h2>
+<p>VPS安装Git，命令行输入<code>yum install git</code></p>
+<h2 id="2-宝塔面板使用webhook插件">2. 宝塔面板使用webhook插件</h2>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624211053272.png" alt="" loading="lazy"></figure>
+<p>第一步：进入软件商店</p>
+<p>第二步：搜索框输入“webhook”，具体作用可自行搜索，简单点说就是用来拉取github更新的应用</p>
+<p>第三步：安装</p>
+<h2 id="3-在webhook中设置shell脚本">3. 在webhook中设置shell脚本</h2>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624211551571.png" alt="" loading="lazy"></figure>
+<p>添加的时候可以随便输入，名称和执行脚本内容随意输入</p>
+<p>然后点击编辑，如下图所示</p>
+<p>​	<img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624211658168.png" alt="" loading="lazy"></p>
+<p>​	在此可以输入一下代码</p>
+<pre><code>#!/bin/bash
+echo &quot;&quot;
+# 输出当前时间
+date --date='0 days ago' &quot;+%Y-%m-%d %H:%M:%S&quot;
+echo &quot;Start&quot;
+# 判断宝塔WebHook参数是否存在
+if [ ! -n &quot;$1&quot; ];
+then 
+          echo &quot;param参数错误&quot;
+          echo &quot;End&quot;
+          exit
+fi
+# git项目路径
+gitPath=&quot;/www/wwwroot/$1&quot;
+# git 网址
+gitHttp=&quot;https://github.com/用户名/仓库名.git&quot;
+
+echo &quot;Web站点路径：$gitPath&quot;
+
+# 判断项目路径是否存在
+if [ -d &quot;$gitPath&quot; ]; then
+        cd $gitPath
+        # 判断是否存在git目录
+        if [ ! -d &quot;.git&quot; ]; then
+                echo &quot;在该目录下克隆 git&quot;
+                git clone $gitHttp gittemp
+                mv gittemp/.git .
+                rm -rf gittemp
+        fi
+        # 拉取最新的项目文件
+        git reset --hard origin/master
+        git pull
+        # 设置目录权限
+        chown -R www:www $gitPath
+        echo &quot;End&quot;
+        exit
+else
+        echo &quot;该项目路径不存在&quot;
+        echo &quot;End&quot;
+        exit
+fi
+</code></pre>
+<p>只需要更改上述文字中的用户名和仓库名即可</p>
+<p>下一步，查看密匙</p>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624212217036.png" alt="" loading="lazy"></figure>
+<h2 id="4-在github配置webhook">4. 在GitHub配置WebHook</h2>
+<p>​	进入自己对应的仓库，并进入Settings👉Webhooks，如下图所示</p>
+<p>​	<img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624212449239.png" alt="" loading="lazy"></p>
+<p>​	进入Webhooks后，点击右边的 Add Webhook 得到下图</p>
+<p>​	<img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624212827873.png" alt="" loading="lazy"></p>
+<p>最后一步填写信息，按下图填写</p>
+<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624213152652.png" alt="" loading="lazy"></figure>
+<h2 id="5-自己编写一篇博客试一下效果吧">5. 自己编写一篇博客试一下效果吧</h2>
+<figure data-type="image" tabindex="5"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624213630210.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[购买谷歌无限云盘和白嫖谷歌团队盘]]></title>
         <id>https://www.qiantigers.top/post/gou-mai-gu-ge-wu-xian-yun-pan-he-bai-piao-gu-ge-tuan-dui-pan/</id>
@@ -460,163 +560,6 @@
 <code>https://gitlab.com/GJTQQ/YueDu/raw/master/Share/Rule.txt</code></li>
 </ul>
 <p><img src="https://ae01.alicdn.com/kf/U06074f1527734f3b92f321856323fd4cX.jpg" width=320></img></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[搜索引擎命令大全]]></title>
-        <id>https://www.qiantigers.top/post/sou-suo-yin-qing-ming-ling-da-quan/</id>
-        <link href="https://www.qiantigers.top/post/sou-suo-yin-qing-ming-ling-da-quan/">
-        </link>
-        <updated>2020-04-09T10:00:04.000Z</updated>
-        <content type="html"><![CDATA[<p>1、双引号</p>
-<blockquote>
-<p>把搜索词放在双引号中，代表完全匹配搜索，也就是说搜索结果返回的页面包含双引号中出现的所有的词，连顺序也必须完全匹配。</p>
-<p>baidu和Google 都支持这个指令。</p>
-</blockquote>
-<pre><code>例如搜索：&quot;勿埋我心&quot;
-</code></pre>
-<p>2、减号</p>
-<blockquote>
-<p>减号代表搜索不包含减号后面的词的页面。使用这个指令时减号前面必须是空格，减号后面没有空格，紧跟着需要排除的词。</p>
-<p>Google 和baidu都支持这个指令。</p>
-</blockquote>
-<pre><code>例如：搜索 -引擎。
-</code></pre>
-<p>返回的则是包含搜索这个词，却不包含引擎这个词的结果。</p>
-<p>3、星号</p>
-<blockquote>
-<p>星号* 是常用的通配符，也可以用在搜索中。百度不支持* 号搜索指令。</p>
-</blockquote>
-<pre><code>比如在Google 中搜索：搜索*擎 其中的*号代表任何文字。
-
-返回的结果就不仅包含&quot;搜索引擎&quot;，还包含了&quot;搜索收擎&quot;，&quot;搜索巨擎&quot;等内容。
-</code></pre>
-<p>4、inurl</p>
-<blockquote>
-<p>inurl: 指令用于搜索查询词出现在url 中的页面。</p>
-<p>baidu和Google 都支持inurl 指令。inurl 指令支持中文和英文。</p>
-</blockquote>
-<pre><code>比如搜索：inurl:搜索引擎优化 返回的结果都是网址url 中包含&quot;搜索引擎优化&quot;的页面。由于关键词出现在url 中对排名有一定影响，使用inurl:搜索可以更准确地找到竞争对手。
-</code></pre>
-<p>5、inanchor</p>
-<blockquote>
-<p>inanchor:指令返回的结果是导入链接锚文字中包含搜索词的页面。百度不支持inanchor。</p>
-</blockquote>
-<pre><code>比如在Google 搜索 ：inanchor:点击这里 返回的结果页面本身并不一定包含&quot;点击这里&quot;这四个字，而是指向这些页面的链接锚文字中出现了&quot;点击这里&quot;这四个字。
-</code></pre>
-<blockquote>
-<p>可以用来找到某个关键词的竞争对收，而且这些竞争对手往往是做过SEO 的。研究竞争对手页面有哪些外部链接，就可以找到很多链接资源。</p>
-</blockquote>
-<p>6、intitle</p>
-<blockquote>
-<p>intitle: 指令返回的是页面title 中包含关键词的页面。Google 和bd都支持intitle 指令。</p>
-<p>使用intitle 指令找到的文件是更准确的竞争页面。如果关键词只出现在页面可见文字中，而没有出现在title 中，大部分情况是并没有针对关键词进行优化，所以也不是有力的竞争对手。</p>
-</blockquote>
-<p>7、allintitle</p>
-<blockquote>
-<p>allintitle:搜索返回的是页面标题中包含多组关键词的文件。</p>
-</blockquote>
-<pre><code>例如 ：allintitle:SEO 搜索引擎优化， 就相当于：intitle:SEO intitle:搜索引擎优化， 返回的是标题中既包含&quot;SEO&quot;，也包含&quot;搜索引擎优化&quot;的页面
-</code></pre>
-<p>8、allinurl</p>
-<blockquote>
-<p>与allintitle: 类似。</p>
-<p>allinurl:SEO 搜索引擎优化， 就相当于 ：inurl:SEO inurl:搜索引擎优化</p>
-</blockquote>
-<p>9、filetype</p>
-<blockquote>
-<p>用于搜索特定文件格式。Google 和bd都支持filetype 指令。</p>
-</blockquote>
-<pre><code>比如搜索filetype:pdf SEO， 返回的就是包含SEO 这个关键词的所有pdf 文件。
-</code></pre>
-<p>10、site</p>
-<blockquote>
-<p>site:是SEO 最熟悉的高级搜索指令，用来搜索某个域名下的所有文件。</p>
-</blockquote>
-<p>11、linkdomain</p>
-<blockquote>
-<p>linkdomain:指令只适用于雅虎，返回的是某个域名的反向链接。雅虎的反向链接数据还比较准确，是SEO人员研究竞争对手外部链接情况的重要工具之一。</p>
-</blockquote>
-<pre><code>比如搜索： linkdomain:http://cnseotool.com -site:http://cnseotool.com， 得到的就是点石网站的外部链接，因为-site:http://cnseotool.com 已经排除了点石本身的页面，也就是内部 链接，剩下的就都是外部链接了。
-</code></pre>
-<p>12、related</p>
-<blockquote>
-<p>related:指令只适用于Google，返回的结果是与某个网站有关联的页面。</p>
-</blockquote>
-<pre><code>比如搜索 related:http://cnseotool.com
-</code></pre>
-<blockquote>
-<p>我们就可以得到Google 所认为的与点石网站有关联的其他页面。 这种关联到底指的是什么，Google 并没有明确说明，一般认为指的是有共同外部链接的网站。</p>
-</blockquote>
-<ul>
-<li>
-<p>上面介绍的这几个高级搜索指令，单独使用可以找到不少资源，或者可以更精确地定位竞争对 手。把这些指令混合起来使用则更强大。</p>
-</li>
-<li>
-<p>Google 搜索实例</p>
-<p>inurl:gov 减肥</p>
-</li>
-</ul>
-<blockquote>
-<p>返回的就是url 中包含gov，页面中有减肥这个词的页面。很多SEO 人员认为GVM和学校网 站有比较高的权重，找到相关的GVM和学校网站，就找到了最好的链接资源。</p>
-</blockquote>
-<pre><code>inurl:.edu.cn intitle:交换链接 交换链接
-</code></pre>
-<blockquote>
-<p>上面这个指令返回的是来自中国教育和科研计算机网CERNET（edu.cn），也就是学校域名上的包含交换链接这个词的页面。</p>
-<p>从中SEO 人员可以找到愿意交换链接的学校网站。</p>
-</blockquote>
-<ul>
-<li>
-<p>或者使用一个更精确的搜索：</p>
-<p>inurl:.edu.cn intitle:交换链接</p>
-<blockquote>
-<p>返回的则是来自中国教育和科研计算机网CERNET 域名，标题中包含交换链接这四个字的页面，返回的结果大部分应 该是愿意交换链接的学校网站。</p>
-</blockquote>
-</li>
-<li>
-<p>再比如下面这个指令：</p>
-<p>inurl:.edu.cn*register</p>
-</li>
-</ul>
-<blockquote>
-<p>返回的结果是在.中国教育和科研计算机网CERNET 域名上，url 中包含forum以及register这两个单词的页面，也就是 学校论坛的注册页面。找到这些论坛，也就找到了能在高权重域名上留下签名的很多机会。</p>
-</blockquote>
-<ul>
-<li>
-<p>下面这个指令返回的是页面与减肥有关，url 中包含links 这个单词的页面：</p>
-<p>减肥 inurl:links</p>
-<blockquote>
-<p>很多站长把交换链接页面命名为links.html 等，所以这个指令返回的就是与减肥主题相关的交换 链接页面。</p>
-</blockquote>
-</li>
-<li>
-<p>下面这个指令返回的是url 中包含<a href="http://gov.cn/">http://gov.cn</a> 以及links 的页面，也就是GVM域名上的交换链接页面：</p>
-<p>allinurl:gov.cn+links</p>
-</li>
-<li>
-<p>最后一个例子，在雅虎搜索这个指令：</p>
-<p>linkdomain:<a href="http://cnseotool.com/">http://cnseotool.com</a> -linkdomain:<a href="http://cnseotool.com/">http://cnseotool.com</a></p>
-<blockquote>
-<p>返回的是链接到点石网站，却没有链接到我的博客的网站。使用这个指令可以找到很多连向你 的竞争对手或其他同行业网站，却没连向你的网站的页面，这些网站是最好的链接资源。</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>高级搜索指令组合使用变化多端，功能强大。一个合格的SEO必须熟练掌握这几个常用指令的 意义及组合方法，才能更有效率地找到更多竞争对手和链接资源。</p>
-</blockquote>
-<ul>
-<li>
-<p>找外链的时候你可以用这几种命令组合</p>
-<p>例如site:.com inurl:blog post a comment -comments closed -you must be logged in 输入你的关键词</p>
-</li>
-</ul>
-<blockquote>
-<p>site:.com 是指， 只显示.com的网站。 如果你想要 org的链接，就换成 site:.org，inurl:blog 是指博客。 post a comment -comments closed -you must be logged in 是指， 能够写评论的 减去关闭评论的 再减去必须要登录才能写评论的。</p>
-</blockquote>
-<ul>
-<li>附：Google搜索技巧图谱： <img src="http://www.runoob.com/wp-content/uploads/2014/06/91d36cd9e5bef1030380894911782358_m.jpg" alt="img" loading="lazy"></li>
-</ul>
 ]]></content>
     </entry>
 </feed>
