@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-25T03:53:08.629Z</updated>
+    <updated>2020-06-25T03:56:10.783Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -146,7 +146,7 @@ fi
 </ul>
 <ol>
 <li>
-<p>随便登录一个office365账号进入 https://aad.portal.azure.com</p>
+<p>随便登录一个office365账号进入 <a href="https://aad.portal.azure.com">https://aad.portal.azure.com</a></p>
 </li>
 <li>
 <p>选择左侧的 Azure Active Directory，然后右下角点击 创建目录（添加租户）<br>
@@ -159,7 +159,7 @@ fi
 <p>创建用户，角色选 全局管理员</p>
 </li>
 <li>
-<p>Office365全局管理员登录地址：https://admin.microsoft.com</p>
+<p>Office365全局管理员登录地址：<a href="https://admin.microsoft.com">https://admin.microsoft.com</a></p>
 </li>
 </ol>
 <hr>
@@ -168,7 +168,7 @@ fi
 </ul>
 <ol>
 <li>开默认域名的空子号（没有许可证）。</li>
-<li>然后 https://signup.microsoft.com/signup?sku=education<br>
+<li>然后 <a href="https://signup.microsoft.com/signup?sku=education">https://signup.microsoft.com/signup?sku=education</a><br>
 输入刚刚创建的子号邮箱点击 Sign up 登录，然后选择“我是一名教师”</li>
 <li>会提示账号存在，没关系，直接点登录</li>
 <li>一直点击下一步，即可偷渡5000学生许可。</li>
