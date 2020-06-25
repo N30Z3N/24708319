@@ -9,7 +9,7 @@
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
 <title>在线观看影视の网址 | Qiantigers</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/favicon.ico?v=1593081997910">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/favicon.ico?v=1593082444724">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/fonts/font-awesome.css">
 <link
@@ -261,19 +261,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">15</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">15</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">15</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -1823,6 +1823,60 @@ fi
       </div>
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/li-yong-windows-powershell-lai-pi-liang-chuang-jian-office-365ge-chong-ding-yue-yong-hu/"" data-c="
+          &lt;p&gt;本文参考的官方文档:&lt;a href=&#34;https://docs.microsoft.com/zh-cn/office365/enterprise/powershell/create-user-accounts-with-office-365-powershell&#34;&gt;https://docs.microsoft.com/zh-cn/office365/enterprise/powershell/create-user-accounts-with-office-365-powershell&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;首先你的电脑要能运行Windows PowerShell，win10的话，在左下角图标上右键，选择Windows PowerShell（管理员）&lt;/p&gt;
+&lt;p&gt;步骤 1：安装所需软件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Install-Module -Name AzureAD
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;步骤 2：连接到 Office 365 订阅的 Azure AD&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Connect-AzureAD
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;与用于 Windows PowerShell 的 Microsoft Azure Active Directory 模块连接&lt;/p&gt;
+&lt;p&gt;步骤 1：安装所需软件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Install-Module MSOnline
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;出现提示时选择A&lt;/p&gt;
+&lt;p&gt;好了，完成上面的环境安装后，我们就可以开始操作了&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Connect-MsolService
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这时会让你输入账号密码，注意需要有管理权限的（或者具有创建用户权限的管理员）&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;a href=&#34;https://s2.ax1x.com/2019/12/23/lpOT1I.png&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/12/23/lpOT1I.png&#34; alt=&#34;请输入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;p&gt;登陆成功后，我们就能开始操作了&lt;br&gt;
+下面是官方给的批量创建用户的命令，我们就按照这个写就好&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://s2.ax1x.com/2019/12/23/lpOOHS.png&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/12/23/lpOOHS.png&#34; alt=&#34;请输入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;br&gt;
+我在这里给出我用的代码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Import-Csv -Path &amp;quot;D:\qiantigers.csv&amp;quot; | foreach {New-MsolUser -DisplayName $_.DisplayName -FirstName $_.FirstName -LastName $_.LastName -UserPrincipalName $_.UserPrincipalName -UsageLocation $_.UsageLocation -LicenseAssignment $_.AccountSkuId} | Export-Csv -Path &amp;quot;D:\qiantigers.csv&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个代码大概的意思是，读取的是我桌面（C:UsersAdministratorDesktop）的001.csv这个文件，并将结果记录在桌面（C:UsersAdministratorDesktop）的这个NewAccountResults.csv 文件中，大家在使用的时候可以自行修改这两个路径&lt;/p&gt;
+&lt;p&gt;csv文件由5个部分组成&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;a href=&#34;https://s2.ax1x.com/2019/12/23/lpXVN4.png&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/12/23/lpXVN4.png&#34; alt=&#34;请输入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;p&gt;打开我提供的csv文件，UserPrincipalName（就是用户的登陆邮箱）需要修改一下，把后缀修改为你的域名后缀就可以了&lt;br&gt;
+用excel的话，直接按ctrl+h，按下图操作（其中xxxxxxx.com代表你绑定在Office 365的域名）&lt;/p&gt;
+&lt;p&gt;除了UserPrincipalName，你还需要修改LicenseAssignment，就是你要分配给用户什么许可证&lt;/p&gt;
+&lt;p&gt;我的csv文件里面是这样的&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;microsoft:STANDARDWOFFPACK_STUDENT
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;前面这个microsoft，你需要修改为微软给你的二级域名的前面那部分&lt;br&gt;
+例如我的是这个admin@qiantigers.onmicrosoft.com&lt;br&gt;
+就需要把microsoft修改为qiantigers（批量修改的方法在前面有，ctrl+h）&lt;/p&gt;
+&lt;p&gt;后面这个STANDARDWOFFPACK_STUDENT，代表的是学生许可证&lt;br&gt;
+如果你想添加教师，就改为STANDARDWOFFPACK_FACULTY&lt;/p&gt;
+&lt;p&gt;你也可以在Windows PowerShell使用下面这个命令来看你的订阅&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Get-MsolAccountSku
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这些都做好了，就可以真正的开始跑脚本了&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Import-Csv -Path &amp;quot;D:\qiantigers.csv&amp;quot; | foreach {New-MsolUser -DisplayName $_.DisplayName -FirstName $_.FirstName -LastName $_.LastName -UserPrincipalName $_.UserPrincipalName -UsageLocation $_.UsageLocation -LicenseAssignment $_.AccountSkuId} | Export-Csv -Path &amp;quot;D:\qiantigers.csv&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;脚本具体要修改的地方就两个，在文章开头也说过了，前面那个路径代表你的csv的位置，后面那个路径是储存你创建的用户信息的位置&lt;/p&gt;
+&lt;p&gt;大概就是这些啦，文章写的还算比较详细。&lt;/p&gt;
+&lt;p&gt;成果：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;a href=&#34;https://s2.ax1x.com/2019/12/23/lpX1HO.png&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/12/23/lpX1HO.png&#34; alt=&#34;请输入图片描述&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;em&gt;注：转载于https://www.zxd.win/16.html&lt;/em&gt;&lt;/p&gt;
+">利用Windows PowerShell来批量创建Office 365（各种订阅）用户</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/yong-hu-xie-yi/"" data-c="
           &lt;p&gt;欢迎加入1oveClub～&lt;br&gt;
 为了哥们你更好的使用，我觉得有必要说明一下几点保障和要求。&lt;/p&gt;
@@ -1952,9 +2006,10 @@ ImportError: No module named socks&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;导入文章下载&lt;/p&gt;
-&lt;p&gt;软件有3种方式可导入微信文章下载，比如微信收藏等，同时支持批量导入，采集微信文章导出更快捷；&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;软件有3种方式可导入微信文章下载，比如微信收藏等，同时支持批量导入，采集微信文章导出更快捷；&lt;/p&gt;
 &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://www.juyifx.cn/config/img/softDetali/weixinHelper/features_screen_1.png&#34; alt=&#34;批量采集导出微信文章&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;h2 id=&#34;微信文章导出文档多样化提取内容更完整&#34;&gt;&lt;strong&gt;微信文章导出文档&lt;/strong&gt;多样化，提取内容更完整&lt;/h2&gt;
 &lt;p&gt;好的微信文章下载保存到电脑才能永久保存，也方便打印微信文章，多样化的存档格式更能满足绝大多数人的需求&lt;/p&gt;
