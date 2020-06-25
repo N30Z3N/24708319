@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-25T10:58:06.555Z</updated>
+    <updated>2020-06-25T11:15:07.085Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -133,6 +133,54 @@ fi
 </blockquote>
 <h3 id="如果你想要谷歌无限云盘-google-drive-推荐到这个店铺购买16年的g-suit全局挺稳定的店铺链接"><strong>如果你想要谷歌无限云盘 Google drive ，推荐到这个店铺购买，16年的G suit全局，挺稳定的→<a href="https://1ove.club/yiyi">🔗店铺链接</a></strong></h3>
 <p><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/91.jpg" width=320></img></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Office 365 Education 发展(白嫖)历史与申请]]></title>
+        <id>https://www.qiantigers.top/post/office-365-education-fa-zhan-bai-piao-li-shi-yu-shen-qing/</id>
+        <link href="https://www.qiantigers.top/post/office-365-education-fa-zhan-bai-piao-li-shi-yu-shen-qing/">
+        </link>
+        <updated>2020-06-14T11:05:54.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="office365发展历史">Office365发展历史</h2>
+<p>早期的时间线可能会有错误，因为过去太久了，记不清楚了，也不好考证。</p>
+<h2 id="2011-之前">2011 之前</h2>
+<p><strong>N/A</strong>：Office 365 教育版的前身，是个叫做 Live@Edu 的东西，本质就是个给学校用的邮件系统</p>
+<h2 id="2011">2011</h2>
+<p><strong>早期</strong>：Live@Edu 被并入 Office 365 家族，叫做 Office 365 for Education，一切正式开始了</p>
+<h2 id="2012">2012</h2>
+<p><strong>未知</strong>：freedns 上的 .edu 子域，所有申请的都有桌面版授权，名字全部为 Office 365 Education</p>
+<h2 id="2013">2013</h2>
+<p><strong>晚期</strong>：freedns 隐藏了 .edu 域名</p>
+<h2 id="2015">2015</h2>
+<p><strong>早期</strong>：freedns 上出现了一些 .edu.au 子域，就像著名的 eca-jca.edu.au，tbst.edu.au，全部都可以注册 Office 365 Education</p>
+<p><strong>中期</strong>：freedns 隐藏了 .edu.au 域名</p>
+<h2 id="2016">2016</h2>
+<p><strong>早期</strong>：桌面版和在线版分离，在线版仍然叫做 Office 365 Education，桌面版叫做 Office 365 Education Plus</p>
+<p><strong>未知</strong>：freedns 出现了某 gifted school 的 org 域名，可以注册 Office 365 Education Plus；但在公布后不久便被 freedns 隐藏，这时候的 Plus 全局价格大概在 500 左右</p>
+<h2 id="2017">2017</h2>
+<p><strong>早期</strong>：封锁了早期 freedns 注册的全局下的所有管理员账号</p>
+<p><strong>未知</strong>：Office 365 Education 和 Office 365 Education Plus 改名为 Office 365 A1 和 Office 365 A1 Plus；这个时期 A1P 的幸存域名也渐渐玩坏，如 uk 的教育域等</p>
+<h2 id="2018">2018</h2>
+<p><strong>11-22</strong>：部分幸存的 Office 365 A1 Plus 发生了掉许可现象，未使用的许可证被清空；同时新注册的 A1 Plus 不再是 学生 100W + 教师 50W 授权数，而是 5000 + 5000，只有当用满 5000 后才可以增加许可数量，且前提条件是域名有 A1P 注册权限，也就是说外面买到的全局不可能再增加许可证了，因为卖家肯定会删除他的 A1P 域名，并且每次只能增加 300 个许可证；没掉许可的 150W A1P 全局正式宣告绝版，当前市场价在 1W 左右</p>
+<p><strong>12-14</strong>：撤销了全球大多数国家 edu 根域名的 A1 注册权限，目前还有权限的域名列表将在下文放出；此时已不再出现 A1P 掉许可情况，A1P 域名也已基本销声匿迹，幸存 1W 许可证的全局正式稳定登上发售平台</p>
+<p><strong>未知</strong>：再次查封了一批 A1P 全局</p>
+<h2 id="2019">2019</h2>
+<p><strong>早期</strong>：此时，Office 365 A1 Plus 注册方面已彻底洗牌完毕，已经不存在随便注册一个教育域名就可以搞 A1P 的情况了，要想注册 A1P 全局，必须以学校身份和微软签署协议，即签署 Enrollment for Education Solutions (EES)、Open Value Subscription Education Solutions (OVS-ES)、school contract (单独学校合同) 三者之一才会有，并且费用在 10W 以上，同时你还需要具备够硬的英语口语水平，因为你可能需要和美国佬直接 BB</p>
+<p><strong>06-01</strong>：早期被封锁管理员的 A1P 全局下的子号也开始翻车，OneDrive 页面出现了一个删除通知。截止本文发布之时，这些子账号还可以登录，也可以激活桌面软件，但是 OneDrive 已经被清空</p>
+<h2 id="2020">2020</h2>
+<p><strong>04-24</strong>：到这篇文章发布的时候，幸存的 A1P 全局还没有发生翻车的情况；但是我觉得，幸存的域名已被吊销权限的早期 150W 和 2018 年底 1W A1P 全局也会在未来的某一天翻车</p>
+<p><strong>04-27</strong>：今天发现 Nruan 的其中某一个 Office 365 A1P 全局账号被锁定，详细状态看下面的图，怕是要完了，各位 <strong>sch.tw，office.gy</strong> 域的白嫖用户请注意数据备份；同时已验证今年开放的 <strong>nCoV.office.gy</strong> 域暂时未翻车</p>
+<p><strong>4月中下</strong>：存在教育认证（微软叫有教育 TAG）的全局可以免费购买 Microsoft 365 A3 订阅 (FDA70919-1F10-4DF6-9249-A77473011840)</p>
+<p><strong>05-04</strong>：前文所说的 A3 彻底暴露在大量羊毛党面前，引发了一波 A1 全局狂撸与涨价风潮；但由于微软的风控，大部分羊毛 A1 全局购买 A3 后翻车，被微软成功反撸（嗯，不包括我）</p>
+<p><strong>05-06</strong>：大批教育全局被撤销了教育认证（教育 TAG），导致无法再购买教育订阅；涉及的账号疑似是早期 ac.id 等域名注册的，这次应该是一锅端，我想看到的 A1 洗牌环节终于来了！！！我再奶一口，现在掉认证的全局，有些号教育订阅和许可证还没掉，但别急，我觉得会来的。但是，A3 的出现，也基本宣告 A1P 时代的结束~~，我的青春结束了~~</p>
+<p><strong>05-07</strong>：....部分昨天掉认证的全局，认证又回来了，我看不懂微软的操作了，爪巴！</p>
+<p><strong>05-12</strong>：Microsoft 365 A3 锁区</p>
+<p><strong>05-18</strong>：又是个值得纪念的日子，微软撤销了全部未绑定域名的教育认证权限，很好，你的目的达到了</p>
+<p><strong>05-22</strong>：微软第一次官方回应了 Microsoft 365 A3 无人值守学生使用权益是配置错误才出现在后台的，并且只是给 BOT 使用的，并要求管理员在 2020-06 月底前取消使用此订阅。具体通知可前往 管理后台-健康情况-讯息中心 查看</p>
+<p><strong>06-11</strong>：又是个值得纪念的日子，微软第二次下调了自助注册的许可证数目，目前给的 500(A1)/5000(A1P) 学生 + 500 教师，直接少了 10 倍</p>
+<p><strong>06-17</strong>：本次查水表的力度已超出预期，已经开始有部分 2018 年的全局被锁定。</p>
+<figure data-type="image" tabindex="1"><img src="https://img.moedog.org/images/2020/04/27/n365status.png" alt="" loading="lazy"></figure>
+<p><em>注：本文转载于 https://moedog.org/1263.html</em></p>
 ]]></content>
     </entry>
     <entry>
@@ -537,33 +585,6 @@ ImportError: No module named socks</p>
 <audio id="audio" controls="" preload="none">
       <source id="mp3" src="http://pan.qiantigers.top/pan-lib/Upload/%E4%BC%8D%E4%BD%B0-%E7%AA%81%E7%84%B6%E7%9A%84%E8%87%AA%E6%88%91.mp3">
       </audio>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[性价比还行的梯子]]></title>
-        <id>https://www.qiantigers.top/post/xing-jie-bi-huan-xing-de-ti-zi/</id>
-        <link href="https://www.qiantigers.top/post/xing-jie-bi-huan-xing-de-ti-zi/">
-        </link>
-        <updated>2020-04-21T08:31:41.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="推荐科学云加速本人在用">【推荐】科学云加速（本人在用）</h1>
-<p><a href="https://1ove.club/ohssr">🔗注册地址</a></p>
-<blockquote>
-<p>流量：500G<br>
-速度：跑满宽带，非常快<br>
-最低套餐：12元<br>
-推荐套餐：20元/月，无限流量<br>
-使用体验：可以当做主力梯子，有tg群，稳定性也还可以。个人觉得价格适宜。平时会用到下载OD、GD的文件，用它无疑了。</p>
-</blockquote>
-<hr>
-<h1 id="奇异のtravel">奇异のtravel</h1>
-<p><a href="https://1ove.club/qiyi-ssr">🔗奇异链接</a></p>
-<blockquote>
-<p>流量：1T<br>
-速度：较快<br>
-最低套餐：10元<br>
-使用体验：没有V2ray节点，使用的速度稍快一点，跟蜂巢的情况差不多。</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/电话亭.jpg" width=320></img></p>
 ]]></content>
     </entry>
 </feed>
