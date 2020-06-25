@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-25T04:52:26.259Z</updated>
+    <updated>2020-06-25T06:36:35.903Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -232,7 +232,7 @@ ImportError: No module named socks</p>
         <link href="https://www.qiantigers.top/post/wei-xin-gong-zhong-hao-wen-zhang-dao-chu-zhu-shou/">
         </link>
         <updated>2020-06-07T04:50:40.000Z</updated>
-        <summary type="html"><![CDATA[<h2 id="下载地址">下载地址：</h2>
+        <content type="html"><![CDATA[<h1 id="下载地址">下载地址：</h1>
 <ul>
 <li>
 <p>小麦云盘：<a href="http://v.own-cloud.cn/s/epl7667e">🔗下载链接</a></p>
@@ -241,17 +241,6 @@ ImportError: No module named socks</p>
 <p>勿埋我心网盘：<a href="https://pan.qiantigers.top/one-share/Windows-APP/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%E5%AF%BC%E5%87%BA%E5%8A%A9%E6%89%8B.zip">🔗下载链接</a></p>
 </li>
 </ul>
-]]></summary>
-        <content type="html"><![CDATA[<h2 id="下载地址">下载地址：</h2>
-<ul>
-<li>
-<p>小麦云盘：<a href="http://v.own-cloud.cn/s/epl7667e">🔗下载链接</a></p>
-</li>
-<li>
-<p>勿埋我心网盘：<a href="https://pan.qiantigers.top/one-share/Windows-APP/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%E5%AF%BC%E5%87%BA%E5%8A%A9%E6%89%8B.zip">🔗下载链接</a></p>
-</li>
-</ul>
-<!-- more -->
 <h2 id="可任意采集微信公众号历史群发文章">可任意采集微信公众号历史群发文章</h2>
 <p>通过微信文章导出软件就可以帮你把你想导出公众号的所有文章都直接下载保存到电脑，操作简单，人人都会！</p>
 <ul>
@@ -306,21 +295,19 @@ ImportError: No module named socks</p>
 <h3 id="下载微信文章预览包你满意">下载微信文章预览，包你满意</h3>
 <p>专业人做专业事，采集导出就交给微信文章导出软件，助你提高效率，节省时间</p>
 <ul>
-<li></li>
-</ul>
+<li>
 <p>导出pdf格式样例</p>
-<ul>
-<li></li>
-</ul>
+</li>
+<li>
 <p>导出word文档分类保存</p>
-<ul>
-<li></li>
-</ul>
+</li>
+<li>
 <p>下载文章留言评论</p>
-<ul>
-<li></li>
-</ul>
+</li>
+<li>
 <p>内置浏览器</p>
+</li>
+</ul>
 <h3 id="微信公众号文章导出软件更多功能全心为你">微信公众号文章导出软件更多功能，全心为你</h3>
 <p><strong>微信文章下载器</strong>还包含其他近80项辅助功能，使用方便</p>
 <ul>
@@ -328,27 +315,22 @@ ImportError: No module named socks</p>
 <p>二次搜索</p>
 <p>微信文章导出软件对列表中文章进行再次筛选，查找更有价值的内容</p>
 </li>
-<li></li>
 <li>
 <p>API接口</p>
 <p>内置免费开放接口，一键同步微信文章到自己网站</p>
 </li>
-<li></li>
 <li>
 <p>看阅读量</p>
 <p>内置浏览器实时查看阅读量，阅读数据时刻掌握</p>
 </li>
-<li></li>
 <li>
 <p>摘要预览</p>
 <p>无需打开文章链接，即可快速了解文章大概内容</p>
 </li>
-<li></li>
 <li>
 <p>字体设置</p>
 <p>随意调整列表字体大小，大字体界面浏览更舒适</p>
 </li>
-<li></li>
 <li>
 <p>一键复制</p>
 <p>支持一键复制文章内容，随意粘贴到公众号后台</p>
