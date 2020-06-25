@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-25T02:57:07.473Z</updated>
+    <updated>2020-06-25T03:53:08.629Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -133,6 +133,97 @@ fi
 </blockquote>
 <h3 id="如果你想要谷歌无限云盘-google-drive-推荐到这个店铺购买16年的g-suit全局挺稳定的店铺链接"><strong>如果你想要谷歌无限云盘 Google drive ，推荐到这个店铺购买，16年的G suit全局，挺稳定的→<a href="https://1ove.club/yiyi">🔗店铺链接</a></strong></h3>
 <p><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/91.jpg" width=320></img></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[OFFICE365 A1空全局管理+偷渡教程]]></title>
+        <id>https://www.qiantigers.top/post/office365-a1-kong-quan-ju-guan-li-tou-du-jiao-cheng/</id>
+        <link href="https://www.qiantigers.top/post/office365-a1-kong-quan-ju-guan-li-tou-du-jiao-cheng/">
+        </link>
+        <updated>2020-06-13T03:49:46.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>空管理</li>
+</ul>
+<ol>
+<li>
+<p>随便登录一个office365账号进入 https://aad.portal.azure.com</p>
+</li>
+<li>
+<p>选择左侧的 Azure Active Directory，然后右下角点击 创建目录（添加租户）<br>
+区域建议选择 美国（可以享受很多福利，比如E3 SY）</p>
+</li>
+<li>
+<p>右上角通知，进入创建的目录</p>
+</li>
+<li>
+<p>创建用户，角色选 全局管理员</p>
+</li>
+<li>
+<p>Office365全局管理员登录地址：https://admin.microsoft.com</p>
+</li>
+</ol>
+<hr>
+<ul>
+<li>偷渡教程</li>
+</ul>
+<ol>
+<li>开默认域名的空子号（没有许可证）。</li>
+<li>然后 https://signup.microsoft.com/signup?sku=education<br>
+输入刚刚创建的子号邮箱点击 Sign up 登录，然后选择“我是一名教师”</li>
+<li>会提示账号存在，没关系，直接点登录</li>
+<li>一直点击下一步，即可偷渡5000学生许可。</li>
+<li>另外一个订阅的5000许可，反复上面步骤即可。</li>
+<li>前提该全局有教育tag或绑定教育域名</li>
+</ol>
+<p>附：如果你想走走账单（通过购买订阅）无限许可模式：请在试用A5稳定最低一个星期以后尝试，不然有秒封可能性。<br>
+其实还是推荐走偷渡许可模式。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[A1/A1P扫域名脚本]]></title>
+        <id>https://www.qiantigers.top/post/a1a1p-sao-yu-ming-jiao-ben/</id>
+        <link href="https://www.qiantigers.top/post/a1a1p-sao-yu-ming-jiao-ben/">
+        </link>
+        <updated>2020-06-11T03:34:09.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>安装步骤照里面来就行</p>
+</blockquote>
+<p><a href="https://github.com/geuomao/WAEQySRL64fXpNGL">https://github.com/geuomao/WAEQySRL64fXpNGL</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>安装步骤照里面来就行</p>
+</blockquote>
+<p><a href="https://github.com/geuomao/WAEQySRL64fXpNGL">https://github.com/geuomao/WAEQySRL64fXpNGL</a></p>
+<!-- more -->
+<ol>
+<li>
+<p>安装 tor</p>
+<pre><code>apt-get install tor
+service tor status
+</code></pre>
+</li>
+<li>
+<p>下载项目并安装依赖</p>
+<pre><code>yum install git &amp;&amp; git clone [https://github.com/geuomao/WAEQySRL64fXpNGL](https://github.com/geuomao/WAEQySRL64fXpNGL) &amp;&amp; cd WAEQySRL64fXpNGL
+yum install python-pip &amp;&amp; pip install stem pySocket requests beautifulsoup4
+</code></pre>
+</li>
+<li>
+<p>报错处理 1<br>
+stem.SocketError: [Errno 111] Connection refused</p>
+<pre><code>vim /etc/tor/torrc
+ControlPort 9151
+SocksPort 9150
+service tor restart
+</code></pre>
+</li>
+<li>
+<p>报错处理 2<br>
+ImportError: No module named socks</p>
+<pre><code>pip install PySocks &amp;&amp; sudo apt-get install python-socks
+</code></pre>
+</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
@@ -437,129 +528,6 @@ fi
 欢迎来投稿～</strong></p>
 <p><a href="https://dwz.cn/EFQ9ntUa">🔗投稿链接</a></p>
 <p><img src="https://file.moetu.org/images/2020/03/27/7e05de91ceb8873ddfcb445ad107f22c96f092f9e2f951b0.jpg" width=500></img></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MOVER.IO]]></title>
-        <id>https://www.qiantigers.top/post/moverio/</id>
-        <link href="https://www.qiantigers.top/post/moverio/">
-        </link>
-        <updated>2020-04-14T03:32:00.000Z</updated>
-        <content type="html"><![CDATA[<p>如何实现将Google Drive或者OneDrive的文件转移到新的OneDrive里？</p>
-<p>答案很简单，就是使用 https://app.mover.io</p>
-<p>具体简介可以看这个链接→https://www.google.com</p>
-<ul>
-<li>
-<p>使用步骤</p>
-<blockquote>
-<p>1.注册</p>
-</blockquote>
-<ul>
-<li>建议使用微软邮箱</li>
-</ul>
-</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://file.moetu.org/images/2020/04/08/IMG_20200408_1758162bef8bce1d8a4715.png" alt="" loading="lazy"></figure>
-<blockquote>
-<p>2.连接</p>
-</blockquote>
-<ol>
-<li>选择来源</li>
-<li>选择目的地</li>
-<li>start copy</li>
-</ol>
-<figure data-type="image" tabindex="2"><img src="https://file.moetu.org/images/2020/04/08/IMG_20200408_1755438a5b83d2f7baf87f.png" alt="" loading="lazy"></figure>
-<blockquote>
-<p>3.仪表盘</p>
-</blockquote>
-<ul>
-<li>可以查看健康状态、迁移情况等等</li>
-</ul>
-<figure data-type="image" tabindex="3"><img src="https://file.moetu.org/images/2020/04/08/IMG_20200408_175302230a6e11f4949fbd.png" alt="" loading="lazy"></figure>
-<p><strong>如果英文看不懂可以使用Chrome、星愿浏览器搭配谷歌翻译使用。</strong><br>
-<strong>建议谷歌云盘迁移到OneDrive之前，先将谷歌共享的资源复制到自己的谷歌云盘里，这样在迁移的过程不会出错。</strong></p>
-<ul>
-<li>
-<p>总结一下</p>
-<blockquote>
-<ul>
-<li>优点</li>
-</ul>
-</blockquote>
-<ol>
-<li>免费(不知道什么时候会收费，现在没有)。</li>
-<li>不限制网盘数，不限制总流量。</li>
-<li>可以自动跳过同目录重复文件。</li>
-<li>支持不同域的OneDrive。</li>
-<li>官宣是使用的Windows Azure来传输的。</li>
-</ol>
-<blockquote>
-<ul>
-<li>缺点</li>
-</ul>
-</blockquote>
-<ol>
-<li>团队盘(A1，E5，A1P等等)限制单文件大小15G。</li>
-<li>个人盘限制单文件大小10g(我也不知道怎么回事，可能是网站规则限制吧)。</li>
-<li>生成的任务删除不了，只能暂停。</li>
-<li>只能转存到OneDrive，不能转到其他地方。</li>
-<li>无法自动同步更新，只能手动点击。</li>
-</ol>
-</li>
-<li>
-<p>综上所述，是一款不错的云迁移应用。</p>
-</li>
-</ul>
-<p><img src="https://file.moetu.org/images/2020/04/08/484af4a9f280a296c83.jpg" width="320"></img></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[三千书源]]></title>
-        <id>https://www.qiantigers.top/post/san-qian-shu-yuan/</id>
-        <link href="https://www.qiantigers.top/post/san-qian-shu-yuan/">
-        </link>
-        <updated>2020-04-10T10:22:26.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>配合软件『阅读』使用</p>
-</blockquote>
-<h2 id="古有弱水三千今有三千书源"><strong>古有弱水三千，今有三千书源。</strong></h2>
-<p><strong>实际上书源不止三千！</strong></p>
-<p>使用方法：打开阅读app，在书源界面选择从网络导入书源，把下面的链接粘贴上去即可。</p>
-<p>一般来说导入一个就够用了，还有追书的书源</p>
-<p>大多为2.0书源，部分兼容3.0，自行测试。</p>
-<ul>
-<li>随源(3.0书源)：<br>
-<code>https://gitee.com/ecruos/oo/raw/master/yuedu/bookSource.json</code></li>
-<li>N个书源(长期更新)：<br>
-<code>https://raw.githubusercontent.com/CNAD666/MyData/master/novel/bookshelf/N%E4%B8%AA%E4%B9%A6%E6%BA%90(%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0).txt</code></li>
-<li>一程书源：
-<ul>
-<li>【3.0书源】 <code>https://gitee.com/vpq/codes/ez5qu1ifx260layps3b7981/raw?blob_name=3.0sy.json</code></li>
-<li>【2.0书源】 <code>https://gitee.com/vpq/codes/spl03fq64tcxinywjzoe230/raw?blob_name=2.0sy.json</code></li>
-</ul>
-</li>
-<li>768个校对书源：<br>
-<code>https://raw.githubusercontent.com/CNAD666/MyData/master/novel/bookshelf/768%E4%B8%AA%E6%A0%A1%E5%AF%B9%E4%B9%A6%E6%BA%90.txt</code></li>
-<li>54个优质书源(14个发现)：<br>
-<code>https://raw.githubusercontent.com/CNAD666/MyData/master/novel/bookshelf/54%E4%B8%AA%E4%BC%98%E8%B4%A8%E4%B9%A6%E6%BA%90(14%E4%B8%AA%E5%8F%91%E7%8E%B0).xml</code></li>
-<li>14个发现书源：<br>
-<code>https://raw.githubusercontent.com/CNAD666/MyData/master/novel/bookshelf/14%E4%B8%AA%E5%8F%91%E7%8E%B0%E4%B9%A6%E6%BA%90.txt</code></li>
-<li>十源:<br>
-<code>https://gitee.com/xjlxx/yuedu/raw/master/%E5%8D%81%E6%BA%90%20%E4%BC%98%E8%B4%A8.json</code></li>
-<li>900+书源:<br>
-<code>https://gitlab.com/GJTQQ/YueDu/raw/master/Share/915.json</code></li>
-<li>600+书源：<br>
-<code>https://gitee.com/ecruos/oo/raw/master/yuedu/bookSource.json</code></li>
-<li>400+书源:<br>
-<code>https://gitlab.com/GJTQQ/YueDu/raw/master/Share/425.json</code></li>
-<li>100+书源:<br>
-<code>https://gitlab.com/GJTQQ/YueDu/raw/master/Share/WxSource.json</code></li>
-<li>XIU书源（会定期更新）<br>
-<code>https://xiu2.github.io/yuedu/shuyuan</code></li>
-<li>净化规则:<br>
-<code>https://gitlab.com/GJTQQ/YueDu/raw/master/Share/Rule.txt</code></li>
-</ul>
-<p><img src="https://ae01.alicdn.com/kf/U06074f1527734f3b92f321856323fd4cX.jpg" width=320></img></p>
 ]]></content>
     </entry>
 </feed>
