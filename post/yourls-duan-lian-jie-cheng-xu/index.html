@@ -8,7 +8,7 @@
 <meta name="keywords" content="OneDrive,云盘,资源,教程,技巧,干货,">
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
-<title>A1/A1P扫域名脚本 | Qiantigers</title>
+<title>YOURLS短链接程序 | Qiantigers</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/favicon.ico?v=1593329410993">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/fonts/font-awesome.css">
@@ -58,8 +58,8 @@
 </script>
 
 
-  <meta name="description" content="A1/A1P扫域名脚本" />
-  <meta name="keywords" content="微软,教程" />
+  <meta name="description" content="YOURLS短链接程序" />
+  <meta name="keywords" content="短链接,教程" />
 </head>
 
 <body>
@@ -249,7 +249,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/images/avatar.png"/>
@@ -308,6 +309,208 @@
   </div>
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a>
+<ul>
+<li><a href="#%E4%B8%8B%E8%BD%BD">下载</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AEmysql%E6%95%B0%E6%8D%AE%E5%BA%93">配置MySQL数据库</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%AF%86%E7%A0%81">设置用户名密码</a></li>
+<li><a href="#%E5%85%B6%E5%AE%83%E8%AE%BE%E7%BD%AE">其它设置</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E4%BC%AA%E9%9D%99%E6%80%81">设置伪静态</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87">设置中文</a></li>
+<li><a href="#%E8%AE%BF%E9%97%AE%E6%B5%8B%E8%AF%95">访问测试</a></li>
+<li><a href="#%E8%A1%A5%E5%85%85">补充</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -395,8 +598,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://www.qiantigers.top/post/a1a1p-sao-yu-ming-jiao-ben/">
-      A1/A1P扫域名脚本
+    <a class="post-title-link" href="https://www.qiantigers.top/post/yourls-duan-lian-jie-cheng-xu/">
+      YOURLS短链接程序
     </a>
   </h1>
   <div class="post-meta">
@@ -404,7 +607,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-06-11</span>
+      <span>2020-06-28</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -413,8 +616,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://www.qiantigers.top/tag/wei-ruan/">
-        <span>微软</span>
+      <a href="https://www.qiantigers.top/tag/duan-lian-jie/">
+        <span>短链接</span>
       </a>、
       
       
@@ -429,17 +632,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>4<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>110<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>800<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/a1a1p-sao-yu-ming-jiao-ben/" data-flag-title="A1/A1P扫域名脚本" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/yourls-duan-lian-jie-cheng-xu/" data-flag-title="YOURLS短链接程序" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -448,40 +651,100 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <blockquote>
-<p>安装步骤照里面来就行</p>
-</blockquote>
-<p><a href="https://github.com/geuomao/WAEQySRL64fXpNGL">https://github.com/geuomao/WAEQySRL64fXpNGL</a></p>
-<!-- more -->
-<ol>
-<li>
-<p>安装 tor</p>
-<pre><code>apt-get install tor
-service tor status
+              <h2 id="前言">前言</h2>
+<p>YOURLS是一款使用PHP + Mysql开发的短链接程序，相比公共短网址好处是数据掌握在自己手中，可控性更高。</p>
+<h2 id="安装">安装</h2>
+<h3 id="下载">下载</h3>
+<p>YOURLS免费开源，可以在<a href="https://github.com/YOURLS/YOURLS/releases">Releases · YOURLS/YOURLS</a>下载最新版本，解压后放到站点根目录，并将<code>config-sample.php</code>更名为<code>config.php</code>。</p>
+<h3 id="配置mysql数据库">配置MySQL数据库</h3>
+<p>需要先新建一个MySQL数据库，并设置好账号、密码（略过），然后修改<code>user/config.php</code>配置文件，填写正确的MySQL信息，配置信息如下。</p>
+<pre><code>#数据库用户名
+define( 'YOURLS_DB_USER', 'yourls' );
+ 
+#数据库密码
+define( 'YOURLS_DB_PASS', 'xxxxxxxx' );
+ 
+#数据库名
+define( 'YOURLS_DB_NAME', 'yourls' );
+ 
+#数据库连接地址
+define( 'YOURLS_DB_HOST', 'localhost' );
+ 
+#数据库表前缀，一般保持默认
+define( 'YOURLS_DB_PREFIX', 'yourls_' );
 </code></pre>
-</li>
-<li>
-<p>下载项目并安装依赖</p>
-<pre><code>yum install git &amp;&amp; git clone [https://github.com/geuomao/WAEQySRL64fXpNGL](https://github.com/geuomao/WAEQySRL64fXpNGL) &amp;&amp; cd WAEQySRL64fXpNGL
-yum install python-pip &amp;&amp; pip install stem pySocket requests beautifulsoup4
+<h3 id="设置用户名密码">设置用户名密码</h3>
+<p>#修改配置文件</p>
+<pre><code>vi user/config.php
+#设置用户名和密码，可设置多个用户
+$yourls_user_passwords = array(
+        'username' =&gt; 'password',
+        // 'username2' =&gt; 'password2',
+        // You can have one or more 'login'=&gt;'password' lines
+        );
 </code></pre>
-</li>
-<li>
-<p>报错处理 1<br>
-stem.SocketError: [Errno 111] Connection refused</p>
-<pre><code>vim /etc/tor/torrc
-ControlPort 9151
-SocksPort 9150
-service tor restart
+<h3 id="其它设置">其它设置</h3>
+<pre><code>#设置站点域名
+define( 'YOURLS_SITE', 'http://your-own-domain-here.com' );
+#GMT时间偏移
+define( 'YOURLS_HOURS_OFFSET', '-5' );
+#是否私有
+define( 'YOURLS_PRIVATE', 'true' );
+#设置cookie，可访问https://api.yourls.org/services/cookiekey/1.0/生成
+define( 'YOURLS_COOKIEKEY', 'qQ4KhL_pu|s@Zm7n#%:b^{A[vhm' );
+#mysql连接方式
+define（'YOURLS_DB_DRIVER'，'mysqli'）;
 </code></pre>
-</li>
-<li>
-<p>报错处理 2<br>
-ImportError: No module named socks</p>
-<pre><code>pip install PySocks &amp;&amp; sudo apt-get install python-socks
+<h3 id="设置伪静态">设置伪静态</h3>
+<p>YOURLS默认已经内置<code>Apache .htaccess</code>规则，如果是Apache服务器且开启了伪静态支持一般不用在设置，如果您使用的Nginx，请添加下面的规则，并重载Nginx</p>
+<pre><code>location / {
+    try_files $uri $uri/ /yourls-loader.php?$args;
+}
 </code></pre>
-</li>
-</ol>
+<p>或</p>
+<pre><code>location /
+{
+if (!-f $request_filename){
+        set $rule_0 1$rule_0;
+}
+if (!-d $request_filename){
+        set $rule_0 2$rule_0;
+}
+if ($rule_0 = &quot;21&quot;){
+        rewrite ^/([0-9A-Za-z]+)/?$ /yourls-go.php?id=$1 last;
+}
+        rewrite ^/([0-9A-Za-z]+)\+/?$ /yourls-infos.php?id=$1 last;
+        rewrite ^/([0-9A-Za-z]+)\+all/?$ /yourls-infos.php?id=$1&amp;all=1 last;
+}
+</code></pre>
+<h3 id="设置中文">设置中文</h3>
+<p>YOURLS默认是英文界面，不方便操作，看到有网友提供了汉化，访问<a href="https://github.com/guox/yourls-zh_CN/archive/master.zip">yourls-zh_CN</a>下载汉化包，并解压至<code>user/languages</code>目录，然后修改<code>user/config.php</code>。</p>
+<pre><code>#语言包放到languages
+[root@aliyun-hz languages]# ll
+total 68
+-rw-r--r-- 1 www www   210 Apr 23  2017 index.html
+-rw-r--r-- 1 www www    51 Mar 24  2013 README.md
+-rw-r--r-- 1 www www 22123 Mar 24  2013 zh_CN.mo
+-rw-r--r-- 1 www www 32783 Mar 24  2013 zh_CN.po
+#修改配置文件启用中文
+vi user/config.php
+#启用中文
+define( 'YOURLS_LANG', 'zh_CN' );
+</code></pre>
+<h3 id="访问测试">访问测试</h3>
+<p>完成以上配置后访问<code>http://yourdomain.com/admin</code>完成初安装，输入步骤3中设置的账号、密码进行登录。</p>
+<h3 id="补充">补充</h3>
+<p>在访问<code>http://yourdomain.com/admin</code>时可能会出现500错误，这是由于数据库编码方式造成的。修改编码方式为UTF8即可。</p>
+<pre><code>mysql -u root -p 数据库密码
+ALTER DATABASE 数据库名称 CHARACTER set = utf8;
+exit;
+</code></pre>
+<p>如果想短链设置为半公开，也即后台管理有密码，但是别人也可以添加短链接，则设置<code>define( 'YOURLS_PRIVATE', 'true' );</code>并且将yourl存放目录下的sample-public-front-page.txt 重命名为index.php。</p>
+<pre><code>cp sample-public-front-page.txt index.php
+</code></pre>
+<p>此时访问主页则不会出现404页面。</p>
+<h2 id="总结">总结</h2>
+<p>YOURLS还可以对链接数据进行统计，包括访问量/地区/来源等，同时还提供API支持（参考官方文档），功能对于个人来说基本够用，但是界面确有点简约，不过这无伤大雅。</p>
 
             </div>
             
@@ -494,7 +757,7 @@ ImportError: No module named socks</p>
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://www.qiantigers.top/post/a1a1p-sao-yu-ming-jiao-ben/" title="A1/A1P扫域名脚本">https://www.qiantigers.top/post/a1a1p-sao-yu-ming-jiao-ben/</a>
+      <a href="https://www.qiantigers.top/post/yourls-duan-lian-jie-cheng-xu/" title="YOURLS短链接程序">https://www.qiantigers.top/post/yourls-duan-lian-jie-cheng-xu/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -503,7 +766,7 @@ ImportError: No module named socks</p>
   </ul>
   <div class="tags">
     
-      <a href="https://www.qiantigers.top/tag/wei-ruan/"># 微软</a>
+      <a href="https://www.qiantigers.top/tag/duan-lian-jie/"># 短链接</a>
     
       <a href="https://www.qiantigers.top/tag/jiao-cheng/"># 教程</a>
     
@@ -511,15 +774,11 @@ ImportError: No module named socks</p>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="OFFICE365 A1空全局管理+偷渡教程" href="https://www.qiantigers.top/post/office365-a1-kong-quan-ju-guan-li-tou-du-jiao-cheng/">OFFICE365 A1空全局管理+偷渡教程</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="OFFICE365 A1空全局管理+偷渡教程" href="https://www.qiantigers.top/post/office365-a1-kong-quan-ju-guan-li-tou-du-jiao-cheng/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="微信公众号文章导出助手" href="https://www.qiantigers.top/post/wei-xin-gong-zhong-hao-wen-zhang-dao-chu-zhu-shou/">微信公众号文章导出助手</a>
-        <a class="nav-mobile-next" title="微信公众号文章导出助手" href="https://www.qiantigers.top/post/wei-xin-gong-zhong-hao-wen-zhang-dao-chu-zhu-shou/">下一篇</a>
+        <a class="nav-pc-next" title="Gride+GitHub+VPS" href="https://www.qiantigers.top/post/gridegithubvps/">Gride+GitHub+VPS</a>
+        <a class="nav-mobile-next" title="Gride+GitHub+VPS" href="https://www.qiantigers.top/post/gridegithubvps/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

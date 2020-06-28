@@ -9,7 +9,7 @@
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
 <title>发现一个记录笔记的工具，用起来真心爽 | Qiantigers</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/favicon.ico?v=1593328782065">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/favicon.ico?v=1593329410993">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/fonts/font-awesome.css">
 <link
@@ -271,19 +271,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">17</span>
+        <span class="site-item-stat-count">18</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">17</span>
+        <span class="site-item-stat-count">18</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">17</span>
+        <span class="site-item-stat-count">18</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -1596,6 +1596,105 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/yourls-duan-lian-jie-cheng-xu/"" data-c="
+          &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;YOURLS是一款使用PHP + Mysql开发的短链接程序，相比公共短网址好处是数据掌握在自己手中，可控性更高。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;h3 id=&#34;下载&#34;&gt;下载&lt;/h3&gt;
+&lt;p&gt;YOURLS免费开源，可以在&lt;a href=&#34;https://github.com/YOURLS/YOURLS/releases&#34;&gt;Releases · YOURLS/YOURLS&lt;/a&gt;下载最新版本，解压后放到站点根目录，并将&lt;code&gt;config-sample.php&lt;/code&gt;更名为&lt;code&gt;config.php&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;配置mysql数据库&#34;&gt;配置MySQL数据库&lt;/h3&gt;
+&lt;p&gt;需要先新建一个MySQL数据库，并设置好账号、密码（略过），然后修改&lt;code&gt;user/config.php&lt;/code&gt;配置文件，填写正确的MySQL信息，配置信息如下。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#数据库用户名
+define( &#39;YOURLS_DB_USER&#39;, &#39;yourls&#39; );
+ 
+#数据库密码
+define( &#39;YOURLS_DB_PASS&#39;, &#39;xxxxxxxx&#39; );
+ 
+#数据库名
+define( &#39;YOURLS_DB_NAME&#39;, &#39;yourls&#39; );
+ 
+#数据库连接地址
+define( &#39;YOURLS_DB_HOST&#39;, &#39;localhost&#39; );
+ 
+#数据库表前缀，一般保持默认
+define( &#39;YOURLS_DB_PREFIX&#39;, &#39;yourls_&#39; );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;设置用户名密码&#34;&gt;设置用户名密码&lt;/h3&gt;
+&lt;p&gt;#修改配置文件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vi user/config.php
+#设置用户名和密码，可设置多个用户
+$yourls_user_passwords = array(
+        &#39;username&#39; =&amp;gt; &#39;password&#39;,
+        // &#39;username2&#39; =&amp;gt; &#39;password2&#39;,
+        // You can have one or more &#39;login&#39;=&amp;gt;&#39;password&#39; lines
+        );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;其它设置&#34;&gt;其它设置&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#设置站点域名
+define( &#39;YOURLS_SITE&#39;, &#39;http://your-own-domain-here.com&#39; );
+#GMT时间偏移
+define( &#39;YOURLS_HOURS_OFFSET&#39;, &#39;-5&#39; );
+#是否私有
+define( &#39;YOURLS_PRIVATE&#39;, &#39;true&#39; );
+#设置cookie，可访问https://api.yourls.org/services/cookiekey/1.0/生成
+define( &#39;YOURLS_COOKIEKEY&#39;, &#39;qQ4KhL_pu|s@Zm7n#%:b^{A[vhm&#39; );
+#mysql连接方式
+define（&#39;YOURLS_DB_DRIVER&#39;，&#39;mysqli&#39;）;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;设置伪静态&#34;&gt;设置伪静态&lt;/h3&gt;
+&lt;p&gt;YOURLS默认已经内置&lt;code&gt;Apache .htaccess&lt;/code&gt;规则，如果是Apache服务器且开启了伪静态支持一般不用在设置，如果您使用的Nginx，请添加下面的规则，并重载Nginx&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;location / {
+    try_files $uri $uri/ /yourls-loader.php?$args;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;或&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;location /
+{
+if (!-f $request_filename){
+        set $rule_0 1$rule_0;
+}
+if (!-d $request_filename){
+        set $rule_0 2$rule_0;
+}
+if ($rule_0 = &amp;quot;21&amp;quot;){
+        rewrite ^/([0-9A-Za-z]+)/?$ /yourls-go.php?id=$1 last;
+}
+        rewrite ^/([0-9A-Za-z]+)\+/?$ /yourls-infos.php?id=$1 last;
+        rewrite ^/([0-9A-Za-z]+)\+all/?$ /yourls-infos.php?id=$1&amp;amp;all=1 last;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;设置中文&#34;&gt;设置中文&lt;/h3&gt;
+&lt;p&gt;YOURLS默认是英文界面，不方便操作，看到有网友提供了汉化，访问&lt;a href=&#34;https://github.com/guox/yourls-zh_CN/archive/master.zip&#34;&gt;yourls-zh_CN&lt;/a&gt;下载汉化包，并解压至&lt;code&gt;user/languages&lt;/code&gt;目录，然后修改&lt;code&gt;user/config.php&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#语言包放到languages
+[root@aliyun-hz languages]# ll
+total 68
+-rw-r--r-- 1 www www   210 Apr 23  2017 index.html
+-rw-r--r-- 1 www www    51 Mar 24  2013 README.md
+-rw-r--r-- 1 www www 22123 Mar 24  2013 zh_CN.mo
+-rw-r--r-- 1 www www 32783 Mar 24  2013 zh_CN.po
+#修改配置文件启用中文
+vi user/config.php
+#启用中文
+define( &#39;YOURLS_LANG&#39;, &#39;zh_CN&#39; );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;访问测试&#34;&gt;访问测试&lt;/h3&gt;
+&lt;p&gt;完成以上配置后访问&lt;code&gt;http://yourdomain.com/admin&lt;/code&gt;完成初安装，输入步骤3中设置的账号、密码进行登录。&lt;/p&gt;
+&lt;h3 id=&#34;补充&#34;&gt;补充&lt;/h3&gt;
+&lt;p&gt;在访问&lt;code&gt;http://yourdomain.com/admin&lt;/code&gt;时可能会出现500错误，这是由于数据库编码方式造成的。修改编码方式为UTF8即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mysql -u root -p 数据库密码
+ALTER DATABASE 数据库名称 CHARACTER set = utf8;
+exit;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果想短链设置为半公开，也即后台管理有密码，但是别人也可以添加短链接，则设置&lt;code&gt;define( &#39;YOURLS_PRIVATE&#39;, &#39;true&#39; );&lt;/code&gt;并且将yourl存放目录下的sample-public-front-page.txt 重命名为index.php。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cp sample-public-front-page.txt index.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此时访问主页则不会出现404页面。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;YOURLS还可以对链接数据进行统计，包括访问量/地区/来源等，同时还提供API支持（参考官方文档），功能对于个人来说基本够用，但是界面确有点简约，不过这无伤大雅。&lt;/p&gt;
+">YOURLS短链接程序</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/gridegithubvps/"" data-c="
