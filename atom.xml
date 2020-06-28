@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-28T12:45:57.054Z</updated>
+    <updated>2020-06-28T13:39:57.864Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,177 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[Google Drive 百宝箱(GitHub+宝塔版)]]></title>
+        <id>https://www.qiantigers.top/post/google-drive-bai-bao-xiang-githubbao-ta-ban/</id>
+        <link href="https://www.qiantigers.top/post/google-drive-bai-bao-xiang-githubbao-ta-ban/">
+        </link>
+        <updated>2020-06-28T13:14:31.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="google-drive-百宝箱">Google Drive 百宝箱</h1>
+<blockquote>
+<p>不只是最快的 google drive 拷贝工具 <a href="https://github.com/iwestlin/gd-utils/blob/master/compare.md">与其他工具的对比</a></p>
+</blockquote>
+<h3 id="github地址httpsgithubcomiwestlingd-utils">GitHub地址：<a href="https://github.com/iwestlin/gd-utils">https://github.com/iwestlin/gd-utils</a></h3>
+<h2 id="功能简介">功能简介</h2>
+<p>本工具目前支持以下功能：</p>
+<ul>
+<li>统计任意（您拥有相关权限的，下同，不再赘述）目录的文件信息，且支持以各种形式（html, table, json）导出。<br>
+支持中断恢复，且统计过的目录（包括其所有子孙目录）信息会记录在本地数据库文件中（gdurl.sqlite） 请在本项目目录下命令行输入 <code>./count -h</code> 查看使用帮助</li>
+<li>拷贝任意目录所有文件到您指定目录，同样支持中断恢复。 支持根据文件大小过滤，可输入 <code>./copy -h</code> 查看使用帮助</li>
+<li>对任意目录进行去重，删除同一目录下的md5值相同的文件（只保留一个），删除空目录。 命令行输入 <code>./dedupe -h</code> 查看使用帮助</li>
+<li>在 config.js 里完成相关配置后，可以将本项目部署在（可正常访问谷歌服务的）服务器上，提供 http api 文件统计接口</li>
+<li>支持 telegram bot，配置完成后，上述功能均可通过 bot 进行操作</li>
+</ul>
+<h2 id="demo">demo</h2>
+<p>https://drive.google.com/drive/folders/124pjM5LggSuwI1n40bcD5tQ13wS0M6wg</p>
+<h2 id="环境配置">环境配置</h2>
+<p>本工具需要安装nodejs，客户端安装请访问https://nodejs.org/zh-cn/download/，服务器安装可参考https://github.com/nodesource/distributions/blob/master/README.md#debinstall</p>
+<p>建议选择v12版本的node，以防接下来安装依赖出错。</p>
+<p>如果你的网络环境无法正常访问谷歌服务，需要先在命令行进行一些配置：（如果可以正常访问则跳过此节）</p>
+<pre><code>http_proxy=&quot;YOUR_PROXY_URL&quot; &amp;&amp; https_proxy=$http_proxy &amp;&amp; HTTP_PROXY=$http_proxy &amp;&amp; HTTPS_PROXY=$http_proxy
+</code></pre>
+<p>请把<code>YOUR_PROXY_URL</code>替换成你自己的代理地址</p>
+<h2 id="依赖安装">依赖安装</h2>
+<ul>
+<li>命令行执行<code>git clone https://github.com/iwestlin/gd-utils &amp;&amp; cd gd-utils</code> 克隆并切换到本项目文件夹下</li>
+<li>执行 <code>npm i</code> 安装依赖，部分依赖可能需要代理环境才能下载，所以需要上一步的配置</li>
+</ul>
+<p>如果在安装过程中发生报错，请切换nodejs版本到v12再试。如果报错信息里有<code>Error: not found: make</code>之类的消息，说明你的命令行环境缺少make命令，可参考<a href="https://askubuntu.com/questions/192645/make-command-not-found">这里</a>或直接google搜索<code>Make Command Not Found</code></p>
+<p>如果报错信息里有 <code>better-sqlite3</code>，先执行 <code>npm config set unsafe-perm=true</code> 然后 <code>rm -rf node_module</code> 删掉依赖目录，最后再执行下<code>npm i</code>安装试试。</p>
+<p>依赖安装完成后，项目文件夹下会多出个<code>node_modules</code>目录，请不要删除它，接下来进行下一步配置。</p>
+<h2 id="service-account-配置">Service Account 配置</h2>
+<p>强烈建议使用service account（后称SA）, 获取方法请参见 <a href="https://gsuitems.com/index.php/archives/13/#%E6%AD%A5%E9%AA%A42%E7%94%9F%E6%88%90serviceaccounts">https://gsuitems.com/index.php/archives/13/</a> 获取到 SA 的 json 文件后，请将其拷贝到 <code>sa</code> 目录下</p>
+<p>配置好 SA 以后，如果你不需要对个人盘下的文件进行操作，可跳过[个人帐号配置]这节，而且执行命令的时候，记得带上 <code>-S</code> 参数告诉程序使用SA授权进行操作。</p>
+<h2 id="个人帐号配置">个人帐号配置</h2>
+<ul>
+<li>命令行执行 <code>rclone config file</code> 找到 rclone 的配置文件路径</li>
+<li>打开这个配置文件 <code>rclone.conf</code>, 找到 <code>client_id</code>, <code>client_secret</code> 和 <code>refresh_token</code> 这三个变量，将其分别填入本项目下的 <code>config.js</code> 中，需要注意这三个值必须被成对的英文引号包裹，且引号后以英文逗号结尾，也就是需要符合JavaScript的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Object_initializer">对象语法</a></li>
+</ul>
+<p>如果你没有配置过rclone，可以搜索<code>rclone google drive 教程</code>完成相关配置。</p>
+<p>如果你的<code>rclone.conf</code>里没有<code>client_id</code>和<code>client_secret</code>，说明你配置rclone的时候默认用了rclone自己的client_id，连rclone自己<a href="https://github.com/rclone/rclone/blob/8d55367a6a2f47a1be7e360a872bd7e56f4353df/docs/content/drive.md#making-your-own-client_id">都不建议这样做</a>，因为大家共享了它的接口调用限额，在使用高峰期可能会触发限制。</p>
+<p>获取自己的clinet_id可以参见这两篇文章：<a href="https://github.com/Cloudbox/Cloudbox/wiki/Google-Drive-API-Client-ID-and-Client-Secret">Cloudbox/wiki/Google-Drive-API-Client-ID-and-Client-Secret</a> 和 https://p3terx.com/archives/goindex-google-drive-directory-index.html#toc_2</p>
+<p>获取到client_id和client_secret后，再次执行一遍<code>rclone config</code>，创建一个新的remote，<strong>在配置过程中一定要填入你新获取的clinet_id和client_secret</strong>，就能在<code>rclone.conf</code>里看到新获取的<code>refresh_token</code>了。<strong>注意，不能使用之前的refrest_token</strong>，因为它对应的是rclone自带的client_id</p>
+<p>参数配置好以后，在命令行执行 <code>node check.js</code>，如果命令返回了你的谷歌硬盘根目录的数据，说明配置成功，可以开始使用本工具了。</p>
+<h2 id="bot配置">Bot配置</h2>
+<p>如果要使用 telegram bot 功能，需要进一步配置。</p>
+<p>首先在 https://core.telegram.org/bots#6-botfather 根据指示拿到 bot 的 token，然后填入 config.js 中的 <code>tg_token</code> 变量。</p>
+<p>接下来需要将代码部署到服务器上。 如果你一开始就是在服务器上配置的，可以直接执行<code>npm i pm2 -g</code></p>
+<p>如果你之前是在本地操作的，请在服务器上同样重复一遍，配置好相关参数后，执行<code>npm i pm2 -g</code>安装进程守护程序pm2</p>
+<p>安装好pm2之后，执行 <code>pm2 start server.js</code>，代码运行后会在服务器上监听<code>23333</code>端口。</p>
+<p><em>如果你不想用nginx，可以将<code>server.js</code>中的<code>23333</code>改成<code>80</code>直接监听80端口（可能需要root权限）</em></p>
+<p>接下来可通过nginx或其他工具起一个web服务，示例nginx配置：</p>
+<pre><code>server {
+  listen 80;
+  server_name your.server.name;
+
+  location / {
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_pass http://127.0.0.1:23333/;
+  }
+}
+</code></pre>
+<p>配置好nginx后，可以再套一层cloudflare，具体教程请自行搜索。</p>
+<p>检查网站是否部署成功，可以命令行执行（请将YOUR_WEBSITE_URL替换成你的网址）</p>
+<pre><code>curl 'YOUR_WEBSITE_URL/api/gdurl/count?fid=124pjM5LggSuwI1n40bcD5tQ13wS0M6wg'
+</code></pre>
+<figure data-type="image" tabindex="1"><a href="https://github.com/iwestlin/gd-utils/blob/master/static/count.png"><img src="https://github.com/iwestlin/gd-utils/raw/master/static/count.png" alt="img" loading="lazy"></a></figure>
+<p>如果返回了这样的文件统计，说明部署成功了。</p>
+<p>最后，在命令行执行（请将[YOUR_WEBSITE]和[YOUR_BOT_TOKEN]分别替换成你自己的网址和bot token）</p>
+<pre><code>curl -F &quot;url=[YOUR_WEBSITE]/api/gdurl/tgbot&quot; 'https://api.telegram.org/bot[YOUR_BOT_TOKEN]/setWebhook'
+</code></pre>
+<p>这样，就将你的服务器连接上你的 telegram bot 了，试着给bot发送个 <code>/help</code>，如果它回复给你使用说明，那就配置成功了。</p>
+<h2 id="补充说明">补充说明</h2>
+<p>在<code>config.js</code>文件里，还有另外的几个参数：</p>
+<pre><code>// 单次请求多少毫秒未响应以后超时（基准值，若连续超时则下次调整为上次的2倍）
+const TIMEOUT_BASE = 7000
+
+// 最大超时设置，比如某次请求，第一次7s超时，第二次14s，第三次28s，第四次56s，第五次不是112s而是60s，后续同理
+const TIMEOUT_MAX = 60000
+
+const LOG_DELAY = 5000 // 日志输出时间间隔，单位毫秒
+const PAGE_SIZE = 1000 // 每次网络请求读取目录下的文件数，数值越大，越有可能超时，不得超过1000
+
+const RETRY_LIMIT = 7 // 如果某次请求失败，允许其重试的最大次数
+const PARALLEL_LIMIT = 20 // 网络请求的并行数量，可根据网络环境调整
+
+const DEFAULT_TARGET = '' // 必填，拷贝默认目的地ID，如果不指定target，则会拷贝到此处，建议填写团队盘ID，注意要用英文引号包裹
+</code></pre>
+<p>读者可根据各自情况进行调整</p>
+<h2 id="注意事项">注意事项</h2>
+<p>程序的原理是调用了<a href="https://developers.google.com/drive/api/v3/reference/files/list">google drive官方接口</a>，递归获取目标文件夹下所有文件及其子文件夹信息，粗略来讲，某个目录下包含多少个文件夹，就至少需要这么多次请求才能统计完成。</p>
+<p>目前尚不知道google是否会对接口做频率限制，也不知道会不会影响google账号本身的安全。</p>
+<p><strong>请勿滥用，后果自负</strong></p>
+<hr>
+<h1 id="宝塔版">宝塔版</h1>
+<h3 id="本教程在原教程的基础上进行细节补充并且操作基于宝塔对小白更友好">本教程在原教程的基础上进行细节补充，并且操作基于宝塔，对小白更友好！</h3>
+<h4 id="安装宝塔面板">安装宝塔面板:</h4>
+<h6 id="centos安装命令"><strong>Centos安装命令</strong></h6>
+<pre><code class="language-javascript">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh
+</code></pre>
+<h6 id="ubuntudeepin安装命令"><strong>Ubuntu/Deepin安装命令</strong></h6>
+<pre><code class="language-javascript">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh
+</code></pre>
+<h6 id="debian安装命令"><strong>Debian安装命令：</strong></h6>
+<pre><code class="language-javascript">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; bash install.sh
+</code></pre>
+<p>安装好宝塔面板后，根据提示安装Ngnix，web环境, 然后在宝塔面板软件管理安装PM2管理器，安装好会自带node.js。</p>
+<figure data-type="image" tabindex="2"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/PM2.5-1024x403.jpg" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-130246.jpg" alt="img" loading="lazy"></figure>
+<p>在宝塔里新建一个网站，填写你的域名(请提前解析好你的域名！)使用宝塔自带的一申请SSL证书。</p>
+<figure data-type="image" tabindex="4"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-130923.jpg" alt="img" loading="lazy"></figure>
+<p>SSH连接终端克隆项目到本地</p>
+<pre><code class="language-javascript">git clone https://github.com/iwestlin/gd-utils &amp;&amp; cd gd-utils
+</code></pre>
+<h4 id="安装依赖">安装依赖</h4>
+<pre><code class="language-javascript">npm i
+</code></pre>
+<p>如果报错信息里有<code>Error: not found: make</code>之类的消息，说明你的命令行环境缺少make命令，执行安装make</p>
+<pre><code class="language-javascript">sudo apt-get install make//安装make
+rm -rf /root/gd-utils/node_modules//删除node_modules
+npm i//重新安装依赖
+</code></pre>
+<p>如果以上命令还是出错，可以再次删除/root/gd-utils目录下的node_modules，并执行以下命令</p>
+<pre><code class="language-javascript">rm -rf /root/gd-utils/node_modules//删除node_modules
+npm install --unsafe-perm=true --allow-root
+</code></pre>
+<h4 id="service-account-配置-2">Service Account 配置</h4>
+<p>强烈建议使用service account（后称SA）, 获取方法请参见 <a href="https://gsuitems.com/index.php/archives/13/#%E6%AD%A5%E9%AA%A42%E7%94%9F%E6%88%90serviceaccounts">https://gsuitems.com/index.php/archives/13/</a> 获取到 SA 的 json 文件后，请将其拷贝到 <code>sa</code> 目录下，复制sa命令：</p>
+<pre><code class="language-javascript">cd /root/AutoRclone/accounts/
+cp -r ./* /root/gd-utils/sa
+</code></pre>
+<p>接着回到sa目录(cd /root/gd-utils/sa),输入ls你会看到你复制过来的sa</p>
+<figure data-type="image" tabindex="5"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-135311-1024x569.jpg" alt="img" loading="lazy"></figure>
+<h4 id="个人帐号配置-2">个人帐号配置</h4>
+<p>之前配置好rclone的，执行命令 cat /root/.config/rclone/rclone.conf 可以看到自己的client_id, client_secret 和 refresh_token 这三个变量，把这三个变量填入/root/gd-utils/config.js对应的项中 ，然后执行</p>
+<pre><code class="language-javascript">node check.js
+</code></pre>
+<p>如果命令返回了你的谷歌硬盘根目录的数据，说明配置成功，</p>
+<figure data-type="image" tabindex="6"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-140950-1024x540.jpg" alt="img" loading="lazy"></figure>
+<h4 id="bot配置-2">Bot配置</h4>
+<p>首先在 https://core.telegram.org/bots#6-botfather 根据指示拿到 bot 的 token，然后填入 config.js 中的 <code>tg_token</code> 变量，还有不要忘记填入自己的电报用户名(t.me/username),记得删除[]格式为tg_whitelist: ‘t.me/username’</p>
+<figure data-type="image" tabindex="7"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141547.jpg" alt="img" loading="lazy"></figure>
+<p>回到宝塔面板，在安全选项中添加23333端口放行。</p>
+<figure data-type="image" tabindex="8"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141923.jpg" alt="img" loading="lazy"></figure>
+<p>然后在PM2管理器中添加以下项目自动运行。</p>
+<figure data-type="image" tabindex="9"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141846.jpg" alt="img" loading="lazy"></figure>
+<p>这时候回到安全选项可以看到23333端口正在使用中如果显示未使用则没有启动成功。</p>
+<p>最后在网站配置里添加反向代理，站点就配置完成。</p>
+<figure data-type="image" tabindex="10"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-142744.jpg" alt="img" loading="lazy"></figure>
+<p>回到终端执行以下命令（请将YOUR_WEBSITE_URL替换成你的网址）</p>
+<pre><code class="language-javascript">curl 'YOUR_WEBSITE_URL/api/gdurl/count?fid=124pjM5LggSuwI1n40bcD5tQ13wS0M6wg'
+</code></pre>
+<p>如果返回了这样的文件统计，说明部署成功了</p>
+<figure data-type="image" tabindex="11"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-143247.jpg" alt="img" loading="lazy"></figure>
+<p>最后，在命令行执行（请将[YOUR_WEBSITE]和[YOUR_BOT_TOKEN]分别替换成你自己的网址和bot token）</p>
+<pre><code class="language-javascript">curl -F &quot;url=YOUR_WEBSITE/api/gdurl/tgbot&quot; 'https://api.telegram.org/botYOUR_BOT_TOKEN/setWebhook'
+</code></pre>
+<p>这样，就将你的服务器连接上你的 telegram bot 了，试着给bot发送个 <code>/help</code>，如果它回复给你使用说明，那就配置成功了。</p>
+<figure data-type="image" tabindex="12"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-143841-1024x320.jpg" alt="img" loading="lazy"></figure>
+<p><em>注：转载于 https://www.ikarosone.top/archives/195.html &amp; https://github.com/iwestlin/gd-utils</em></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[低价大盘鸡frantech (大硬盘VPS&G口带宽无限流量)]]></title>
         <id>https://www.qiantigers.top/post/di-jie-da-pan-ji-frantech-da-ying-pan-vpsandg-kou-dai-kuan-wu-xian-liu-liang/</id>
@@ -624,134 +795,6 @@ ImportError: No module named socks</p>
 </code></pre>
 </li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[微信公众号文章导出助手]]></title>
-        <id>https://www.qiantigers.top/post/wei-xin-gong-zhong-hao-wen-zhang-dao-chu-zhu-shou/</id>
-        <link href="https://www.qiantigers.top/post/wei-xin-gong-zhong-hao-wen-zhang-dao-chu-zhu-shou/">
-        </link>
-        <updated>2020-06-07T04:50:40.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="下载地址">下载地址：</h1>
-<ul>
-<li><a href="https://pan.qiantigers.top/one-share/Windows-APP/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%E5%AF%BC%E5%87%BA%E5%8A%A9%E6%89%8B.zip">🔗博主云盘</a>+<a href="http://v.own-cloud.cn/s/epl7667e">🔗小麦云盘</a></li>
-</ul>
-<h2 id="可任意采集微信公众号历史群发文章">可任意采集微信公众号历史群发文章</h2>
-<p>通过微信文章导出软件就可以帮你把你想导出公众号的所有文章都直接下载保存到电脑，操作简单，人人都会！</p>
-<ul>
-<li>
-<p>没有采集限制</p>
-<p>不管是服务号还是订阅号都可以用软件采集到它的文章数据，从公众号发的第一篇文章到最后一篇都能完整获取并导出，比python爬虫更方便；</p>
-</li>
-<li>
-<p>数据自动保存</p>
-<p>所有爬取的微信文章保存本地数据库，只要不删除永远不丢失，无需重复采集一个公众号，更方便从本地随时查阅；</p>
-</li>
-<li>
-<p>导入文章下载</p>
-</li>
-</ul>
-]]></summary>
-        <content type="html"><![CDATA[<h1 id="下载地址">下载地址：</h1>
-<ul>
-<li><a href="https://pan.qiantigers.top/one-share/Windows-APP/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%E5%AF%BC%E5%87%BA%E5%8A%A9%E6%89%8B.zip">🔗博主云盘</a>+<a href="http://v.own-cloud.cn/s/epl7667e">🔗小麦云盘</a></li>
-</ul>
-<h2 id="可任意采集微信公众号历史群发文章">可任意采集微信公众号历史群发文章</h2>
-<p>通过微信文章导出软件就可以帮你把你想导出公众号的所有文章都直接下载保存到电脑，操作简单，人人都会！</p>
-<ul>
-<li>
-<p>没有采集限制</p>
-<p>不管是服务号还是订阅号都可以用软件采集到它的文章数据，从公众号发的第一篇文章到最后一篇都能完整获取并导出，比python爬虫更方便；</p>
-</li>
-<li>
-<p>数据自动保存</p>
-<p>所有爬取的微信文章保存本地数据库，只要不删除永远不丢失，无需重复采集一个公众号，更方便从本地随时查阅；</p>
-</li>
-<li>
-<p>导入文章下载</p>
-</li>
-</ul>
-<!-- more -->
-<p>软件有3种方式可导入微信文章下载，比如微信收藏等，同时支持批量导入，采集微信文章导出更快捷；</p>
-<figure data-type="image" tabindex="1"><img src="https://www.juyifx.cn/config/img/softDetali/weixinHelper/features_screen_1.png" alt="批量采集导出微信文章" loading="lazy"></figure>
-<h2 id="微信文章导出文档多样化提取内容更完整"><strong>微信文章导出文档</strong>多样化，提取内容更完整</h2>
-<p>好的微信文章下载保存到电脑才能永久保存，也方便打印微信文章，多样化的存档格式更能满足绝大多数人的需求</p>
-<ul>
-<li>
-<p>多种文档格式</p>
-<p>可原排版批量导出微信文章保存word、pdf、txt、excle和html，后期将支持epub，根据需要选择一种或多种格式导出微信文章；</p>
-</li>
-<li>
-<p>确保文章完整</p>
-<p>不仅可下载微信文章图片及文章内容，也可以将<em>微信文章中视频、语音、音乐音频、评论留言、文章链接、封面头图等批量下载到电脑上</em>，保证文章能完整导出，微信图片下载器值得推荐；</p>
-</li>
-<li>
-<p>更多下载设置</p>
-<p>可按时间段采集下载微信文章；可选择不下载文章图片；可自定义设置保存文档文件名；可保存位置；可只选择下载原创文章；<a href="https://www.lanzous.com/weixinSearchDownExp">查看微信文章导出文档样例</a><a href="https://www.juyimv.cn/exampleHtml.html">在线微信文章保存html样例</a></p>
-</li>
-</ul>
-<figure data-type="image" tabindex="2"><img src="https://www.juyifx.cn/config/img/softDetali/weixinHelper/features_screen_3.png" alt="微信文章导出word和pdf文档" loading="lazy"></figure>
-<h2 id="通过关键词按时间段搜索微信公众号文章工具">通过关键词按时间段搜索微信公众号文章工具</h2>
-<p>微信文章导出软件不仅能下载文章，还可通过电脑在线查找微信文章！每天百万篇公众号文章，覆盖各个行业地区，热门原创文章，助你创作或查找更多优质内容</p>
-<ul>
-<li>
-<p>关键词任意搜</p>
-<p>通过关键词搜索全网公众号文章，比搜狗微信搜索更好用，想搜什么就搜什么。同时可在线浏览文章内容，一键去除重复文章；</p>
-</li>
-<li>
-<p>可按时间搜索</p>
-<p>按时间排序搜索微信文章，可选择采集一天内、一周内、一年内的文章，同时搜索结果可按标题、公众号排序；</p>
-</li>
-<li>
-<p>搜索智能过滤</p>
-<p>通过文章标题、摘要和公众号名称设置过滤关键词，包含关键词文章自动过滤，支持过滤词完全和模糊匹配，搜索微信文章更精准；</p>
-</li>
-</ul>
-<figure data-type="image" tabindex="3"><img src="https://www.juyifx.cn/config/img/softDetali/weixinHelper/features_screen_2.png" alt="时间排序搜索微信文章" loading="lazy"></figure>
-<h3 id="下载微信文章预览包你满意">下载微信文章预览，包你满意</h3>
-<p>专业人做专业事，采集导出就交给微信文章导出软件，助你提高效率，节省时间</p>
-<ul>
-<li>
-<p>导出pdf格式样例</p>
-</li>
-<li>
-<p>导出word文档分类保存</p>
-</li>
-<li>
-<p>下载文章留言评论</p>
-</li>
-<li>
-<p>内置浏览器</p>
-</li>
-</ul>
-<h3 id="微信公众号文章导出软件更多功能全心为你">微信公众号文章导出软件更多功能，全心为你</h3>
-<p><strong>微信文章下载器</strong>还包含其他近80项辅助功能，使用方便</p>
-<ul>
-<li>
-<p>二次搜索</p>
-<p>微信文章导出软件对列表中文章进行再次筛选，查找更有价值的内容</p>
-</li>
-<li>
-<p>API接口</p>
-<p>内置免费开放接口，一键同步微信文章到自己网站</p>
-</li>
-<li>
-<p>看阅读量</p>
-<p>内置浏览器实时查看阅读量，阅读数据时刻掌握</p>
-</li>
-<li>
-<p>摘要预览</p>
-<p>无需打开文章链接，即可快速了解文章大概内容</p>
-</li>
-<li>
-<p>字体设置</p>
-<p>随意调整列表字体大小，大字体界面浏览更舒适</p>
-</li>
-<li>
-<p>一键复制</p>
-<p>支持一键复制文章内容，随意粘贴到公众号后台</p>
-</li>
-</ul>
 ]]></content>
     </entry>
 </feed>

@@ -9,7 +9,7 @@
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
 <title>低价大盘鸡frantech (大硬盘VPS&amp;G口带宽无限流量) | Qiantigers</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/favicon.ico?v=1593348352472">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/favicon.ico?v=1593351590459">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/fonts/font-awesome.css">
 <link
@@ -272,19 +272,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">20</span>
+        <span class="site-item-stat-count">21</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">23</span>
+        <span class="site-item-stat-count">25</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">23</span>
+        <span class="site-item-stat-count">25</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -767,6 +767,10 @@ mount /mnt/file
   </div>
   <div class="nav">
     <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="Google Drive 百宝箱(GitHub+宝塔版)" href="https://www.qiantigers.top/post/google-drive-bai-bao-xiang-githubbao-ta-ban/">Google Drive 百宝箱(GitHub+宝塔版)</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Google Drive 百宝箱(GitHub+宝塔版)" href="https://www.qiantigers.top/post/google-drive-bai-bao-xiang-githubbao-ta-ban/">上一篇</a>
       
     </div>
     <div class="nav-next">
@@ -1847,6 +1851,174 @@ mount /mnt/file
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/google-drive-bai-bao-xiang-githubbao-ta-ban/"" data-c="
+          &lt;h1 id=&#34;google-drive-百宝箱&#34;&gt;Google Drive 百宝箱&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不只是最快的 google drive 拷贝工具 &lt;a href=&#34;https://github.com/iwestlin/gd-utils/blob/master/compare.md&#34;&gt;与其他工具的对比&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;github地址httpsgithubcomiwestlingd-utils&#34;&gt;GitHub地址：&lt;a href=&#34;https://github.com/iwestlin/gd-utils&#34;&gt;https://github.com/iwestlin/gd-utils&lt;/a&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;功能简介&#34;&gt;功能简介&lt;/h2&gt;
+&lt;p&gt;本工具目前支持以下功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;统计任意（您拥有相关权限的，下同，不再赘述）目录的文件信息，且支持以各种形式（html, table, json）导出。&lt;br&gt;
+支持中断恢复，且统计过的目录（包括其所有子孙目录）信息会记录在本地数据库文件中（gdurl.sqlite） 请在本项目目录下命令行输入 &lt;code&gt;./count -h&lt;/code&gt; 查看使用帮助&lt;/li&gt;
+&lt;li&gt;拷贝任意目录所有文件到您指定目录，同样支持中断恢复。 支持根据文件大小过滤，可输入 &lt;code&gt;./copy -h&lt;/code&gt; 查看使用帮助&lt;/li&gt;
+&lt;li&gt;对任意目录进行去重，删除同一目录下的md5值相同的文件（只保留一个），删除空目录。 命令行输入 &lt;code&gt;./dedupe -h&lt;/code&gt; 查看使用帮助&lt;/li&gt;
+&lt;li&gt;在 config.js 里完成相关配置后，可以将本项目部署在（可正常访问谷歌服务的）服务器上，提供 http api 文件统计接口&lt;/li&gt;
+&lt;li&gt;支持 telegram bot，配置完成后，上述功能均可通过 bot 进行操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;demo&#34;&gt;demo&lt;/h2&gt;
+&lt;p&gt;https://drive.google.com/drive/folders/124pjM5LggSuwI1n40bcD5tQ13wS0M6wg&lt;/p&gt;
+&lt;h2 id=&#34;环境配置&#34;&gt;环境配置&lt;/h2&gt;
+&lt;p&gt;本工具需要安装nodejs，客户端安装请访问https://nodejs.org/zh-cn/download/，服务器安装可参考https://github.com/nodesource/distributions/blob/master/README.md#debinstall&lt;/p&gt;
+&lt;p&gt;建议选择v12版本的node，以防接下来安装依赖出错。&lt;/p&gt;
+&lt;p&gt;如果你的网络环境无法正常访问谷歌服务，需要先在命令行进行一些配置：（如果可以正常访问则跳过此节）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http_proxy=&amp;quot;YOUR_PROXY_URL&amp;quot; &amp;amp;&amp;amp; https_proxy=$http_proxy &amp;amp;&amp;amp; HTTP_PROXY=$http_proxy &amp;amp;&amp;amp; HTTPS_PROXY=$http_proxy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;请把&lt;code&gt;YOUR_PROXY_URL&lt;/code&gt;替换成你自己的代理地址&lt;/p&gt;
+&lt;h2 id=&#34;依赖安装&#34;&gt;依赖安装&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;命令行执行&lt;code&gt;git clone https://github.com/iwestlin/gd-utils &amp;amp;&amp;amp; cd gd-utils&lt;/code&gt; 克隆并切换到本项目文件夹下&lt;/li&gt;
+&lt;li&gt;执行 &lt;code&gt;npm i&lt;/code&gt; 安装依赖，部分依赖可能需要代理环境才能下载，所以需要上一步的配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果在安装过程中发生报错，请切换nodejs版本到v12再试。如果报错信息里有&lt;code&gt;Error: not found: make&lt;/code&gt;之类的消息，说明你的命令行环境缺少make命令，可参考&lt;a href=&#34;https://askubuntu.com/questions/192645/make-command-not-found&#34;&gt;这里&lt;/a&gt;或直接google搜索&lt;code&gt;Make Command Not Found&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果报错信息里有 &lt;code&gt;better-sqlite3&lt;/code&gt;，先执行 &lt;code&gt;npm config set unsafe-perm=true&lt;/code&gt; 然后 &lt;code&gt;rm -rf node_module&lt;/code&gt; 删掉依赖目录，最后再执行下&lt;code&gt;npm i&lt;/code&gt;安装试试。&lt;/p&gt;
+&lt;p&gt;依赖安装完成后，项目文件夹下会多出个&lt;code&gt;node_modules&lt;/code&gt;目录，请不要删除它，接下来进行下一步配置。&lt;/p&gt;
+&lt;h2 id=&#34;service-account-配置&#34;&gt;Service Account 配置&lt;/h2&gt;
+&lt;p&gt;强烈建议使用service account（后称SA）, 获取方法请参见 &lt;a href=&#34;https://gsuitems.com/index.php/archives/13/#%E6%AD%A5%E9%AA%A42%E7%94%9F%E6%88%90serviceaccounts&#34;&gt;https://gsuitems.com/index.php/archives/13/&lt;/a&gt; 获取到 SA 的 json 文件后，请将其拷贝到 &lt;code&gt;sa&lt;/code&gt; 目录下&lt;/p&gt;
+&lt;p&gt;配置好 SA 以后，如果你不需要对个人盘下的文件进行操作，可跳过[个人帐号配置]这节，而且执行命令的时候，记得带上 &lt;code&gt;-S&lt;/code&gt; 参数告诉程序使用SA授权进行操作。&lt;/p&gt;
+&lt;h2 id=&#34;个人帐号配置&#34;&gt;个人帐号配置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;命令行执行 &lt;code&gt;rclone config file&lt;/code&gt; 找到 rclone 的配置文件路径&lt;/li&gt;
+&lt;li&gt;打开这个配置文件 &lt;code&gt;rclone.conf&lt;/code&gt;, 找到 &lt;code&gt;client_id&lt;/code&gt;, &lt;code&gt;client_secret&lt;/code&gt; 和 &lt;code&gt;refresh_token&lt;/code&gt; 这三个变量，将其分别填入本项目下的 &lt;code&gt;config.js&lt;/code&gt; 中，需要注意这三个值必须被成对的英文引号包裹，且引号后以英文逗号结尾，也就是需要符合JavaScript的&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Object_initializer&#34;&gt;对象语法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你没有配置过rclone，可以搜索&lt;code&gt;rclone google drive 教程&lt;/code&gt;完成相关配置。&lt;/p&gt;
+&lt;p&gt;如果你的&lt;code&gt;rclone.conf&lt;/code&gt;里没有&lt;code&gt;client_id&lt;/code&gt;和&lt;code&gt;client_secret&lt;/code&gt;，说明你配置rclone的时候默认用了rclone自己的client_id，连rclone自己&lt;a href=&#34;https://github.com/rclone/rclone/blob/8d55367a6a2f47a1be7e360a872bd7e56f4353df/docs/content/drive.md#making-your-own-client_id&#34;&gt;都不建议这样做&lt;/a&gt;，因为大家共享了它的接口调用限额，在使用高峰期可能会触发限制。&lt;/p&gt;
+&lt;p&gt;获取自己的clinet_id可以参见这两篇文章：&lt;a href=&#34;https://github.com/Cloudbox/Cloudbox/wiki/Google-Drive-API-Client-ID-and-Client-Secret&#34;&gt;Cloudbox/wiki/Google-Drive-API-Client-ID-and-Client-Secret&lt;/a&gt; 和 https://p3terx.com/archives/goindex-google-drive-directory-index.html#toc_2&lt;/p&gt;
+&lt;p&gt;获取到client_id和client_secret后，再次执行一遍&lt;code&gt;rclone config&lt;/code&gt;，创建一个新的remote，&lt;strong&gt;在配置过程中一定要填入你新获取的clinet_id和client_secret&lt;/strong&gt;，就能在&lt;code&gt;rclone.conf&lt;/code&gt;里看到新获取的&lt;code&gt;refresh_token&lt;/code&gt;了。&lt;strong&gt;注意，不能使用之前的refrest_token&lt;/strong&gt;，因为它对应的是rclone自带的client_id&lt;/p&gt;
+&lt;p&gt;参数配置好以后，在命令行执行 &lt;code&gt;node check.js&lt;/code&gt;，如果命令返回了你的谷歌硬盘根目录的数据，说明配置成功，可以开始使用本工具了。&lt;/p&gt;
+&lt;h2 id=&#34;bot配置&#34;&gt;Bot配置&lt;/h2&gt;
+&lt;p&gt;如果要使用 telegram bot 功能，需要进一步配置。&lt;/p&gt;
+&lt;p&gt;首先在 https://core.telegram.org/bots#6-botfather 根据指示拿到 bot 的 token，然后填入 config.js 中的 &lt;code&gt;tg_token&lt;/code&gt; 变量。&lt;/p&gt;
+&lt;p&gt;接下来需要将代码部署到服务器上。 如果你一开始就是在服务器上配置的，可以直接执行&lt;code&gt;npm i pm2 -g&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果你之前是在本地操作的，请在服务器上同样重复一遍，配置好相关参数后，执行&lt;code&gt;npm i pm2 -g&lt;/code&gt;安装进程守护程序pm2&lt;/p&gt;
+&lt;p&gt;安装好pm2之后，执行 &lt;code&gt;pm2 start server.js&lt;/code&gt;，代码运行后会在服务器上监听&lt;code&gt;23333&lt;/code&gt;端口。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;如果你不想用nginx，可以将&lt;code&gt;server.js&lt;/code&gt;中的&lt;code&gt;23333&lt;/code&gt;改成&lt;code&gt;80&lt;/code&gt;直接监听80端口（可能需要root权限）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;接下来可通过nginx或其他工具起一个web服务，示例nginx配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;server {
+  listen 80;
+  server_name your.server.name;
+
+  location / {
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_pass http://127.0.0.1:23333/;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;配置好nginx后，可以再套一层cloudflare，具体教程请自行搜索。&lt;/p&gt;
+&lt;p&gt;检查网站是否部署成功，可以命令行执行（请将YOUR_WEBSITE_URL替换成你的网址）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl &#39;YOUR_WEBSITE_URL/api/gdurl/count?fid=124pjM5LggSuwI1n40bcD5tQ13wS0M6wg&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;a href=&#34;https://github.com/iwestlin/gd-utils/blob/master/static/count.png&#34;&gt;&lt;img src=&#34;https://github.com/iwestlin/gd-utils/raw/master/static/count.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;p&gt;如果返回了这样的文件统计，说明部署成功了。&lt;/p&gt;
+&lt;p&gt;最后，在命令行执行（请将[YOUR_WEBSITE]和[YOUR_BOT_TOKEN]分别替换成你自己的网址和bot token）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl -F &amp;quot;url=[YOUR_WEBSITE]/api/gdurl/tgbot&amp;quot; &#39;https://api.telegram.org/bot[YOUR_BOT_TOKEN]/setWebhook&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样，就将你的服务器连接上你的 telegram bot 了，试着给bot发送个 &lt;code&gt;/help&lt;/code&gt;，如果它回复给你使用说明，那就配置成功了。&lt;/p&gt;
+&lt;h2 id=&#34;补充说明&#34;&gt;补充说明&lt;/h2&gt;
+&lt;p&gt;在&lt;code&gt;config.js&lt;/code&gt;文件里，还有另外的几个参数：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 单次请求多少毫秒未响应以后超时（基准值，若连续超时则下次调整为上次的2倍）
+const TIMEOUT_BASE = 7000
+
+// 最大超时设置，比如某次请求，第一次7s超时，第二次14s，第三次28s，第四次56s，第五次不是112s而是60s，后续同理
+const TIMEOUT_MAX = 60000
+
+const LOG_DELAY = 5000 // 日志输出时间间隔，单位毫秒
+const PAGE_SIZE = 1000 // 每次网络请求读取目录下的文件数，数值越大，越有可能超时，不得超过1000
+
+const RETRY_LIMIT = 7 // 如果某次请求失败，允许其重试的最大次数
+const PARALLEL_LIMIT = 20 // 网络请求的并行数量，可根据网络环境调整
+
+const DEFAULT_TARGET = &#39;&#39; // 必填，拷贝默认目的地ID，如果不指定target，则会拷贝到此处，建议填写团队盘ID，注意要用英文引号包裹
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;读者可根据各自情况进行调整&lt;/p&gt;
+&lt;h2 id=&#34;注意事项&#34;&gt;注意事项&lt;/h2&gt;
+&lt;p&gt;程序的原理是调用了&lt;a href=&#34;https://developers.google.com/drive/api/v3/reference/files/list&#34;&gt;google drive官方接口&lt;/a&gt;，递归获取目标文件夹下所有文件及其子文件夹信息，粗略来讲，某个目录下包含多少个文件夹，就至少需要这么多次请求才能统计完成。&lt;/p&gt;
+&lt;p&gt;目前尚不知道google是否会对接口做频率限制，也不知道会不会影响google账号本身的安全。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;请勿滥用，后果自负&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;宝塔版&#34;&gt;宝塔版&lt;/h1&gt;
+&lt;h3 id=&#34;本教程在原教程的基础上进行细节补充并且操作基于宝塔对小白更友好&#34;&gt;本教程在原教程的基础上进行细节补充，并且操作基于宝塔，对小白更友好！&lt;/h3&gt;
+&lt;h4 id=&#34;安装宝塔面板&#34;&gt;安装宝塔面板:&lt;/h4&gt;
+&lt;h6 id=&#34;centos安装命令&#34;&gt;&lt;strong&gt;Centos安装命令&lt;/strong&gt;&lt;/h6&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;amp;&amp;amp; sh install.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h6 id=&#34;ubuntudeepin安装命令&#34;&gt;&lt;strong&gt;Ubuntu/Deepin安装命令&lt;/strong&gt;&lt;/h6&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; sudo bash install.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h6 id=&#34;debian安装命令&#34;&gt;&lt;strong&gt;Debian安装命令：&lt;/strong&gt;&lt;/h6&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; bash install.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装好宝塔面板后，根据提示安装Ngnix，web环境, 然后在宝塔面板软件管理安装PM2管理器，安装好会自带node.js。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/PM2.5-1024x403.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-130246.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在宝塔里新建一个网站，填写你的域名(请提前解析好你的域名！)使用宝塔自带的一申请SSL证书。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-130923.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;SSH连接终端克隆项目到本地&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;git clone https://github.com/iwestlin/gd-utils &amp;amp;&amp;amp; cd gd-utils
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;安装依赖&#34;&gt;安装依赖&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;npm i
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果报错信息里有&lt;code&gt;Error: not found: make&lt;/code&gt;之类的消息，说明你的命令行环境缺少make命令，执行安装make&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;sudo apt-get install make//安装make
+rm -rf /root/gd-utils/node_modules//删除node_modules
+npm i//重新安装依赖
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果以上命令还是出错，可以再次删除/root/gd-utils目录下的node_modules，并执行以下命令&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;rm -rf /root/gd-utils/node_modules//删除node_modules
+npm install --unsafe-perm=true --allow-root
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;service-account-配置-2&#34;&gt;Service Account 配置&lt;/h4&gt;
+&lt;p&gt;强烈建议使用service account（后称SA）, 获取方法请参见 &lt;a href=&#34;https://gsuitems.com/index.php/archives/13/#%E6%AD%A5%E9%AA%A42%E7%94%9F%E6%88%90serviceaccounts&#34;&gt;https://gsuitems.com/index.php/archives/13/&lt;/a&gt; 获取到 SA 的 json 文件后，请将其拷贝到 &lt;code&gt;sa&lt;/code&gt; 目录下，复制sa命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;cd /root/AutoRclone/accounts/
+cp -r ./* /root/gd-utils/sa
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接着回到sa目录(cd /root/gd-utils/sa),输入ls你会看到你复制过来的sa&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-135311-1024x569.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;个人帐号配置-2&#34;&gt;个人帐号配置&lt;/h4&gt;
+&lt;p&gt;之前配置好rclone的，执行命令 cat /root/.config/rclone/rclone.conf 可以看到自己的client_id, client_secret 和 refresh_token 这三个变量，把这三个变量填入/root/gd-utils/config.js对应的项中 ，然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;node check.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果命令返回了你的谷歌硬盘根目录的数据，说明配置成功，&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-140950-1024x540.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;bot配置-2&#34;&gt;Bot配置&lt;/h4&gt;
+&lt;p&gt;首先在 https://core.telegram.org/bots#6-botfather 根据指示拿到 bot 的 token，然后填入 config.js 中的 &lt;code&gt;tg_token&lt;/code&gt; 变量，还有不要忘记填入自己的电报用户名(t.me/username),记得删除[]格式为tg_whitelist: ‘t.me/username’&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141547.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;回到宝塔面板，在安全选项中添加23333端口放行。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141923.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;然后在PM2管理器中添加以下项目自动运行。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141846.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;这时候回到安全选项可以看到23333端口正在使用中如果显示未使用则没有启动成功。&lt;/p&gt;
+&lt;p&gt;最后在网站配置里添加反向代理，站点就配置完成。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;10&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-142744.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;回到终端执行以下命令（请将YOUR_WEBSITE_URL替换成你的网址）&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;curl &#39;YOUR_WEBSITE_URL/api/gdurl/count?fid=124pjM5LggSuwI1n40bcD5tQ13wS0M6wg&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果返回了这样的文件统计，说明部署成功了&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;11&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-143247.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;最后，在命令行执行（请将[YOUR_WEBSITE]和[YOUR_BOT_TOKEN]分别替换成你自己的网址和bot token）&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;curl -F &amp;quot;url=YOUR_WEBSITE/api/gdurl/tgbot&amp;quot; &#39;https://api.telegram.org/botYOUR_BOT_TOKEN/setWebhook&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样，就将你的服务器连接上你的 telegram bot 了，试着给bot发送个 &lt;code&gt;/help&lt;/code&gt;，如果它回复给你使用说明，那就配置成功了。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;12&#34;&gt;&lt;img src=&#34;https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-143841-1024x320.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;em&gt;注：转载于 https://www.ikarosone.top/archives/195.html &amp;amp; https://github.com/iwestlin/gd-utils&lt;/em&gt;&lt;/p&gt;
+">Google Drive 百宝箱(GitHub+宝塔版)</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/di-jie-da-pan-ji-frantech-da-ying-pan-vpsandg-kou-dai-kuan-wu-xian-liu-liang/"" data-c="
