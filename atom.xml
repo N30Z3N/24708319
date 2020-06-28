@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-28T07:30:16.214Z</updated>
+    <updated>2020-06-28T08:05:34.644Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,105 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[利用Heroku部署Aria2离线下载并同步上传到Onedrive等网盘]]></title>
+        <id>https://www.qiantigers.top/post/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/</id>
+        <link href="https://www.qiantigers.top/post/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/">
+        </link>
+        <updated>2020-06-28T08:04:08.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="背景">背景</h2>
+<p>自己最近搭建heroku+aria2的离线下载，感觉这个算是白嫖中很不错的东西，所以还是建议搭建一下的。</p>
+<h2 id="如何部署">如何部署</h2>
+<p>这里省去注册Heroku以及登录的过程。</p>
+<p>作者的项目：<a href="https://github.com/maple3142/">maple3142</a> / <a href="https://github.com/maple3142/heroku-aria2c">heroku-aria2c</a></p>
+<p>点击进入作者的项目，在下面的介绍内容中有个紫色的Deploy按钮，点击它<mark>或者</mark>直接点击本文中下面的按钮</p>
+<figure data-type="image" tabindex="1"><a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fmaple3142%2Fheroku-aria2c&amp;template=https%3A%2F%2Fgithub.com%2Fmaple3142%2Fheroku-aria2c"><img src="https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667" alt="点击我直接部署" loading="lazy"></a></figure>
+<p>就会进入Heroku的创建app页面。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/t81HwF3svxidCbh.png" alt="Heroku的创建app页面" loading="lazy">Heroku的创建app页面</p>
+<p>这时候需要填的东西如下，带*为必填项</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>解释</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>App name</code> *</td>
+<td>你要创建的应用名</td>
+<td><code>aria2dl</code></td>
+</tr>
+<tr>
+<td><code>ARIA2C_SECRET</code> *</td>
+<td>进入Aria2的密码</td>
+<td><code>password</code></td>
+</tr>
+<tr>
+<td><code>HEROKU_APP_NAME</code> *</td>
+<td>和上面填的应用名一样</td>
+<td><code>aria2dl</code></td>
+</tr>
+<tr>
+<td><code>RCLONE_CONFIG</code></td>
+<td>你的RCLONE配置</td>
+<td>见下文</td>
+</tr>
+<tr>
+<td><code>RCLONE_DESTINATION</code></td>
+<td>需要同步的目标网盘的路径必须以<code>/</code>开头</td>
+<td><code>/tmp</code></td>
+</tr>
+</tbody>
+</table>
+<p>最后两个是如果你需要将离线下载的文件同步到自己的网盘或者存储的话才需要填写。</p>
+<p>但是建议同步到自己的网盘，因为Heroku保存的问题好像就一个小时还是可能休眠了重启了就消失了。两面性吧，好处是可以通过休眠重启来删除文件，不好的地方是文件不能长久保存。</p>
+<p><code>RCLONE_CONFIG</code>这个选项的话我一开始碰了壁，后来知道原来这么写。 前提是你已经配置过rclone，如果是在Windows下配置过rclone的话，一般配置文件在<code>/$HOME/.config/rclone/rclone.conf</code>，也可以通过命令<code>rclone config file</code>来显示配置文件路径。</p>
+<p>打开对应的配置文件<code>rclone.conf</code>，可以看到格式为下面的内容，或者直接使用<code>rclone</code>命令也可以查看 <code>rclone config show [&lt;remote&gt;] [flags]</code></p>
+<pre><code>[XXDrive]type = onedrivetoken = {&quot;access_token&quot;:&quot;省略&quot;,&quot;expiry&quot;:&quot;2020-02-29T00:06:11.2713766+09:00&quot;}drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XXdrive_type = business
+</code></pre>
+<p>只要选下面这些内容填入<code>RCLONE_CONFIG</code>选项就可以，其实就是不要盘名和每行用<code>\n</code>来连接，但是我试了下像下面这样换行 加上<code>\n</code>也是可以。。。</p>
+<pre><code>type = onedrive\ntoken = {&quot;access_token&quot;:&quot;省略&quot;,&quot;expiry&quot;:&quot;2020-02-29T00:06:11.2713766+09:00&quot;}\ndrive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX\ndrive_type = business
+</code></pre>
+<p>最后一个选项<code>ARIA2C_SECRET</code>的话需要，就是你要上传到那个网盘的哪个路径下，可以用<code>/</code>代表上传到根目录。</p>
+<p>最后点击<code>Deploy app</code>就可以看到它自动部署了。等看到部署成功后就可以点击<code>Open app</code>或者<code>View</code>来打开或者直接访问 <code>https://你设置好的应用名.herokuapp.com</code>。</p>
+<h2 id="享用">享用</h2>
+<p>打开后显示如下的话说明部署没问题</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/NAaYSChH9mLKwuE.png" alt="部署成功" loading="lazy">部署成功</p>
+<p>在输入框内填入你设置好的<code>ARIA2C_SECRET</code>密码，比如<code>password</code>，然后点击你要去的地方 - Go to AriaNg panel 离线下载面板 - View downloaded files 查看下载后的文件</p>
+<h2 id="如何保持heroku的活跃呢">如何保持Heroku的活跃呢？</h2>
+<p>在这里使用到了腾讯云的云拨测</p>
+<p><a href="https://console.cloud.tencent.com/cat">https://console.cloud.tencent.com/cat</a></p>
+<p>进入上方的链接，我们会看到</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200628155436948.png" alt="image-20200628155436948" loading="lazy"></figure>
+<table>
+<thead>
+<tr>
+<th>拨测名称</th>
+<th>随意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>拨测地址</td>
+<td>你的heroku地址</td>
+</tr>
+<tr>
+<td>拨测协议</td>
+<td>http(s)</td>
+</tr>
+<tr>
+<td>拨测周期</td>
+<td>建议选择5分钟</td>
+</tr>
+</tbody>
+</table>
+<p>到这里就部署完毕，会定期保持heroku的活跃。</p>
+<h2 id="建议">建议</h2>
+<p>不要一次性下载太多的东西，也不要下载太大的文件，不然很有可能在你没有下载好之前就被heroku重置了。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[YOURLS短链接程序]]></title>
         <id>https://www.qiantigers.top/post/yourls-duan-lian-jie-cheng-xu/</id>
@@ -622,37 +721,6 @@ ImportError: No module named socks</p>
 如果一直刷新不出来，请清空浏览器缓存后再重新登录查看。</p>
 <p>注：均从网络收集，侵权请联系删除。</p>
 <p><img src="https://file.moetu.org/images/2020/03/30/52949579ea66d1e8627e3917dd736667c1c43ec1eced248e.jpg" width="320"></img></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[世纪互联账号购买]]></title>
-        <id>https://www.qiantigers.top/post/shi-ji-hu-lian-zhang-hao-gou-mai/</id>
-        <link href="https://www.qiantigers.top/post/shi-ji-hu-lian-zhang-hao-gou-mai/">
-        </link>
-        <updated>2020-05-05T09:57:02.000Z</updated>
-        <content type="html"><![CDATA[<p>世纪互联账号在国内的速度是很快的，在这里推荐一下售卖世纪互联账号的店铺</p>
-<p><strong>个人觉得比淘宝稳定一点，推荐在这里购买～</strong></p>
-<h1 id="zephyr">★ <strong>Zephyr</strong>：</h1>
-<h2 id="-店铺链接"><strong>---&gt;&gt;&gt;<a href="https://1ove.club/yiyi">【店铺链接】</a></strong></h2>
-<blockquote>
-<p><strong>该店铺api暂未被限制</strong></p>
-</blockquote>
-<ul>
-<li>这是其中的部分套餐： <img src="https://p.pstatp.com/origin/ff0700018b91cde80535" alt="IMG_20200313_142346.jpg" loading="lazy"></li>
-</ul>
-<hr>
-<h1 id="dreamspark">★ <strong>Dreamspark</strong>：</h1>
-<h2 id="-店铺链接-2"><strong>---&gt;&gt;&gt;<a href="https://1ove.club/dreamspark">【店铺链接】</a></strong></h2>
-<blockquote>
-<p><strong>该店铺api使用需要管理员审核通过</strong></p>
-</blockquote>
-<ul>
-<li>其中的部分套餐： <img src="https://p.pstatp.com/origin/ff5200012c280ae65d7b" alt="img" loading="lazy"></li>
-</ul>
-<blockquote>
-<p>如果你对速度的要求比较高，可以试着购买一下。<br>
-感兴趣可以进去看一下～</p>
-</blockquote>
 ]]></content>
     </entry>
 </feed>

@@ -8,7 +8,7 @@
 <meta name="keywords" content="OneDrive,云盘,资源,教程,技巧,干货,">
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
-<title>Markdown的一些实用技巧 | Qiantigers</title>
+<title>利用Heroku部署Aria2离线下载并同步上传到Onedrive等网盘 | Qiantigers</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/favicon.ico?v=1593331529011">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/fonts/font-awesome.css">
@@ -58,8 +58,8 @@
 </script>
 
 
-  <meta name="description" content="Markdown的一些实用技巧" />
-  <meta name="keywords" content="Markdown" />
+  <meta name="description" content="利用Heroku部署Aria2离线下载并同步上传到Onedrive等网盘" />
+  <meta name="keywords" content="离线下载,heroku,aira2,教程" />
 </head>
 
 <body>
@@ -317,8 +317,11 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#markdown%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91">Markdown插入视频</a></li>
-<li><a href="#markdown%E6%8F%92%E5%85%A5%E9%9F%B3%E9%A2%91">Markdown插入音频</a></li>
+<li><a href="#%E8%83%8C%E6%99%AF">背景</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2">如何部署</a></li>
+<li><a href="#%E4%BA%AB%E7%94%A8">享用</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81heroku%E7%9A%84%E6%B4%BB%E8%B7%83%E5%91%A2">如何保持Heroku的活跃呢？</a></li>
+<li><a href="#%E5%BB%BA%E8%AE%AE">建议</a></li>
 </ul>
 </li>
 </ul>
@@ -586,8 +589,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/">
-      Markdown的一些实用技巧
+    <a class="post-title-link" href="https://www.qiantigers.top/post/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/">
+      利用Heroku部署Aria2离线下载并同步上传到Onedrive等网盘
     </a>
   </h1>
   <div class="post-meta">
@@ -595,7 +598,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-01</span>
+      <span>2020-06-28</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -604,8 +607,26 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://www.qiantigers.top/tag/rKGRAttH7/">
-        <span>Markdown</span>
+      <a href="https://www.qiantigers.top/tag/chi-xian-xia-zai/">
+        <span>离线下载</span>
+      </a>、
+      
+      
+      
+      <a href="https://www.qiantigers.top/tag/heroku/">
+        <span>heroku</span>
+      </a>、
+      
+      
+      
+      <a href="https://www.qiantigers.top/tag/aira2/">
+        <span>aira2</span>
+      </a>、
+      
+      
+      
+      <a href="https://www.qiantigers.top/tag/jiao-cheng/">
+        <span>教程</span>
       </a>
       
       
@@ -614,17 +635,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>4<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>84<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>849<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/markdown-de-yi-xie-shi-yong-ji-qiao/" data-flag-title="Markdown的一些实用技巧" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/" data-flag-title="利用Heroku部署Aria2离线下载并同步上传到Onedrive等网盘" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -633,22 +654,97 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h2 id="markdown插入视频">Markdown插入视频</h2>
-<pre><code>&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot; poster=&quot;封面链接&quot;&gt;
-      &lt;source id=&quot;mp4&quot; src=&quot;视频链接&quot; type=&quot;video/mp4&quot;&gt;
-      &lt;/video&gt;
+              <h2 id="背景">背景</h2>
+<p>自己最近搭建heroku+aria2的离线下载，感觉这个算是白嫖中很不错的东西，所以还是建议搭建一下的。</p>
+<h2 id="如何部署">如何部署</h2>
+<p>这里省去注册Heroku以及登录的过程。</p>
+<p>作者的项目：<a href="https://github.com/maple3142/">maple3142</a> / <a href="https://github.com/maple3142/heroku-aria2c">heroku-aria2c</a></p>
+<p>点击进入作者的项目，在下面的介绍内容中有个紫色的Deploy按钮，点击它<mark>或者</mark>直接点击本文中下面的按钮</p>
+<figure data-type="image" tabindex="1"><a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fmaple3142%2Fheroku-aria2c&amp;template=https%3A%2F%2Fgithub.com%2Fmaple3142%2Fheroku-aria2c"><img src="https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667" alt="点击我直接部署" loading="lazy"></a></figure>
+<p>就会进入Heroku的创建app页面。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/t81HwF3svxidCbh.png" alt="Heroku的创建app页面" loading="lazy">Heroku的创建app页面</p>
+<p>这时候需要填的东西如下，带*为必填项</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>解释</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>App name</code> *</td>
+<td>你要创建的应用名</td>
+<td><code>aria2dl</code></td>
+</tr>
+<tr>
+<td><code>ARIA2C_SECRET</code> *</td>
+<td>进入Aria2的密码</td>
+<td><code>password</code></td>
+</tr>
+<tr>
+<td><code>HEROKU_APP_NAME</code> *</td>
+<td>和上面填的应用名一样</td>
+<td><code>aria2dl</code></td>
+</tr>
+<tr>
+<td><code>RCLONE_CONFIG</code></td>
+<td>你的RCLONE配置</td>
+<td>见下文</td>
+</tr>
+<tr>
+<td><code>RCLONE_DESTINATION</code></td>
+<td>需要同步的目标网盘的路径必须以<code>/</code>开头</td>
+<td><code>/tmp</code></td>
+</tr>
+</tbody>
+</table>
+<p>最后两个是如果你需要将离线下载的文件同步到自己的网盘或者存储的话才需要填写。</p>
+<p>但是建议同步到自己的网盘，因为Heroku保存的问题好像就一个小时还是可能休眠了重启了就消失了。两面性吧，好处是可以通过休眠重启来删除文件，不好的地方是文件不能长久保存。</p>
+<p><code>RCLONE_CONFIG</code>这个选项的话我一开始碰了壁，后来知道原来这么写。 前提是你已经配置过rclone，如果是在Windows下配置过rclone的话，一般配置文件在<code>/$HOME/.config/rclone/rclone.conf</code>，也可以通过命令<code>rclone config file</code>来显示配置文件路径。</p>
+<p>打开对应的配置文件<code>rclone.conf</code>，可以看到格式为下面的内容，或者直接使用<code>rclone</code>命令也可以查看 <code>rclone config show [&lt;remote&gt;] [flags]</code></p>
+<pre><code>[XXDrive]type = onedrivetoken = {&quot;access_token&quot;:&quot;省略&quot;,&quot;expiry&quot;:&quot;2020-02-29T00:06:11.2713766+09:00&quot;}drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XXdrive_type = business
 </code></pre>
-<video id="video" width="320" height="240" controls="" preload="none" poster="">
-      <source id="mp4" src="http://pan.qiantigers.top/one-share/MV/%E8%AE%B8%E5%B5%A9-%E7%B4%A0%E9%A2%9C.mp4" type="video/mp4">
-      </video>
-<h2 id="markdown插入音频">Markdown插入音频</h2>
-<pre><code>&lt;audio id=&quot;audio&quot; controls=&quot;&quot; preload=&quot;none&quot;&gt;
-      &lt;source id=&quot;mp3&quot; src=&quot;音频链接&quot;&gt;
-      &lt;/audio&gt;
+<p>只要选下面这些内容填入<code>RCLONE_CONFIG</code>选项就可以，其实就是不要盘名和每行用<code>\n</code>来连接，但是我试了下像下面这样换行 加上<code>\n</code>也是可以。。。</p>
+<pre><code>type = onedrive\ntoken = {&quot;access_token&quot;:&quot;省略&quot;,&quot;expiry&quot;:&quot;2020-02-29T00:06:11.2713766+09:00&quot;}\ndrive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX\ndrive_type = business
 </code></pre>
-<audio id="audio" controls="" preload="none">
-      <source id="mp3" src="http://pan.qiantigers.top/pan-lib/Upload/%E4%BC%8D%E4%BD%B0-%E7%AA%81%E7%84%B6%E7%9A%84%E8%87%AA%E6%88%91.mp3">
-      </audio>
+<p>最后一个选项<code>ARIA2C_SECRET</code>的话需要，就是你要上传到那个网盘的哪个路径下，可以用<code>/</code>代表上传到根目录。</p>
+<p>最后点击<code>Deploy app</code>就可以看到它自动部署了。等看到部署成功后就可以点击<code>Open app</code>或者<code>View</code>来打开或者直接访问 <code>https://你设置好的应用名.herokuapp.com</code>。</p>
+<h2 id="享用">享用</h2>
+<p>打开后显示如下的话说明部署没问题</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/NAaYSChH9mLKwuE.png" alt="部署成功" loading="lazy">部署成功</p>
+<p>在输入框内填入你设置好的<code>ARIA2C_SECRET</code>密码，比如<code>password</code>，然后点击你要去的地方 - Go to AriaNg panel 离线下载面板 - View downloaded files 查看下载后的文件</p>
+<h2 id="如何保持heroku的活跃呢">如何保持Heroku的活跃呢？</h2>
+<p>在这里使用到了腾讯云的云拨测</p>
+<p><a href="https://console.cloud.tencent.com/cat">https://console.cloud.tencent.com/cat</a></p>
+<p>进入上方的链接，我们会看到</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200628155436948.png" alt="image-20200628155436948" loading="lazy"></figure>
+<table>
+<thead>
+<tr>
+<th>拨测名称</th>
+<th>随意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>拨测地址</td>
+<td>你的heroku地址</td>
+</tr>
+<tr>
+<td>拨测协议</td>
+<td>http(s)</td>
+</tr>
+<tr>
+<td>拨测周期</td>
+<td>建议选择5分钟</td>
+</tr>
+</tbody>
+</table>
+<p>到这里就部署完毕，会定期保持heroku的活跃。</p>
+<h2 id="建议">建议</h2>
+<p>不要一次性下载太多的东西，也不要下载太大的文件，不然很有可能在你没有下载好之前就被heroku重置了。</p>
 
             </div>
             
@@ -661,7 +757,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/" title="Markdown的一些实用技巧">https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/</a>
+      <a href="https://www.qiantigers.top/post/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/" title="利用Heroku部署Aria2离线下载并同步上传到Onedrive等网盘">https://www.qiantigers.top/post/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -670,21 +766,23 @@
   </ul>
   <div class="tags">
     
-      <a href="https://www.qiantigers.top/tag/rKGRAttH7/"># Markdown</a>
+      <a href="https://www.qiantigers.top/tag/chi-xian-xia-zai/"># 离线下载</a>
+    
+      <a href="https://www.qiantigers.top/tag/heroku/"># heroku</a>
+    
+      <a href="https://www.qiantigers.top/tag/aira2/"># aira2</a>
+    
+      <a href="https://www.qiantigers.top/tag/jiao-cheng/"># 教程</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="世纪互联账号购买" href="https://www.qiantigers.top/post/shi-ji-hu-lian-zhang-hao-gou-mai/">世纪互联账号购买</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="世纪互联账号购买" href="https://www.qiantigers.top/post/shi-ji-hu-lian-zhang-hao-gou-mai/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="性价比还行的梯子" href="https://www.qiantigers.top/post/xing-jie-bi-huan-xing-de-ti-zi/">性价比还行的梯子</a>
-        <a class="nav-mobile-next" title="性价比还行的梯子" href="https://www.qiantigers.top/post/xing-jie-bi-huan-xing-de-ti-zi/">下一篇</a>
+        <a class="nav-pc-next" title="YOURLS短链接程序" href="https://www.qiantigers.top/post/yourls-duan-lian-jie-cheng-xu/">YOURLS短链接程序</a>
+        <a class="nav-mobile-next" title="YOURLS短链接程序" href="https://www.qiantigers.top/post/yourls-duan-lian-jie-cheng-xu/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

@@ -9,7 +9,7 @@
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
 <title>关于 | Qiantigers</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/favicon.ico?v=1593329410993">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/favicon.ico?v=1593331529011">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/qiantigers/24708319@master/media/fonts/font-awesome.css">
 <link
@@ -272,19 +272,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">18</span>
+        <span class="site-item-stat-count">19</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">18</span>
+        <span class="site-item-stat-count">21</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">18</span>
+        <span class="site-item-stat-count">21</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -1714,6 +1714,102 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/"" data-c="
+          &lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+&lt;p&gt;自己最近搭建heroku+aria2的离线下载，感觉这个算是白嫖中很不错的东西，所以还是建议搭建一下的。&lt;/p&gt;
+&lt;h2 id=&#34;如何部署&#34;&gt;如何部署&lt;/h2&gt;
+&lt;p&gt;这里省去注册Heroku以及登录的过程。&lt;/p&gt;
+&lt;p&gt;作者的项目：&lt;a href=&#34;https://github.com/maple3142/&#34;&gt;maple3142&lt;/a&gt; / &lt;a href=&#34;https://github.com/maple3142/heroku-aria2c&#34;&gt;heroku-aria2c&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;点击进入作者的项目，在下面的介绍内容中有个紫色的Deploy按钮，点击它&lt;mark&gt;或者&lt;/mark&gt;直接点击本文中下面的按钮&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;a href=&#34;https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fmaple3142%2Fheroku-aria2c&amp;amp;template=https%3A%2F%2Fgithub.com%2Fmaple3142%2Fheroku-aria2c&#34;&gt;&lt;img src=&#34;https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667&#34; alt=&#34;点击我直接部署&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;p&gt;就会进入Heroku的创建app页面。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/t81HwF3svxidCbh.png&#34; alt=&#34;Heroku的创建app页面&#34; loading=&#34;lazy&#34;&gt;Heroku的创建app页面&lt;/p&gt;
+&lt;p&gt;这时候需要填的东西如下，带*为必填项&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;解释&lt;/th&gt;
+&lt;th&gt;示例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;App name&lt;/code&gt; *&lt;/td&gt;
+&lt;td&gt;你要创建的应用名&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;aria2dl&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ARIA2C_SECRET&lt;/code&gt; *&lt;/td&gt;
+&lt;td&gt;进入Aria2的密码&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;password&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HEROKU_APP_NAME&lt;/code&gt; *&lt;/td&gt;
+&lt;td&gt;和上面填的应用名一样&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;aria2dl&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;RCLONE_CONFIG&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;你的RCLONE配置&lt;/td&gt;
+&lt;td&gt;见下文&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;RCLONE_DESTINATION&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;需要同步的目标网盘的路径必须以&lt;code&gt;/&lt;/code&gt;开头&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/tmp&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;最后两个是如果你需要将离线下载的文件同步到自己的网盘或者存储的话才需要填写。&lt;/p&gt;
+&lt;p&gt;但是建议同步到自己的网盘，因为Heroku保存的问题好像就一个小时还是可能休眠了重启了就消失了。两面性吧，好处是可以通过休眠重启来删除文件，不好的地方是文件不能长久保存。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;RCLONE_CONFIG&lt;/code&gt;这个选项的话我一开始碰了壁，后来知道原来这么写。 前提是你已经配置过rclone，如果是在Windows下配置过rclone的话，一般配置文件在&lt;code&gt;/$HOME/.config/rclone/rclone.conf&lt;/code&gt;，也可以通过命令&lt;code&gt;rclone config file&lt;/code&gt;来显示配置文件路径。&lt;/p&gt;
+&lt;p&gt;打开对应的配置文件&lt;code&gt;rclone.conf&lt;/code&gt;，可以看到格式为下面的内容，或者直接使用&lt;code&gt;rclone&lt;/code&gt;命令也可以查看 &lt;code&gt;rclone config show [&amp;lt;remote&amp;gt;] [flags]&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[XXDrive]type = onedrivetoken = {&amp;quot;access_token&amp;quot;:&amp;quot;省略&amp;quot;,&amp;quot;expiry&amp;quot;:&amp;quot;2020-02-29T00:06:11.2713766+09:00&amp;quot;}drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XXdrive_type = business
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;只要选下面这些内容填入&lt;code&gt;RCLONE_CONFIG&lt;/code&gt;选项就可以，其实就是不要盘名和每行用&lt;code&gt;\n&lt;/code&gt;来连接，但是我试了下像下面这样换行 加上&lt;code&gt;\n&lt;/code&gt;也是可以。。。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;type = onedrive\ntoken = {&amp;quot;access_token&amp;quot;:&amp;quot;省略&amp;quot;,&amp;quot;expiry&amp;quot;:&amp;quot;2020-02-29T00:06:11.2713766+09:00&amp;quot;}\ndrive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX\ndrive_type = business
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最后一个选项&lt;code&gt;ARIA2C_SECRET&lt;/code&gt;的话需要，就是你要上传到那个网盘的哪个路径下，可以用&lt;code&gt;/&lt;/code&gt;代表上传到根目录。&lt;/p&gt;
+&lt;p&gt;最后点击&lt;code&gt;Deploy app&lt;/code&gt;就可以看到它自动部署了。等看到部署成功后就可以点击&lt;code&gt;Open app&lt;/code&gt;或者&lt;code&gt;View&lt;/code&gt;来打开或者直接访问 &lt;code&gt;https://你设置好的应用名.herokuapp.com&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;享用&#34;&gt;享用&lt;/h2&gt;
+&lt;p&gt;打开后显示如下的话说明部署没问题&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/NAaYSChH9mLKwuE.png&#34; alt=&#34;部署成功&#34; loading=&#34;lazy&#34;&gt;部署成功&lt;/p&gt;
+&lt;p&gt;在输入框内填入你设置好的&lt;code&gt;ARIA2C_SECRET&lt;/code&gt;密码，比如&lt;code&gt;password&lt;/code&gt;，然后点击你要去的地方 - Go to AriaNg panel 离线下载面板 - View downloaded files 查看下载后的文件&lt;/p&gt;
+&lt;h2 id=&#34;如何保持heroku的活跃呢&#34;&gt;如何保持Heroku的活跃呢？&lt;/h2&gt;
+&lt;p&gt;在这里使用到了腾讯云的云拨测&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://console.cloud.tencent.com/cat&#34;&gt;https://console.cloud.tencent.com/cat&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;进入上方的链接，我们会看到&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200628155436948.png&#34; alt=&#34;image-20200628155436948&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;拨测名称&lt;/th&gt;
+&lt;th&gt;随意&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;拨测地址&lt;/td&gt;
+&lt;td&gt;你的heroku地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;拨测协议&lt;/td&gt;
+&lt;td&gt;http(s)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;拨测周期&lt;/td&gt;
+&lt;td&gt;建议选择5分钟&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;到这里就部署完毕，会定期保持heroku的活跃。&lt;/p&gt;
+&lt;h2 id=&#34;建议&#34;&gt;建议&lt;/h2&gt;
+&lt;p&gt;不要一次性下载太多的东西，也不要下载太大的文件，不然很有可能在你没有下载好之前就被heroku重置了。&lt;/p&gt;
+">利用Heroku部署Aria2离线下载并同步上传到Onedrive等网盘</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/yourls-duan-lian-jie-cheng-xu/"" data-c="
