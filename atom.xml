@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-06-28T08:05:34.644Z</updated>
+    <updated>2020-06-28T08:26:22.481Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -85,11 +85,15 @@
 <table>
 <thead>
 <tr>
-<th>拨测名称</th>
-<th>随意</th>
+<th>选项名称</th>
+<th>选项内容</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>拨测名称</td>
+<td>随意</td>
+</tr>
 <tr>
 <td>拨测地址</td>
 <td>你的heroku地址</td>
