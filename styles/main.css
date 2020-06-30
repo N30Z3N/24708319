@@ -2204,23 +2204,23 @@ pre > span.copy-code:hover {
       color: #a61e4d;
       border-bottom-color: #a61e4d;
     }.active-current > a {
-      color: #9c36b5 !important;
-      border-bottom-color: #9c36b5 !important;
+      color: #0b7285 !important;
+      border-bottom-color: #0b7285 !important;
     }
     .sidebar-title-active {
-      color: #9c36b5;
-      border-bottom-color: #9c36b5;
+      color: #0b7285;
+      border-bottom-color: #0b7285;
     }
     .sidebar-title-item:hover {
-      color: #9c36b5 !important;
+      color: #0b7285 !important;
     }
     .active-show > a {
-      color: #9c36b5;
-      border-bottom-color: #9c36b5;
+      color: #0b7285;
+      border-bottom-color: #0b7285;
     }
     .active-hidden > a {
-      color: #9c36b5;
-      border-bottom-color: #9c36b5;
+      color: #0b7285;
+      border-bottom-color: #0b7285;
     }.bg-color {
       background-color: #ffffffd8;
     }
