@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-01T03:57:59.165Z</updated>
+    <updated>2020-07-01T06:29:08.099Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -445,7 +445,7 @@ cp -r ./* /root/gd-utils/sa
 <p>下面就开始服务器购买配置流程，这家对于小白来说流程比较复杂，我尽可能写 长 详细点，如果照流程还是遇到问题还请评论指出，可能存在被我忽略的一些东西。</p>
 <hr>
 <h2 id="注册">注册</h2>
-<p>点击去注册：<a href="https://1ove.club/vps">https://my.frantech.ca</a><br>
+<p><strong>点击去注册：<a href="https://1ove.club/vps">https://my.frantech.ca</a></strong><br>
 然后如下图操作</p>
 <figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200628184908.png" alt="image-20200628184209067" loading="lazy"></figure>
 <p>接着填写相关信息，地址姓名用拼音就行。需要注意以下几点：<code>这家服务商审查比较严，注册和购买服务器时也不建议用梯子，防止以后IP变来变去被系统认定为欺诈，轻则会进入人工审核时间会拖好几天，重则可能封号；信息尽量不要乱填一些国外的，姓名随便整个中文名也没关系；电话选中国+86的，号码不用真的也没关系，不会给你发短息之类，但是不建议填国外的；国家省份城市要跟你的IP所在地对的上，街道不用很详细，随便写你这个城市某个街道或小区都可以。</code>如果真的要用梯子也因为用了梯子导致人工审核，可以给客服发个工单说下原因，比如你不用梯子打不开网站之类的客服会帮你处理的。<br>
