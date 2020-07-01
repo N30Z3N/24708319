@@ -2198,29 +2198,29 @@ pre > span.copy-code:hover {
       transition-duration: 59s;
       transition-timing-function: cubic-bezier(.34,0,.84,1);
     }.markdownIt-TOC a {
-      color: #343a40;
-      border-bottom-color: #343a40;
+      color: #212529;
+      border-bottom-color: #212529;
     }.markdownIt-TOC a:hover {
-      color: #364fc7;
-      border-bottom-color: #364fc7;
+      color: #e64980;
+      border-bottom-color: #e64980;
     }.active-current > a {
-      color: #c92a2a !important;
-      border-bottom-color: #c92a2a !important;
+      color: #0b7285 !important;
+      border-bottom-color: #0b7285 !important;
     }
     .sidebar-title-active {
-      color: #c92a2a;
-      border-bottom-color: #c92a2a;
+      color: #0b7285;
+      border-bottom-color: #0b7285;
     }
     .sidebar-title-item:hover {
-      color: #c92a2a !important;
+      color: #0b7285 !important;
     }
     .active-show > a {
-      color: #c92a2a;
-      border-bottom-color: #c92a2a;
+      color: #0b7285;
+      border-bottom-color: #0b7285;
     }
     .active-hidden > a {
-      color: #c92a2a;
-      border-bottom-color: #c92a2a;
+      color: #0b7285;
+      border-bottom-color: #0b7285;
     }.bg-color {
       background-color: #ffffffbf;
     }
