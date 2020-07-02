@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-02T09:13:20.119Z</updated>
+    <updated>2020-07-02T09:19:24.974Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -19,7 +19,7 @@
         <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>Aria2 有一个配置项 <code>on-download-complete</code>，在下载完后执行一个脚本。当下载完成后 Aria2 会给脚本传递 3 个变量 <code>$1</code>、<code>$2</code>、<code>$3</code> 分别为 gid 、文件数量、文件路径。利用这个配置项和这些变量就可以实现很多功能，比如下载完成后调用 Rclone 进行上传操作。整个过程简单来说就是，Aria2 下载文件到 VPS ，完成后告诉 Rclone 将这个文件上传到网盘。理论上只要是 Rclone 支持的网盘，都可以按照这个思路来实现<s>伪</s>离线下载。</p>
 <blockquote>
-<p>如果你还没有合适的 VPS，推荐去看《<a href="https://www.qiantigers.top/post/di-jie-da-pan-ji-frantech-da-ying-pan-vpsandg-kou-dai-kuan-wu-xian-liu-liang/">便宜高性价比 VPS 推荐</a>》。<a href="https://1ove.club/vps">BuyMV</a>拥有无限流量的，G口宽带非常适合用来离线下载.</p>
+<p>如果你还没有合适的 VPS，推荐去看《<a href="https://www.qiantigers.top/post/frantech-buyvm/">便宜高性价比 VPS 推荐</a>》。<a href="https://1ove.club/vps">BuyMV</a>拥有无限流量的，G口宽带非常适合用来离线下载.</p>
 </blockquote>
 <h2 id="安装-aria2">安装 Aria2</h2>
 <p>这里使用 <a href="https://github.com/P3TERX/aria2.sh">Aria2 一键安装管理脚本 增强版</a>，执行下面的代码下载并运行脚本，出现脚本操作菜单输入 <code>1</code> 开始安装。</p>
