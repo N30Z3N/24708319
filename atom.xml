@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-02T08:48:54.915Z</updated>
+    <updated>2020-07-02T09:01:30.844Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, Qiantigers</rights>
     <entry>
         <title type="html"><![CDATA[Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载]]></title>
-        <id>https://www.qiantigers.top/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai/</id>
-        <link href="https://www.qiantigers.top/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai/">
+        <id>https://www.qiantigers.top/aria2-rclone/</id>
+        <link href="https://www.qiantigers.top/aria2-rclone/">
         </link>
         <updated>2020-07-02T08:28:06.000Z</updated>
         <content type="html"><![CDATA[<h2 id="前言">前言</h2>
@@ -64,8 +64,8 @@ on-download-complete=/root/.aria2c/upload.sh
     </entry>
     <entry>
         <title type="html"><![CDATA[牛站分享]]></title>
-        <id>https://www.qiantigers.top/post/niu-zhan-fen-xiang/</id>
-        <link href="https://www.qiantigers.top/post/niu-zhan-fen-xiang/">
+        <id>https://www.qiantigers.top/niu-zhan-fen-xiang/</id>
+        <link href="https://www.qiantigers.top/niu-zhan-fen-xiang/">
         </link>
         <updated>2020-06-30T17:53:57.000Z</updated>
         <content type="html"><![CDATA[<h2 id="good-resume">Good Resume</h2>
@@ -208,8 +208,8 @@ on-download-complete=/root/.aria2c/upload.sh
     </entry>
     <entry>
         <title type="html"><![CDATA[影视资源的获取与观看]]></title>
-        <id>https://www.qiantigers.top/post/ying-shi-zi-yuan-de-huo-qu-yu-guan-kan/</id>
-        <link href="https://www.qiantigers.top/post/ying-shi-zi-yuan-de-huo-qu-yu-guan-kan/">
+        <id>https://www.qiantigers.top/ying-shi-zi-yuan-de-huo-qu-yu-guan-kan/</id>
+        <link href="https://www.qiantigers.top/ying-shi-zi-yuan-de-huo-qu-yu-guan-kan/">
         </link>
         <updated>2020-06-30T16:25:15.000Z</updated>
         <content type="html"><![CDATA[<p>直接上菜～</p>
@@ -297,8 +297,8 @@ on-download-complete=/root/.aria2c/upload.sh
     </entry>
     <entry>
         <title type="html"><![CDATA[Google Drive 百宝箱(GitHub+宝塔版)]]></title>
-        <id>https://www.qiantigers.top/post/google-drive-bai-bao-xiang-githubbao-ta-ban/</id>
-        <link href="https://www.qiantigers.top/post/google-drive-bai-bao-xiang-githubbao-ta-ban/">
+        <id>https://www.qiantigers.top/google-drive-bai-bao-xiang-githubbao-ta-ban/</id>
+        <link href="https://www.qiantigers.top/google-drive-bai-bao-xiang-githubbao-ta-ban/">
         </link>
         <updated>2020-06-28T13:14:31.000Z</updated>
         <content type="html"><![CDATA[<h1 id="google-drive-百宝箱">Google Drive 百宝箱</h1>
@@ -468,8 +468,8 @@ cp -r ./* /root/gd-utils/sa
     </entry>
     <entry>
         <title type="html"><![CDATA[低价大盘鸡frantech (大硬盘VPS&G口带宽无限流量)]]></title>
-        <id>https://www.qiantigers.top/post/di-jie-da-pan-ji-frantech-da-ying-pan-vpsandg-kou-dai-kuan-wu-xian-liu-liang/</id>
-        <link href="https://www.qiantigers.top/post/di-jie-da-pan-ji-frantech-da-ying-pan-vpsandg-kou-dai-kuan-wu-xian-liu-liang/">
+        <id>https://www.qiantigers.top/frantech-buyvm/</id>
+        <link href="https://www.qiantigers.top/frantech-buyvm/">
         </link>
         <updated>2020-06-28T12:38:45.000Z</updated>
         <content type="html"><![CDATA[<ul>
@@ -558,8 +558,8 @@ mount /mnt/file
     </entry>
     <entry>
         <title type="html"><![CDATA[利用Heroku部署Aria2离线下载并同步上传到Onedrive等网盘]]></title>
-        <id>https://www.qiantigers.top/post/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/</id>
-        <link href="https://www.qiantigers.top/post/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/">
+        <id>https://www.qiantigers.top/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/</id>
+        <link href="https://www.qiantigers.top/li-yong-heroku-bu-shu-aria2-chi-xian-xia-zai-bing-tong-bu-shang-chuan-dao-onedrive-deng-wang-pan/">
         </link>
         <updated>2020-06-28T08:04:08.000Z</updated>
         <content type="html"><![CDATA[<h2 id="背景">背景</h2>
@@ -661,8 +661,8 @@ mount /mnt/file
     </entry>
     <entry>
         <title type="html"><![CDATA[YOURLS短链接程序]]></title>
-        <id>https://www.qiantigers.top/post/yourls-duan-lian-jie-cheng-xu/</id>
-        <link href="https://www.qiantigers.top/post/yourls-duan-lian-jie-cheng-xu/">
+        <id>https://www.qiantigers.top/yourls/</id>
+        <link href="https://www.qiantigers.top/yourls/">
         </link>
         <updated>2020-06-28T07:25:59.000Z</updated>
         <content type="html"><![CDATA[<h2 id="前言">前言</h2>
@@ -763,8 +763,8 @@ exit;
     </entry>
     <entry>
         <title type="html"><![CDATA[Gride+GitHub+VPS]]></title>
-        <id>https://www.qiantigers.top/post/gridegithubvps/</id>
-        <link href="https://www.qiantigers.top/post/gridegithubvps/">
+        <id>https://www.qiantigers.top/gridegithubvps/</id>
+        <link href="https://www.qiantigers.top/gridegithubvps/">
         </link>
         <updated>2020-06-24T13:54:42.000Z</updated>
         <content type="html"><![CDATA[<p>Gridea是一个静态博客程序，它和hexo有很多相似之处，但是我选择它的原因在于其拥有客户端，在文章发表方面比较便利。</p>
@@ -863,8 +863,8 @@ fi
     </entry>
     <entry>
         <title type="html"><![CDATA[购买谷歌无限云盘和白嫖谷歌团队盘]]></title>
-        <id>https://www.qiantigers.top/post/gou-mai-gu-ge-wu-xian-yun-pan-he-bai-piao-gu-ge-tuan-dui-pan/</id>
-        <link href="https://www.qiantigers.top/post/gou-mai-gu-ge-wu-xian-yun-pan-he-bai-piao-gu-ge-tuan-dui-pan/">
+        <id>https://www.qiantigers.top/gou-mai-gu-ge-wu-xian-yun-pan-he-bai-piao-gu-ge-tuan-dui-pan/</id>
+        <link href="https://www.qiantigers.top/gou-mai-gu-ge-wu-xian-yun-pan-he-bai-piao-gu-ge-tuan-dui-pan/">
         </link>
         <updated>2020-06-15T10:10:33.000Z</updated>
         <content type="html"><![CDATA[<h3 id="创建无限共享云盘的链接">创建无限共享云盘的链接：</h3>
@@ -888,8 +888,8 @@ fi
     </entry>
     <entry>
         <title type="html"><![CDATA[Office 365 Education 发展(白嫖)历史与申请]]></title>
-        <id>https://www.qiantigers.top/post/office-365-education-fa-zhan-bai-piao-li-shi-yu-shen-qing/</id>
-        <link href="https://www.qiantigers.top/post/office-365-education-fa-zhan-bai-piao-li-shi-yu-shen-qing/">
+        <id>https://www.qiantigers.top/office-365-education-fa-zhan-bai-piao-li-shi-yu-shen-qing/</id>
+        <link href="https://www.qiantigers.top/office-365-education-fa-zhan-bai-piao-li-shi-yu-shen-qing/">
         </link>
         <updated>2020-06-14T11:05:54.000Z</updated>
         <content type="html"><![CDATA[<h2 id="office365发展历史">Office365发展历史</h2>
