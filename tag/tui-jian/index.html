@@ -9,7 +9,7 @@
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
 <title>Qiantigers</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1593588826921">
+<link rel="shortcut icon" href="/favicon.ico?v=1593678732513">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -254,19 +254,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">23</span>
+        <span class="site-item-stat-count">24</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">26</span>
+        <span class="site-item-stat-count">27</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">26</span>
+        <span class="site-item-stat-count">27</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -317,6 +317,14 @@
           <small class="language" data-lan="tag">标签</small>
         </h2>
       </div>
+      
+      
+      
+      
+      
+      
+      
+      
       
       
       
@@ -1321,6 +1329,55 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai/"" data-c="
+          &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;Aria2 有一个配置项 &lt;code&gt;on-download-complete&lt;/code&gt;，在下载完后执行一个脚本。当下载完成后 Aria2 会给脚本传递 3 个变量 &lt;code&gt;$1&lt;/code&gt;、&lt;code&gt;$2&lt;/code&gt;、&lt;code&gt;$3&lt;/code&gt; 分别为 gid 、文件数量、文件路径。利用这个配置项和这些变量就可以实现很多功能，比如下载完成后调用 Rclone 进行上传操作。整个过程简单来说就是，Aria2 下载文件到 VPS ，完成后告诉 Rclone 将这个文件上传到网盘。理论上只要是 Rclone 支持的网盘，都可以按照这个思路来实现&lt;s&gt;伪&lt;/s&gt;离线下载。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你还没有合适的 VPS，推荐去看《&lt;a href=&#34;https://www.qiantigers.top/post/di-jie-da-pan-ji-frantech-da-ying-pan-vpsandg-kou-dai-kuan-wu-xian-liu-liang/&#34;&gt;便宜高性价比 VPS 推荐&lt;/a&gt;》。&lt;a href=&#34;https://1ove.club/vps&#34;&gt;BuyMV&lt;/a&gt;拥有无限流量的，G口宽带非常适合用来离线下载.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;安装-aria2&#34;&gt;安装 Aria2&lt;/h2&gt;
+&lt;p&gt;这里使用 &lt;a href=&#34;https://github.com/P3TERX/aria2.sh&#34;&gt;Aria2 一键安装管理脚本 增强版&lt;/a&gt;，执行下面的代码下载并运行脚本，出现脚本操作菜单输入 &lt;code&gt;1&lt;/code&gt; 开始安装。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;wget -N git.io/aria2.sh &amp;amp;&amp;amp; chmod +x aria2.sh &amp;amp;&amp;amp; ./aria2.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;安装和配置-rclone&#34;&gt;安装和配置 Rclone&lt;/h2&gt;
+&lt;p&gt;RCLONE 官方提供了&lt;a href=&#34;https://rclone.org/install/#script-installation&#34;&gt;一键安装脚本&lt;/a&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;curl https://rclone.org/install.sh | sudo bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装完后，输入 &lt;code&gt;rclone config&lt;/code&gt; 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看《&lt;a href=&#34;https://github.com/P3TERX/aria2.sh&#34;&gt;Rclone 安装配置教程&lt;/a&gt;》来了解配置的详细过程。&lt;/p&gt;
+&lt;h2 id=&#34;配置自动上传脚本&#34;&gt;配置自动上传脚本&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/P3TERX/aria2.sh&#34;&gt;Aria2 一键安装管理脚本 增强版&lt;/a&gt; 整合了 &lt;a href=&#34;https://github.com/P3TERX/aria2.conf&#34;&gt;Aria2 完美配置&lt;/a&gt; ，安装后会附带一些列增强功能脚本，Rclone 自动上传脚本就是其中之一。由于默认不启用，所以需要手动启用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入&lt;code&gt;nano /root/.aria2c/upload.sh&lt;/code&gt;打开自动上传脚本进行编辑，脚本中有中文注释，按照自己的实际情况进行修改，一般只需要修改下面2个部分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;# Rclone 配置时填写的网盘名(name)
+DRIVE_NAME=&#39;Onedrive&#39;
+# 网盘目录。即上传目标路径，留空为网盘根目录，末尾不要有斜杠。
+DRIVE_PATH=&#39;/DRIVEX/Download&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你对 nano 编辑器不熟悉，可以去看《&lt;a href=&#34;https://p3terx.com/archives/linux-nano-tutorial.html&#34;&gt;Linux 下适合新手的文本编辑器 nano 使用教程&lt;/a&gt;》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;输入&lt;code&gt;nano /root/.aria2c/aria2.conf&lt;/code&gt;打开 Aria2 配置文件进行修改。或使用&lt;a href=&#34;https://github.com/P3TERX/aria2.sh&#34;&gt;Aria2 一键安装管理脚本 增强版&lt;/a&gt;中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把&lt;code&gt;clean.sh&lt;/code&gt;替换为&lt;code&gt;upload.sh&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;# 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;重启 Aria2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;service aria2 restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;当你进行完以上所有操作，现在下载文件就会自动上传至相应的网盘，本地的文件也会自动删除。&lt;/p&gt;
+&lt;p&gt;由于 Aria2 是命令行后端软件，需要配合前端 GUI 才能有更好的使用体验，对于从来没有接触过的萌新，建议去看《&lt;a href=&#34;https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html&#34;&gt;Aria2 前端面板 AriaNg 使用教程&lt;/a&gt;》来了解相关基础知识。&lt;/p&gt;
+&lt;h2 id=&#34;遇到问题如何处理&#34;&gt;遇到问题如何处理&lt;/h2&gt;
+&lt;p&gt;严格按照教程来进行操作不会遇到问题，如果有问题那一定是你自身的问题，请仔细阅读教程中的每一个字。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;注：转载于 https://p3terx.com/archives/offline-download-of-onedrive-gdrive.html&lt;/em&gt;&lt;/p&gt;
+">Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/niu-zhan-fen-xiang/"" data-c="

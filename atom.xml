@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-01T07:33:52.184Z</updated>
+    <updated>2020-07-02T08:32:32.311Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,58 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载]]></title>
+        <id>https://www.qiantigers.top/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai/</id>
+        <link href="https://www.qiantigers.top/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai/">
+        </link>
+        <updated>2020-07-02T08:28:06.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<p>Aria2 有一个配置项 <code>on-download-complete</code>，在下载完后执行一个脚本。当下载完成后 Aria2 会给脚本传递 3 个变量 <code>$1</code>、<code>$2</code>、<code>$3</code> 分别为 gid 、文件数量、文件路径。利用这个配置项和这些变量就可以实现很多功能，比如下载完成后调用 Rclone 进行上传操作。整个过程简单来说就是，Aria2 下载文件到 VPS ，完成后告诉 Rclone 将这个文件上传到网盘。理论上只要是 Rclone 支持的网盘，都可以按照这个思路来实现<s>伪</s>离线下载。</p>
+<blockquote>
+<p>如果你还没有合适的 VPS，推荐去看《<a href="https://www.qiantigers.top/post/di-jie-da-pan-ji-frantech-da-ying-pan-vpsandg-kou-dai-kuan-wu-xian-liu-liang/">便宜高性价比 VPS 推荐</a>》。<a href="https://1ove.club/vps">BuyMV</a>拥有无限流量的，G口宽带非常适合用来离线下载.</p>
+</blockquote>
+<h2 id="安装-aria2">安装 Aria2</h2>
+<p>这里使用 <a href="https://github.com/P3TERX/aria2.sh">Aria2 一键安装管理脚本 增强版</a>，执行下面的代码下载并运行脚本，出现脚本操作菜单输入 <code>1</code> 开始安装。</p>
+<pre><code class="language-none">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; ./aria2.sh
+</code></pre>
+<h2 id="安装和配置-rclone">安装和配置 Rclone</h2>
+<p>RCLONE 官方提供了<a href="https://rclone.org/install/#script-installation">一键安装脚本</a>：</p>
+<pre><code class="language-none">curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看《<a href="https://github.com/P3TERX/aria2.sh">Rclone 安装配置教程</a>》来了解配置的详细过程。</p>
+<h2 id="配置自动上传脚本">配置自动上传脚本</h2>
+<p><a href="https://github.com/P3TERX/aria2.sh">Aria2 一键安装管理脚本 增强版</a> 整合了 <a href="https://github.com/P3TERX/aria2.conf">Aria2 完美配置</a> ，安装后会附带一些列增强功能脚本，Rclone 自动上传脚本就是其中之一。由于默认不启用，所以需要手动启用。</p>
+<ul>
+<li>输入<code>nano /root/.aria2c/upload.sh</code>打开自动上传脚本进行编辑，脚本中有中文注释，按照自己的实际情况进行修改，一般只需要修改下面2个部分。</li>
+</ul>
+<pre><code class="language-none"># Rclone 配置时填写的网盘名(name)
+DRIVE_NAME='Onedrive'
+# 网盘目录。即上传目标路径，留空为网盘根目录，末尾不要有斜杠。
+DRIVE_PATH='/DRIVEX/Download'
+</code></pre>
+<blockquote>
+<p>如果你对 nano 编辑器不熟悉，可以去看《<a href="https://p3terx.com/archives/linux-nano-tutorial.html">Linux 下适合新手的文本编辑器 nano 使用教程</a>》</p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用<a href="https://github.com/P3TERX/aria2.sh">Aria2 一键安装管理脚本 增强版</a>中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把<code>clean.sh</code>替换为<code>upload.sh</code>。</li>
+</ul>
+<pre><code class="language-none"># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+</code></pre>
+<ul>
+<li>重启 Aria2</li>
+</ul>
+<pre><code class="language-none">service aria2 restart
+</code></pre>
+<h2 id="使用">使用</h2>
+<p>当你进行完以上所有操作，现在下载文件就会自动上传至相应的网盘，本地的文件也会自动删除。</p>
+<p>由于 Aria2 是命令行后端软件，需要配合前端 GUI 才能有更好的使用体验，对于从来没有接触过的萌新，建议去看《<a href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">Aria2 前端面板 AriaNg 使用教程</a>》来了解相关基础知识。</p>
+<h2 id="遇到问题如何处理">遇到问题如何处理</h2>
+<p>严格按照教程来进行操作不会遇到问题，如果有问题那一定是你自身的问题，请仔细阅读教程中的每一个字。</p>
+<p><em>注：转载于 https://p3terx.com/archives/offline-download-of-onedrive-gdrive.html</em></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[牛站分享]]></title>
         <id>https://www.qiantigers.top/post/niu-zhan-fen-xiang/</id>
@@ -880,63 +932,6 @@ fi
 <p><strong>06-17</strong>：本次查水表的力度已超出预期，已经开始有部分 2018 年的全局被锁定。</p>
 <figure data-type="image" tabindex="1"><img src="https://img.moedog.org/images/2020/04/27/n365status.png" alt="" loading="lazy"></figure>
 <p><em>注：本文转载于 https://moedog.org/1263.html</em></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[利用Windows PowerShell来批量创建Office 365（各种订阅）用户]]></title>
-        <id>https://www.qiantigers.top/post/li-yong-windows-powershell-lai-pi-liang-chuang-jian-office-365ge-chong-ding-yue-yong-hu/</id>
-        <link href="https://www.qiantigers.top/post/li-yong-windows-powershell-lai-pi-liang-chuang-jian-office-365ge-chong-ding-yue-yong-hu/">
-        </link>
-        <updated>2020-06-14T10:49:08.000Z</updated>
-        <content type="html"><![CDATA[<p>本文参考的官方文档:<a href="https://docs.microsoft.com/zh-cn/office365/enterprise/powershell/create-user-accounts-with-office-365-powershell">https://docs.microsoft.com/zh-cn/office365/enterprise/powershell/create-user-accounts-with-office-365-powershell</a></p>
-<p>首先你的电脑要能运行Windows PowerShell，win10的话，在左下角图标上右键，选择Windows PowerShell（管理员）</p>
-<p>步骤 1：安装所需软件</p>
-<pre><code>Install-Module -Name AzureAD
-</code></pre>
-<p>步骤 2：连接到 Office 365 订阅的 Azure AD</p>
-<pre><code>Connect-AzureAD
-</code></pre>
-<p>与用于 Windows PowerShell 的 Microsoft Azure Active Directory 模块连接</p>
-<p>步骤 1：安装所需软件</p>
-<pre><code>Install-Module MSOnline
-</code></pre>
-<p>出现提示时选择A</p>
-<p>好了，完成上面的环境安装后，我们就可以开始操作了</p>
-<pre><code>Connect-MsolService
-</code></pre>
-<p>这时会让你输入账号密码，注意需要有管理权限的（或者具有创建用户权限的管理员）</p>
-<figure data-type="image" tabindex="1"><a href="https://s2.ax1x.com/2019/12/23/lpOT1I.png"><img src="https://s2.ax1x.com/2019/12/23/lpOT1I.png" alt="请输入图片描述" loading="lazy"></a></figure>
-<p>登陆成功后，我们就能开始操作了<br>
-下面是官方给的批量创建用户的命令，我们就按照这个写就好</p>
-<p><a href="https://s2.ax1x.com/2019/12/23/lpOOHS.png"><img src="https://s2.ax1x.com/2019/12/23/lpOOHS.png" alt="请输入图片描述" loading="lazy"></a><br>
-我在这里给出我用的代码</p>
-<pre><code>Import-Csv -Path &quot;D:\qiantigers.csv&quot; | foreach {New-MsolUser -DisplayName $_.DisplayName -FirstName $_.FirstName -LastName $_.LastName -UserPrincipalName $_.UserPrincipalName -UsageLocation $_.UsageLocation -LicenseAssignment $_.AccountSkuId} | Export-Csv -Path &quot;D:\qiantigers.csv&quot;
-</code></pre>
-<p>这个代码大概的意思是，读取的是我桌面（C:UsersAdministratorDesktop）的001.csv这个文件，并将结果记录在桌面（C:UsersAdministratorDesktop）的这个NewAccountResults.csv 文件中，大家在使用的时候可以自行修改这两个路径</p>
-<p>csv文件由5个部分组成</p>
-<figure data-type="image" tabindex="2"><a href="https://s2.ax1x.com/2019/12/23/lpXVN4.png"><img src="https://s2.ax1x.com/2019/12/23/lpXVN4.png" alt="请输入图片描述" loading="lazy"></a></figure>
-<p>打开我提供的csv文件，UserPrincipalName（就是用户的登陆邮箱）需要修改一下，把后缀修改为你的域名后缀就可以了<br>
-用excel的话，直接按ctrl+h，按下图操作（其中xxxxxxx.com代表你绑定在Office 365的域名）</p>
-<p>除了UserPrincipalName，你还需要修改LicenseAssignment，就是你要分配给用户什么许可证</p>
-<p>我的csv文件里面是这样的</p>
-<pre><code>microsoft:STANDARDWOFFPACK_STUDENT
-</code></pre>
-<p>前面这个microsoft，你需要修改为微软给你的二级域名的前面那部分<br>
-例如我的是这个admin@qiantigers.onmicrosoft.com<br>
-就需要把microsoft修改为qiantigers（批量修改的方法在前面有，ctrl+h）</p>
-<p>后面这个STANDARDWOFFPACK_STUDENT，代表的是学生许可证<br>
-如果你想添加教师，就改为STANDARDWOFFPACK_FACULTY</p>
-<p>你也可以在Windows PowerShell使用下面这个命令来看你的订阅</p>
-<pre><code>Get-MsolAccountSku
-</code></pre>
-<p>这些都做好了，就可以真正的开始跑脚本了</p>
-<pre><code>Import-Csv -Path &quot;D:\qiantigers.csv&quot; | foreach {New-MsolUser -DisplayName $_.DisplayName -FirstName $_.FirstName -LastName $_.LastName -UserPrincipalName $_.UserPrincipalName -UsageLocation $_.UsageLocation -LicenseAssignment $_.AccountSkuId} | Export-Csv -Path &quot;D:\qiantigers.csv&quot;
-</code></pre>
-<p>脚本具体要修改的地方就两个，在文章开头也说过了，前面那个路径代表你的csv的位置，后面那个路径是储存你创建的用户信息的位置</p>
-<p>大概就是这些啦，文章写的还算比较详细。</p>
-<p>成果：</p>
-<figure data-type="image" tabindex="3"><a href="https://s2.ax1x.com/2019/12/23/lpX1HO.png"><img src="https://s2.ax1x.com/2019/12/23/lpX1HO.png" alt="请输入图片描述" loading="lazy"></a></figure>
-<p><em>注：转载于 https://www.zxd.win/16.html</em></p>
 ]]></content>
     </entry>
 </feed>
