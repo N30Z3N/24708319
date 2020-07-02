@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-02T08:44:21.966Z</updated>
+    <updated>2020-07-02T08:48:54.915Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -474,7 +474,7 @@ cp -r ./* /root/gd-utils/sa
         <updated>2020-06-28T12:38:45.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>
-<p><strong>先说下这个家VPS的优缺点，方便你们根据自己需求决定要不要入。</strong></p>
+<p><strong>先说下这家VPS的优缺点，方便你们根据自己需求决定要不要入。</strong></p>
 </li>
 <li>
 <p><strong>优点1：</strong> 便宜！512M的KVM切片只要2加元/月（网站和账单显示的货币单位是USD美元，实际我支付宝付款汇率是按C$加元来的，这家VPS总部是加拿大的），换算RMB10元多点；</p>
@@ -552,7 +552,7 @@ mount /mnt/file
 </code></pre>
 <p>最后SSH里输入<code>df -h</code>看看这个磁盘是不是挂载进来了，有就大功告成了。</p>
 <hr>
-<p>挂载硬盘踩过的坑：我第一次因为2加元的没货购买的3.5加元的KVM，后来2加元的有货我就买了6个月2加元的（因为6个月的便宜16%，RMB45元都不到，奇怪的是贵的KVM反而没优惠）。重新购买后我又得将块存储从原来服务器分离然后挂载到新的，结果分离后再附加却没有新的服务器选项。后来工单客服，第二天回复我说这个节点还没对块存储进行正确配置，说安排给我处理，过了6个小时回我说好了让我试下。我刚开始试发现还是只有一个选项（这时块存储又被我附加回第一个服务器上了），后来将其分离后就出来新的第二个选项可以挂载了。</p>
+<p>挂载硬盘踩过的坑：我第一次因为2加元的没货购买的3.5加元的KVM，后来2加元的有货我就买了6个月2加元的（<s>因为6个月的便宜16%，RMB45元都不到，奇怪的是贵的KVM反而没优惠</s>）。重新购买后我又得将块存储从原来服务器分离然后挂载到新的，结果分离后再附加却没有新的服务器选项。后来工单客服，第二天回复我说这个节点还没对块存储进行正确配置，说安排给我处理，过了6个小时回我说好了让我试下。我刚开始试发现还是只有一个选项（这时块存储又被我附加回第一个服务器上了），后来将其分离后就出来新的第二个选项可以挂载了。</p>
 <p><em>注：转载于 https://www.twoha.tk/buyvm-frantech/</em></p>
 ]]></content>
     </entry>
