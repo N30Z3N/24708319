@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-02T08:35:52.629Z</updated>
+    <updated>2020-07-02T08:44:21.966Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -483,7 +483,7 @@ cp -r ./* /root/gd-utils/sa
 <p><strong>优点2：</strong> 提供块存储，也超便宜，每256G硬盘只要1.25加元，1T硬盘只要5加元/月，如果选2加元的切片+256G存储，只要3.25加元，约17元人民币。像Vultr家光是对象存储，250G硬盘、1T流量要5美元；</p>
 </li>
 <li>
-<p><strong>优点3：</strong> 稳定，因为是KVM切片（本身自带一定大小SSD）+块存储（机械盘），有点像我们电脑固态+机械的组合。512MB的内存实际总可用为481MB，但是在我拷贝文件到OneDrive时却没有崩溃过，虽然拷贝时内存使用率也会在80%左右。不像之前用过一家俄罗斯的实际可用内存490多MB的，默认同时同步4个文件时经常因为内存负载问题崩溃，只能改为同时传三个文件才行。</p>
+<p><strong>优点3：</strong> 稳定，因为是KVM切片（本身自带一定大小SSD，后又升级为NVME）+块存储（机械盘），有点像我们电脑固态+机械的组合。512MB的内存实际总可用为481MB，但是在我拷贝文件到OneDrive时却没有崩溃过，虽然拷贝时内存使用率也会在80%左右。不像之前用过一家俄罗斯的实际可用内存490多MB的，默认同时同步4个文件时经常因为内存负载问题崩溃，只能改为同时传三个文件才行。</p>
 </li>
 <li>
 <p><strong>优点4：</strong> G口（千兆）带宽不限流量，同时拥有G口还不限速真的稀有，大多数VPS只能满足其中之一，要么G口给你几个T流量，要么不限流只给你100M带宽。</p>
