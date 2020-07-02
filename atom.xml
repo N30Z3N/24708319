@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-02T09:07:51.769Z</updated>
+    <updated>2020-07-02T09:13:20.119Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -493,7 +493,7 @@ cp -r ./* /root/gd-utils/sa
 </li>
 </ul>
 <figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200628182956180.png" alt="image-20200628182956180" loading="lazy"></figure>
-<p>综合以上特点这玩意最适合拿来搞私有云离线下载了。服务器对于BT的下载能力比我们受制于ISP的个人宽带要强多了，我最高下载速度到过60多MB/s（极罕见，估计做种的人要么也是用服务器，或者就是千兆以上带公网IP的的网络），多数新片月内10-30MB/s的速度还是能达到的，就算年久的电影原盘速度只有100KB/s，鉴于服务器可以24小时不间断下载且很少会掉速，不像本地下经常今天几百DHT明天亮黄灯，40GB的原盘5天左右就能下完。然后通过配置自动上传下好的文件到OneDrive或Google Drive等网盘上，再从这些网盘上下载或在线观看视频。如果你还没看过这个配置离线下载和自动上传网盘的教程这里有传送门  <a href="https://www.qiantigers.top/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai/">https://www.qiantigers.top/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai/</a></p>
+<p>综合以上特点这玩意最适合拿来搞私有云离线下载了。服务器对于BT的下载能力比我们受制于ISP的个人宽带要强多了，我最高下载速度到过60多MB/s（极罕见，估计做种的人要么也是用服务器，或者就是千兆以上带公网IP的的网络），多数新片月内10-30MB/s的速度还是能达到的，就算年久的电影原盘速度只有100KB/s，鉴于服务器可以24小时不间断下载且很少会掉速，不像本地下经常今天几百DHT明天亮黄灯，40GB的原盘5天左右就能下完。然后通过配置自动上传下好的文件到OneDrive或Google Drive等网盘上，再从这些网盘上下载或在线观看视频。如果你还没看过这个配置离线下载和自动上传网盘的教程这里有传送门  <a href="https://www.qiantigers.top/post/aria2-rclone/">https://www.qiantigers.top/post/aria2-rclone/</a></p>
 <p>下面就开始服务器购买配置流程，这家对于小白来说流程比较复杂，我尽可能写 长 详细点，如果照流程还是遇到问题还请评论指出，可能存在被我忽略的一些东西。</p>
 <hr>
 <h2 id="注册">注册</h2>
