@@ -8,7 +8,7 @@
 <meta name="keywords" content="OneDrive,云盘,资源,教程,技巧,干货,">
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
-<title>1oveClub公告 | Qiantigers</title>
+<title>性价比还行的梯子 | Qiantigers</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1593787958245">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -58,8 +58,8 @@
 </script>
 
 
-  <meta name="description" content="1oveClub公告" />
-  <meta name="keywords" content="1oveClub" />
+  <meta name="description" content="性价比还行的梯子" />
+  <meta name="keywords" content="推荐" />
 </head>
 
 <body>
@@ -249,7 +249,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -308,6 +309,193 @@
   </div>
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E6%8E%A8%E8%8D%90%E7%A7%91%E5%AD%A6%E4%BA%91%E5%8A%A0%E9%80%9F%E6%9C%AC%E4%BA%BA%E5%9C%A8%E7%94%A8">【推荐】科学云加速（本人在用）</a></li>
+<li><a href="#%E5%A5%87%E5%BC%82%E3%81%AEtravel">奇异のtravel</a></li>
+<li><a href="#%E8%9C%82%E5%B7%A233">蜂巢3.3</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -395,8 +583,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://www.qiantigers.top/post/1oveclub-gong-gao/">
-      1oveClub公告
+    <a class="post-title-link" href="https://www.qiantigers.top/post/vpn/">
+      性价比还行的梯子
     </a>
   </h1>
   <div class="post-meta">
@@ -404,7 +592,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-30</span>
+      <span>2020-04-21</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -413,8 +601,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://www.qiantigers.top/tag/1oveclub/">
-        <span>1oveClub</span>
+      <a href="https://www.qiantigers.top/tag/tui-jian/">
+        <span>推荐</span>
       </a>
       
       
@@ -423,17 +611,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>435<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>217<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/1oveclub-gong-gao/" data-flag-title="1oveClub公告" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/vpn/" data-flag-title="性价比还行的梯子" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -442,30 +630,34 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <blockquote>
-<p>务必观看</p>
-</blockquote>
-<p><em><strong>原谅这个账号不是免费赠送，因为我们不想看到有人用账号瞎搞滥用，导致影响整个全局。我们希望账号是被珍惜的，是真正有价值的使用。我想志同道合的兄弟肯定会理解的～</strong></em></p>
-<p>当然，你想白嫖也可以，这里有很多注册链接供你使用，想要多少有多少，请你随意使用---&gt;&gt;&gt; <a href="https://www.qiantigers.top/post/bai-piao-a1a1pe3-zi-zhang-hao/">【白嫖5t不限速云盘OneDrive】</a></p>
-<p>群里的资源链接都是有权限的，仅对组织成员开放，也就是说需要同一全局的账号。那么这样的话，就是需要购买账号了，详情看<strong>导航栏中的“商店”</strong></p>
+              <h1 id="推荐科学云加速本人在用">【推荐】科学云加速（本人在用）</h1>
+<p><a href="https://1ove.club/ohssr">🔗注册地址</a></p>
 <blockquote>
-<ul>
-<li>如果你无法做到珍惜使用，请不要购买！</li>
-<li>如果你不了解，请不要购买！</li>
-<li>如果你是只是玩玩，搭一些莫名其妙的下载站，你可以去用白嫖号，请不要购买！</li>
-</ul>
+<p>流量：500G<br>
+速度：跑满宽带，非常快<br>
+最低套餐：12元<br>
+推荐套餐：20元/月，无限流量<br>
+使用体验：可以当做主力梯子，有tg群，稳定性也还可以。个人觉得价格适宜。平时会用到下载OD、GD的文件，用它无疑了。</p>
 </blockquote>
-<ul>
-<li>用户协议 →<a href="https://www.qiantigers.top/post/yong-hu-xie-yi">🔗查看链接</a></li>
-</ul>
-<p>这个账号值不值这个价值呢？这就需要你个人的评判了。<br>
-但是这个价值可以为你带来一个比较稳定安全的5t不限速的云盘，并且隐私不会被偷看，你可以相信我的人品。其次，你可以获得群里的海量资源，我想肯定有你所喜欢的。</p>
-<p>看完这些介绍后，如果仍然觉得不值得入手，没有关系。买卖不成仁义在，留在群里，大家一起聊聊天，无聊的时候交谈一番，也是颇为有趣的一件事了～</p>
-<p>Telegram群组:<a href="https://t.me/onedrive_club">🔗群组链接</a><br>
-或者tg里搜索：@onedrive_club</p>
-<p>有疑惑可以添加qq群：950628693  (<a href="https://ons.red/qq_jiaoliu">🔗QQ群链接</a>)</p>
-<p>期待你的加入～</p>
-<figure data-type="image" tabindex="1"><img src="https://ae01.alicdn.com/kf/U20b56e549b7048bfa90666b837892433L.jpg" alt="" loading="lazy"></figure>
+<hr>
+<h1 id="奇异のtravel">奇异のtravel</h1>
+<p><a href="https://1ove.club/qiyissr">🔗注册地址</a></p>
+<blockquote>
+<p>流量：1T<br>
+速度：较快<br>
+最低套餐：10元<br>
+使用体验：没有V2ray节点，使用的速度稍快一点，跟蜂巢的情况差不多。</p>
+</blockquote>
+<hr>
+<h1 id="蜂巢33">蜂巢3.3</h1>
+<p><a href="https://1ove.club/fengchao">🔗注册地址</a></p>
+<blockquote>
+<p>流量：200G-1000G<br>
+速度：相对于之前，速度和延时方面得到了很大的提升<br>
+最低套餐：9元<br>
+使用体验：流量比以前少了，但是速度上得到了不错的提升，对于非重度乘客还是值得使用的。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/电话亭.jpg" width=320></img></p>
 
             </div>
             
@@ -478,7 +670,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://www.qiantigers.top/post/1oveclub-gong-gao/" title="1oveClub公告">https://www.qiantigers.top/post/1oveclub-gong-gao/</a>
+      <a href="https://www.qiantigers.top/post/vpn/" title="性价比还行的梯子">https://www.qiantigers.top/post/vpn/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -487,14 +679,22 @@
   </ul>
   <div class="tags">
     
-      <a href="https://www.qiantigers.top/tag/1oveclub/"># 1oveClub</a>
+      <a href="https://www.qiantigers.top/tag/tui-jian/"># 推荐</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="Markdown的一些实用技巧" href="https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/">Markdown的一些实用技巧</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Markdown的一些实用技巧" href="https://www.qiantigers.top/post/markdown-de-yi-xie-shi-yong-ji-qiao/">上一篇</a>
+      
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Air Explorer PRO" href="https://www.qiantigers.top/post/air-explorer-pro/">Air Explorer PRO</a>
+        <a class="nav-mobile-next" title="Air Explorer PRO" href="https://www.qiantigers.top/post/air-explorer-pro/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
