@@ -9,7 +9,7 @@
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
 <title>OneDrive_1oveClub资源分享群创立的初衷 | Qiantigers</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1593787958245">
+<link rel="shortcut icon" href="/favicon.ico?v=1593871090448">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -2183,10 +2183,16 @@ mount /mnt/file
 &lt;p&gt;但是建议同步到自己的网盘，因为Heroku保存的问题好像就一个小时还是可能休眠了重启了就消失了。两面性吧，好处是可以通过休眠重启来删除文件，不好的地方是文件不能长久保存。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;RCLONE_CONFIG&lt;/code&gt;这个选项的话我一开始碰了壁，后来知道原来这么写。 前提是你已经配置过rclone，如果是在Windows下配置过rclone的话，一般配置文件在&lt;code&gt;/$HOME/.config/rclone/rclone.conf&lt;/code&gt;，也可以通过命令&lt;code&gt;rclone config file&lt;/code&gt;来显示配置文件路径。&lt;/p&gt;
 &lt;p&gt;打开对应的配置文件&lt;code&gt;rclone.conf&lt;/code&gt;，可以看到格式为下面的内容，或者直接使用&lt;code&gt;rclone&lt;/code&gt;命令也可以查看 &lt;code&gt;rclone config show [&amp;lt;remote&amp;gt;] [flags]&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[XXDrive]type = onedrivetoken = {&amp;quot;access_token&amp;quot;:&amp;quot;省略&amp;quot;,&amp;quot;expiry&amp;quot;:&amp;quot;2020-02-29T00:06:11.2713766+09:00&amp;quot;}drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XXdrive_type = business
+&lt;pre&gt;&lt;code&gt;[XXDrive]type = onedrive
+token = {&amp;quot;access_token&amp;quot;:&amp;quot;省略&amp;quot;,&amp;quot;expiry&amp;quot;:&amp;quot;2020-02-29T00:06:11.2713766+09:00&amp;quot;}
+drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX
+drive_type = business
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;只要选下面这些内容填入&lt;code&gt;RCLONE_CONFIG&lt;/code&gt;选项就可以，其实就是不要盘名和每行用&lt;code&gt;\n&lt;/code&gt;来连接，但是我试了下像下面这样换行 加上&lt;code&gt;\n&lt;/code&gt;也是可以。。。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;type = onedrive\ntoken = {&amp;quot;access_token&amp;quot;:&amp;quot;省略&amp;quot;,&amp;quot;expiry&amp;quot;:&amp;quot;2020-02-29T00:06:11.2713766+09:00&amp;quot;}\ndrive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX\ndrive_type = business
+&lt;pre&gt;&lt;code&gt;type = onedrive\n
+token = {&amp;quot;access_token&amp;quot;:&amp;quot;省略&amp;quot;,&amp;quot;expiry&amp;quot;:&amp;quot;2020-02-29T00:06:11.2713766+09:00&amp;quot;}\n
+drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX\n
+drive_type = business
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;最后一个选项&lt;code&gt;ARIA2C_SECRET&lt;/code&gt;的话需要，就是你要上传到那个网盘的哪个路径下，可以用&lt;code&gt;/&lt;/code&gt;代表上传到根目录。&lt;/p&gt;
 &lt;p&gt;最后点击&lt;code&gt;Deploy app&lt;/code&gt;就可以看到它自动部署了。等看到部署成功后就可以点击&lt;code&gt;Open app&lt;/code&gt;或者&lt;code&gt;View&lt;/code&gt;来打开或者直接访问 &lt;code&gt;https://你设置好的应用名.herokuapp.com&lt;/code&gt;。&lt;/p&gt;

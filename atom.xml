@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-03T14:52:44.001Z</updated>
+    <updated>2020-07-04T13:58:16.254Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -658,10 +658,16 @@ mount /mnt/file
 <p>但是建议同步到自己的网盘，因为Heroku保存的问题好像就一个小时还是可能休眠了重启了就消失了。两面性吧，好处是可以通过休眠重启来删除文件，不好的地方是文件不能长久保存。</p>
 <p><code>RCLONE_CONFIG</code>这个选项的话我一开始碰了壁，后来知道原来这么写。 前提是你已经配置过rclone，如果是在Windows下配置过rclone的话，一般配置文件在<code>/$HOME/.config/rclone/rclone.conf</code>，也可以通过命令<code>rclone config file</code>来显示配置文件路径。</p>
 <p>打开对应的配置文件<code>rclone.conf</code>，可以看到格式为下面的内容，或者直接使用<code>rclone</code>命令也可以查看 <code>rclone config show [&lt;remote&gt;] [flags]</code></p>
-<pre><code>[XXDrive]type = onedrivetoken = {&quot;access_token&quot;:&quot;省略&quot;,&quot;expiry&quot;:&quot;2020-02-29T00:06:11.2713766+09:00&quot;}drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XXdrive_type = business
+<pre><code>[XXDrive]type = onedrive
+token = {&quot;access_token&quot;:&quot;省略&quot;,&quot;expiry&quot;:&quot;2020-02-29T00:06:11.2713766+09:00&quot;}
+drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX
+drive_type = business
 </code></pre>
 <p>只要选下面这些内容填入<code>RCLONE_CONFIG</code>选项就可以，其实就是不要盘名和每行用<code>\n</code>来连接，但是我试了下像下面这样换行 加上<code>\n</code>也是可以。。。</p>
-<pre><code>type = onedrive\ntoken = {&quot;access_token&quot;:&quot;省略&quot;,&quot;expiry&quot;:&quot;2020-02-29T00:06:11.2713766+09:00&quot;}\ndrive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX\ndrive_type = business
+<pre><code>type = onedrive\n
+token = {&quot;access_token&quot;:&quot;省略&quot;,&quot;expiry&quot;:&quot;2020-02-29T00:06:11.2713766+09:00&quot;}\n
+drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX\n
+drive_type = business
 </code></pre>
 <p>最后一个选项<code>ARIA2C_SECRET</code>的话需要，就是你要上传到那个网盘的哪个路径下，可以用<code>/</code>代表上传到根目录。</p>
 <p>最后点击<code>Deploy app</code>就可以看到它自动部署了。等看到部署成功后就可以点击<code>Open app</code>或者<code>View</code>来打开或者直接访问 <code>https://你设置好的应用名.herokuapp.com</code>。</p>
