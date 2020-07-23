@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-23T15:23:51.310Z</updated>
+    <updated>2020-07-23T15:54:02.889Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -907,7 +907,7 @@ cp -r ./* /root/gd-utils/sa
 <p>如果命令返回了你的谷歌硬盘根目录的数据，说明配置成功，</p>
 <figure data-type="image" tabindex="5"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-140950-1024x540.jpg" alt="img" loading="lazy"></figure>
 <h4 id="bot配置">Bot配置</h4>
-<p>首先在 https://core.telegram.org/bots#6-botfather 根据指示拿到 bot 的 token，然后填入 config.js 中的 <code>tg_token</code> 变量，还有不要忘记填入自己的电报用户名(t.me/username),记得删除[]格式为 <strong>tg_whitelist: ['username']</strong></p>
+<p>首先在 https://core.telegram.org/bots#6-botfather 根据指示拿到 bot 的 token，然后填入 config.js 中的 <code>tg_token</code> 变量，还有不要忘记填入自己的电报用户名(t.me/username),记得格式为 <strong>tg_whitelist: ['username']</strong></p>
 <figure data-type="image" tabindex="6"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141547.jpg" alt="img" loading="lazy"></figure>
 <p>回到宝塔面板，在安全选项中添加23333端口放行。</p>
 <figure data-type="image" tabindex="7"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141923.jpg" alt="img" loading="lazy"></figure>
