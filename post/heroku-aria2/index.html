@@ -9,7 +9,7 @@
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
 <title>利用Heroku部署Aria2离线下载并同步上传到Onedrive等网盘 | Qiantigers</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1595516992561">
+<link rel="shortcut icon" href="/favicon.ico?v=1595517824964">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -272,19 +272,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">27</span>
+        <span class="site-item-stat-count">28</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">29</span>
+        <span class="site-item-stat-count">31</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">29</span>
+        <span class="site-item-stat-count">31</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -1871,6 +1871,294 @@ drive_type = business
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/linux-rclone-onedrive/"" data-c="
+          &lt;p&gt;这篇主要记录下**&lt;code&gt;Rclone&lt;/code&gt;&lt;strong&gt;挂载&lt;/strong&gt;&lt;code&gt;OneDrive&lt;/code&gt;**的详细过程，方便以后使用；&lt;/p&gt;
+&lt;h1 id=&#34;获取onedrive授权&#34;&gt;获取OneDrive授权&lt;/h1&gt;
+&lt;p&gt;在Windows电脑上下载Rclone，下载地址：https://rclone.org/downloads 然后解压至D盘根目录，将文件夹重新命名为&lt;code&gt;rclone&lt;/code&gt;，按下键盘Win+R，然后输入cmd，确定；在出现的命令框中依次输入以下命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /d d:\rclone
+rclone authorize &amp;quot;onedrive&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输入完成后会弹出网页，选择或输入你需要挂载的OneDrive网盘账号和密码，然后等待授权完成；&lt;/p&gt;
+&lt;p&gt;授权完成后回到刚才的命令符界面，此时会出现一大串授权字符；&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Paste the following into your remote machine ---&amp;gt;
+{&amp;quot;access_token&amp;quot;:&amp;quot;xxx&amp;quot;}       #这一大串就是我们的授权码，全部都要复制下来
+&amp;lt;---End paste
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我们需要将得到的授权码记录下来，后面会用到（提示：授权码有效期为一小时）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：记录的授权码需要包含字符头&lt;code&gt;{&amp;quot;&lt;/code&gt;和字符尾&lt;code&gt;&amp;quot;}&lt;/code&gt;都要复制下来；&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;linux安装rclone&#34;&gt;Linux安装Rclone&lt;/h1&gt;
+&lt;p&gt;此脚本只适用于&lt;code&gt;Debian/Ubuntu&lt;/code&gt;系统&lt;/p&gt;
+&lt;p&gt;安装脚本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget https://www.moerats.com/usr/shell/rclone_debian.sh &amp;amp;&amp;amp; bash rclone_debian.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;开始配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rclone config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;详细配置过程：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&amp;gt; n    #选择n新建挂载任务
+name&amp;gt; SUN           #这里输入新挂载任务的名称，自行设定
+Type of storage to configure.
+Enter a string value. Press Enter for the default (&amp;quot;&amp;quot;).
+Choose a number from below, or type in your own value
+ 1 / 1Fichier
+   \ &amp;quot;fichier&amp;quot;
+ 2 / Alias for an existing remote
+   \ &amp;quot;alias&amp;quot;
+ 3 / Amazon Drive
+   \ &amp;quot;amazon cloud drive&amp;quot;
+ 4 / Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)
+   \ &amp;quot;s3&amp;quot;
+ 5 / Backblaze B2
+   \ &amp;quot;b2&amp;quot;
+ 6 / Box
+   \ &amp;quot;box&amp;quot;
+ 7 / Cache a remote
+   \ &amp;quot;cache&amp;quot;
+ 8 / Citrix Sharefile
+   \ &amp;quot;sharefile&amp;quot;
+ 9 / Dropbox
+   \ &amp;quot;dropbox&amp;quot;
+10 / Encrypt/Decrypt a remote
+   \ &amp;quot;crypt&amp;quot;
+11 / FTP Connection
+   \ &amp;quot;ftp&amp;quot;
+12 / Google Cloud Storage (this is not Google Drive)
+   \ &amp;quot;google cloud storage&amp;quot;
+13 / Google Drive
+   \ &amp;quot;drive&amp;quot;
+14 / Google Photos
+   \ &amp;quot;google photos&amp;quot;
+15 / Hubic
+   \ &amp;quot;hubic&amp;quot;
+16 / JottaCloud
+   \ &amp;quot;jottacloud&amp;quot;
+17 / Koofr
+   \ &amp;quot;koofr&amp;quot;
+18 / Local Disk
+   \ &amp;quot;local&amp;quot;
+19 / Mail.ru Cloud
+   \ &amp;quot;mailru&amp;quot;
+20 / Mega
+   \ &amp;quot;mega&amp;quot;
+21 / Microsoft Azure Blob Storage
+   \ &amp;quot;azureblob&amp;quot;
+22 / Microsoft OneDrive
+   \ &amp;quot;onedrive&amp;quot;
+23 / OpenDrive
+   \ &amp;quot;opendrive&amp;quot;
+24 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ &amp;quot;swift&amp;quot;
+25 / Pcloud
+   \ &amp;quot;pcloud&amp;quot;
+26 / Put.io
+   \ &amp;quot;putio&amp;quot;
+27 / QingCloud Object Storage
+   \ &amp;quot;qingstor&amp;quot;
+28 / SSH/SFTP Connection
+   \ &amp;quot;sftp&amp;quot;
+29 / Transparently chunk/split large files
+   \ &amp;quot;chunker&amp;quot;
+30 / Union merges the contents of several remotes
+   \ &amp;quot;union&amp;quot;
+31 / Webdav
+   \ &amp;quot;webdav&amp;quot;
+32 / Yandex Disk
+   \ &amp;quot;yandex&amp;quot;
+33 / http Connection
+   \ &amp;quot;http&amp;quot;
+34 / premiumize.me
+   \ &amp;quot;premiumizeme&amp;quot;
+Storage&amp;gt; 22          #选择你需要挂载的网盘，这里OneDrive是22
+** See help for onedrive backend at: https://rclone.org/onedrive/ **
+
+Microsoft App Client Id
+Leave blank normally.
+Enter a string value. Press Enter for the default (&amp;quot;&amp;quot;).
+client_id&amp;gt;           #直接回车
+Microsoft App Client Secret
+Leave blank normally.
+Enter a string value. Press Enter for the default (&amp;quot;&amp;quot;).
+client_secret&amp;gt;       #直接回车
+Edit advanced config? (y/n)
+y) Yes
+n) No
+y/n&amp;gt; n               #选择n回车
+Remote config
+Use auto config?
+ * Say Y if not sure
+ * Say N if you are working on a remote or headless machine
+y) Yes
+n) No
+y/n&amp;gt; n               #选择n回车
+For this to work, you will need rclone available on a machine that has a web browser available.
+Execute the following on your machine (same rclone version recommended) :
+        rclone authorize &amp;quot;onedrive&amp;quot;
+Then paste the result below:
+result&amp;gt; {&amp;quot;access_token&amp;quot;:&amp;quot;xxx&amp;quot;}      #这里粘贴刚才得到的授权码
+Choose a number from below, or type in an existing value
+ 1 / OneDrive Personal or Business
+   \ &amp;quot;onedrive&amp;quot;
+ 2 / Root Sharepoint site
+   \ &amp;quot;sharepoint&amp;quot;
+ 3 / Type in driveID
+   \ &amp;quot;driveid&amp;quot;
+ 4 / Type in SiteID
+   \ &amp;quot;siteid&amp;quot;
+ 5 / Search a Sharepoint site
+   \ &amp;quot;search&amp;quot;
+Your choice&amp;gt; 1          #选择1回车
+Found 1 drives, please select the one you want to use:
+0: OneDrive (business) id=xxx
+Chose drive to use:&amp;gt; 0  #这里选择给出的编号后回车，我的是0
+Found drive &#39;root&#39; of type &#39;business&#39;, URL: https://pqj-my.sharepoint.com/personal/xxx
+Is that okay?
+y) Yes
+n) No
+y/n&amp;gt; y                  #选择y回车
+--------------------
+[SUN]
+type = onedrive
+token = {&amp;quot;access_token&amp;quot;:&amp;quot;xxx&amp;quot;}
+drive_id = xxx
+drive_type = business
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d&amp;gt; y                #选择y回车
+Current remotes:
+
+Name                 Type
+====                 ====
+SUN                 onedrive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&amp;gt; q       #选择q保存并退出
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;新建本地挂载文件夹&#34;&gt;新建本地挂载文件夹&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;mkdir /home/OD
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;挂载磁盘&#34;&gt;挂载磁盘&lt;/h1&gt;
+&lt;p&gt;说明&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#/usr/bin/rclone mount DriveName:Folder LocalFolder \
+下面整体代码中最上面的这条需要自己修改，不要直接复制，注意代码中有空格
+DriveName       #配置时填写的name
+Folder          #网盘里要挂载的文件夹名
+LocalFolder     #本地要挂载的文件夹绝对路径
+例：/usr/bin/rclone mount SUN:/我的文件 /home/OneDrive \
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;挂载&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#下面代码是一个整体，全部复制后粘贴运行
+/usr/bin/rclone mount DriveName:Folder LocalFolder \
+ --umask 0000 \
+ --default-permissions \
+ --allow-non-empty \
+ --allow-other \
+ --transfers 1 \
+ --buffer-size 64M \
+ --low-level-retries 200
+
+#如果你还涉及到读取使用，比如使用H5ai等在线播放，就在后面多加上以下三条参数
+--dir-cache-time 12h
+--vfs-read-chunk-size 32M
+--vfs-read-chunk-size-limit 1G
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;参数说明&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;--transfers：该参数是最大同时传输任务数量，如果经常传输大文件，或CPU性能不佳，建议设置为单线程，也就是设置为“1”
+--buffer-size：该参数为读取每个文件时的内存缓冲区大小，控制rclone上传和挂载的时候的内存占用
+--low-level-retries：该参数为传输文件没速度的时候重试次数，没速度的时候，单个会自动睡眠10ms起，然后再重试
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;挂载成功后，输入&lt;code&gt;df -h&lt;/code&gt;命令查看是否挂载成功；&lt;/p&gt;
+&lt;h1 id=&#34;卸载磁盘&#34;&gt;卸载磁盘&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;fusermount -qzu LocalFolder
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;LocalFolder&lt;/code&gt;为本地挂载文件夹绝对路径&lt;/p&gt;
+&lt;h1 id=&#34;设置自启动&#34;&gt;设置自启动&lt;/h1&gt;
+&lt;p&gt;下载并编辑脚本&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget https://www.moerats.com/usr/shell/rcloned &amp;amp;&amp;amp; nano rcloned
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;修改以下内容：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;NAME=&amp;quot;&amp;quot;  #rclone name名，及配置时输入的name
+REMOTE=&#39;&#39;  #远程文件夹，Google Drive网盘里的挂载的一个文件夹
+LOCAL=&#39;&#39;  #挂载地址，VPS本地挂载目录
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;设置自启&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt-get install sudo -y
+mv rcloned /etc/init.d/rcloned
+chmod +x /etc/init.d/rcloned
+update-rc.d -f rcloned defaults
+bash /etc/init.d/rcloned start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;常用rclone命令&#34;&gt;常用Rclone命令&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;### 文件上传
+rclone copy /home/backup gdrive:backup  # 本地路径 配置名字:网盘文件夹路径
+### 文件下载
+rclone copy gdrive:backup /home/backup  # 配置名字:网盘文件夹路径 本地路径
+### 新建文件夹
+rclone mkdir gdrive:backup              # 配置名字:网盘文件夹路径
+### 获取文件夹大小
+rclone size gdrive:backup               # 配置名字:网盘文件夹路径
+
+### 列表
+rclone ls gdrive:backup
+rclone lsl gdrive:backup # 比上面多一个显示上传时间
+rclone lsd gdrive:backup # 只显示文件夹
+### 挂载
+rclone mount gdrive:mm /root/mm &amp;amp;
+### 卸载
+fusermount -u  /root/mm
+
+#### 其他 ####
+#### https://softlns.github.io/2016/11/28/rclone-guide/
+rclone config - 以控制会话的形式添加rclone的配置，配置保存在.rclone.conf文件中。
+rclone copy - 将文件从源复制到目的地址，跳过已复制完成的。
+rclone sync - 将源数据同步到目的地址，只更新目的地址的数据。   –dry-run标志来检查要复制、删除的数据
+rclone move - 将源数据移动到目的地址。
+rclone delete - 删除指定路径下的文件内容。
+rclone purge - 清空指定路径下所有文件数据。
+rclone mkdir - 创建一个新目录。
+rclone rmdir - 删除空目录。
+rclone check - 检查源和目的地址数据是否匹配。
+rclone ls - 列出指定路径下所有的文件以及文件大小和路径。
+rclone lsd - 列出指定路径下所有的目录/容器/桶。
+rclone lsl - 列出指定路径下所有文件以及修改时间、文件大小和路径。
+rclone md5sum - 为指定路径下的所有文件产生一个md5sum文件。
+rclone sha1sum - 为指定路径下的所有文件产生一个sha1sum文件。
+rclone size - 获取指定路径下，文件内容的总大小。.
+rclone version - 查看当前版本。
+rclone cleanup - 清空remote。
+rclone dedupe - 交互式查找重复文件，进行删除/重命名操作。
+重启：systemctl restart rclone
+停止：systemctl stop rclone
+状态：systemctl status rclone
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;将命令挂载到后台运行&#34;&gt;将命令挂载到后台运行&lt;/h1&gt;
+&lt;p&gt;挂载后台运行，Rclone的上传下载命令需要开着SSH，SSH断开后任务会中断，对于大文件不太方便，我们可以挂载到后台运行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nohup 这里填写需要执行的命令，注意前后有空格 &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看进程PID&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ps -ef
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;结束进程PID&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kill -6 任务的PID
+&lt;/code&gt;&lt;/pre&gt;
+">linux VPS使用Rclone挂载OneDrive为本地硬盘使用</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/sixpan-cli/"" data-c="

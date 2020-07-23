@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-23T15:10:00.878Z</updated>
+    <updated>2020-07-23T15:23:51.310Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,297 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[linux VPS使用Rclone挂载OneDrive为本地硬盘使用]]></title>
+        <id>https://www.qiantigers.top/post/linux-rclone-onedrive/</id>
+        <link href="https://www.qiantigers.top/post/linux-rclone-onedrive/">
+        </link>
+        <updated>2020-07-23T15:21:01.000Z</updated>
+        <content type="html"><![CDATA[<p>这篇主要记录下**<code>Rclone</code><strong>挂载</strong><code>OneDrive</code>**的详细过程，方便以后使用；</p>
+<h1 id="获取onedrive授权">获取OneDrive授权</h1>
+<p>在Windows电脑上下载Rclone，下载地址：https://rclone.org/downloads 然后解压至D盘根目录，将文件夹重新命名为<code>rclone</code>，按下键盘Win+R，然后输入cmd，确定；在出现的命令框中依次输入以下命令：</p>
+<pre><code>cd /d d:\rclone
+rclone authorize &quot;onedrive&quot;
+</code></pre>
+<p>输入完成后会弹出网页，选择或输入你需要挂载的OneDrive网盘账号和密码，然后等待授权完成；</p>
+<p>授权完成后回到刚才的命令符界面，此时会出现一大串授权字符；</p>
+<pre><code>Paste the following into your remote machine ---&gt;
+{&quot;access_token&quot;:&quot;xxx&quot;}       #这一大串就是我们的授权码，全部都要复制下来
+&lt;---End paste
+</code></pre>
+<p>我们需要将得到的授权码记录下来，后面会用到（提示：授权码有效期为一小时）</p>
+<p><strong>注意：记录的授权码需要包含字符头<code>{&quot;</code>和字符尾<code>&quot;}</code>都要复制下来；</strong></p>
+<h1 id="linux安装rclone">Linux安装Rclone</h1>
+<p>此脚本只适用于<code>Debian/Ubuntu</code>系统</p>
+<p>安装脚本：</p>
+<pre><code>wget https://www.moerats.com/usr/shell/rclone_debian.sh &amp;&amp; bash rclone_debian.sh
+</code></pre>
+<p>开始配置：</p>
+<pre><code>rclone config
+</code></pre>
+<p>详细配置过程：</p>
+<pre><code>e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&gt; n    #选择n新建挂载任务
+name&gt; SUN           #这里输入新挂载任务的名称，自行设定
+Type of storage to configure.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+Choose a number from below, or type in your own value
+ 1 / 1Fichier
+   \ &quot;fichier&quot;
+ 2 / Alias for an existing remote
+   \ &quot;alias&quot;
+ 3 / Amazon Drive
+   \ &quot;amazon cloud drive&quot;
+ 4 / Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)
+   \ &quot;s3&quot;
+ 5 / Backblaze B2
+   \ &quot;b2&quot;
+ 6 / Box
+   \ &quot;box&quot;
+ 7 / Cache a remote
+   \ &quot;cache&quot;
+ 8 / Citrix Sharefile
+   \ &quot;sharefile&quot;
+ 9 / Dropbox
+   \ &quot;dropbox&quot;
+10 / Encrypt/Decrypt a remote
+   \ &quot;crypt&quot;
+11 / FTP Connection
+   \ &quot;ftp&quot;
+12 / Google Cloud Storage (this is not Google Drive)
+   \ &quot;google cloud storage&quot;
+13 / Google Drive
+   \ &quot;drive&quot;
+14 / Google Photos
+   \ &quot;google photos&quot;
+15 / Hubic
+   \ &quot;hubic&quot;
+16 / JottaCloud
+   \ &quot;jottacloud&quot;
+17 / Koofr
+   \ &quot;koofr&quot;
+18 / Local Disk
+   \ &quot;local&quot;
+19 / Mail.ru Cloud
+   \ &quot;mailru&quot;
+20 / Mega
+   \ &quot;mega&quot;
+21 / Microsoft Azure Blob Storage
+   \ &quot;azureblob&quot;
+22 / Microsoft OneDrive
+   \ &quot;onedrive&quot;
+23 / OpenDrive
+   \ &quot;opendrive&quot;
+24 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ &quot;swift&quot;
+25 / Pcloud
+   \ &quot;pcloud&quot;
+26 / Put.io
+   \ &quot;putio&quot;
+27 / QingCloud Object Storage
+   \ &quot;qingstor&quot;
+28 / SSH/SFTP Connection
+   \ &quot;sftp&quot;
+29 / Transparently chunk/split large files
+   \ &quot;chunker&quot;
+30 / Union merges the contents of several remotes
+   \ &quot;union&quot;
+31 / Webdav
+   \ &quot;webdav&quot;
+32 / Yandex Disk
+   \ &quot;yandex&quot;
+33 / http Connection
+   \ &quot;http&quot;
+34 / premiumize.me
+   \ &quot;premiumizeme&quot;
+Storage&gt; 22          #选择你需要挂载的网盘，这里OneDrive是22
+** See help for onedrive backend at: https://rclone.org/onedrive/ **
+
+Microsoft App Client Id
+Leave blank normally.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+client_id&gt;           #直接回车
+Microsoft App Client Secret
+Leave blank normally.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+client_secret&gt;       #直接回车
+Edit advanced config? (y/n)
+y) Yes
+n) No
+y/n&gt; n               #选择n回车
+Remote config
+Use auto config?
+ * Say Y if not sure
+ * Say N if you are working on a remote or headless machine
+y) Yes
+n) No
+y/n&gt; n               #选择n回车
+For this to work, you will need rclone available on a machine that has a web browser available.
+Execute the following on your machine (same rclone version recommended) :
+        rclone authorize &quot;onedrive&quot;
+Then paste the result below:
+result&gt; {&quot;access_token&quot;:&quot;xxx&quot;}      #这里粘贴刚才得到的授权码
+Choose a number from below, or type in an existing value
+ 1 / OneDrive Personal or Business
+   \ &quot;onedrive&quot;
+ 2 / Root Sharepoint site
+   \ &quot;sharepoint&quot;
+ 3 / Type in driveID
+   \ &quot;driveid&quot;
+ 4 / Type in SiteID
+   \ &quot;siteid&quot;
+ 5 / Search a Sharepoint site
+   \ &quot;search&quot;
+Your choice&gt; 1          #选择1回车
+Found 1 drives, please select the one you want to use:
+0: OneDrive (business) id=xxx
+Chose drive to use:&gt; 0  #这里选择给出的编号后回车，我的是0
+Found drive 'root' of type 'business', URL: https://pqj-my.sharepoint.com/personal/xxx
+Is that okay?
+y) Yes
+n) No
+y/n&gt; y                  #选择y回车
+--------------------
+[SUN]
+type = onedrive
+token = {&quot;access_token&quot;:&quot;xxx&quot;}
+drive_id = xxx
+drive_type = business
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d&gt; y                #选择y回车
+Current remotes:
+
+Name                 Type
+====                 ====
+SUN                 onedrive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&gt; q       #选择q保存并退出
+</code></pre>
+<h1 id="新建本地挂载文件夹">新建本地挂载文件夹</h1>
+<pre><code>mkdir /home/OD
+</code></pre>
+<h1 id="挂载磁盘">挂载磁盘</h1>
+<p>说明</p>
+<pre><code>#/usr/bin/rclone mount DriveName:Folder LocalFolder \
+下面整体代码中最上面的这条需要自己修改，不要直接复制，注意代码中有空格
+DriveName       #配置时填写的name
+Folder          #网盘里要挂载的文件夹名
+LocalFolder     #本地要挂载的文件夹绝对路径
+例：/usr/bin/rclone mount SUN:/我的文件 /home/OneDrive \
+</code></pre>
+<p>挂载</p>
+<pre><code>#下面代码是一个整体，全部复制后粘贴运行
+/usr/bin/rclone mount DriveName:Folder LocalFolder \
+ --umask 0000 \
+ --default-permissions \
+ --allow-non-empty \
+ --allow-other \
+ --transfers 1 \
+ --buffer-size 64M \
+ --low-level-retries 200
+
+#如果你还涉及到读取使用，比如使用H5ai等在线播放，就在后面多加上以下三条参数
+--dir-cache-time 12h
+--vfs-read-chunk-size 32M
+--vfs-read-chunk-size-limit 1G
+</code></pre>
+<p>参数说明</p>
+<pre><code>--transfers：该参数是最大同时传输任务数量，如果经常传输大文件，或CPU性能不佳，建议设置为单线程，也就是设置为“1”
+--buffer-size：该参数为读取每个文件时的内存缓冲区大小，控制rclone上传和挂载的时候的内存占用
+--low-level-retries：该参数为传输文件没速度的时候重试次数，没速度的时候，单个会自动睡眠10ms起，然后再重试
+</code></pre>
+<p>挂载成功后，输入<code>df -h</code>命令查看是否挂载成功；</p>
+<h1 id="卸载磁盘">卸载磁盘</h1>
+<pre><code>fusermount -qzu LocalFolder
+</code></pre>
+<p><code>LocalFolder</code>为本地挂载文件夹绝对路径</p>
+<h1 id="设置自启动">设置自启动</h1>
+<p>下载并编辑脚本</p>
+<pre><code>wget https://www.moerats.com/usr/shell/rcloned &amp;&amp; nano rcloned
+</code></pre>
+<p>修改以下内容：</p>
+<pre><code>NAME=&quot;&quot;  #rclone name名，及配置时输入的name
+REMOTE=''  #远程文件夹，Google Drive网盘里的挂载的一个文件夹
+LOCAL=''  #挂载地址，VPS本地挂载目录
+</code></pre>
+<p>设置自启</p>
+<pre><code>apt-get install sudo -y
+mv rcloned /etc/init.d/rcloned
+chmod +x /etc/init.d/rcloned
+update-rc.d -f rcloned defaults
+bash /etc/init.d/rcloned start
+</code></pre>
+<h1 id="常用rclone命令">常用Rclone命令</h1>
+<pre><code>### 文件上传
+rclone copy /home/backup gdrive:backup  # 本地路径 配置名字:网盘文件夹路径
+### 文件下载
+rclone copy gdrive:backup /home/backup  # 配置名字:网盘文件夹路径 本地路径
+### 新建文件夹
+rclone mkdir gdrive:backup              # 配置名字:网盘文件夹路径
+### 获取文件夹大小
+rclone size gdrive:backup               # 配置名字:网盘文件夹路径
+
+### 列表
+rclone ls gdrive:backup
+rclone lsl gdrive:backup # 比上面多一个显示上传时间
+rclone lsd gdrive:backup # 只显示文件夹
+### 挂载
+rclone mount gdrive:mm /root/mm &amp;
+### 卸载
+fusermount -u  /root/mm
+
+#### 其他 ####
+#### https://softlns.github.io/2016/11/28/rclone-guide/
+rclone config - 以控制会话的形式添加rclone的配置，配置保存在.rclone.conf文件中。
+rclone copy - 将文件从源复制到目的地址，跳过已复制完成的。
+rclone sync - 将源数据同步到目的地址，只更新目的地址的数据。   –dry-run标志来检查要复制、删除的数据
+rclone move - 将源数据移动到目的地址。
+rclone delete - 删除指定路径下的文件内容。
+rclone purge - 清空指定路径下所有文件数据。
+rclone mkdir - 创建一个新目录。
+rclone rmdir - 删除空目录。
+rclone check - 检查源和目的地址数据是否匹配。
+rclone ls - 列出指定路径下所有的文件以及文件大小和路径。
+rclone lsd - 列出指定路径下所有的目录/容器/桶。
+rclone lsl - 列出指定路径下所有文件以及修改时间、文件大小和路径。
+rclone md5sum - 为指定路径下的所有文件产生一个md5sum文件。
+rclone sha1sum - 为指定路径下的所有文件产生一个sha1sum文件。
+rclone size - 获取指定路径下，文件内容的总大小。.
+rclone version - 查看当前版本。
+rclone cleanup - 清空remote。
+rclone dedupe - 交互式查找重复文件，进行删除/重命名操作。
+重启：systemctl restart rclone
+停止：systemctl stop rclone
+状态：systemctl status rclone
+</code></pre>
+<h1 id="将命令挂载到后台运行">将命令挂载到后台运行</h1>
+<p>挂载后台运行，Rclone的上传下载命令需要开着SSH，SSH断开后任务会中断，对于大文件不太方便，我们可以挂载到后台运行</p>
+<pre><code>nohup 这里填写需要执行的命令，注意前后有空格 &amp;
+</code></pre>
+<p>查看进程PID</p>
+<pre><code>ps -ef
+</code></pre>
+<p>结束进程PID</p>
+<pre><code>kill -6 任务的PID
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[6盘 CLI工具操作指南]]></title>
         <id>https://www.qiantigers.top/post/sixpan-cli/</id>
@@ -835,108 +1126,6 @@ drive_type = business
 <p>到这里就部署完毕，会定期保持heroku的活跃。</p>
 <h2 id="建议">建议</h2>
 <p>不要一次性下载太多的东西，也不要下载太大的文件，不然很有可能在你没有下载好之前就被heroku重置了。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[YOURLS短链接程序]]></title>
-        <id>https://www.qiantigers.top/post/yourls/</id>
-        <link href="https://www.qiantigers.top/post/yourls/">
-        </link>
-        <updated>2020-06-28T07:25:59.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2>
-<p>YOURLS是一款使用PHP + Mysql开发的短链接程序，相比公共短网址好处是数据掌握在自己手中，可控性更高。</p>
-<h2 id="安装">安装</h2>
-<h3 id="下载">下载</h3>
-<p>YOURLS免费开源，可以在<a href="https://github.com/YOURLS/YOURLS/releases">Releases · YOURLS/YOURLS</a>下载最新版本，解压后放到站点根目录，并将<code>config-sample.php</code>更名为<code>config.php</code>。</p>
-<h3 id="配置mysql数据库">配置MySQL数据库</h3>
-<p>需要先新建一个MySQL数据库，并设置好账号、密码（略过），然后修改<code>user/config.php</code>配置文件，填写正确的MySQL信息，配置信息如下。</p>
-<pre><code>#数据库用户名
-define( 'YOURLS_DB_USER', 'yourls' );
- 
-#数据库密码
-define( 'YOURLS_DB_PASS', 'xxxxxxxx' );
- 
-#数据库名
-define( 'YOURLS_DB_NAME', 'yourls' );
- 
-#数据库连接地址
-define( 'YOURLS_DB_HOST', 'localhost' );
- 
-#数据库表前缀，一般保持默认
-define( 'YOURLS_DB_PREFIX', 'yourls_' );
-</code></pre>
-<h3 id="设置用户名密码">设置用户名密码</h3>
-<p>#修改配置文件</p>
-<pre><code>vi user/config.php
-#设置用户名和密码，可设置多个用户
-$yourls_user_passwords = array(
-        'username' =&gt; 'password',
-        // 'username2' =&gt; 'password2',
-        // You can have one or more 'login'=&gt;'password' lines
-        );
-</code></pre>
-<h3 id="其它设置">其它设置</h3>
-<pre><code>#设置站点域名
-define( 'YOURLS_SITE', 'http://your-own-domain-here.com' );
-#GMT时间偏移
-define( 'YOURLS_HOURS_OFFSET', '-5' );
-#是否私有
-define( 'YOURLS_PRIVATE', 'true' );
-#设置cookie，可访问https://api.yourls.org/services/cookiekey/1.0/生成
-define( 'YOURLS_COOKIEKEY', 'qQ4KhL_pu|s@Zm7n#%:b^{A[vhm' );
-#mysql连接方式
-define（'YOURLS_DB_DRIVER'，'mysqli'）;
-</code></pre>
-<h3 id="设置伪静态">设置伪静态</h3>
-<p>YOURLS默认已经内置<code>Apache .htaccess</code>规则，如果是Apache服务器且开启了伪静态支持一般不用在设置，如果您使用的Nginx，请添加下面的规则，并重载Nginx</p>
-<pre><code>location / {
-    try_files $uri $uri/ /yourls-loader.php?$args;
-}
-</code></pre>
-<p>或</p>
-<pre><code>location /
-{
-if (!-f $request_filename){
-        set $rule_0 1$rule_0;
-}
-if (!-d $request_filename){
-        set $rule_0 2$rule_0;
-}
-if ($rule_0 = &quot;21&quot;){
-        rewrite ^/([0-9A-Za-z]+)/?$ /yourls-go.php?id=$1 last;
-}
-        rewrite ^/([0-9A-Za-z]+)\+/?$ /yourls-infos.php?id=$1 last;
-        rewrite ^/([0-9A-Za-z]+)\+all/?$ /yourls-infos.php?id=$1&amp;all=1 last;
-}
-</code></pre>
-<h3 id="设置中文">设置中文</h3>
-<p>YOURLS默认是英文界面，不方便操作，看到有网友提供了汉化，访问<a href="https://github.com/guox/yourls-zh_CN/archive/master.zip">yourls-zh_CN</a>下载汉化包，并解压至<code>user/languages</code>目录，然后修改<code>user/config.php</code>。</p>
-<pre><code>#语言包放到languages
-[root@aliyun-hz languages]# ll
-total 68
--rw-r--r-- 1 www www   210 Apr 23  2017 index.html
--rw-r--r-- 1 www www    51 Mar 24  2013 README.md
--rw-r--r-- 1 www www 22123 Mar 24  2013 zh_CN.mo
--rw-r--r-- 1 www www 32783 Mar 24  2013 zh_CN.po
-#修改配置文件启用中文
-vi user/config.php
-#启用中文
-define( 'YOURLS_LANG', 'zh_CN' );
-</code></pre>
-<h3 id="访问测试">访问测试</h3>
-<p>完成以上配置后访问<code>http://yourdomain.com/admin</code>完成初安装，输入步骤3中设置的账号、密码进行登录。</p>
-<h3 id="补充">补充</h3>
-<p>在访问<code>http://yourdomain.com/admin</code>时可能会出现500错误，这是由于数据库编码方式造成的。修改编码方式为UTF8即可。</p>
-<pre><code>mysql -u root -p 数据库密码
-ALTER DATABASE 数据库名称 CHARACTER set = utf8;
-exit;
-</code></pre>
-<p>如果想短链设置为半公开，也即后台管理有密码，但是别人也可以添加短链接，则设置<code>define( 'YOURLS_PRIVATE', 'true' );</code>并且将yourl存放目录下的sample-public-front-page.txt 重命名为index.php。</p>
-<pre><code>cp sample-public-front-page.txt index.php
-</code></pre>
-<p>此时访问主页则不会出现404页面。</p>
-<h2 id="总结">总结</h2>
-<p>YOURLS还可以对链接数据进行统计，包括访问量/地区/来源等，同时还提供API支持（参考官方文档），功能对于个人来说基本够用，但是界面确有点简约，不过这无伤大雅。</p>
 ]]></content>
     </entry>
 </feed>
