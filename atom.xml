@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-23T14:56:20.351Z</updated>
+    <updated>2020-07-23T15:10:00.878Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,80 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[6盘 CLI工具操作指南]]></title>
+        <id>https://www.qiantigers.top/post/sixpan-cli/</id>
+        <link href="https://www.qiantigers.top/post/sixpan-cli/">
+        </link>
+        <updated>2020-07-23T15:04:25.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>目前正在开发中，部分功能可能会有巨变</p>
+</blockquote>
+<h2 id="安装">安装</h2>
+<pre><code class="language-go">go get github.com/Mrs4s/six-cli
+</code></pre>
+<blockquote>
+<p>也可从 <a href="https://github.com/Mrs4s/six-cli/releases">Releases</a> 直接下载二进制</p>
+</blockquote>
+<h2 id="使用方法">使用方法</h2>
+<ul>
+<li>待完善，目前尚未开发完成。</li>
+</ul>
+<h2 id="命令列表">命令列表</h2>
+<h3 id="登录">登录</h3>
+<pre><code class="language-shell">guest@six-pan:/$ login   #然后按提示操作即可
+</code></pre>
+<h3 id="切换工作目录">切换工作目录</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ cd target  # 进入子目录
+mrs4s@six-pan:/target$ cd /target/sub/test  # 以完整路径切换目录
+mrs4s@six-pan:/target/sub/test$ cd ..  # 返回上一层
+mrs4s@six-pan:/target/sub$ cd ../../  # 向上返回N层
+</code></pre>
+<h3 id="获取当前工作目录">获取当前工作目录</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ pwd
+/workdir/1
+</code></pre>
+<h3 id="列出文件">列出文件</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ ls  # 列出当前目录所有对象
+dir1	dir2	file1	file2
+mrs4s@six-pan:/$ ls -d  # 按文件夹过滤
+dir1	dir2
+mrs4s@six-pan:/$ ls /target  # 列出目标目录所有对象
+dir1	file1
+mrs4s@six-pan:/$ ls /target -R  # 遍历列出子目录对象 (鉴于负载考虑不递归子目录)
+.:
+dir1	file1
+./dir1:
+test1	test2
+mrs4s@six-pan:/$ ls -a  # 输出文件详细信息
+序号  创建时间             文件大小  文件名
+0     2019-01-01 00:00:00 100.00GB  dir1
+...
+</code></pre>
+<h3 id="下载文件文件夹">下载文件/文件夹</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ down file  # 下载文件
+mrs4s@six-pan:/$ down dir  # 下载文件夹
+mrs4s@six-pan:/$ down /dir/file  # 通过绝对路径下载文件
+</code></pre>
+<h3 id="创建文件夹">创建文件夹</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ mkdir dir  #在当前目录创建文件夹
+mrs4s@six-pan:/$ mkdir /test/dir  #根据绝对路径创建文件夹
+</code></pre>
+<h3 id="删除文件文件夹">删除文件/文件夹</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ rm file -y  #删除文件/文件夹
+mrs4s@six-pan:/$ rm file1 file2 dir -y  #删除多个文件/文件夹
+</code></pre>
+<h3 id="获取文件hash信息">获取文件hash信息</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ cksum file1 file2 
+</code></pre>
+<h3 id="预览文件">预览文件</h3>
+<blockquote>
+<p>目前仅支持文本文件和torrent文件的预览, 其他文件仅能返回属性信息</p>
+</blockquote>
+<pre><code class="language-shell">mrs4s@six-pan:/$ pw file
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[linux screen 命令详解]]></title>
         <id>https://www.qiantigers.top/post/linux-screen/</id>
@@ -863,106 +937,6 @@ exit;
 <p>此时访问主页则不会出现404页面。</p>
 <h2 id="总结">总结</h2>
 <p>YOURLS还可以对链接数据进行统计，包括访问量/地区/来源等，同时还提供API支持（参考官方文档），功能对于个人来说基本够用，但是界面确有点简约，不过这无伤大雅。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Gride+GitHub+VPS]]></title>
-        <id>https://www.qiantigers.top/post/gride-github-vps/</id>
-        <link href="https://www.qiantigers.top/post/gride-github-vps/">
-        </link>
-        <updated>2020-06-24T13:54:42.000Z</updated>
-        <content type="html"><![CDATA[<p>Gridea是一个静态博客程序，它和hexo有很多相似之处，但是我选择它的原因在于其拥有客户端，在文章发表方面比较便利。</p>
-<p>Gridea分为三种模式：GitHub、Coding、SFTP</p>
-<p>简单分析一下吧，</p>
-<ul>
-<li>GitHub
-<ul>
-<li>优点：空间大，上传稳定</li>
-<li>缺点：就是其访问速度，速度如何想必大家都会清楚。</li>
-</ul>
-</li>
-<li>Coding
-<ul>
-<li>优点：国内托管，实测ping的地址在新加坡，访问速度还是可以的</li>
-<li>缺点：仓库空间有点小，2G；一个小时只能进行10次修改，这个问题我个人觉得是个比较难受的地方。</li>
-</ul>
-</li>
-<li>SFTP
-<ul>
-<li>优点：隐私性高，速度快（当然前提是你的VPS或者虚拟空间比较给力）</li>
-<li>缺点：这个问题太大了，同步太不稳定，基本上不尝试七八次很难成功。</li>
-</ul>
-</li>
-</ul>
-<p>然后在网上和相关Gridea群里得到了很多建议，最终决定了Gridea+GitHub+VPS的模式，GitHub的存在主要就是解决SFTP上传不稳定的问题，下面介绍一下如何实现。</p>
-<p>这里以宝塔界面为例：</p>
-<h2 id="1-本人服务器是centos-7-系统">1. 本人服务器是CentOS 7 系统</h2>
-<p>VPS安装Git，命令行输入<code>yum install git</code></p>
-<h2 id="2-宝塔面板使用webhook插件">2. 宝塔面板使用webhook插件</h2>
-<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624211053272.png" alt="" loading="lazy"></figure>
-<p>第一步：进入软件商店</p>
-<p>第二步：搜索框输入“webhook”，具体作用可自行搜索，简单点说就是用来拉取github更新的应用</p>
-<p>第三步：安装</p>
-<h2 id="3-在webhook中设置shell脚本">3. 在webhook中设置shell脚本</h2>
-<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624211551571.png" alt="" loading="lazy"></figure>
-<p>添加的时候可以随便输入，名称和执行脚本内容随意输入</p>
-<p>然后点击编辑，如下图所示</p>
-<p>​	<img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624211658168.png" alt="" loading="lazy"></p>
-<p>​	在此可以输入一下代码</p>
-<pre><code>#!/bin/bash
-echo &quot;&quot;
-# 输出当前时间
-date --date='0 days ago' &quot;+%Y-%m-%d %H:%M:%S&quot;
-echo &quot;Start&quot;
-# 判断宝塔WebHook参数是否存在
-if [ ! -n &quot;$1&quot; ];
-then 
-          echo &quot;param参数错误&quot;
-          echo &quot;End&quot;
-          exit
-fi
-# git项目路径
-gitPath=&quot;/www/wwwroot/$1&quot;
-# git 网址
-gitHttp=&quot;https://github.com/用户名/仓库名.git&quot;
-
-echo &quot;Web站点路径：$gitPath&quot;
-
-# 判断项目路径是否存在
-if [ -d &quot;$gitPath&quot; ]; then
-        cd $gitPath
-        # 判断是否存在git目录
-        if [ ! -d &quot;.git&quot; ]; then
-                echo &quot;在该目录下克隆 git&quot;
-                git clone $gitHttp gittemp
-                mv gittemp/.git .
-                rm -rf gittemp
-        fi
-        # 拉取最新的项目文件
-        git reset --hard origin/master
-        git pull
-        # 设置目录权限
-        chown -R www:www $gitPath
-        echo &quot;End&quot;
-        exit
-else
-        echo &quot;该项目路径不存在&quot;
-        echo &quot;End&quot;
-        exit
-fi
-</code></pre>
-<p>只需要更改上述文字中的用户名和仓库名即可</p>
-<p>下一步，查看密匙</p>
-<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624212217036.png" alt="" loading="lazy"></figure>
-<h2 id="4-在github配置webhook">4. 在GitHub配置WebHook</h2>
-<p>​	进入自己对应的仓库，并进入Settings👉Webhooks，如下图所示</p>
-<p>​	<img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624212449239.png" alt="" loading="lazy"></p>
-<p>​	进入Webhooks后，点击右边的 Add Webhook 得到下图</p>
-<p>​	<img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624212827873.png" alt="" loading="lazy"></p>
-<p>最后一步填写信息，按下图填写</p>
-<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624213152652.png" alt="" loading="lazy"></figure>
-<h2 id="5-自己编写一篇博客试一下效果吧">5. 自己编写一篇博客试一下效果吧</h2>
-<figure data-type="image" tabindex="5"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200624213630210.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>

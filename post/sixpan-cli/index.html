@@ -8,7 +8,7 @@
 <meta name="keywords" content="OneDrive,云盘,资源,教程,技巧,干货,">
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
-<title>1ove专属影视简介获取器 | Qiantigers</title>
+<title>6盘 CLI工具操作指南 | Qiantigers</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1595516992561">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -58,8 +58,8 @@
 </script>
 
 
-  <meta name="description" content="1ove专属影视简介获取器" />
-  <meta name="keywords" content="1oveClub" />
+  <meta name="description" content="6盘 CLI工具操作指南" />
+  <meta name="keywords" content="6盘,vps" />
 </head>
 
 <body>
@@ -249,7 +249,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -308,6 +309,209 @@
   </div>
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a></li>
+<li><a href="#%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8">命令列表</a>
+<ul>
+<li><a href="#%E7%99%BB%E5%BD%95">登录</a></li>
+<li><a href="#%E5%88%87%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95">切换工作目录</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95">获取当前工作目录</a></li>
+<li><a href="#%E5%88%97%E5%87%BA%E6%96%87%E4%BB%B6">列出文件</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E5%A4%B9">下载文件/文件夹</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9">创建文件夹</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E5%A4%B9">删除文件/文件夹</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6hash%E4%BF%A1%E6%81%AF">获取文件hash信息</a></li>
+<li><a href="#%E9%A2%84%E8%A7%88%E6%96%87%E4%BB%B6">预览文件</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -395,8 +599,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://www.qiantigers.top/post/1ove-tools-getVideoInfo/">
-      1ove专属影视简介获取器
+    <a class="post-title-link" href="https://www.qiantigers.top/post/sixpan-cli/">
+      6盘 CLI工具操作指南
     </a>
   </h1>
   <div class="post-meta">
@@ -404,7 +608,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-06-19</span>
+      <span>2020-07-23</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -413,8 +617,14 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://www.qiantigers.top/tag/1oveclub/">
-        <span>1oveClub</span>
+      <a href="https://www.qiantigers.top/tag/6-pan/">
+        <span>6盘</span>
+      </a>、
+      
+      
+      
+      <a href="https://www.qiantigers.top/tag/vps/">
+        <span>vps</span>
       </a>
       
       
@@ -423,17 +633,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>2<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>142<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>428<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/1ove-tools-getVideoInfo/" data-flag-title="1ove专属影视简介获取器" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/sixpan-cli/" data-flag-title="6盘 CLI工具操作指南" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -443,32 +653,71 @@
 </header>
             <div class="post-body next-md-body" id="post_body">
               <blockquote>
-<p>专为1ove分享资源而设计，作者@Chao</p>
+<p>目前正在开发中，部分功能可能会有巨变</p>
 </blockquote>
-<p>平时分享一些影视资源的时候都要自己手动去寻找相关的信息，是一件非常耗时间的事情。</p>
-<p>但是，今天它来了。</p>
+<h2 id="安装">安装</h2>
+<pre><code class="language-go">go get github.com/Mrs4s/six-cli
+</code></pre>
+<blockquote>
+<p>也可从 <a href="https://github.com/Mrs4s/six-cli/releases">Releases</a> 直接下载二进制</p>
+</blockquote>
+<h2 id="使用方法">使用方法</h2>
 <ul>
-<li>
-<p>1.1下载链接 →<a href="https://pan.qiantigers.top/one-share/Windows-APP/%E5%BD%B1%E8%A7%86%E7%AE%80%E4%BB%8B%E8%8E%B7%E5%8F%96-1ove%E4%B8%93%E7%89%88/%E5%BD%B1%E8%A7%86%E7%AE%80%E4%BB%8B%E8%8E%B7%E5%8F%96v1.1-1ove%E4%B8%93%E7%89%88.exe">🔗博主云盘</a>+<a href="https://v.own-cloud.cn/s/898crtwb">🔗小麦云盘</a></p>
-</li>
-<li>
-<p>1.0下载链接 →<a href="https://pan.qiantigers.top/one-share/Windows-APP/%E5%BD%B1%E8%A7%86%E7%AE%80%E4%BB%8B%E8%8E%B7%E5%8F%96-1ove%E4%B8%93%E7%89%88/%E5%BD%B1%E8%A7%86%E7%AE%80%E4%BB%8B%E8%8E%B7%E5%8F%96v1.0-1ove%E4%B8%93%E7%89%88.exe">🔗博主云盘</a>+<a href="http://v.own-cloud.cn/s/5rken78e">🔗小麦云盘</a></p>
-</li>
-<li>
-<p>功能：</p>
-<ol>
-<li>能够自动规范格式，省去编写的烦恼</li>
-<li>自动获取对应的资源信息和图片，真正的一条龙服务</li>
-<li>操作简易，该软件是exe，兼容性还可以</li>
-</ol>
-</li>
-<li>
-<p>截图：<br>
-<img src="https://z4a.net/images/2020/06/14/8fe647458be9d66b543eb5df1f03ebfe.png" alt="8fe647458be9d66b543eb5df1f03ebfe.png" loading="lazy"><br>
-<img src="https://z4a.net/images/2020/06/14/24d07df41bdbf084d577322a79b0455e.png" alt="24d07df41bdbf084d577322a79b0455e.png" loading="lazy"><br>
-<img src="https://z4a.net/images/2020/06/14/bc53b1fae9514e6e44e6b609d8c73dc3.png" alt="bc53b1fae9514e6e44e6b609d8c73dc3.png" loading="lazy"></p>
-</li>
+<li>待完善，目前尚未开发完成。</li>
 </ul>
+<h2 id="命令列表">命令列表</h2>
+<h3 id="登录">登录</h3>
+<pre><code class="language-shell">guest@six-pan:/$ login   #然后按提示操作即可
+</code></pre>
+<h3 id="切换工作目录">切换工作目录</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ cd target  # 进入子目录
+mrs4s@six-pan:/target$ cd /target/sub/test  # 以完整路径切换目录
+mrs4s@six-pan:/target/sub/test$ cd ..  # 返回上一层
+mrs4s@six-pan:/target/sub$ cd ../../  # 向上返回N层
+</code></pre>
+<h3 id="获取当前工作目录">获取当前工作目录</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ pwd
+/workdir/1
+</code></pre>
+<h3 id="列出文件">列出文件</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ ls  # 列出当前目录所有对象
+dir1	dir2	file1	file2
+mrs4s@six-pan:/$ ls -d  # 按文件夹过滤
+dir1	dir2
+mrs4s@six-pan:/$ ls /target  # 列出目标目录所有对象
+dir1	file1
+mrs4s@six-pan:/$ ls /target -R  # 遍历列出子目录对象 (鉴于负载考虑不递归子目录)
+.:
+dir1	file1
+./dir1:
+test1	test2
+mrs4s@six-pan:/$ ls -a  # 输出文件详细信息
+序号  创建时间             文件大小  文件名
+0     2019-01-01 00:00:00 100.00GB  dir1
+...
+</code></pre>
+<h3 id="下载文件文件夹">下载文件/文件夹</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ down file  # 下载文件
+mrs4s@six-pan:/$ down dir  # 下载文件夹
+mrs4s@six-pan:/$ down /dir/file  # 通过绝对路径下载文件
+</code></pre>
+<h3 id="创建文件夹">创建文件夹</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ mkdir dir  #在当前目录创建文件夹
+mrs4s@six-pan:/$ mkdir /test/dir  #根据绝对路径创建文件夹
+</code></pre>
+<h3 id="删除文件文件夹">删除文件/文件夹</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ rm file -y  #删除文件/文件夹
+mrs4s@six-pan:/$ rm file1 file2 dir -y  #删除多个文件/文件夹
+</code></pre>
+<h3 id="获取文件hash信息">获取文件hash信息</h3>
+<pre><code class="language-shell">mrs4s@six-pan:/$ cksum file1 file2 
+</code></pre>
+<h3 id="预览文件">预览文件</h3>
+<blockquote>
+<p>目前仅支持文本文件和torrent文件的预览, 其他文件仅能返回属性信息</p>
+</blockquote>
+<pre><code class="language-shell">mrs4s@six-pan:/$ pw file
+</code></pre>
 
             </div>
             
@@ -481,7 +730,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://www.qiantigers.top/post/1ove-tools-getVideoInfo/" title="1ove专属影视简介获取器">https://www.qiantigers.top/post/1ove-tools-getVideoInfo/</a>
+      <a href="https://www.qiantigers.top/post/sixpan-cli/" title="6盘 CLI工具操作指南">https://www.qiantigers.top/post/sixpan-cli/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -490,7 +739,9 @@
   </ul>
   <div class="tags">
     
-      <a href="https://www.qiantigers.top/tag/1oveclub/"># 1oveClub</a>
+      <a href="https://www.qiantigers.top/tag/6-pan/"># 6盘</a>
+    
+      <a href="https://www.qiantigers.top/tag/vps/"># vps</a>
     
   </div>
   <div class="nav">
@@ -498,6 +749,10 @@
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="linux screen 命令详解" href="https://www.qiantigers.top/post/linux-screen/">linux screen 命令详解</a>
+        <a class="nav-mobile-next" title="linux screen 命令详解" href="https://www.qiantigers.top/post/linux-screen/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
