@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-29T14:40:13.108Z</updated>
+    <updated>2020-07-29T14:49:31.421Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -22,13 +22,30 @@
         <content type="html"><![CDATA[<p><a href="https://1ove.club/cfhost">咖啡主机</a>运营有3年时间的国内IDC商家，从6月18日开始到端午期间，月付系列的香港VPS主机以及美国洛杉矶VPS主机推出一次性7.5折优惠或者终身8.5折优惠码，优惠之后最低配置方案月付15元起。目前香港沙田BGP采用三网优化线路， 动态GIA回程优化线路，小带宽，比较适合流量较小的网站使用；美国20G高防机房天机盾硬件防CC，带三网CN2 GIA回程优化。另外购买美国A区半年付或者以上的用户，可免费领取天机盾独立面板权限，并且有教学教程，可自主控制防护策略。</p>
 <figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200729222434.png" alt="image-20200729222431501" loading="lazy"></figure>
 <!-- more -->
-<p>优惠活动内容如下：</p>
-<ul>
-<li>美国精品网A、B区和香港A区永久85折优惠码：85CFHOST618</li>
-<li>美国精品网A、B区和香港A区首次75折优惠码：75CFHOST618</li>
-<li>优惠码有效期2020年6月10-28日</li>
-<li>仅限于月付或者半年付使用；</li>
-</ul>
+<p>本次优惠活动仅月付和半年付可用优惠码，活动有效期至2020年8月6日</p>
+<h3 id="优惠套餐1美国洛杉矶20g天机盾硬件上层封udp无视udp攻击防御线路特价vps">优惠套餐1：美国洛杉矶20G天机盾硬件上层封UDP无视UDP攻击防御线路特价VPS</h3>
+<p>以下表格中VPS为美国洛杉矶20G高防数据中心，三网CN2 GIA回程优化，单IP独享20G防御，被打死2小时内恢复，并且带天机盾硬件防CC，上层封UDP，无视UDP攻击！每个月可以享受免费1次天机盾防C策略配置，超过1次以后每次收费10元。也可以选择独立天机盾操作面板，权限每个月仅需额外加30元，活动期间半年付或者以上可免费获取天机盾独立面板。（2048M以上版本才允许windows系统）：<br>
+美国A区512M内存  1核CPU 20G+20G磁盘 400G流量 20Mbps带宽 原价20.88/月<br>
+美国A区1G内存 1核CPU 20G+25G磁盘 600G流量 20Mbps带宽 原价28/月<br>
+美国A区2G内存 2核CPU 20G+30G磁盘 800G流量 20Mbps带宽 原价38/月<br>
+美国A区4G内存 4核CPU 20G+40G磁盘 1500G流量 20Mbps带宽 原价88/月<br>
+美国精品网A区90折优惠码（续费同价）：2020CFHOST90<br>
+洛杉矶A区测试站：http://lax.cfhost.cn</p>
+<h3 id="优惠套餐2美国b区直连vps套餐">优惠套餐2：美国B区直连VPS套餐</h3>
+<p>美国直连国内各大骨干网，延迟低，带宽口子大。咖啡主机家的美国直连是Psychz优化BGP线路。商家支持付费更换IP，更换一次IP，收费15元，同时支持购买额外IP，价格为10元/个/月。硬盘空间和网络流量也可以额外购买。（2048M以上版本才允许windows系统）：<br>
+美国B区512M内存  1核CPU 20G+20G磁盘 800G流量 20Mbps带宽 原价15/月<br>
+美国B区1G内存 1核CPU 20G+25G磁盘 800G流量 20Mbps带宽 原价22/月<br>
+美国B区2G内存 2核CPU 20G+30G磁盘 1000G流量 20Mbps带宽 原价34/月<br>
+美国B区4G内存 4核CPU 20G+50G磁盘 1800G流量 20Mbps带宽 原价68/月<br>
+美国B区直连88折优惠码（续费同价）：2020CFHOST88<br>
+洛杉矶B区测试站：http://lax20g.cfhost.cn/speedtest</p>
+<h3 id="优惠套餐3香港沙田精品网vps套餐">优惠套餐3：香港沙田精品网VPS套餐</h3>
+<p>香港沙田的VPS位于香港沙田火炭机房，直连国内各大骨干网，延迟低，适合建站。咖啡主机家的香港vps是BGP线路的。商家支持付费更换IP，更换一次IP，收费15元，同时支持购买额外IP，价格为10元/个/月。硬盘空间和网络流量也可以额外购买。（2048M以上版本才允许windows系统）：<br>
+香港A区512M内存  1核CPU 20G+20G磁盘 400G流量 2Mbps带宽 原价20/月<br>
+香港A区1G内存 1核CPU 20G+30G磁盘 500G流量 2Mbps带宽 原价26/月<br>
+香港A区2G内存 2核CPU 20G+40G磁盘 600G流量 2Mbps带宽 原价42/月<br>
+香港A区4G内存 4核CPU 20G+60G磁盘 800G流量 3Mbps带宽 原价88/月<br>
+香港A区85折优惠码（续费同价）：2020CFHOST85</p>
 <p>1、香港VPS服务器月付方案，沙田机房，标注的是原价；性价比较高的是1G内存方案，测试地址：14.192.48.157</p>
 <table>
 <thead>
