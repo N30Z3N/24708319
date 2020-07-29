@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-29T07:36:58.323Z</updated>
+    <updated>2020-07-29T14:40:13.108Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,213 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[适合建站的低延时VPS——咖啡主机]]></title>
+        <id>https://www.qiantigers.top/post/cfhost/</id>
+        <link href="https://www.qiantigers.top/post/cfhost/">
+        </link>
+        <updated>2020-07-29T14:38:39.000Z</updated>
+        <summary type="html"><![CDATA[<p><a href="https://1ove.club/cfhost">咖啡主机</a>运营有3年时间的国内IDC商家，从6月18日开始到端午期间，月付系列的香港VPS主机以及美国洛杉矶VPS主机推出一次性7.5折优惠或者终身8.5折优惠码，优惠之后最低配置方案月付15元起。目前香港沙田BGP采用三网优化线路， 动态GIA回程优化线路，小带宽，比较适合流量较小的网站使用；美国20G高防机房天机盾硬件防CC，带三网CN2 GIA回程优化。另外购买美国A区半年付或者以上的用户，可免费领取天机盾独立面板权限，并且有教学教程，可自主控制防护策略。</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200729222434.png" alt="image-20200729222431501" loading="lazy"></figure>
+]]></summary>
+        <content type="html"><![CDATA[<p><a href="https://1ove.club/cfhost">咖啡主机</a>运营有3年时间的国内IDC商家，从6月18日开始到端午期间，月付系列的香港VPS主机以及美国洛杉矶VPS主机推出一次性7.5折优惠或者终身8.5折优惠码，优惠之后最低配置方案月付15元起。目前香港沙田BGP采用三网优化线路， 动态GIA回程优化线路，小带宽，比较适合流量较小的网站使用；美国20G高防机房天机盾硬件防CC，带三网CN2 GIA回程优化。另外购买美国A区半年付或者以上的用户，可免费领取天机盾独立面板权限，并且有教学教程，可自主控制防护策略。</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200729222434.png" alt="image-20200729222431501" loading="lazy"></figure>
+<!-- more -->
+<p>优惠活动内容如下：</p>
+<ul>
+<li>美国精品网A、B区和香港A区永久85折优惠码：85CFHOST618</li>
+<li>美国精品网A、B区和香港A区首次75折优惠码：75CFHOST618</li>
+<li>优惠码有效期2020年6月10-28日</li>
+<li>仅限于月付或者半年付使用；</li>
+</ul>
+<p>1、香港VPS服务器月付方案，沙田机房，标注的是原价；性价比较高的是1G内存方案，测试地址：14.192.48.157</p>
+<table>
+<thead>
+<tr>
+<th>香港-KVM-512M</th>
+<th>香港-KVM-1G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心：1核</td>
+<td>核心：1核</td>
+</tr>
+<tr>
+<td>CPU内存：512MB</td>
+<td>CPU内存：1GB</td>
+</tr>
+<tr>
+<td>硬盘：20GB+20G</td>
+<td>硬盘：20GB+30G</td>
+</tr>
+<tr>
+<td>流量：400G</td>
+<td>流量：500G</td>
+</tr>
+<tr>
+<td>双向带宽：2Mbps</td>
+<td>带宽：2Mbps</td>
+</tr>
+<tr>
+<td>架构：KVM</td>
+<td>架构：KVM</td>
+</tr>
+<tr>
+<td>管理：SolusVM</td>
+<td>管理：SolusVM</td>
+</tr>
+<tr>
+<td>价格：20元/月</td>
+<td>价格：26元/月</td>
+</tr>
+<tr>
+<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;gid=17">购买链接</a></td>
+<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;gid=17">购买链接</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>香港-KVM-2G</th>
+<th>香港-KVM-4G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心：2核</td>
+<td>核心：4核</td>
+</tr>
+<tr>
+<td>CPU内存：2G</td>
+<td>CPU内存：4GB</td>
+</tr>
+<tr>
+<td>硬盘：20GB+40G</td>
+<td>硬盘：20GB+60G</td>
+</tr>
+<tr>
+<td>流量：600G</td>
+<td>流量：800G</td>
+</tr>
+<tr>
+<td>双向带宽：2Mbps</td>
+<td>带宽：3Mbps</td>
+</tr>
+<tr>
+<td>架构：KVM</td>
+<td>架构：KVM</td>
+</tr>
+<tr>
+<td>管理：SolusVM</td>
+<td>管理：SolusVM</td>
+</tr>
+<tr>
+<td>价格：42元/月</td>
+<td>价格：88元/月</td>
+</tr>
+<tr>
+<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;gid=17">购买链接</a></td>
+<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;gid=17">购买链接</a></td>
+</tr>
+</tbody>
+</table>
+<p>2、洛杉矶精品A区方案，洛杉矶CERA机房KVM VPS服务器方案，标注的是原价，测试地址：23.225.195.11</p>
+<table>
+<thead>
+<tr>
+<th>洛杉矶CERA-KVM-512M</th>
+<th>洛杉矶CERA-KVM-1024M</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心：1核</td>
+<td>核心：1核</td>
+</tr>
+<tr>
+<td>CPU内存：512MB</td>
+<td>CPU内存：1GB</td>
+</tr>
+<tr>
+<td>硬盘：20GB+20G</td>
+<td>硬盘：20GB+20G</td>
+</tr>
+<tr>
+<td>流量：400G</td>
+<td>流量：600G</td>
+</tr>
+<tr>
+<td>双向上行端口 20Mbps</td>
+<td>上行端口 20Mbps</td>
+</tr>
+<tr>
+<td>架构：KVM</td>
+<td>架构：KVM</td>
+</tr>
+<tr>
+<td>管理：SolusVM</td>
+<td>管理：SolusVM</td>
+</tr>
+<tr>
+<td>价格：20.88元/月</td>
+<td>价格：28元/月</td>
+</tr>
+<tr>
+<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;pid=82">购买链接</a></td>
+<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;pid=83">购买链接</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>洛杉矶CERA-KVM-1500M</th>
+<th>洛杉矶CERA-KVM-2G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心：2核</td>
+<td>核心：4核</td>
+</tr>
+<tr>
+<td>CPU内存：2GB</td>
+<td>CPU内存：4GB</td>
+</tr>
+<tr>
+<td>硬盘：20GB+20G</td>
+<td>硬盘：20GB+40G</td>
+</tr>
+<tr>
+<td>流量：800G</td>
+<td>流量：1500G</td>
+</tr>
+<tr>
+<td>双向上行端口 20Mbps</td>
+<td>上行端口 20Mbps</td>
+</tr>
+<tr>
+<td>架构：KVM</td>
+<td>架构：KVM</td>
+</tr>
+<tr>
+<td>管理：SolusVM</td>
+<td>管理：SolusVM</td>
+</tr>
+<tr>
+<td>价格：38元/月</td>
+<td>价格：88元/月</td>
+</tr>
+<tr>
+<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;pid=84">购买链接</a></td>
+<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;pid=85">购买链接</a></td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[linux VPS使用Rclone挂载OneDrive为本地硬盘使用]]></title>
         <id>https://www.qiantigers.top/post/linux-rclone-onedrive/</id>
@@ -1017,115 +1224,6 @@ mount /mnt/file
 <hr>
 <p>挂载硬盘踩过的坑：我第一次因为2加元的没货购买的3.5加元的KVM，后来2加元的有货我就买了6个月2加元的（<s>因为6个月的便宜16%，RMB45元都不到，奇怪的是贵的KVM反而没优惠</s>）。重新购买后我又得将块存储从原来服务器分离然后挂载到新的，结果分离后再附加却没有新的服务器选项。后来工单客服，第二天回复我说这个节点还没对块存储进行正确配置，说安排给我处理，过了6个小时回我说好了让我试下。我刚开始试发现还是只有一个选项（这时块存储又被我附加回第一个服务器上了），后来将其分离后就出来新的第二个选项可以挂载了。</p>
 <p><em>注：转载于 https://www.twoha.tk/buyvm-frantech/</em></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[利用Heroku部署Aria2离线下载并同步上传到Onedrive等网盘]]></title>
-        <id>https://www.qiantigers.top/post/heroku-aria2/</id>
-        <link href="https://www.qiantigers.top/post/heroku-aria2/">
-        </link>
-        <updated>2020-06-28T08:04:08.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="背景">背景</h2>
-<p>自己最近搭建heroku+aria2的离线下载，感觉这个算是白嫖中很不错的东西，所以还是建议搭建一下的。</p>
-<h2 id="如何部署">如何部署</h2>
-<p>这里省去注册Heroku以及登录的过程。</p>
-<p>作者的项目：<a href="https://github.com/maple3142/">maple3142</a> / <a href="https://github.com/maple3142/heroku-aria2c">heroku-aria2c</a></p>
-<p>点击进入作者的项目，在下面的介绍内容中有个紫色的Deploy按钮，点击它<mark>或者</mark>直接点击本文中下面的按钮</p>
-<figure data-type="image" tabindex="1"><a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fmaple3142%2Fheroku-aria2c&amp;template=https%3A%2F%2Fgithub.com%2Fmaple3142%2Fheroku-aria2c"><img src="https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667" alt="点击我直接部署" loading="lazy"></a></figure>
-<p>就会进入Heroku的创建app页面。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/t81HwF3svxidCbh.png" alt="Heroku的创建app页面" loading="lazy">Heroku的创建app页面</p>
-<p>这时候需要填的东西如下，带*为必填项</p>
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th>解释</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>App name</code> *</td>
-<td>你要创建的应用名</td>
-<td><code>aria2dl</code></td>
-</tr>
-<tr>
-<td><code>ARIA2C_SECRET</code> *</td>
-<td>进入Aria2的密码</td>
-<td><code>password</code></td>
-</tr>
-<tr>
-<td><code>HEROKU_APP_NAME</code> *</td>
-<td>和上面填的应用名一样</td>
-<td><code>aria2dl</code></td>
-</tr>
-<tr>
-<td><code>RCLONE_CONFIG</code></td>
-<td>你的RCLONE配置</td>
-<td>见下文</td>
-</tr>
-<tr>
-<td><code>RCLONE_DESTINATION</code></td>
-<td>需要同步的目标网盘的路径必须以<code>/</code>开头</td>
-<td><code>/tmp</code></td>
-</tr>
-</tbody>
-</table>
-<p>最后两个是如果你需要将离线下载的文件同步到自己的网盘或者存储的话才需要填写。</p>
-<p>但是建议同步到自己的网盘，因为Heroku保存的问题好像就一个小时还是可能休眠了重启了就消失了。两面性吧，好处是可以通过休眠重启来删除文件，不好的地方是文件不能长久保存。</p>
-<p><code>RCLONE_CONFIG</code>这个选项的话我一开始碰了壁，后来知道原来这么写。 前提是你已经配置过rclone，如果是在Windows下配置过rclone的话，一般配置文件在<code>/$HOME/.config/rclone/rclone.conf</code>，也可以通过命令<code>rclone config file</code>来显示配置文件路径。</p>
-<p>打开对应的配置文件<code>rclone.conf</code>，可以看到格式为下面的内容，或者直接使用<code>rclone</code>命令也可以查看 <code>rclone config show [&lt;remote&gt;] [flags]</code></p>
-<pre><code>[XXDrive]type = onedrive
-token = {&quot;access_token&quot;:&quot;省略&quot;,&quot;expiry&quot;:&quot;2020-02-29T00:06:11.2713766+09:00&quot;}
-drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX
-drive_type = business
-</code></pre>
-<p>只要选下面这些内容填入<code>RCLONE_CONFIG</code>选项就可以，其实就是不要盘名和每行用<code>\n</code>来连接，但是我试了下像下面这样换行 加上<code>\n</code>也是可以。。。</p>
-<pre><code>type = onedrive\n
-token = {&quot;access_token&quot;:&quot;省略&quot;,&quot;expiry&quot;:&quot;2020-02-29T00:06:11.2713766+09:00&quot;}\n
-drive_id = b!mcwoiDfma0qsSX_省略gSqJBBrD9W6XX\n
-drive_type = business
-</code></pre>
-<p>最后一个选项<code>ARIA2C_SECRET</code>的话需要，就是你要上传到那个网盘的哪个路径下，可以用<code>/</code>代表上传到根目录。</p>
-<p>最后点击<code>Deploy app</code>就可以看到它自动部署了。等看到部署成功后就可以点击<code>Open app</code>或者<code>View</code>来打开或者直接访问 <code>https://你设置好的应用名.herokuapp.com</code>。</p>
-<h2 id="享用">享用</h2>
-<p>打开后显示如下的话说明部署没问题</p>
-<p><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/NAaYSChH9mLKwuE.png" alt="部署成功" loading="lazy">部署成功</p>
-<p>在输入框内填入你设置好的<code>ARIA2C_SECRET</code>密码，比如<code>password</code>，然后点击你要去的地方 - Go to AriaNg panel 离线下载面板 - View downloaded files 查看下载后的文件</p>
-<h2 id="如何保持heroku的活跃呢">如何保持Heroku的活跃呢？</h2>
-<p>在这里使用到了腾讯云的云拨测</p>
-<p><a href="https://console.cloud.tencent.com/cat">https://console.cloud.tencent.com/cat</a></p>
-<p>进入上方的链接，我们会看到</p>
-<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/image-20200628155436948.png" alt="image-20200628155436948" loading="lazy"></figure>
-<table>
-<thead>
-<tr>
-<th>选项名称</th>
-<th>选项内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>拨测名称</td>
-<td>随意</td>
-</tr>
-<tr>
-<td>拨测地址</td>
-<td>你的heroku地址</td>
-</tr>
-<tr>
-<td>拨测协议</td>
-<td>http(s)</td>
-</tr>
-<tr>
-<td>拨测周期</td>
-<td>建议选择5分钟</td>
-</tr>
-</tbody>
-</table>
-<p>到这里就部署完毕，会定期保持heroku的活跃。</p>
-<h2 id="建议">建议</h2>
-<p>不要一次性下载太多的东西，也不要下载太大的文件，不然很有可能在你没有下载好之前就被heroku重置了。</p>
 ]]></content>
     </entry>
 </feed>
