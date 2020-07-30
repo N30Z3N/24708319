@@ -10,7 +10,7 @@
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
 <title>Qiantigers</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1596101558022">
+<link rel="shortcut icon" href="/favicon.ico?v=1596123724370">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -255,7 +255,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">32</span>
+        <span class="site-item-stat-count">33</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -310,6 +310,66 @@
         <div class="section-box gemini">
           <section class="section  posts-expand slide-down-in">
             
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://www.qiantigers.top/post/understand-onedrive_1oveclub/">
+      来了解一下OneDrive_1oveClub
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span>2020-04-09</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
+      
+      
+      <a href="https://www.qiantigers.top/tag/1oveclub/">
+        <span>1oveClub</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>775<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+        
+          
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://www.qiantigers.top/post/understand-onedrive_1oveclub/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
   <article class="post-list-box  post box-shadow-wrapper">
     <div class="article-wrapper bg-color">
       <header class="post-header">
@@ -1286,6 +1346,70 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/vnstat/"" data-c="
+          &lt;p&gt;在本教程中，我们将向您介绍如何在CentOS 7服务器上安装和配置VnStat网络监控。对于那些不了解的人，VnStat是一款基于控制台的网络流量监控工具，适用于Linux和BSD。它允许用户维护所选接口的网络流量日志。在这个Vnstat工具中，接口带宽会自动降低。&lt;/p&gt;
+&lt;p&gt;本文假设您至少具有linux的基础知识，了解如何使用shell，最重要的是，您将自己的站点托管在您自己的VPS上。安装非常简单，假设您正在root帐户中运行，如果不是，您可能需要在命令中添加“sudo”以获取root权限。我将在CentOS 7服务器上逐步安装VnStat网络监控工具。&lt;/p&gt;
+&lt;h2 id=&#34;vnstat功能&#34;&gt;VnStat功能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;多个输出选项。&lt;/li&gt;
+&lt;li&gt;生成png图形输出。&lt;/li&gt;
+&lt;li&gt;消耗部分系统资源。&lt;/li&gt;
+&lt;li&gt;同时监控多个网络接口。&lt;/li&gt;
+&lt;li&gt;按月，周，小时和天排序数据。&lt;/li&gt;
+&lt;li&gt;CPU使用率低&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在CentOS 7上安装VnStat网络监控&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;步骤一首先您将需要为您的linux版本启用epel存储库包&#34;&gt;步骤一：首先，您将需要为您的Linux版本启用&lt;a href=&#34;http://idroot.net/tutorials/install-enable-epel-repo-centos-5-centos-6-centos-7/&#34;&gt;EPEL存储库&lt;/a&gt;包&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;yum -y install epel-release
+yum -y update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;步骤二安装vnstat&#34;&gt;步骤二：安装VnStat&lt;/h3&gt;
+&lt;p&gt;使用yum命令行实用程序在您的系统上安装vnstat包：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;yum -y install vnstat
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一旦安装，启动并启用Vnstat服务：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl start vnstat
+systemctl enable vnstat
+chkconfig vnstat on
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;步骤3使用vnstat命令行显示静态&#34;&gt;步骤3：使用vnStat命令行显示静态&lt;/h3&gt;
+&lt;p&gt;使用vnstat命令行实用程序，您可以查看每天，每月和每小时的带宽统计信息。它还提供实时显示统计数据的选项：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;### Show Statistics for a day ###
+vnstat -d
+
+### Show Statistics for a Month ###
+vnstat -m
+
+### Show Statistics for a Hour ###
+vnstat -h
+
+### Show Statistics for a Real Time ###
+vnstat -l
+
+### For more available options you can use the --help ###
+vnstat --help
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;步骤四配置vnstat-php基于web的界面&#34;&gt;步骤四：配置vnStat PHP基于Web的界面&lt;/h3&gt;
+&lt;p&gt;vnStat还提供基于PHP的Web界面来显示图形统计信息。为了设置vnStat Web界面，它需要在CentOS 7上&lt;a href=&#34;http://idroot.net/tutorials/how-to-install-lamp-linux-apache-mariadb-php-on-centos-7/&#34;&gt;安装LAMP堆栈&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;下载vnStat php代码使用下面给定的url。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;get http://www.sqweek.com/sqweek/files/vnstat_php_frontend-1.5.1.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在Web访问目录中提取下载的归档文件，例如：&lt;em&gt;/var/www/html/&lt;/em&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  tar xzf vnstat_php_frontend-1.5.1.tar.gzmv vnstat_php_frontend-1.5.1 /var/www/html/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;编辑config.php文件并设置以下参数：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  $language = \&amp;quot;en\&amp;quot;;
+  $iface_list = array(\&amp;quot;eth0\&amp;quot;, \&amp;quot;sixxs\&amp;quot;);
+  $iface_title[\&amp;quot;eth0\&amp;quot;] = \&amp;quot;Public Interface\&amp;quot;;
+  $vnstat_bin = \&amp;quot;/usr/bin/vnstat\&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;通过网络浏览器访问VnStat，打开您喜爱的浏览器并导航到http://yourdomain.com/或http//server-ip。&lt;/p&gt;
+">如何在CentOS 7上安装VnStat网络监控</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/cfhost/"" data-c="

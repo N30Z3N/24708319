@@ -8,7 +8,7 @@
 <meta name="keywords" content="OneDrive,云盘,资源,教程,技巧,干货,">
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
-<title>在线观看影视の网址 | Qiantigers</title>
+<title>如何在CentOS 7上安装VnStat网络监控 | Qiantigers</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1596123724370">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -58,8 +58,8 @@
 </script>
 
 
-  <meta name="description" content="在线观看影视の网址" />
-  <meta name="keywords" content="影视,干货,网站" />
+  <meta name="description" content="如何在CentOS 7上安装VnStat网络监控" />
+  <meta name="keywords" content="linux,教程" />
 </head>
 
 <body>
@@ -249,7 +249,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -308,6 +309,202 @@
   </div>
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#vnstat%E5%8A%9F%E8%83%BD">VnStat功能</a>
+<ul>
+<li><a href="#%E6%AD%A5%E9%AA%A4%E4%B8%80%E9%A6%96%E5%85%88%E6%82%A8%E5%B0%86%E9%9C%80%E8%A6%81%E4%B8%BA%E6%82%A8%E7%9A%84linux%E7%89%88%E6%9C%AC%E5%90%AF%E7%94%A8epel%E5%AD%98%E5%82%A8%E5%BA%93%E5%8C%85">步骤一：首先，您将需要为您的Linux版本启用EPEL存储库包</a></li>
+<li><a href="#%E6%AD%A5%E9%AA%A4%E4%BA%8C%E5%AE%89%E8%A3%85vnstat">步骤二：安装VnStat</a></li>
+<li><a href="#%E6%AD%A5%E9%AA%A43%E4%BD%BF%E7%94%A8vnstat%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%98%BE%E7%A4%BA%E9%9D%99%E6%80%81">步骤3：使用vnStat命令行显示静态</a></li>
+<li><a href="#%E6%AD%A5%E9%AA%A4%E5%9B%9B%E9%85%8D%E7%BD%AEvnstat-php%E5%9F%BA%E4%BA%8Eweb%E7%9A%84%E7%95%8C%E9%9D%A2">步骤四：配置vnStat PHP基于Web的界面</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -395,8 +592,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://www.qiantigers.top/post/zai-xian-guan-kan-ying-shi-nowang-zhi/">
-      在线观看影视の网址
+    <a class="post-title-link" href="https://www.qiantigers.top/post/vnstat/">
+      如何在CentOS 7上安装VnStat网络监控
     </a>
   </h1>
   <div class="post-meta">
@@ -404,7 +601,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-03-29</span>
+      <span>2020-07-30</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -413,20 +610,14 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://www.qiantigers.top/tag/ying-shi/">
-        <span>影视</span>
+      <a href="https://www.qiantigers.top/tag/linux/">
+        <span>linux</span>
       </a>、
       
       
       
-      <a href="https://www.qiantigers.top/tag/gan-huo/">
-        <span>干货</span>
-      </a>、
-      
-      
-      
-      <a href="https://www.qiantigers.top/tag/uno0CUS2II/">
-        <span>网站</span>
+      <a href="https://www.qiantigers.top/tag/jiao-cheng/">
+        <span>教程</span>
       </a>
       
       
@@ -435,17 +626,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>468<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>614<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/zai-xian-guan-kan-ying-shi-nowang-zhi/" data-flag-title="在线观看影视の网址" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/vnstat/" data-flag-title="如何在CentOS 7上安装VnStat网络监控" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -454,63 +645,65 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <blockquote>
-<p>适合在线观看~</p>
-</blockquote>
+              <p>在本教程中，我们将向您介绍如何在CentOS 7服务器上安装和配置VnStat网络监控。对于那些不了解的人，VnStat是一款基于控制台的网络流量监控工具，适用于Linux和BSD。它允许用户维护所选接口的网络流量日志。在这个Vnstat工具中，接口带宽会自动降低。</p>
+<p>本文假设您至少具有linux的基础知识，了解如何使用shell，最重要的是，您将自己的站点托管在您自己的VPS上。安装非常简单，假设您正在root帐户中运行，如果不是，您可能需要在命令中添加“sudo”以获取root权限。我将在CentOS 7服务器上逐步安装VnStat网络监控工具。</p>
+<h2 id="vnstat功能">VnStat功能</h2>
 <ul>
-<li>
-<p>第一类：美剧资源</p>
-<blockquote>
-<ol>
-<li>爱美剧：强推这个网站，资源多，缓冲快，广告少，还提供迅雷下载链接，网站： <a href="https://www.meiju.net/">【查看链接】</a></li>
-<li>美剧侠：网站挺好看，感觉不错。<a href="http://m.meijuxia.com/">【查看链接】</a></li>
-<li>在线之家：资源丰富，页面好看，不过建议使用去广告浏览器，有页面广告，网址： <a href="https://www.zxzjs.com/">【查看链接】</a></li>
-<li>天天美剧：页面分类清楚，资源丰富，有广告，网址： <a href="https://www.meijuxz.com/">【查看链接】</a></li>
-<li>BT美剧：上面几个网站找不到可以来这儿看看，说不定有惊喜，网址：<a href="http://www.btmeiju.com/">【查看链接】</a></li>
-</ol>
-</blockquote>
-<figure data-type="image" tabindex="1"><img src="https://file.moetu.org/images/2020/03/28/913af1bcdaa1e9e41a84d3a6fd1936717144919ab73aa9c5.md.png" alt="img" loading="lazy"></figure>
-</li>
-<li>
-<p>第二类：纪录片</p>
-<blockquote>
-<ol>
-<li>老记录：页面很好看，资源不够丰富但胜在好看和优质，网址： <a href="https://www.laojilu.com/">【查看链接】</a></li>
-<li>盗火纪录片：资源丰富，主力使用，部分资源需要开会员 <a href="http://www.daofire.com/">【查看链接】</a></li>
-<li>纪录片之家，没怎么用过，看起来不错，<a href="http://www.jlpdq.com/">【查看链接】</a></li>
-<li>纪录片天地，没用过，可以试试，<a href="http://www.jlpcn.net/">【查看链接】</a></li>
-</ol>
-</blockquote>
-<figure data-type="image" tabindex="2"><img src="https://file.moetu.org/images/2020/03/28/43f36fb1ab2a1dd54e9d18d27649d1b1839fb338197f014c.md.png" alt="img" loading="lazy"></figure>
-</li>
-<li>
-<p>第三类：动漫网站</p>
-<blockquote>
-<ol>
-<li>番哩番哩：看起来不错，看动漫的朋友自己看， <a href="https://www.flif.li/vodtype/dongman.html">【查看链接】</a></li>
-<li>QinMei：在线动漫播放站，网址： <a href="https://m.qinmei.video/index">【查看链接】</a></li>
-</ol>
-</blockquote>
-<figure data-type="image" tabindex="3"><img src="https://file.moetu.org/images/2020/03/28/317b82e41bd414e88e7428fd162aaadec6db109291baa2aa.md.jpg" alt="img" loading="lazy"></figure>
-</li>
-<li>
-<p>第四类：综合影视网站</p>
-<blockquote>
-<ol>
-<li>初心视频：主力使用，资源丰富，加载速度快，无广告，强烈推荐，网址：<a href="http://v.bwcxy.com/">【查看链接】</a></li>
-<li>奈菲影视，资源丰富，无广告，很好用，网址： <a href="https://www.nfmovies.com/">【查看链接】</a></li>
-<li>乐猫TV，资源丰富，有广告， <a href="http://www.lemaotv.net/">【查看链接】</a></li>
-<li>八一影院：资源丰富，有广告，可以试试。 网址：<a href="http://m.bayiyy.com/">【查看链接】</a></li>
-<li>4K电影院：看起来不错，好像有车 网址： <a href="https://www.4kdy.net/">【查看链接】</a></li>
-<li>乐享电影网：电影资源挺丰富的，可以试试， <a href="https://www.88yy.net/">【查看链接】</a></li>
-<li>完美看看：资源丰富，无广告 <a href="https://www.wanmeikk.me/">【查看链接】</a></li>
-<li>搜片网：资源丰富，无广告 <a href="https://www.soopian.com/">【查看链接】</a></li>
-<li>青苹果影视：资源丰富，无广告 <a href="http://www.qpgys.net/">【查看链接】</a></li>
-</ol>
-</blockquote>
-<figure data-type="image" tabindex="4"><img src="https://file.moetu.org/images/2020/03/28/1d92287ec8be76cdb893d0655a2aecf7198f80dd6bd8baa0.md.png" alt="img" loading="lazy"></figure>
-</li>
+<li>多个输出选项。</li>
+<li>生成png图形输出。</li>
+<li>消耗部分系统资源。</li>
+<li>同时监控多个网络接口。</li>
+<li>按月，周，小时和天排序数据。</li>
+<li>CPU使用率低</li>
 </ul>
+<blockquote>
+<p>在CentOS 7上安装VnStat网络监控</p>
+</blockquote>
+<h3 id="步骤一首先您将需要为您的linux版本启用epel存储库包">步骤一：首先，您将需要为您的Linux版本启用<a href="http://idroot.net/tutorials/install-enable-epel-repo-centos-5-centos-6-centos-7/">EPEL存储库</a>包</h3>
+<pre><code>yum -y install epel-release
+yum -y update
+</code></pre>
+<h3 id="步骤二安装vnstat">步骤二：安装VnStat</h3>
+<p>使用yum命令行实用程序在您的系统上安装vnstat包：</p>
+<pre><code>yum -y install vnstat
+</code></pre>
+<p>一旦安装，启动并启用Vnstat服务：</p>
+<pre><code>systemctl start vnstat
+systemctl enable vnstat
+chkconfig vnstat on
+</code></pre>
+<h3 id="步骤3使用vnstat命令行显示静态">步骤3：使用vnStat命令行显示静态</h3>
+<p>使用vnstat命令行实用程序，您可以查看每天，每月和每小时的带宽统计信息。它还提供实时显示统计数据的选项：</p>
+<pre><code>### Show Statistics for a day ###
+vnstat -d
+
+### Show Statistics for a Month ###
+vnstat -m
+
+### Show Statistics for a Hour ###
+vnstat -h
+
+### Show Statistics for a Real Time ###
+vnstat -l
+
+### For more available options you can use the --help ###
+vnstat --help
+</code></pre>
+<h3 id="步骤四配置vnstat-php基于web的界面">步骤四：配置vnStat PHP基于Web的界面</h3>
+<p>vnStat还提供基于PHP的Web界面来显示图形统计信息。为了设置vnStat Web界面，它需要在CentOS 7上<a href="http://idroot.net/tutorials/how-to-install-lamp-linux-apache-mariadb-php-on-centos-7/">安装LAMP堆栈</a>。</p>
+<p>下载vnStat php代码使用下面给定的url。</p>
+<pre><code>get http://www.sqweek.com/sqweek/files/vnstat_php_frontend-1.5.1.tar.gz
+</code></pre>
+<p>在Web访问目录中提取下载的归档文件，例如：<em>/var/www/html/</em>：</p>
+<pre><code>  tar xzf vnstat_php_frontend-1.5.1.tar.gzmv vnstat_php_frontend-1.5.1 /var/www/html/
+</code></pre>
+<p>编辑config.php文件并设置以下参数：</p>
+<pre><code>  $language = \&quot;en\&quot;;
+  $iface_list = array(\&quot;eth0\&quot;, \&quot;sixxs\&quot;);
+  $iface_title[\&quot;eth0\&quot;] = \&quot;Public Interface\&quot;;
+  $vnstat_bin = \&quot;/usr/bin/vnstat\&quot;;
+</code></pre>
+<p>通过网络浏览器访问VnStat，打开您喜爱的浏览器并导航到http://yourdomain.com/或http//server-ip。</p>
 
             </div>
             
@@ -523,7 +716,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://www.qiantigers.top/post/zai-xian-guan-kan-ying-shi-nowang-zhi/" title="在线观看影视の网址">https://www.qiantigers.top/post/zai-xian-guan-kan-ying-shi-nowang-zhi/</a>
+      <a href="https://www.qiantigers.top/post/vnstat/" title="如何在CentOS 7上安装VnStat网络监控">https://www.qiantigers.top/post/vnstat/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -532,25 +725,19 @@
   </ul>
   <div class="tags">
     
-      <a href="https://www.qiantigers.top/tag/ying-shi/"># 影视</a>
+      <a href="https://www.qiantigers.top/tag/linux/"># linux</a>
     
-      <a href="https://www.qiantigers.top/tag/gan-huo/"># 干货</a>
-    
-      <a href="https://www.qiantigers.top/tag/uno0CUS2II/"># 网站</a>
+      <a href="https://www.qiantigers.top/tag/jiao-cheng/"># 教程</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="来了解一下OneDrive_1oveClub" href="https://www.qiantigers.top/post/understand-onedrive_1oveclub/">来了解一下OneDrive_1oveClub</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="来了解一下OneDrive_1oveClub" href="https://www.qiantigers.top/post/understand-onedrive_1oveclub/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="如何进行OneDrive文件转存？" href="https://www.qiantigers.top/post/HowToSaveOneDriveDocuments/">如何进行OneDrive文件转存？</a>
-        <a class="nav-mobile-next" title="如何进行OneDrive文件转存？" href="https://www.qiantigers.top/post/HowToSaveOneDriveDocuments/">下一篇</a>
+        <a class="nav-pc-next" title="适合建站的低延时VPS——咖啡主机" href="https://www.qiantigers.top/post/cfhost/">适合建站的低延时VPS——咖啡主机</a>
+        <a class="nav-mobile-next" title="适合建站的低延时VPS——咖啡主机" href="https://www.qiantigers.top/post/cfhost/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
