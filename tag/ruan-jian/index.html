@@ -9,7 +9,7 @@
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
 <title>Qiantigers</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1596208256276">
+<link rel="shortcut icon" href="/favicon.ico?v=1596209714867">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -254,19 +254,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">33</span>
+        <span class="site-item-stat-count">34</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">31</span>
+        <span class="site-item-stat-count">33</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">31</span>
+        <span class="site-item-stat-count">33</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -317,6 +317,18 @@
           <small class="language" data-lan="tag">标签</small>
         </h2>
       </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
       
       
@@ -1363,6 +1375,55 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/gridea-sitemap/"" data-c="
+          &lt;h2 id=&#34;百度和谷歌seo优化&#34;&gt;百度和谷歌SEO优化&lt;/h2&gt;
+&lt;p&gt;为了加快百度和谷歌搜索引擎收录博客文章，往往需要手动提交sitemap，Gridea会自动生成站点地图，名为&lt;code&gt;atom.xml&lt;/code&gt;，提交到对应位置即可。&lt;/p&gt;
+&lt;h2 id=&#34;百度sitemap提交&#34;&gt;百度sitemap提交&lt;/h2&gt;
+&lt;p&gt;登录注册&lt;a href=&#34;https://ziyuan.baidu.com/&#34;&gt;百度搜索资源平台&lt;/a&gt;，过程可能会比较繁琐。&lt;/p&gt;
+&lt;p&gt;添加站点，在&lt;code&gt;数据引入&lt;/code&gt;-&lt;code&gt;链接提交&lt;/code&gt;-&lt;code&gt;自动提交&lt;/code&gt;-&lt;code&gt;sitemap&lt;/code&gt;处提交站点地图，例如：&lt;code&gt;https://www.qiantigers.top/sitemap/index.html&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;补充：默认生成的atom.xml主要为SSR订阅使用，百度无法抓取，需要手动修改、添加一些文件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200731232925.png&#34; alt=&#34;image-20200731232533212&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;自动提交&#34;&gt;自动提交&lt;/h3&gt;
+&lt;p&gt;找到Gridea的文件夹（设置里的站点源文件路径），笔者自定义的路径为&lt;code&gt;F:\Gridea&lt;/code&gt;，然后找到主题的templates文件夹下的&lt;code&gt;post.ejs&lt;/code&gt;，我的位置示例（Next主题）：&lt;code&gt;F:\GitHub\themes\Next\templates\post.ejs&lt;/code&gt;。把以下代码放在之前的任意位置即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; &amp;lt;script&amp;gt;
+(function(){
+    var bp = document.createElement(&#39;script&#39;);
+    var curProtocol = window.location.protocol.split(&#39;:&#39;)[0];
+    if (curProtocol === &#39;https&#39;) {
+        bp.src = &#39;https://zz.bdstatic.com/linksubmit/push.js&#39;;
+    }
+    else {
+        bp.src = &#39;http://push.zhanzhang.baidu.com/push.js&#39;;
+    }
+    var s = document.getElementsByTagName(&amp;quot;script&amp;quot;)[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;手动提交sitemap&#34;&gt;手动提交sitemap&lt;/h3&gt;
+&lt;p&gt;参照自动提交的文件位置，在&lt;code&gt;F:\GitHub\themes\Next\templates\&lt;/code&gt;处创建一个sitemap.ejs，复制以下代码并保存，重新启动Gridea并同步即可得到符合百度要求的sitemap。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;%- sitemap() %&amp;gt;&amp;lt;%  -%&amp;gt;
+&amp;lt;%
+function sitemap(){
+  let links=&#39;&#39;
+  site.posts.forEach(function(post){
+    links+=post.link+&#39;\n&#39;
+}) 
+  return links
+}%&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;生成的文件是html文件，以本站点为例，提交sitemap的链接为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://www.qiantigers.top/sitemap/index.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;谷歌sitemap提交&#34;&gt;谷歌sitemap提交&lt;/h2&gt;
+&lt;p&gt;登录&lt;a href=&#34;https://search.google.com/search-console&#34;&gt;谷歌搜索控制台&lt;/a&gt;添加站点，输入&lt;code&gt;atom.xml&lt;/code&gt;并提交，谷歌的抓取速度很快。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200731232908.png&#34; alt=&#34;image-20200731232900854&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+">Gridea如何使用站点地图(sitemap)</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://www.qiantigers.top/post/vnstat/"" data-c="

@@ -8,7 +8,7 @@
 <meta name="keywords" content="OneDrive,云盘,资源,教程,技巧,干货,">
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
-<title>OneDrive_1oveClub资源分享群创立的初衷 | Qiantigers</title>
+<title>Gridea如何使用站点地图(sitemap) | Qiantigers</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1596209714867">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -58,8 +58,8 @@
 </script>
 
 
-  <meta name="description" content="OneDrive_1oveClub资源分享群创立的初衷" />
-  <meta name="keywords" content="1oveClub" />
+  <meta name="description" content="Gridea如何使用站点地图(sitemap)" />
+  <meta name="keywords" content="SEO,站点地图,Gridea,教程,网站" />
 </head>
 
 <body>
@@ -249,7 +249,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -308,6 +309,202 @@
   </div>
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%99%BE%E5%BA%A6%E5%92%8C%E8%B0%B7%E6%AD%8Cseo%E4%BC%98%E5%8C%96">百度和谷歌SEO优化</a></li>
+<li><a href="#%E7%99%BE%E5%BA%A6sitemap%E6%8F%90%E4%BA%A4">百度sitemap提交</a>
+<ul>
+<li><a href="#%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4">自动提交</a></li>
+<li><a href="#%E6%89%8B%E5%8A%A8%E6%8F%90%E4%BA%A4sitemap">手动提交sitemap</a></li>
+</ul>
+</li>
+<li><a href="#%E8%B0%B7%E6%AD%8Csitemap%E6%8F%90%E4%BA%A4">谷歌sitemap提交</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -395,8 +592,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://www.qiantigers.top/post/onedrive_1oveclub-zi-yuan-fen-xiang-qun-chuang-li-de-chu-zhong/">
-      OneDrive_1oveClub资源分享群创立的初衷
+    <a class="post-title-link" href="https://www.qiantigers.top/post/gridea-sitemap/">
+      Gridea如何使用站点地图(sitemap)
     </a>
   </h1>
   <div class="post-meta">
@@ -404,7 +601,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-03-24</span>
+      <span>2020-07-31</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -413,8 +610,32 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://www.qiantigers.top/tag/1oveclub/">
-        <span>1oveClub</span>
+      <a href="https://www.qiantigers.top/tag/seo/">
+        <span>SEO</span>
+      </a>、
+      
+      
+      
+      <a href="https://www.qiantigers.top/tag/zhan-dian-di-tu/">
+        <span>站点地图</span>
+      </a>、
+      
+      
+      
+      <a href="https://www.qiantigers.top/tag/gridea/">
+        <span>Gridea</span>
+      </a>、
+      
+      
+      
+      <a href="https://www.qiantigers.top/tag/jiao-cheng/">
+        <span>教程</span>
+      </a>、
+      
+      
+      
+      <a href="https://www.qiantigers.top/tag/uno0CUS2II/">
+        <span>网站</span>
       </a>
       
       
@@ -428,12 +649,12 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>427<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>428<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/onedrive_1oveclub-zi-yuan-fen-xiang-qun-chuang-li-de-chu-zhong/" data-flag-title="OneDrive_1oveClub资源分享群创立的初衷" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/gridea-sitemap/" data-flag-title="Gridea如何使用站点地图(sitemap)" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -442,18 +663,50 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>这是一个资源分享群，但又不只是简单的一个资源群。我们挺希望这个群组是充满人情味的，可以进行有意义的交流，能够带来共同的欢乐～</p>
-<p>我们希望它是什么样子？希望它能够成为一个大家获取自己想要的资源的地方，给予他人帮助的场所。<br>
-管理们的分享也是建立在兴趣之上，乐于同他人分享自己的收藏，而不是提供买卖服务。</p>
-<p>账号收费的根源要搞清楚，不是卖资源，而是杜绝白嫖党的滥用之手，为的是整个全局的稳定考虑，当然是否被理解是另外一回事，不过事实就是这个原因，不然光买卖资源就值这几块钱？开玩笑一样。</p>
-<p>真心的希望群里的朋友可以互帮互助，自己帮助别人可以得到他人的赞赏，在获取帮助的时候也可以得到别人热情的回应，创建一个和谐的环境真的很有必要。</p>
-<p>如果你有大量资源，可以找我开通频道权限，如果只是少部分，我会帮你转发到频道里。</p>
-<p>这是我们这个OneDrive资源群创建的初衷，希望可以形成以od为中心的资源分享体系。不过这个希望能不能实现就要看缘分了～</p>
-<p>这是一些建立者的心里话，如果不喜欢请温柔对待，装作没看到就好。如果认同我们的话，希望大家可以参与进来。</p>
-<p>Telegram群组：https://t.me/onedrive_club<br>
-或者<br>
-tg里搜索：@onedrive_club</p>
-<figure data-type="image" tabindex="1"><img src="https://ae01.alicdn.com/kf/U20b56e549b7048bfa90666b837892433L.jpg" alt="" loading="lazy"></figure>
+              <h2 id="百度和谷歌seo优化">百度和谷歌SEO优化</h2>
+<p>为了加快百度和谷歌搜索引擎收录博客文章，往往需要手动提交sitemap，Gridea会自动生成站点地图，名为<code>atom.xml</code>，提交到对应位置即可。</p>
+<h2 id="百度sitemap提交">百度sitemap提交</h2>
+<p>登录注册<a href="https://ziyuan.baidu.com/">百度搜索资源平台</a>，过程可能会比较繁琐。</p>
+<p>添加站点，在<code>数据引入</code>-<code>链接提交</code>-<code>自动提交</code>-<code>sitemap</code>处提交站点地图，例如：<code>https://www.qiantigers.top/sitemap/index.html</code>。</p>
+<blockquote>
+<p>补充：默认生成的atom.xml主要为SSR订阅使用，百度无法抓取，需要手动修改、添加一些文件。</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200731232925.png" alt="image-20200731232533212" loading="lazy"></figure>
+<h3 id="自动提交">自动提交</h3>
+<p>找到Gridea的文件夹（设置里的站点源文件路径），笔者自定义的路径为<code>F:\Gridea</code>，然后找到主题的templates文件夹下的<code>post.ejs</code>，我的位置示例（Next主题）：<code>F:\GitHub\themes\Next\templates\post.ejs</code>。把以下代码放在之前的任意位置即可。</p>
+<pre><code> &lt;script&gt;
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName(&quot;script&quot;)[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+&lt;/script&gt;
+</code></pre>
+<h3 id="手动提交sitemap">手动提交sitemap</h3>
+<p>参照自动提交的文件位置，在<code>F:\GitHub\themes\Next\templates\</code>处创建一个sitemap.ejs，复制以下代码并保存，重新启动Gridea并同步即可得到符合百度要求的sitemap。</p>
+<pre><code>&lt;%- sitemap() %&gt;&lt;%  -%&gt;
+&lt;%
+function sitemap(){
+  let links=''
+  site.posts.forEach(function(post){
+    links+=post.link+'\n'
+}) 
+  return links
+}%&gt;
+</code></pre>
+<p>生成的文件是html文件，以本站点为例，提交sitemap的链接为：</p>
+<pre><code>https://www.qiantigers.top/sitemap/index.html
+</code></pre>
+<h2 id="谷歌sitemap提交">谷歌sitemap提交</h2>
+<p>登录<a href="https://search.google.com/search-console">谷歌搜索控制台</a>添加站点，输入<code>atom.xml</code>并提交，谷歌的抓取速度很快。</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200731232908.png" alt="image-20200731232900854" loading="lazy"></figure>
 
             </div>
             
@@ -466,7 +719,7 @@ tg里搜索：@onedrive_club</p>
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://www.qiantigers.top/post/onedrive_1oveclub-zi-yuan-fen-xiang-qun-chuang-li-de-chu-zhong/" title="OneDrive_1oveClub资源分享群创立的初衷">https://www.qiantigers.top/post/onedrive_1oveclub-zi-yuan-fen-xiang-qun-chuang-li-de-chu-zhong/</a>
+      <a href="https://www.qiantigers.top/post/gridea-sitemap/" title="Gridea如何使用站点地图(sitemap)">https://www.qiantigers.top/post/gridea-sitemap/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -475,7 +728,15 @@ tg里搜索：@onedrive_club</p>
   </ul>
   <div class="tags">
     
-      <a href="https://www.qiantigers.top/tag/1oveclub/"># 1oveClub</a>
+      <a href="https://www.qiantigers.top/tag/seo/"># SEO</a>
+    
+      <a href="https://www.qiantigers.top/tag/zhan-dian-di-tu/"># 站点地图</a>
+    
+      <a href="https://www.qiantigers.top/tag/gridea/"># Gridea</a>
+    
+      <a href="https://www.qiantigers.top/tag/jiao-cheng/"># 教程</a>
+    
+      <a href="https://www.qiantigers.top/tag/uno0CUS2II/"># 网站</a>
     
   </div>
   <div class="nav">
@@ -483,6 +744,10 @@ tg里搜索：@onedrive_club</p>
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="如何在CentOS 7上安装VnStat网络监控" href="https://www.qiantigers.top/post/vnstat/">如何在CentOS 7上安装VnStat网络监控</a>
+        <a class="nav-mobile-next" title="如何在CentOS 7上安装VnStat网络监控" href="https://www.qiantigers.top/post/vnstat/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>

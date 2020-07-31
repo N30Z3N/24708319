@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-07-31T15:11:04.430Z</updated>
+    <updated>2020-07-31T15:35:23.779Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,58 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[Gridea如何使用站点地图(sitemap)]]></title>
+        <id>https://www.qiantigers.top/post/gridea-sitemap/</id>
+        <link href="https://www.qiantigers.top/post/gridea-sitemap/">
+        </link>
+        <updated>2020-07-31T15:30:14.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="百度和谷歌seo优化">百度和谷歌SEO优化</h2>
+<p>为了加快百度和谷歌搜索引擎收录博客文章，往往需要手动提交sitemap，Gridea会自动生成站点地图，名为<code>atom.xml</code>，提交到对应位置即可。</p>
+<h2 id="百度sitemap提交">百度sitemap提交</h2>
+<p>登录注册<a href="https://ziyuan.baidu.com/">百度搜索资源平台</a>，过程可能会比较繁琐。</p>
+<p>添加站点，在<code>数据引入</code>-<code>链接提交</code>-<code>自动提交</code>-<code>sitemap</code>处提交站点地图，例如：<code>https://www.qiantigers.top/sitemap/index.html</code>。</p>
+<blockquote>
+<p>补充：默认生成的atom.xml主要为SSR订阅使用，百度无法抓取，需要手动修改、添加一些文件。</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200731232925.png" alt="image-20200731232533212" loading="lazy"></figure>
+<h3 id="自动提交">自动提交</h3>
+<p>找到Gridea的文件夹（设置里的站点源文件路径），笔者自定义的路径为<code>F:\Gridea</code>，然后找到主题的templates文件夹下的<code>post.ejs</code>，我的位置示例（Next主题）：<code>F:\GitHub\themes\Next\templates\post.ejs</code>。把以下代码放在之前的任意位置即可。</p>
+<pre><code> &lt;script&gt;
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName(&quot;script&quot;)[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+&lt;/script&gt;
+</code></pre>
+<h3 id="手动提交sitemap">手动提交sitemap</h3>
+<p>参照自动提交的文件位置，在<code>F:\GitHub\themes\Next\templates\</code>处创建一个sitemap.ejs，复制以下代码并保存，重新启动Gridea并同步即可得到符合百度要求的sitemap。</p>
+<pre><code>&lt;%- sitemap() %&gt;&lt;%  -%&gt;
+&lt;%
+function sitemap(){
+  let links=''
+  site.posts.forEach(function(post){
+    links+=post.link+'\n'
+}) 
+  return links
+}%&gt;
+</code></pre>
+<p>生成的文件是html文件，以本站点为例，提交sitemap的链接为：</p>
+<pre><code>https://www.qiantigers.top/sitemap/index.html
+</code></pre>
+<h2 id="谷歌sitemap提交">谷歌sitemap提交</h2>
+<p>登录<a href="https://search.google.com/search-console">谷歌搜索控制台</a>添加站点，输入<code>atom.xml</code>并提交，谷歌的抓取速度很快。</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200731232908.png" alt="image-20200731232900854" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[如何在CentOS 7上安装VnStat网络监控]]></title>
         <id>https://www.qiantigers.top/post/vnstat/</id>
@@ -1141,85 +1193,6 @@ on-download-complete=/root/.aria2c/upload.sh
 <ul>
 <li>资源搜索网  ☞<a href="https://m.ziyuanm.com">【查看链接】</a></li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Google Drive 百宝箱(宝塔版)]]></title>
-        <id>https://www.qiantigers.top/post/gd-utils/</id>
-        <link href="https://www.qiantigers.top/post/gd-utils/">
-        </link>
-        <updated>2020-06-28T13:14:31.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="google-drive-百宝箱">Google Drive 百宝箱</h1>
-<blockquote>
-<p>不只是最快的 google drive 拷贝工具 <a href="https://github.com/iwestlin/gd-utils/blob/master/compare.md">与其他工具的对比</a></p>
-</blockquote>
-<h3 id="github地址httpsgithubcomiwestlingd-utils">GitHub地址：<a href="https://github.com/iwestlin/gd-utils">https://github.com/iwestlin/gd-utils</a></h3>
-<h1 id="宝塔版">宝塔版</h1>
-<h3 id="本教程在原教程的基础上进行细节补充并且操作基于宝塔对小白更友好">本教程在原教程的基础上进行细节补充，并且操作基于宝塔，对小白更友好！</h3>
-<h4 id="安装宝塔面板">安装宝塔面板:</h4>
-<h6 id="centos安装命令"><strong>Centos安装命令</strong></h6>
-<pre><code class="language-javascript">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh
-</code></pre>
-<h6 id="ubuntudeepin安装命令"><strong>Ubuntu/Deepin安装命令</strong></h6>
-<pre><code class="language-javascript">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh
-</code></pre>
-<h6 id="debian安装命令"><strong>Debian安装命令：</strong></h6>
-<pre><code class="language-javascript">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; bash install.sh
-</code></pre>
-<p>安装好宝塔面板后，根据提示安装Ngnix，web环境, 然后在宝塔面板软件管理安装PM2管理器，安装好会自带node.js。</p>
-<figure data-type="image" tabindex="1"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/PM2.5-1024x403.jpg" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-130246.jpg" alt="img" loading="lazy"></figure>
-<p>在宝塔里新建一个网站，填写你的域名(请提前解析好你的域名！)使用宝塔自带的一申请SSL证书。</p>
-<figure data-type="image" tabindex="3"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-130923.jpg" alt="img" loading="lazy"></figure>
-<p>SSH连接终端克隆项目到本地</p>
-<pre><code class="language-javascript">git clone https://github.com/iwestlin/gd-utils &amp;&amp; cd gd-utils
-</code></pre>
-<h4 id="安装依赖">安装依赖</h4>
-<pre><code class="language-javascript">npm i
-</code></pre>
-<p>如果报错信息里有<code>Error: not found: make</code>之类的消息，说明你的命令行环境缺少make命令，执行安装make</p>
-<pre><code class="language-javascript">sudo apt-get install make//安装make
-rm -rf /root/gd-utils/node_modules//删除node_modules
-npm i//重新安装依赖
-</code></pre>
-<p>如果以上命令还是出错，可以再次删除/root/gd-utils目录下的node_modules，并执行以下命令</p>
-<pre><code class="language-javascript">rm -rf /root/gd-utils/node_modules//删除node_modules
-npm install --unsafe-perm=true --allow-root
-</code></pre>
-<h4 id="service-account-配置">Service Account 配置</h4>
-<p>强烈建议使用service account（后称SA）, 获取方法请参见 <a href="https://gsuitems.com/index.php/archives/13/#%E6%AD%A5%E9%AA%A42%E7%94%9F%E6%88%90serviceaccounts">https://gsuitems.com/index.php/archives/13/</a> 获取到 SA 的 json 文件后，请将其拷贝到 <code>sa</code> 目录下，复制sa命令：</p>
-<pre><code class="language-javascript">cd /root/AutoRclone/accounts/
-cp -r ./* /root/gd-utils/sa
-</code></pre>
-<p>接着回到sa目录(cd /root/gd-utils/sa),输入ls你会看到你复制过来的sa</p>
-<figure data-type="image" tabindex="4"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-135311-1024x569.jpg" alt="img" loading="lazy"></figure>
-<h4 id="个人帐号配置">个人帐号配置</h4>
-<p>之前配置好rclone的，执行命令 cat /root/.config/rclone/rclone.conf 可以看到自己的client_id, client_secret 和 refresh_token 这三个变量，把这三个变量填入/root/gd-utils/config.js对应的项中 ，然后执行</p>
-<pre><code class="language-javascript">node check.js
-</code></pre>
-<p>如果命令返回了你的谷歌硬盘根目录的数据，说明配置成功，</p>
-<figure data-type="image" tabindex="5"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-140950-1024x540.jpg" alt="img" loading="lazy"></figure>
-<h4 id="bot配置">Bot配置</h4>
-<p>首先在 https://core.telegram.org/bots#6-botfather 根据指示拿到 bot 的 token，然后填入 config.js 中的 <code>tg_token</code> 变量，还有不要忘记填入自己的电报用户名(t.me/username),记得格式为 <strong>tg_whitelist: ['username']</strong></p>
-<figure data-type="image" tabindex="6"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141547.jpg" alt="img" loading="lazy"></figure>
-<p>回到宝塔面板，在安全选项中添加23333端口放行。</p>
-<figure data-type="image" tabindex="7"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141923.jpg" alt="img" loading="lazy"></figure>
-<p>然后在PM2管理器中添加以下项目自动运行。</p>
-<figure data-type="image" tabindex="8"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-141846.jpg" alt="img" loading="lazy"></figure>
-<p>这时候回到安全选项可以看到23333端口正在使用中如果显示未使用则没有启动成功。</p>
-<p>最后在网站配置里添加反向代理，站点就配置完成。</p>
-<figure data-type="image" tabindex="9"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-142744.jpg" alt="img" loading="lazy"></figure>
-<p>回到终端执行以下命令（请将YOUR_WEBSITE_URL替换成你的网址）</p>
-<pre><code class="language-javascript">curl 'YOUR_WEBSITE_URL/api/gdurl/count?fid=124pjM5LggSuwI1n40bcD5tQ13wS0M6wg'
-</code></pre>
-<p>如果返回了这样的文件统计，说明部署成功了</p>
-<figure data-type="image" tabindex="10"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-143247.jpg" alt="img" loading="lazy"></figure>
-<p>最后，在命令行执行（请将[YOUR_WEBSITE]和[YOUR_BOT_TOKEN]分别替换成你自己的网址和bot token）</p>
-<pre><code class="language-javascript">curl -F &quot;url=YOUR_WEBSITE/api/gdurl/tgbot&quot; 'https://api.telegram.org/botYOUR_BOT_TOKEN/setWebhook'
-</code></pre>
-<p>这样，就将你的服务器连接上你的 telegram bot 了，试着给bot发送个 <code>/help</code>，如果它回复给你使用说明，那就配置成功了。</p>
-<figure data-type="image" tabindex="11"><img src="https://www.ikarosone.top/wp-content/uploads/2020/06/%E6%89%B9%E6%B3%A8-2020-06-28-143841-1024x320.jpg" alt="img" loading="lazy"></figure>
-<p><em>注：转载于 https://www.ikarosone.top/archives/195.html</em></p>
 ]]></content>
     </entry>
 </feed>
