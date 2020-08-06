@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-08-06T03:56:07.815Z</updated>
+    <updated>2020-08-06T03:59:03.041Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -35,19 +35,19 @@
 <blockquote>
 <p>可以同时登录多个6盘账号一起管理，登录状态长期有效，6盘免费用户每天只有3次离线任务，登录10个账号就是30次</p>
 </blockquote>
-<ol>
+<ol start="2">
 <li>文件夹批量下载</li>
 </ol>
 <blockquote>
 <p>可以直接下载整个文件夹，会自动遍历目录下载全部文件，6盘只能一个一个文件点击下载</p>
 </blockquote>
-<ol>
+<ol start="3">
 <li>断点续传</li>
 </ol>
 <blockquote>
 <p>6盘给下载链接限制为30分钟失效，网速慢+大文件就会下载失败，小白羊支持断点续传，可以下载20GB以上的大文件</p>
 </blockquote>
-<ol>
+<ol start="4">
 <li>分享链接支持</li>
 </ol>
 <blockquote>
