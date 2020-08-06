@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-08-06T02:26:28.766Z</updated>
+    <updated>2020-08-06T03:39:22.979Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,84 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[6盘小白羊版]]></title>
+        <id>https://www.qiantigers.top/post/6pan-xiaobaiyang/</id>
+        <link href="https://www.qiantigers.top/post/6pan-xiaobaiyang/">
+        </link>
+        <updated>2020-08-06T03:34:49.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="版权声明">版权声明：</h3>
+<p>这个程序仅仅是个人学习而开发，跟6盘官方无任何关联，并不能替代官方PC版功能<br/><br>
+6盘有明确的说明，离线分享链接功能是6pan人工操作，所以离线时间都比较长<br/><br>
+软件的功能是调用6pan的公开api实现的，仅仅是只做了一款UI，软件无收费项，也不涉及任何隐私<br/><br>
+<br/></p>
+<h3 id="最新版v1216-2020年7月14日发布-更新日志md">最新版：v1.2.16 2020年7月14日发布  <a href="%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md">更新日志.md</a></h3>
+<br/>
+最近用到了6pan.cn的离线下载，网页版还行，PC版丑拒。兴起自己做了一款，仅供个人学习使用<br/>
+<br/><br/>
+<h2 id="下载地址传送门brbrbr">下载地址：<a href="https://pan.qiantigers.top/one-share/Windows-APP/6%E7%9B%98%E5%B0%8F%E7%99%BD%E7%BE%8A%E7%89%88/">🔗传送门</a><br/><br/><br/></h2>
+<figure data-type="image" tabindex="1"><img src="https://s1.ax1x.com/2020/07/07/UkNDeO.gif" alt="本软件运行截图v1.1.5" loading="lazy"></figure>
+<br/>
+<h3 id="基本功能">基本功能</h3>
+<p>6盘官方的大部分功能都支持，像添加磁力、电驴、百度分享链接离线任务。下载6盘内文件<br/><br/></p>
+<h4 id="1无需登录使用我内置6盘账号直接下载百度分享链接br">1.无需登录，使用我内置6盘账号，直接下载百度分享链接<br/></h4>
+<h4 id="2登录你自己的6盘账号下载自己网盘内文件或提交离线任务brbr">2.登录你自己的6盘账号，下载自己网盘内文件或提交离线任务<br/><br/></h4>
+<h3 id="特色功能">特色功能</h3>
+<ol>
+<li>多账户管理</li>
+</ol>
+<blockquote>
+<p>可以同时登录多个6盘账号一起管理，登录状态长期有效，6盘免费用户每天只有3次离线任务，登录10个账号就是30次</p>
+</blockquote>
+<ol start="2">
+<li>文件夹批量下载</li>
+</ol>
+<blockquote>
+<p>可以直接下载整个文件夹，会自动遍历目录下载全部文件，6盘只能一个一个文件点击下载</p>
+</blockquote>
+<ol start="3">
+<li>断点续传</li>
+</ol>
+<blockquote>
+<p>6盘给下载链接限制为30分钟失效，网速慢+大文件就会下载失败，小白羊支持断点续传，可以下载20GB以上的大文件</p>
+</blockquote>
+<ol start="4">
+<li>分享链接支持</li>
+</ol>
+<blockquote>
+<p>自6月起，6盘限制只有VIP用户才能提交分享链接，我开通了10个包年VIP账号，每天共800次离线次数，供大家免费试用</p>
+</blockquote>
+<p><br><br><br>
+<span style="color:#d96b73">备注：6盘官方的VIP是10元==1月订阅|每日80次离线|视频预览|1TB日流量</span><br><br>
+<span style="color:#d96b73">      因为每日离线次数有限，只有分享链接是调用我的VIP账号（先离线到我的网盘里，再下载到你电脑）<br/>像磁力、电驴链接是使用你自己的账号（先离线到你自己的网盘里，再下载到你电脑）</span><br>
+<br><br><br></p>
+<h4 id="操作帮助在小白羊的-设置-页面里有很多操作的录像帮助">操作帮助（在小白羊的 设置  页面里有很多操作的录像帮助）</h4>
+<figure data-type="image" tabindex="2"><img src="https://s1.ax1x.com/2020/07/14/UN6S7F.png" alt="6盘账户操作" loading="lazy"></figure>
+<h3 id="常见问题">常见问题</h3>
+<h4 id="q怎么升级最新版本需要安装吗">Q:怎么升级最新版本？需要安装吗？</h4>
+<p>不需要安装，下载最新版的zip，直接解压就好了</p>
+<h4 id="q下载分享链接有流量限制分享链接显示404">Q:下载分享链接有流量限制？分享链接显示404？</h4>
+<p>内置账号每天共有800次离线任务，如果一个人提交800条分享链接，别人就提交不了了<br/><br>
+如果你提交链接后显示404，很可能是复制粘贴的不完整，请认真、手动复制粘贴一遍链接和提取码重试就好了</p>
+<h4 id="q下载自己6盘里的文件有限制吗">Q:下载自己6盘里的文件有限制吗？</h4>
+<p>我没有任何限制，但你可能会遇到6盘本身的限制，因为6盘VIP账号提到是限制1T流量每天，但没说免费账号有什么限制，我也不知道，我也不敢问</p>
+<h4 id="q离线任务的进度怎么不更新一直是0">Q:离线任务的进度怎么不更新，一直是0？</h4>
+<p>现在是手动刷新的，不是自动刷新的。所以你需要手动点击【刷新】按钮，6盘网页版是自动刷新的，小白羊你要点刷新按钮</p>
+<h4 id="q提示令牌过期请重新登录">Q:提示令牌过期请重新登录？</h4>
+<p>提示令牌过期时，重新登录一遍你的6盘账号就好了</p>
+<h4 id="q下载失败请重试">Q:下载失败请重试？</h4>
+<p>下载大文件偶尔会遇到，直接点击右侧的下载按钮重新下载就好了，会自动断点续传</p>
+<h4 id="q离线任务总是排队离线进度刷新也是0离线失败下载速度很慢">Q:离线任务总是排队？离线进度刷新也是0？离线失败？下载速度很慢？</h4>
+<p>这个问题跟我有啥关系？6盘就是要排队很久啊，有的磁力就是下载不了啊，6盘有的文件就是速度慢啊。小白羊只是个UI</p>
+<h4 id="q怎样充值">Q:怎样充值？</h4>
+<p>这个问题跟我有啥关系？自己登录6盘官网，找充值链接。小白羊只是个UI，不收费</p>
+<h4 id="q不支持bt种子">Q:不支持bt种子？</h4>
+<p>搜索【种子转磁力】 有很多网页可以转  例如 http://tools.bugscaner.com/bt/</p>
+<h4 id="q没有6盘账号6盘关闭中国手机号注册">Q:没有6盘账号？6盘关闭中国手机号注册？</h4>
+<p>6盘针对中国手机号经常开开关关，过几天再看可能就开了，另外我一般是搜索【在线接收短信】，有很多网页可以收短信，例如 https://www.materialtools.com<br>
+实际上你直接用里面的手机号就可以登录6盘（中国号码也可以，直接登录，不是注册！！）我会告诉你里面都是日本车吗？</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[FolderSync Pro介绍与集合]]></title>
         <id>https://www.qiantigers.top/post/foldersync-pro/</id>
@@ -1605,80 +1683,6 @@ rclone dedupe - 交互式查找重复文件，进行删除/重命名操作。
 </code></pre>
 <p>结束进程PID</p>
 <pre><code>kill -6 任务的PID
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[6盘 CLI工具操作指南]]></title>
-        <id>https://www.qiantigers.top/post/sixpan-cli/</id>
-        <link href="https://www.qiantigers.top/post/sixpan-cli/">
-        </link>
-        <updated>2020-07-23T15:04:25.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>目前正在开发中，部分功能可能会有巨变</p>
-</blockquote>
-<h2 id="安装">安装</h2>
-<pre><code class="language-go">go get github.com/Mrs4s/six-cli
-</code></pre>
-<blockquote>
-<p>也可从 <a href="https://github.com/Mrs4s/six-cli/releases">Releases</a> 直接下载二进制</p>
-</blockquote>
-<h2 id="使用方法">使用方法</h2>
-<ul>
-<li>待完善，目前尚未开发完成。</li>
-</ul>
-<h2 id="命令列表">命令列表</h2>
-<h3 id="登录">登录</h3>
-<pre><code class="language-shell">guest@six-pan:/$ login   #然后按提示操作即可
-</code></pre>
-<h3 id="切换工作目录">切换工作目录</h3>
-<pre><code class="language-shell">mrs4s@six-pan:/$ cd target  # 进入子目录
-mrs4s@six-pan:/target$ cd /target/sub/test  # 以完整路径切换目录
-mrs4s@six-pan:/target/sub/test$ cd ..  # 返回上一层
-mrs4s@six-pan:/target/sub$ cd ../../  # 向上返回N层
-</code></pre>
-<h3 id="获取当前工作目录">获取当前工作目录</h3>
-<pre><code class="language-shell">mrs4s@six-pan:/$ pwd
-/workdir/1
-</code></pre>
-<h3 id="列出文件">列出文件</h3>
-<pre><code class="language-shell">mrs4s@six-pan:/$ ls  # 列出当前目录所有对象
-dir1	dir2	file1	file2
-mrs4s@six-pan:/$ ls -d  # 按文件夹过滤
-dir1	dir2
-mrs4s@six-pan:/$ ls /target  # 列出目标目录所有对象
-dir1	file1
-mrs4s@six-pan:/$ ls /target -R  # 遍历列出子目录对象 (鉴于负载考虑不递归子目录)
-.:
-dir1	file1
-./dir1:
-test1	test2
-mrs4s@six-pan:/$ ls -a  # 输出文件详细信息
-序号  创建时间             文件大小  文件名
-0     2019-01-01 00:00:00 100.00GB  dir1
-...
-</code></pre>
-<h3 id="下载文件文件夹">下载文件/文件夹</h3>
-<pre><code class="language-shell">mrs4s@six-pan:/$ down file  # 下载文件
-mrs4s@six-pan:/$ down dir  # 下载文件夹
-mrs4s@six-pan:/$ down /dir/file  # 通过绝对路径下载文件
-</code></pre>
-<h3 id="创建文件夹">创建文件夹</h3>
-<pre><code class="language-shell">mrs4s@six-pan:/$ mkdir dir  #在当前目录创建文件夹
-mrs4s@six-pan:/$ mkdir /test/dir  #根据绝对路径创建文件夹
-</code></pre>
-<h3 id="删除文件文件夹">删除文件/文件夹</h3>
-<pre><code class="language-shell">mrs4s@six-pan:/$ rm file -y  #删除文件/文件夹
-mrs4s@six-pan:/$ rm file1 file2 dir -y  #删除多个文件/文件夹
-</code></pre>
-<h3 id="获取文件hash信息">获取文件hash信息</h3>
-<pre><code class="language-shell">mrs4s@six-pan:/$ cksum file1 file2 
-</code></pre>
-<h3 id="预览文件">预览文件</h3>
-<blockquote>
-<p>目前仅支持文本文件和torrent文件的预览, 其他文件仅能返回属性信息</p>
-</blockquote>
-<pre><code class="language-shell">mrs4s@six-pan:/$ pw file
 </code></pre>
 ]]></content>
     </entry>
