@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-08-06T03:59:03.041Z</updated>
+    <updated>2020-08-06T04:06:32.929Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -22,7 +22,7 @@
 软件的功能是调用6pan的公开api实现的，仅仅是只做了一款UI，软件无收费项，也不涉及任何隐私</p>
 <h3 id="最新版v1216-2020年7月14日发布-更新日志md">最新版：v1.2.16 2020年7月14日发布 <a href="https://github.com/liupan1890/xiaobaiyang/blob/master/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md">更新日志.md</a></h3>
 <p>最近用到了6pan.cn的离线下载，网页版还行，PC版丑拒。兴起自己做了一款，仅供个人学习使用</p>
-<h3 id="下载地址-传送门"><strong>下载地址：</strong> <strong><a href="https://pan.qiantigers.top/one-share/Windows-APP/6%E7%9B%98%E5%B0%8F%E7%99%BD%E7%BE%8A%E7%89%88/">🔗传送门</a></strong></h3>
+<h2 id="下载地址-传送门"><strong>下载地址：</strong> <strong><a href="https://pan.qiantigers.top/one-share/Windows-APP/6%E7%9B%98%E5%B0%8F%E7%99%BD%E7%BE%8A%E7%89%88/">🔗传送门</a></strong></h2>
 <figure data-type="image" tabindex="1"><a href="https://camo.githubusercontent.com/1d705345263781f61fe5285ebb7939913a0704ae/68747470733a2f2f73312e617831782e636f6d2f323032302f30372f30372f556b4e44654f2e676966"><img src="https://camo.githubusercontent.com/1d705345263781f61fe5285ebb7939913a0704ae/68747470733a2f2f73312e617831782e636f6d2f323032302f30372f30372f556b4e44654f2e676966" alt="本软件运行截图v1.1.5" loading="lazy"></a></figure>
 <h3 id="基本功能">基本功能</h3>
 <p>6盘官方的大部分功能都支持，像添加磁力、电驴、百度分享链接离线任务。下载6盘内文件</p>
