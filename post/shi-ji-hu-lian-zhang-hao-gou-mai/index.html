@@ -9,7 +9,7 @@
 <meta name="description" content="晓看天色暮看云，行也思君，坐也思君。">
 <meta name="theme-color" content="#000">
 <title>世纪互联账号购买 | Qiantigers</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1596866489069">
+<link rel="shortcut icon" href="/favicon.ico?v=1596866915701">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -3675,11 +3675,11 @@ screen-4.0.3-4.el5
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;安装-aria2&#34;&gt;安装 Aria2&lt;/h2&gt;
 &lt;p&gt;这里使用 &lt;a href=&#34;https://github.com/P3TERX/aria2.sh&#34;&gt;Aria2 一键安装管理脚本 增强版&lt;/a&gt;，执行下面的代码下载并运行脚本，出现脚本操作菜单输入 &lt;code&gt;1&lt;/code&gt; 开始安装。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;wget -N git.io/aria2.sh &amp;amp;&amp;amp; chmod +x aria2.sh &amp;amp;&amp;amp; ./aria2.sh
+&lt;pre&gt;&lt;code&gt;wget -N git.io/aria2.sh &amp;amp;&amp;amp; chmod +x aria2.sh &amp;amp;&amp;amp; ./aria2.sh
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;安装和配置-rclone&#34;&gt;安装和配置 Rclone&lt;/h2&gt;
 &lt;p&gt;RCLONE 官方提供了&lt;a href=&#34;https://rclone.org/install/#script-installation&#34;&gt;一键安装脚本&lt;/a&gt;：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;curl https://rclone.org/install.sh | sudo bash
+&lt;pre&gt;&lt;code&gt;curl https://rclone.org/install.sh | sudo bash
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;安装完后，输入 &lt;code&gt;rclone config&lt;/code&gt; 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看《&lt;a href=&#34;https://github.com/P3TERX/aria2.sh&#34;&gt;Rclone 安装配置教程&lt;/a&gt;》来了解配置的详细过程。&lt;/p&gt;
 &lt;h2 id=&#34;配置自动上传脚本&#34;&gt;配置自动上传脚本&lt;/h2&gt;
@@ -3687,7 +3687,7 @@ screen-4.0.3-4.el5
 &lt;ul&gt;
 &lt;li&gt;输入&lt;code&gt;nano /root/.aria2c/upload.sh&lt;/code&gt;打开自动上传脚本进行编辑，脚本中有中文注释，按照自己的实际情况进行修改，一般只需要修改下面2个部分。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;# Rclone 配置时填写的网盘名(name)
+&lt;pre&gt;&lt;code&gt;# Rclone 配置时填写的网盘名(name)
 DRIVE_NAME=&#39;Onedrive&#39;
 # 网盘目录。即上传目标路径，留空为网盘根目录，末尾不要有斜杠。
 DRIVE_PATH=&#39;/DRIVEX/Download&#39;
@@ -3698,13 +3698,13 @@ DRIVE_PATH=&#39;/DRIVEX/Download&#39;
 &lt;ul&gt;
 &lt;li&gt;输入&lt;code&gt;nano /root/.aria2c/aria2.conf&lt;/code&gt;打开 Aria2 配置文件进行修改。或使用&lt;a href=&#34;https://github.com/P3TERX/aria2.sh&#34;&gt;Aria2 一键安装管理脚本 增强版&lt;/a&gt;中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把&lt;code&gt;clean.sh&lt;/code&gt;替换为&lt;code&gt;upload.sh&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;# 下载完成后执行的命令
+&lt;pre&gt;&lt;code&gt;# 下载完成后执行的命令
 on-download-complete=/root/.aria2c/upload.sh
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;重启 Aria2&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;service aria2 restart
+&lt;pre&gt;&lt;code&gt;service aria2 restart
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
 &lt;p&gt;当你进行完以上所有操作，现在下载文件就会自动上传至相应的网盘，本地的文件也会自动删除。&lt;/p&gt;
