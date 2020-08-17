@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-08-17T04:49:18.199Z</updated>
+    <updated>2020-08-17T06:52:08.476Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,6 +10,116 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
+    <entry>
+        <title type="html"><![CDATA[Baklib——搭建个人知识库]]></title>
+        <id>https://www.qiantigers.top/post/Baklib-ZhiShiKu/</id>
+        <link href="https://www.qiantigers.top/post/Baklib-ZhiShiKu/">
+        </link>
+        <updated>2020-08-17T06:48:16.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="搭建属于自己的个人知识库">搭建属于自己的个人知识库</h1>
+<h2 id="引言">引言</h2>
+<p>从小学，到初中、高中，再到大学，中国教育一直被人诟病为“应试教育”，其中与绝大部分教学侧重于理论，而轻实践有关，任何的学习都应该以实践为目的，能够真正帮助我们得以提升，这样的学习方法才是有意义的，如不然就会逐渐变为应付式的学习。</p>
+<p>此外，“应试教育”这一词的由来也与很多人临时记忆以应付考试有关。这样导致的结果就是这一学期学到的知识，下个学期就已经忘记得差不多了。</p>
+<p>所以，对学习到的知识进行整理、记忆、并运用实践很有必要。由于并不是所有刚学到的知识都能立刻就能得以实践的，因此，对知识进行整理和记忆，搭建一个个人知识库，也可以方便我们将已经遗忘的知识快速查找出来进行再次记忆。</p>
+<p>虽然说市面上有不少关于知识笔记的管理工具，比如有道云、幕布、印象笔记、Typora，甚至也有人将笔记存放在github上面。但在此我想给大家推荐一款很不错的在线笔记工具—— <strong>Baklib</strong>。</p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="搭建属于自己的个人知识库">搭建属于自己的个人知识库</h1>
+<h2 id="引言">引言</h2>
+<p>从小学，到初中、高中，再到大学，中国教育一直被人诟病为“应试教育”，其中与绝大部分教学侧重于理论，而轻实践有关，任何的学习都应该以实践为目的，能够真正帮助我们得以提升，这样的学习方法才是有意义的，如不然就会逐渐变为应付式的学习。</p>
+<p>此外，“应试教育”这一词的由来也与很多人临时记忆以应付考试有关。这样导致的结果就是这一学期学到的知识，下个学期就已经忘记得差不多了。</p>
+<p>所以，对学习到的知识进行整理、记忆、并运用实践很有必要。由于并不是所有刚学到的知识都能立刻就能得以实践的，因此，对知识进行整理和记忆，搭建一个个人知识库，也可以方便我们将已经遗忘的知识快速查找出来进行再次记忆。</p>
+<p>虽然说市面上有不少关于知识笔记的管理工具，比如有道云、幕布、印象笔记、Typora，甚至也有人将笔记存放在github上面。但在此我想给大家推荐一款很不错的在线笔记工具—— <strong>Baklib</strong>。</p>
+<!-- more -->
+<h2 id="简单介绍一下baklib">简单介绍一下Baklib</h2>
+<ol>
+<li>Baklib是成都探码科技旗下的一款专注企业知识人工智能 的网站系统，探码科技是一家从事大数据及人工智能的科技公司，成立于2015年。</li>
+<li><strong>简洁的操作界面</strong>：支持KnowledgeBase、FAQ、Guide应用场景；易于设置，易于使用。</li>
+<li><strong>值得信赖的数据存储</strong>：Baklib采用先进而灵活的云服务架构、SaaS化服务，从内部编辑到外部分享全程保障客户数据的独立而安全。</li>
+<li><strong>轻松愉快的上手体验</strong>：多站点切换，多成员协同，适配企业多场景使用。</li>
+<li><strong>性价比高</strong>：虽然有相关的业务收费，但是门槛却也很低，对于不了解但想试试的哥们完全没有问题，完全可以 <strong>0成本</strong> 获得极佳的体验。</li>
+</ol>
+<h1 id="功能介绍">功能介绍</h1>
+<h2 id="后台界面">后台界面</h2>
+<img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200816135248.png" alt="image-20200816135223282" style="zoom: 40%;" />
+<img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200816135327.png" alt="image-20200816135321074" style="zoom:40%;" />
+<p>我们简单的浏览一下后台的UI，发现其操作可以说是非常的简便，并没有太多花里胡哨且复杂的操作。就算你对WEB相关的知识不了解，也无伤大雅~</p>
+<p>接下来，我们就看看，为什么推荐使用Baklib来搭建我们的个人知识站？</p>
+<h3 id="如何创建我们的文章">如何创建我们的文章？</h3>
+<p>我们看一下上图就能明白一点，右上角的 <strong>“创建文章”</strong> 是非常显眼的，一个设计恰当的入口和进入方式，是一个非常重要的点。有道是借用纯纯笔记作者的一句话，<strong>“灵感稍纵即逝，一点点的时间耽搁，都有可能磨灭灵感的火花。”</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200816140631.png" alt="image-20200816140626808" style="zoom:40%;" />
+<h3 id="创建文章的大体结构">创建文章的大体结构：</h3>
+<p>文章标题+文章的描述+文章内容</p>
+<ul>
+<li><strong>文章标题</strong>：显而易见，对于个人知识库，往往需要一个言简意赅的概括和精炼的提炼，而标题就是最好的体现。</li>
+<li><strong>文章的描述</strong>：它不仅是对文章的大体介绍，同时也体现了自己对文章内容的把控。</li>
+<li><strong>文章内容</strong>：有时候面对繁杂的内容，会觉得没有条理和思绪，这个时候就需要一些工具来帮我们划分出重点。
+<ul>
+<li>文档：纯文本格式，适用于冗长的文章。</li>
+<li>标题：小标题的使用，会使文章的结构更加清晰和有条理。</li>
+<li>插入文件：如果相关的文献文档，可以顺便加进去，起到足够的理论支持。</li>
+<li>…………</li>
+</ul>
+</li>
+</ul>
+<p>作者已经断片~~~</p>
+<p><strong>说这些好像很无聊的样子，貌似也不需要多费口舌，大家都比较懂，或者直接去<a href="https://www.baklib.com">官网</a>了解吧，直接跳转到体会吧。</strong></p>
+<h1 id="为什么我觉得baklib值得一试">为什么我觉得Baklib值得一试？</h1>
+<h2 id="窈窕淑女君子好逑">窈窕淑女，君子好逑</h2>
+<p>不知道男孩子平时会不会遇到一些情感上的小问题？生活起起伏伏，跌跌宕宕，难免遇到雷雨交加，身淋体寒。</p>
+<p>啧啧啧，真实难办。</p>
+<p>原本呢，打算自己个人写点感情波动中的小小心得记录在一些便签之中，比如纯纯写作、麻雀记，甚至是TXT或者Word文档里。可是，貌似我的朋友也很需要！这个时候，我在想找到一款既可以方便自己记录小小心思，又能够分享给自己的朋友的工具。</p>
+<p>果然，让我找到了！Baklib没有让我失望，甚至说从某种意义上还比我想象中的更加优秀，此话怎讲？</p>
+<p>且听我细细道来，Baklib中有一个功能，那就是 <strong>团队协作</strong>，此话何意？就是同一个站点，不仅可以自己写，还可以邀请他人一些记录。</p>
+<p>哈哈哈~这意味着多了一块男孩子的 <strong>心灵表白墙</strong>，嗯~这是个很不错的概念。</p>
+<blockquote>
+<p>咳咳，用途好像被带歪了，其实大家更应该将其用于“正途”。比如，记记英语单词？开玩笑啦，这也太过于大材小用了，Baklib的能量，超乎你的想象，发挥它的价值，让它更好的帮助你。</p>
+</blockquote>
+<ul>
+<li>在这里偷偷分享一个我站点里有趣的小玩意——<a href="https://qiantigers.baklib.com/MiShangWo">“成真恋爱学，恋爱可以学。”</a></li>
+</ul>
+<h2 id="天上繁星千万颗却无一颗照我心">天上繁星千万颗，却无一颗照我心</h2>
+<p>因为我自己本人用Baklib，其实很大程度上呢，是用于个人。从某种上，我的确没有发挥出它的商业价值，为此深感遗憾。</p>
+<p>但是这并不代表它对于个体性不够适用，相反，我觉得它还是非常有趣的。</p>
+<pre><code>我的名字对你有什么意义？ 
+它会死去， 
+像大海拍击海堤， 
+发出的忧郁的汩汩涛声， 
+像密林中幽幽的夜声。 
+
+它会在纪念册的黄页上 
+留下暗淡的印痕， 
+就像用无人能懂的语言 
+在墓碑上刻下的花纹。 
+
+它有什么意义？ 
+它早已被忘记 
+在新的激烈的风浪里， 
+它不会给你的心灵 
+带来纯洁、温柔的回忆。 
+
+但是在你孤独、悲伤的日子， 
+请你悄悄地念一念我的名字， 
+并且说：有人在思念我， 
+在世间我活在一个人的心里。
+</code></pre>
+<p>在此分享一个我比较喜欢的诗，总有一些可以感动到你的句子和话，正因为感动，所以我们能够一直对生活抱有期待和希望。</p>
+<p>就算你 <strong>不用来记录资料</strong>，<strong>不用来写技巧</strong>，<strong>不用来写教程</strong>，我觉得都没有关系。没有人规定就一定要用来做什么，做你喜欢的事情就好。</p>
+<p>我喜欢把它当做QQ空间一样，用来记录自己生活百态；也可以把它当做朋友圈，用来当做自己的人生相册。只要我们愿意，Baklib都可以~</p>
+<p>等等，你不想让别人看到？你怕隐私泄露？</p>
+<p>不不不，你完全不用担心，Why？因为Baklib自带权限设置功能，<strong>你可以只给自己看</strong>，<strong>也可以分享给自己的朋友家人</strong>，<strong>慷慨的分享给大家更是没有问题</strong>。</p>
+<p>哎呀，不能多说呀，不然我怕自己滔滔不绝~</p>
+<h2 id="满腹经纶方能巍然不动">满腹经纶，方能巍然不动</h2>
+<p>当做自己的 <strong>表白墙</strong>、<strong>经验记录本</strong>、<strong>个人语录</strong>、<strong>生活相册</strong>，都没问题，这是我们喜欢做的。</p>
+<p>下面说说Baklib的定位，如标题一般，<strong>搭建自己的个人知识库</strong>。</p>
+<p>知识？不管到哪里都不会贬值。</p>
+<p>打个比方，你是学计算机的。那么总会遇到一些，我们觉得很有意思或者很有意义的案例和项目。那我们应该怎么去对待？我想总不能扔到一边吧，哈哈。</p>
+<p>不妨将其记录下来，记录到Baklib，等到我们有疑惑了或者想重温，哦豁？只需一个自己Baklib网址，即可到达。</p>
+<p>这是一个非常高效率的过程。</p>
+<p>如果我们想帮助别人，直接将知识点，注释，乃至代码文件统统放入Baklib，只需要一个链接，对方即可获得。这是一个非常愉快的过程。</p>
+<p>如果我们不满足于个人的学习，完全可以使用Baklib的 <strong>团队协作</strong>，相信我，这是一个好东西。</p>
+<p><strong>机遇都是留给有准备的人，而这里，就是你的准备工具，不妨试试，颇为有趣。</strong></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[如何提取OneDrive文件直链？]]></title>
         <id>https://www.qiantigers.top/post/OneDrive-straight/</id>
@@ -1205,232 +1315,6 @@ vnstat --help
   $vnstat_bin = \&quot;/usr/bin/vnstat\&quot;;
 </code></pre>
 <p>通过网络浏览器访问VnStat，打开您喜爱的浏览器并导航到http://yourdomain.com/或http//server-ip。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[适合建站的低延时VPS——咖啡主机]]></title>
-        <id>https://www.qiantigers.top/post/cfhost/</id>
-        <link href="https://www.qiantigers.top/post/cfhost/">
-        </link>
-        <updated>2020-07-29T14:38:39.000Z</updated>
-        <summary type="html"><![CDATA[<p><strong>咖啡主机</strong> ：<a href="https://1ove.club/cfhost">www.cfhost.cn</a></p>
-<p><a href="https://1ove.club/cfhost">咖啡主机</a>运营有3年时间的国内IDC商家，从6月18日开始到端午期间，月付系列的香港VPS主机以及美国洛杉矶VPS主机推出一次性7.5折优惠或者终身8.5折优惠码，优惠之后最低配置方案月付15元起。目前香港沙田BGP采用三网优化线路， 动态GIA回程优化线路，小带宽，比较适合流量较小的网站使用；美国20G高防机房天机盾硬件防CC，带三网CN2 GIA回程优化。另外购买美国A区半年付或者以上的用户，可免费领取天机盾独立面板权限，并且有教学教程，可自主控制防护策略。</p>
-<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200729222434.png" alt="image-20200729222431501" loading="lazy"></figure>
-]]></summary>
-        <content type="html"><![CDATA[<p><strong>咖啡主机</strong> ：<a href="https://1ove.club/cfhost">www.cfhost.cn</a></p>
-<p><a href="https://1ove.club/cfhost">咖啡主机</a>运营有3年时间的国内IDC商家，从6月18日开始到端午期间，月付系列的香港VPS主机以及美国洛杉矶VPS主机推出一次性7.5折优惠或者终身8.5折优惠码，优惠之后最低配置方案月付15元起。目前香港沙田BGP采用三网优化线路， 动态GIA回程优化线路，小带宽，比较适合流量较小的网站使用；美国20G高防机房天机盾硬件防CC，带三网CN2 GIA回程优化。另外购买美国A区半年付或者以上的用户，可免费领取天机盾独立面板权限，并且有教学教程，可自主控制防护策略。</p>
-<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200729222434.png" alt="image-20200729222431501" loading="lazy"></figure>
-<!-- more -->
-<p>本次优惠活动仅月付和半年付可用优惠码，活动有效期至2020年8月6日</p>
-<h3 id="优惠套餐1美国洛杉矶20g天机盾硬件上层封udp无视udp攻击防御线路特价vps">优惠套餐1：美国洛杉矶20G天机盾硬件上层封UDP无视UDP攻击防御线路特价VPS</h3>
-<p>以下表格中VPS为美国洛杉矶20G高防数据中心，三网CN2 GIA回程优化，单IP独享20G防御，被打死2小时内恢复，并且带天机盾硬件防CC，上层封UDP，无视UDP攻击！每个月可以享受免费1次天机盾防C策略配置，超过1次以后每次收费10元。也可以选择独立天机盾操作面板，权限每个月仅需额外加30元，活动期间半年付或者以上可免费获取天机盾独立面板。（2048M以上版本才允许windows系统）：<br>
-美国A区512M内存  1核CPU 20G+20G磁盘 400G流量 20Mbps带宽 原价20.88/月<br>
-美国A区1G内存 1核CPU 20G+25G磁盘 600G流量 20Mbps带宽 原价28/月<br>
-美国A区2G内存 2核CPU 20G+30G磁盘 800G流量 20Mbps带宽 原价38/月<br>
-美国A区4G内存 4核CPU 20G+40G磁盘 1500G流量 20Mbps带宽 原价88/月<br>
-美国精品网A区90折优惠码（续费同价）：2020CFHOST90<br>
-洛杉矶A区测试站：http://lax.cfhost.cn</p>
-<h3 id="优惠套餐2美国b区直连vps套餐">优惠套餐2：美国B区直连VPS套餐</h3>
-<p>美国直连国内各大骨干网，延迟低，带宽口子大。咖啡主机家的美国直连是Psychz优化BGP线路。商家支持付费更换IP，更换一次IP，收费15元，同时支持购买额外IP，价格为10元/个/月。硬盘空间和网络流量也可以额外购买。（2048M以上版本才允许windows系统）：<br>
-美国B区512M内存  1核CPU 20G+20G磁盘 800G流量 20Mbps带宽 原价15/月<br>
-美国B区1G内存 1核CPU 20G+25G磁盘 800G流量 20Mbps带宽 原价22/月<br>
-美国B区2G内存 2核CPU 20G+30G磁盘 1000G流量 20Mbps带宽 原价34/月<br>
-美国B区4G内存 4核CPU 20G+50G磁盘 1800G流量 20Mbps带宽 原价68/月<br>
-美国B区直连88折优惠码（续费同价）：2020CFHOST88<br>
-洛杉矶B区测试站：http://lax20g.cfhost.cn/speedtest</p>
-<h3 id="优惠套餐3香港沙田精品网vps套餐">优惠套餐3：香港沙田精品网VPS套餐</h3>
-<p>香港沙田的VPS位于香港沙田火炭机房，直连国内各大骨干网，延迟低，适合建站。咖啡主机家的香港vps是BGP线路的。商家支持付费更换IP，更换一次IP，收费15元，同时支持购买额外IP，价格为10元/个/月。硬盘空间和网络流量也可以额外购买。（2048M以上版本才允许windows系统）：<br>
-香港A区512M内存  1核CPU 20G+20G磁盘 400G流量 2Mbps带宽 原价20/月<br>
-香港A区1G内存 1核CPU 20G+30G磁盘 500G流量 2Mbps带宽 原价26/月<br>
-香港A区2G内存 2核CPU 20G+40G磁盘 600G流量 2Mbps带宽 原价42/月<br>
-香港A区4G内存 4核CPU 20G+60G磁盘 800G流量 3Mbps带宽 原价88/月<br>
-香港A区85折优惠码（续费同价）：2020CFHOST85</p>
-<p>1、香港VPS服务器月付方案，沙田机房，标注的是原价；性价比较高的是1G内存方案，测试地址：14.192.48.157</p>
-<table>
-<thead>
-<tr>
-<th>香港-KVM-512M</th>
-<th>香港-KVM-1G</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>核心：1核</td>
-<td>核心：1核</td>
-</tr>
-<tr>
-<td>CPU内存：512MB</td>
-<td>CPU内存：1GB</td>
-</tr>
-<tr>
-<td>硬盘：20GB+20G</td>
-<td>硬盘：20GB+30G</td>
-</tr>
-<tr>
-<td>流量：400G</td>
-<td>流量：500G</td>
-</tr>
-<tr>
-<td>双向带宽：2Mbps</td>
-<td>带宽：2Mbps</td>
-</tr>
-<tr>
-<td>架构：KVM</td>
-<td>架构：KVM</td>
-</tr>
-<tr>
-<td>管理：SolusVM</td>
-<td>管理：SolusVM</td>
-</tr>
-<tr>
-<td>价格：20元/月</td>
-<td>价格：26元/月</td>
-</tr>
-<tr>
-<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;gid=17">购买链接</a></td>
-<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;gid=17">购买链接</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>香港-KVM-2G</th>
-<th>香港-KVM-4G</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>核心：2核</td>
-<td>核心：4核</td>
-</tr>
-<tr>
-<td>CPU内存：2G</td>
-<td>CPU内存：4GB</td>
-</tr>
-<tr>
-<td>硬盘：20GB+40G</td>
-<td>硬盘：20GB+60G</td>
-</tr>
-<tr>
-<td>流量：600G</td>
-<td>流量：800G</td>
-</tr>
-<tr>
-<td>双向带宽：2Mbps</td>
-<td>带宽：3Mbps</td>
-</tr>
-<tr>
-<td>架构：KVM</td>
-<td>架构：KVM</td>
-</tr>
-<tr>
-<td>管理：SolusVM</td>
-<td>管理：SolusVM</td>
-</tr>
-<tr>
-<td>价格：42元/月</td>
-<td>价格：88元/月</td>
-</tr>
-<tr>
-<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;gid=17">购买链接</a></td>
-<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;gid=17">购买链接</a></td>
-</tr>
-</tbody>
-</table>
-<p>2、洛杉矶精品A区方案，洛杉矶CERA机房KVM VPS服务器方案，标注的是原价，测试地址：23.225.195.11</p>
-<table>
-<thead>
-<tr>
-<th>洛杉矶CERA-KVM-512M</th>
-<th>洛杉矶CERA-KVM-1024M</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>核心：1核</td>
-<td>核心：1核</td>
-</tr>
-<tr>
-<td>CPU内存：512MB</td>
-<td>CPU内存：1GB</td>
-</tr>
-<tr>
-<td>硬盘：20GB+20G</td>
-<td>硬盘：20GB+20G</td>
-</tr>
-<tr>
-<td>流量：400G</td>
-<td>流量：600G</td>
-</tr>
-<tr>
-<td>双向上行端口 20Mbps</td>
-<td>上行端口 20Mbps</td>
-</tr>
-<tr>
-<td>架构：KVM</td>
-<td>架构：KVM</td>
-</tr>
-<tr>
-<td>管理：SolusVM</td>
-<td>管理：SolusVM</td>
-</tr>
-<tr>
-<td>价格：20.88元/月</td>
-<td>价格：28元/月</td>
-</tr>
-<tr>
-<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;pid=82">购买链接</a></td>
-<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;pid=83">购买链接</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>洛杉矶CERA-KVM-1500M</th>
-<th>洛杉矶CERA-KVM-2G</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>核心：2核</td>
-<td>核心：4核</td>
-</tr>
-<tr>
-<td>CPU内存：2GB</td>
-<td>CPU内存：4GB</td>
-</tr>
-<tr>
-<td>硬盘：20GB+20G</td>
-<td>硬盘：20GB+40G</td>
-</tr>
-<tr>
-<td>流量：800G</td>
-<td>流量：1500G</td>
-</tr>
-<tr>
-<td>双向上行端口 20Mbps</td>
-<td>上行端口 20Mbps</td>
-</tr>
-<tr>
-<td>架构：KVM</td>
-<td>架构：KVM</td>
-</tr>
-<tr>
-<td>管理：SolusVM</td>
-<td>管理：SolusVM</td>
-</tr>
-<tr>
-<td>价格：38元/月</td>
-<td>价格：88元/月</td>
-</tr>
-<tr>
-<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;pid=84">购买链接</a></td>
-<td>传送：<a href="https://www.cfhost.cn/aff.php?aff=864&amp;pid=85">购买链接</a></td>
-</tr>
-</tbody>
-</table>
 ]]></content>
     </entry>
 </feed>
