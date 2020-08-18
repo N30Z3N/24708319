@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.qiantigers.top</id>
     <title>Qiantigers</title>
-    <updated>2020-08-18T02:47:29.434Z</updated>
+    <updated>2020-08-18T02:48:01.950Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.qiantigers.top"/>
     <link rel="self" href="https://www.qiantigers.top/atom.xml"/>
@@ -10,245 +10,6 @@
     <logo>https://www.qiantigers.top/images/avatar.png</logo>
     <icon>https://www.qiantigers.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Qiantigers</rights>
-    <entry>
-        <title type="html"><![CDATA[Challenge小组规划]]></title>
-        <id>https://www.qiantigers.top/post/Challenge/</id>
-        <link href="https://www.qiantigers.top/post/Challenge/">
-        </link>
-        <updated>2020-08-18T02:46:56.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="views">views</h1>
-<h3 id="7月1日周三">7月1日(周三)</h3>
-<ul>
-<li>studentmanage——邵云飞</li>
-<li>dormitorymanage——马博琦</li>
-<li>index、login、introduce——胡乾</li>
-<li>actionmanage——吕帅捷 <code>吕帅捷 &lt;1119861459@qq.com&gt;</code></li>
-</ul>
-<h3 id="7月2日周四">7月2日(周四)</h3>
-<ul>
-<li>teachermanage——崔明洋</li>
-<li>majormanage——娄智强 <code>louzhiqiang &lt;5702064+melon123@user.noreply.gitee.com&gt;</code></li>
-<li>coursemanage——卢虹宇</li>
-<li>setting——王泽强</li>
-</ul>
-<h3 id="7月3日周五">7月3日(周五)</h3>
-<ul>
-<li>Challenge——6月26日会议记录</li>
-<li>Challenge——7月3日会议记录</li>
-</ul>
-<h3 id="7月5日周日">7月5日(周日)</h3>
-<ul>
-<li>styles
-<ul>
-<li>element-ui  ——胡乾</li>
-<li>index  ——崔明洋</li>
-<li>mixin  ——马博琦</li>
-<li>sidebar  ——邵云飞</li>
-</ul>
-</li>
-</ul>
-<h3 id="7月6日周一">7月6日(周一)</h3>
-<ul>
-<li>styles
-<ul>
-<li>transition  ——王泽强</li>
-<li>variables  ——吕帅捷</li>
-</ul>
-</li>
-<li>utils
-<ul>
-<li>(get-page-title)+(global)  ——娄志强</li>
-<li>(index)+(validate)  ——卢虹宇</li>
-</ul>
-</li>
-</ul>
-<h3 id="7月7日周二">7月7日(周二)</h3>
-<ul>
-<li>Challenge——7月7日会议</li>
-</ul>
-<h3 id="7月8日周三">7月8日(周三)</h3>
-<ul>
-<li>
-<p>store</p>
-<ul>
-<li>
-<p>modules</p>
-<ul>
-<li>app  ——娄志强</li>
-<li>settings  ——王泽强</li>
-<li>user  ——邵云飞</li>
-</ul>
-<p>getters  ——卢虹宇</p>
-<p>index  ——马博琦</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="7月9日周四">7月9日(周四)</h3>
-<ul>
-<li>router
-<ul>
-<li>index  ——胡乾</li>
-</ul>
-</li>
-<li>plugins
-<ul>
-<li>vue-sweetaler2  ——崔明洋</li>
-</ul>
-</li>
-</ul>
-<h3 id="7月10日周五">7月10日(周五)</h3>
-<ul>
-<li>Challenge——7月10日会议</li>
-</ul>
-<h3 id="7月13日周一">7月13日(周一)</h3>
-<ul>
-<li>Challenge——7月13日会议</li>
-</ul>
-<h3 id="7月14日周二">7月14日(周二)</h3>
-<ul>
-<li>
-<p>layout</p>
-<ul>
-<li>
-<p>components</p>
-<p>AppMain  ——胡乾</p>
-<p>index  ——吕帅捷</p>
-<p>Navbar  ——崔明洋</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="7月15日周三">7月15日(周三)</h3>
-<ul>
-<li>
-<p>layout</p>
-<ul>
-<li>
-<p>components</p>
-<ul>
-<li>
-<p>Sidebar</p>
-<p>FixiOSBug  ——邵云飞</p>
-<p>index  ——王泽强</p>
-<p>Item  ——马博琦</p>
-<p>Link  ——卢虹宇</p>
-<p>Logo  ——胡乾</p>
-<p>SidebarItem  ——吕帅捷</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="7月16日周四">7月16日(周四)</h3>
-<ul>
-<li>
-<p>layout</p>
-<p>index  ——胡乾</p>
-</li>
-</ul>
-<h3 id="7月17日周五">7月17日(周五)</h3>
-<ul>
-<li>Challenge——7月17日会议</li>
-</ul>
-<h3 id="7月20日周一">7月20日(周一)</h3>
-<ul>
-<li>Challenge——7月20日会议</li>
-</ul>
-<h3 id="7月21日周二">7月21日(周二)</h3>
-<ul>
-<li>
-<p>http</p>
-<p>api  ——胡乾</p>
-<p>axios  ——崔明洋</p>
-<p>config  ——邵云飞</p>
-<p>index  ——马博琦</p>
-</li>
-</ul>
-<h3 id="7月22日周三">7月22日(周三)</h3>
-<ul>
-<li>
-<p>http</p>
-<ul>
-<li>
-<p>modules</p>
-<p>academy  ——娄志强</p>
-<p>action  ——吕帅捷</p>
-<p>actionKind  ——吕帅捷</p>
-<p>course  ——卢虹宇</p>
-<p>courseKind  ——卢虹宇</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="7月23日周四">7月23日(周四)</h3>
-<ul>
-<li>
-<p>http</p>
-<ul>
-<li>
-<p>modules</p>
-<p>department  ——马博琦</p>
-<p>domitory  ——马博琦</p>
-<p>grade  ——邵云飞</p>
-<p>login   ——胡乾</p>
-<p>major   ——娄志强</p>
-<p>setting   ——王泽强</p>
-<p>student  ——邵云飞</p>
-<p>teacher  ——崔明洋</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="7月24日周五">7月24日(周五)</h3>
-<ul>
-<li>Challenge——7月24日会议</li>
-</ul>
-<h3 id="7月27日周一">7月27日(周一)</h3>
-<ul>
-<li>Challenge——7月27日会议</li>
-</ul>
-<h3 id="7月28日周二">7月28日(周二)</h3>
-<ul>
-<li>
-<p>components</p>
-<ul>
-<li>
-<p>Breadcrumb</p>
-<p>index  ——胡乾</p>
-</li>
-<li>
-<p>Hamburger</p>
-<p>index  ——王泽强</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="7月29日周三">7月29日(周三)</h3>
-<ul>
-<li>
-<p>assets</p>
-<ul>
-<li>
-<p>404_images</p>
-<p>404  ——吕帅捷</p>
-<p>404_cloud  ——吕帅捷</p>
-</li>
-</ul>
-<p>logo  ——马博琦</p>
-</li>
-</ul>
-<h3 id="7月30日周四">7月30日(周四)</h3>
-<ul>
-<li>Challenge——7月30日会议</li>
-</ul>
-<h3 id="7月31日周五">7月31日(周五)</h3>
-<ul>
-<li>Challenge——7月31日总结</li>
-</ul>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[You-Get使用教程——下载各个网站的视频(优酷、YouTube等等)]]></title>
         <id>https://www.qiantigers.top/post/You-Get/</id>
@@ -2167,6 +1928,58 @@ docker run -d -v /etc/sharelist:/sharelist/cache -p 33001:33001 --name=&quot;sha
 WebDAV 目录 <code>http://localhost:33001/webdav</code></p>
 <h3 id="heroku">Heroku</h3>
 <figure data-type="image" tabindex="2"><a href="https://heroku.com/deploy?template=https://github.com/reruin/sharelist-heroku"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy" loading="lazy"></a></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gridea如何使用站点地图(sitemap)]]></title>
+        <id>https://www.qiantigers.top/post/gridea-sitemap/</id>
+        <link href="https://www.qiantigers.top/post/gridea-sitemap/">
+        </link>
+        <updated>2020-07-31T15:30:14.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="百度和谷歌seo优化">百度和谷歌SEO优化</h2>
+<p>为了加快百度和谷歌搜索引擎收录博客文章，往往需要手动提交sitemap，Gridea会自动生成站点地图，名为<code>atom.xml</code>，提交到对应位置即可。</p>
+<h2 id="百度sitemap提交">百度sitemap提交</h2>
+<p>登录注册<a href="https://ziyuan.baidu.com/">百度搜索资源平台</a>，过程可能会比较繁琐。</p>
+<p>添加站点，在<code>数据引入</code>-<code>链接提交</code>-<code>自动提交</code>-<code>sitemap</code>处提交站点地图，例如：<code>https://www.qiantigers.top/sitemap/index.html</code>。</p>
+<blockquote>
+<p>补充：默认生成的atom.xml主要为SSR订阅使用，百度无法抓取，需要手动修改、添加一些文件。</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200731232925.png" alt="image-20200731232533212" loading="lazy"></figure>
+<h3 id="自动提交">自动提交</h3>
+<p>找到Gridea的文件夹（设置里的站点源文件路径），笔者自定义的路径为<code>F:\Gridea</code>，然后找到主题的templates文件夹下的<code>post.ejs</code>，我的位置示例（Next主题）：<code>F:\GitHub\themes\Next\templates\post.ejs</code>。把以下代码放在之前的任意位置即可。</p>
+<pre><code> &lt;script&gt;
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName(&quot;script&quot;)[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+&lt;/script&gt;
+</code></pre>
+<h3 id="手动提交sitemap">手动提交sitemap</h3>
+<p>参照自动提交的文件位置，在<code>F:\GitHub\themes\Next\templates\</code>处创建一个sitemap.ejs，复制以下代码并保存，重新启动Gridea并同步即可得到符合百度要求的sitemap。</p>
+<pre><code>&lt;%- sitemap() %&gt;&lt;%  -%&gt;
+&lt;%
+function sitemap(){
+  let links=''
+  site.posts.forEach(function(post){
+    links+=post.link+'\n'
+}) 
+  return links
+}%&gt;
+</code></pre>
+<p>生成的文件是html文件，以本站点为例，提交sitemap的链接为：</p>
+<pre><code>https://www.qiantigers.top/sitemap/index.html
+</code></pre>
+<h2 id="谷歌sitemap提交">谷歌sitemap提交</h2>
+<p>登录<a href="https://search.google.com/search-console">谷歌搜索控制台</a>添加站点，输入<code>atom.xml</code>并提交，谷歌的抓取速度很快。</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qiantigers/p000i000c//PicGo/20200731232908.png" alt="image-20200731232900854" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
